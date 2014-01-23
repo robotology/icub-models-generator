@@ -32,27 +32,46 @@ using namespace boost;
 
 bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string link_to_delete) 
 {
-    //delete links (remove from global and from parent (also for joint)
-    boost::shared_ptr<urdf::Link> link_sptr = urdf_input->links_[link_to_delete];
-    if( link_sptr->child_links.size() != 0 ) return false;
-    boost::shared_ptr<urdf::Joint> joint_sptr = link_sptr->parent_joint;
-    boost::shared_ptr<urdf::Link> parent_link = link_sptr->getParent();
-    
-    //remove links from cparent_link->child of parent
-    for(int i=0; i < parent_link->child_links.size(); i++ ) {
-        if( parent_link->child_links[i]->name == link_sptr->name ) {
-            parent_link->child_links.erase( parent_link->child_links.begin()+i);
-            parent_link->child_joints.erase( parent_link->child_joints.begin()+i);
+    if( link_to_delete != urdf_input->getRoot()->name ) {
+        //deleting normal link
+        
+        //delete links (remove from global and from parent (also for joint)
+        boost::shared_ptr<urdf::Link> link_sptr = urdf_input->links_[link_to_delete];
+        if( link_sptr->child_links.size() != 0 ) { std::cerr << "deleteLink error: tryng to delete a link with a child" << std::endl; return false;}
+        boost::shared_ptr<urdf::Joint> joint_sptr = link_sptr->parent_joint;
+        boost::shared_ptr<urdf::Link> parent_link = link_sptr->getParent();
+        
+        //remove links from cparent_link->child of parent
+        for(int i=0; i < parent_link->child_links.size(); i++ ) {
+            if( parent_link->child_links[i]->name == link_sptr->name ) {
+                parent_link->child_links.erase( parent_link->child_links.begin()+i);
+                parent_link->child_joints.erase( parent_link->child_joints.begin()+i);
+            }
         }
-    }
     
-    urdf_input->links_.erase(link_sptr->name);
-    urdf_input->joints_.erase(joint_sptr->name);
+        urdf_input->links_.erase(link_sptr->name);
+        urdf_input->joints_.erase(joint_sptr->name);
+    } else {
+        //deleting root link
+        
+        boost::shared_ptr<urdf::Link> link_sptr = urdf_input->links_[link_to_delete];
+        
+        if( link_sptr->child_links.size() != 1 ) { std::cerr << "deleteLink error: tryng to delete a root link with more than a child" << std::endl; return false; }
+        
+        boost::shared_ptr<urdf::Joint> joint_sptr = link_sptr->child_joints[0];
+        
+        boost::shared_ptr<urdf::Link> new_root = link_sptr->child_links[0];
+        
+        urdf_input->root_link_ = new_root;
+        
+        urdf_input->links_.erase(link_sptr->name);
+        urdf_input->joints_.erase(joint_sptr->name);
+
+    }
     
     return true;
     
 }
-
 
 bool deleteLinks(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::vector<std::string> linksToDelete) 
 {
@@ -76,6 +95,7 @@ int main(int argc, char* argv[])
         std::cerr << "Usage: \t urdf_gazebo_cleanup urdf_input.xml urdf_output.xml" << std::endl;
         std::cerr << "This tool is used to make a urdf file suitable for conversion in SDF format used by Gazebo Simulator" << std::endl;
         std::cerr << "The following modification are made: " << std::endl;
+        std::cerr << "  * (Rule 0) If a link without inertia is in the root, remove it (to handle base_link as commonly found in humanoid models for REP 120)" << std::endl;
         std::cerr << "  * (Rule 1) Links with zero mass, with no childrens and connected to their parent with a fixed joint are removed" << std::endl;
         std::cerr << "  * (Rule 2) The fixed joint connecting two non-leaf links (typically used in iCub for modeling FT sensors) are transformed in rotational joint with no range (to address this issue https://bitbucket.org/osrf/gazebo/issue/618/add-option-to-disable-auto-fixed-joint)" << std::endl;
         std::cerr << "  * (Rule 3) For the remaining links with zero mass or zero diagonal inertia elements a small mass ( " << mass_epsilon << " ) and diagonal inertia elements " << inertia_epsilon << "  is added, to avoid stability problems in simulation" << std::endl;
@@ -96,6 +116,14 @@ int main(int argc, char* argv[])
         std::cerr << "urdf_gazebo_cleanup: Fatal error in URDF xml parsing" << std::endl;
         return EXIT_FAILURE;
     }
+    
+    if( !(urdf_input->getRoot()->inertial) ) {
+        if( !deleteLink(urdf_input,urdf_input->getRoot()->name ) ) return EXIT_FAILURE;
+    }
+    
+    std::cout << "urdf_gazebo_cleanup: Rule 0 applied successfully" << std::endl;
+
+    
 
     //Iterate over the links of urdf_input, and copy the mesh
     std::vector<boost::shared_ptr<Link> > input_links;
@@ -118,8 +146,13 @@ int main(int argc, char* argv[])
         }
     }
     
-    deleteLinks(urdf_input,linksToDelete);
+    if( !deleteLinks(urdf_input,linksToDelete) ) return EXIT_FAILURE;
     linksToDelete.resize(0);
+    
+    std::cout << "urdf_gazebo_cleanup: Rule 1 applied successfully" << std::endl;
+    
+
+    
     
     urdf_input->getLinks(input_links);
     
@@ -138,20 +171,23 @@ int main(int argc, char* argv[])
         }
         
         //Rule 3
-        if( input_links[i]->inertial->mass <= mass_epsilon ) {
-            input_links[i]->inertial->mass = mass_epsilon;
-        }
-        if( input_links[i]->inertial->ixx <= inertia_epsilon ) {
-            input_links[i]->inertial->ixx = inertia_epsilon;
-        }
-        if( input_links[i]->inertial->iyy <= inertia_epsilon ) {
-            input_links[i]->inertial->iyy = inertia_epsilon;
-        }
-        if( input_links[i]->inertial->izz <= inertia_epsilon ) {
-            input_links[i]->inertial->izz = inertia_epsilon;
+        if( input_links[i]->parent_joint->type != urdf::Joint::FIXED ) {
+            if( input_links[i]->inertial->mass <= mass_epsilon ) {
+                input_links[i]->inertial->mass = mass_epsilon;
+            }
+            if( input_links[i]->inertial->ixx <= inertia_epsilon ) {
+                input_links[i]->inertial->ixx = inertia_epsilon;
+            }
+            if( input_links[i]->inertial->iyy <= inertia_epsilon ) {
+                input_links[i]->inertial->iyy = inertia_epsilon;
+            }
+            if( input_links[i]->inertial->izz <= inertia_epsilon ) {
+                input_links[i]->inertial->izz = inertia_epsilon;
+            }
         }
     }
     std::cout << "urdf_gazebo_cleanup: Rule 2 and 3 applied successfully" << std::endl;
+
     
     TiXmlDocument* xml_doc;
     

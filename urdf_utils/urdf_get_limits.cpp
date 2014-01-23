@@ -74,10 +74,13 @@ int main(int argc, char* argv[])
         
         if( limits_joints_ptr ) {
             std::cout << "Tryng to copy limits of joint " << input_name << std::endl;
-         
+            
             it->second->limits.reset(new urdf::JointLimits);
             *(it->second->limits) = *(limits_joints_ptr->limits);
-              
+            
+            //Copy also the type to switch from continuous to revolute
+            it->second->type = limits_joints_ptr->type;
+            
         } else {
             std::cout << "No joint found with name " << input_name << std::endl;
         }

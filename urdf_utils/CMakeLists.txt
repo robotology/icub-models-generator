@@ -2,7 +2,7 @@
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
  
-SET(PROJECTNAME urdf_get_meshes)
+SET(PROJECTNAME urdf_utils)
 
 PROJECT(${PROJECTNAME})
 
