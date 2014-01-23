@@ -23,6 +23,7 @@
 
 #include <boost/function.hpp>
 
+#include <yarp/os/Property.h>
 
 #define NAME "icub_urdf_from_iDyn"
 
@@ -54,17 +55,29 @@ void printTree(boost::shared_ptr<const Link> link,int level = 0)
 int main(int argc, char* argv[])
 {
     bool status = true;
-    if( argc != 2 ) {
-        std::cerr << "Usage: \t icub_urdf_from_iDyn output.xml" << std::endl;
+    
+    yarp::os::Property opt;
+    
+    opt.fromCommand(argc,argv);
+    
+    if( opt.check("help") || !opt.check("output") ) {
+        std::cerr << "Usage: \t icub_urdf_from_iDyn --headV2 --legsV2 --output output.xml" << std::endl;
+        std::cerr << "Default values: head and legs v2" << std::endl;
         return EXIT_FAILURE;
     }
-    
-    std::string file_name(argv[1]);
-    
+        
     iCub::iDyn::version_tag icub_type;
 
-    icub_type.head_version = 1;
-    icub_type.legs_version = 1;    
+    icub_type.head_version = 2;
+    icub_type.legs_version = 2;  
+    
+    if( opt.check("headV2") ) icub_type.head_version = 2;
+    if( opt.check("legsV2") ) icub_type.legs_version = 2;
+    if( opt.check("headV1") ) icub_type.head_version = 1;
+    if( opt.check("legsV1") ) icub_type.legs_version = 1;
+    
+    std::string output_file = opt.find("output").asString().c_str();
+    
     iCub::iDyn::iCubWholeBody icub_idyn(icub_type);
 
     KDL::Tree icub_kdl;
@@ -91,7 +104,7 @@ int main(int argc, char* argv[])
     printTree(root_link);
     
     TiXmlDocument*  xml_doc =  exportURDF(icub_ptr);
-    if( ! xml_doc->SaveFile(argv[1]) ) {
+    if( ! xml_doc->SaveFile(output_file) ) {
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
     }
     
