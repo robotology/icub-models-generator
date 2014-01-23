@@ -18,15 +18,14 @@
 
 #include <tinyxml.h>
 
+#include <yarp/os/Property.h>
+
 using namespace kdl_format_io;
 using namespace KDL;
 using namespace std;
 
 using namespace urdf;
 using namespace boost;
-
-#define mass_epsilon 0.001
-#define inertia_epsilon 0.001
 
 ///< \todo TODO add support for deleting a long chain of null link connected by fixed base
 
@@ -91,19 +90,40 @@ int main(int argc, char* argv[])
         
     bool verbose = true;
     
-    if( argc != 3 ) {
-        std::cerr << "Usage: \t urdf_gazebo_cleanup urdf_input.xml urdf_output.xml" << std::endl;
+    
+    yarp::os::Property opt;
+    opt.fromCommand(argc,argv);
+    
+    double mass_epsilon = 0.005;
+    double inertia_epsilon = 0.0001;
+    
+    if( opt.check("min_mass" )  ) mass_epsilon = opt.find("min_mass").asDouble();
+    if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
+    
+        std::string rule4_prefix =  "model://icub/";
+    
+    if( opt.check("help") || !opt.check("input") || !opt.check("output") )
+    {
+        std::cerr << "Usage: \t urdf_gazebo_cleanup --input urdf_input.xml --output urdf_output.xml" << std::endl;
         std::cerr << "This tool is used to make a urdf file suitable for conversion in SDF format used by Gazebo Simulator" << std::endl;
         std::cerr << "The following modification are made: " << std::endl;
         std::cerr << "  * (Rule 0) If a link without inertia is in the root, remove it (to handle base_link as commonly found in humanoid models for REP 120)" << std::endl;
         std::cerr << "  * (Rule 1) Links with zero mass, with no childrens and connected to their parent with a fixed joint are removed" << std::endl;
         std::cerr << "  * (Rule 2) The fixed joint connecting two non-leaf links (typically used in iCub for modeling FT sensors) are transformed in rotational joint with no range (to address this issue https://bitbucket.org/osrf/gazebo/issue/618/add-option-to-disable-auto-fixed-joint)" << std::endl;
-        std::cerr << "  * (Rule 3) For the remaining links with zero mass or zero diagonal inertia elements a small mass ( " << mass_epsilon << " ) and diagonal inertia elements " << inertia_epsilon << "  is added, to avoid stability problems in simulation" << std::endl;
+        std::cerr << "  * (Rule 3) For the remaining  (also if the previous steps are not actually exectuted)  linkswith zero mass or zero diagonal inertia elements a small mass ( " << mass_epsilon << " ) and diagonal inertia elements " << inertia_epsilon << "  is added, to avoid stability problems in simulation" << std::endl;
+        std::cerr << "  * (Rule 4) add a model:// uri prefix to all meshes uris" << std::endl;
+        std::cerr << "Additional options: --no_rule0 avoid applyng rule0, --no_rule1 avoid applyng rule1 and so on" << std::endl;
+        std::cerr << "Additional options: --min_mass and --min_inertia are used to select the minimum mass to a give to an object in Rule 3" << std::endl;
+        std::cerr << "Additional options: --rule4_prefix is used to specify the prefix used in rule 4 (default: " << rule4_prefix << " ) " << std::endl;
         return EXIT_FAILURE;
     }
     
-    std::string file_name_urdf_input(argv[1]);
-    std::string file_name_urdf_output(argv[2]);
+    if( opt.check("rule4_prefix") ) rule4_prefix = opt.find("rule4_prefix").asString().c_str();
+    
+  
+    
+    std::string file_name_urdf_input(opt.find("input").asString().c_str());
+    std::string file_name_urdf_output(opt.find("output").asString().c_str());
 
 
     boost::shared_ptr<urdf::ModelInterface> urdf_input;
@@ -117,31 +137,41 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
     
-    if( !(urdf_input->getRoot()->inertial) ) {
-        if( !deleteLink(urdf_input,urdf_input->getRoot()->name ) ) return EXIT_FAILURE;
-    }
+    if( !opt.check("no_rule0") ) {
+        if( !(urdf_input->getRoot()->inertial) ) {
+            if( !deleteLink(urdf_input,urdf_input->getRoot()->name ) ) return EXIT_FAILURE;
+        }
     
-    std::cout << "urdf_gazebo_cleanup: Rule 0 applied successfully" << std::endl;
-
+        std::cout << "urdf_gazebo_cleanup: Rule 0 applied successfully" << std::endl;
+    }
     
 
     //Iterate over the links of urdf_input, and copy the mesh
     std::vector<boost::shared_ptr<Link> > input_links;
     
+    if( !opt.check("no_rule1") ) {
+            input_links.clear();
     urdf_input->getLinks(input_links);
     
     std::cout << "urdf_gazebo_cleanup: : Found " << input_links.size() << " links in input URDF " << std::endl;
     for(int i=0; i < input_links.size(); i++ )
     {
         //Rule 1
-        double mass = input_links[i]->inertial->mass;
-        double Ixx = input_links[i]->inertial->ixx;
-        double Iyy = input_links[i]->inertial->iyy;
-        double Izz = input_links[i]->inertial->izz;
+        double mass;
+        double Ixx;
+        double Iyy;
+        double Izz;
+        
+        if( input_links[i]->inertial ) {
+            mass = input_links[i]->inertial->mass;
+            Ixx = input_links[i]->inertial->ixx;
+            Iyy = input_links[i]->inertial->iyy;
+            Izz = input_links[i]->inertial->izz;
+        }
        
         int nrOfChildrens = input_links[i]->child_links.size();
         
-        if( input_links[i]->parent_joint->type == urdf::Joint::FIXED && nrOfChildrens == 0 && mass == 0 && Ixx == 0.0 & Iyy == 0.0 && Izz == 0.0 ) {
+        if( nrOfChildrens == 0 && mass == 0 && Ixx == 0.0 & Iyy == 0.0 && Izz == 0.0 && input_links[i]->parent_joint->type == urdf::Joint::FIXED ) {
             linksToDelete.push_back(input_links[i]->name);
         }
     }
@@ -150,10 +180,11 @@ int main(int argc, char* argv[])
     linksToDelete.resize(0);
     
     std::cout << "urdf_gazebo_cleanup: Rule 1 applied successfully" << std::endl;
-    
+    }
 
     
-    
+    if( !opt.check("no_rule2") ) {
+            input_links.clear();
     urdf_input->getLinks(input_links);
     
     for(int i=0; i < input_links.size(); i++ )
@@ -170,7 +201,17 @@ int main(int argc, char* argv[])
             }
         }
         
-        //Rule 3
+    }
+    std::cout << "urdf_gazebo_cleanup: Rule 2 applied successfully" << std::endl;
+    }
+   
+   
+    if( !opt.check("no_rule3") ) {
+            input_links.clear();
+    urdf_input->getLinks(input_links);
+    for(int i=0; i < input_links.size(); i++ )
+    {
+     //Rule 3
         if( input_links[i]->parent_joint->type != urdf::Joint::FIXED ) {
             if( input_links[i]->inertial->mass <= mass_epsilon ) {
                 input_links[i]->inertial->mass = mass_epsilon;
@@ -186,9 +227,37 @@ int main(int argc, char* argv[])
             }
         }
     }
-    std::cout << "urdf_gazebo_cleanup: Rule 2 and 3 applied successfully" << std::endl;
+        std::cout << "urdf_gazebo_cleanup: Rule 3 applied successfully" << std::endl;
+        
+    }
 
+    if( !opt.check("no_rule4") ) {
+        
+    input_links.clear();
+    urdf_input->getLinks(input_links);
     
+    for(int i=0; i < input_links.size(); i++ )
+    {
+        //Rule 4
+        for(int j=0; j < input_links[i]->visual_array.size(); j++ ) {
+            if( input_links[i]->visual_array[j]->geometry->type == Geometry::MESH ) {
+                (static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename = rule4_prefix + (static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename;         
+            }
+        }
+        
+        for(int j=0; j < input_links[i]->collision_array.size(); j++ ) {
+            if( input_links[i]->collision_array[j]->geometry->type == Geometry::MESH ) {
+                (static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename = rule4_prefix + (static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename;         
+            }
+        }
+        std::cout << "urdf_gazebo_cleanup: Rule 4 applied successfully with prefix " <<  rule4_prefix << " on link " << input_links[i]->name << " ( i : " << i << " ) "  << std::endl;
+        
+    }
+    }
+    
+    
+    
+   
     TiXmlDocument* xml_doc;
     
     xml_doc = exportURDF(urdf_input);

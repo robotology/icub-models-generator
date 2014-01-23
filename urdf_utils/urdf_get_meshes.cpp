@@ -179,11 +179,13 @@ int main(int argc, char* argv[])
                     break;
                     case Geometry::MESH:
                         input_links[i]->collision->geometry.reset(new urdf::Mesh);
+                        std::cout << "Copyng collision mesh with filename " << (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename << std::endl;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->filename = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->scale;
                     break;
                 }
-            
+                
+                input_links[i]->collision_array.push_back(input_links[i]->collision);
                 
             }
             if( mesh_link_ptr->visual ) {
@@ -217,10 +219,13 @@ int main(int argc, char* argv[])
                     break;
                     case Geometry::MESH:
                         input_links[i]->visual->geometry.reset(new urdf::Mesh);
+                        std::cout << "Copyng visual mesh with filename " << (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->filename = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->scale;
                     break;
                 }
+                
+                input_links[i]->visual_array.push_back(input_links[i]->visual);
                 
 
             }
