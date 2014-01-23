@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="icub">
-	<link name="waist">
+	<link name="root_link">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_waist.dae"/>
+				<mesh filename="meshes/visual/icub_root_link.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_waist.dae"/>
+				<mesh filename="meshes/collision/icub_simple_collision_root_link.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -540,7 +540,7 @@
 		</inertial>
 	</link>
 	<joint name="l_hip_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="l_hip_1"/>
 		<origin rpy="-1.5707963268 0.0 0.0" xyz="0.0 -0.0681 -0.1199"/>
 		<axis xyz="0 0 1"/>
@@ -582,7 +582,7 @@
 		<limit effort="11.0" lower="-0.418879020479" upper="0.418879020479" velocity="100.0"/>
 	</joint>
 	<joint name="torso_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="lap_belt_1"/>
 		<origin rpy="1.5707963268 -1.5707963268 0.0" xyz="0.0 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
@@ -700,21 +700,21 @@
 		<axis xyz="0 0 1"/>
 		<limit effort="0.65" lower="-0.436332312999" upper="0.436332312999" velocity="100.0"/>
 	</joint>
-	<joint name="head_pitch" type="revolute">
+	<joint name="neck_pitch" type="revolute">
 		<parent link="chest"/>
 		<child link="neck_1"/>
 		<origin rpy="-1.5707963268 0.0 -1.5707963268" xyz="0.0 -0.00231 -0.1933"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="20.0" lower="-0.698131700798" upper="0.523598775598" velocity="100.0"/>
 	</joint>
-	<joint name="head_roll" type="revolute">
+	<joint name="neck_roll" type="revolute">
 		<parent link="neck_1"/>
 		<child link="neck_2"/>
 		<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.033 0.0"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="20.0" lower="-1.2217304764" upper="1.0471975512" velocity="100.0"/>
 	</joint>
-	<joint name="head_yaw" type="revolute">
+	<joint name="neck_yaw" type="revolute">
 		<parent link="neck_2"/>
 		<child link="head"/>
 		<origin rpy="-1.5707963268 0.0 -1.5707963268" xyz="0.0 0.0 0.001"/>
@@ -722,7 +722,7 @@
 		<limit effort="20.0" lower="-0.959931088597" upper="0.959931088597" velocity="100.0"/>
 	</joint>
 	<joint name="r_hip_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="r_hip_1"/>
 		<origin rpy="-1.5707963268 0.0 0.0" xyz="0.0 0.0681 -0.1199"/>
 		<axis xyz="0 0 1"/>

@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="icub">
-	<link name="waist">
+	<link name="root_link">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_simple_waist.dae"/>
+				<mesh filename="meshes/visual/icub_simple_root_link.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_waist.dae"/>
+				<mesh filename="meshes/collision/icub_simple_collision_root_link.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -540,7 +540,7 @@
 		</inertial>
 	</link>
 	<joint name="l_hip_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="l_hip_1"/>
 		<origin rpy="-1.5707963268 0.0 0.0" xyz="0.0 -0.0681 -0.1199"/>
 		<axis xyz="0 0 1"/>
@@ -582,7 +582,7 @@
 		<limit effort="11.0" lower="-0.418879020479" upper="0.418879020479" velocity="100.0"/>
 	</joint>
 	<joint name="torso_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="lap_belt_1"/>
 		<origin rpy="1.5707963268 -1.5707963268 0.0" xyz="0.0 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
@@ -722,7 +722,7 @@
 		<limit effort="20.0" lower="-0.959931088597" upper="0.959931088597" velocity="100.0"/>
 	</joint>
 	<joint name="r_hip_pitch" type="revolute">
-		<parent link="waist"/>
+		<parent link="root_link"/>
 		<child link="r_hip_1"/>
 		<origin rpy="-1.5707963268 0.0 0.0" xyz="0.0 0.0681 -0.1199"/>
 		<axis xyz="0 0 1"/>
