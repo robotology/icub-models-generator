@@ -44,3 +44,5 @@ INCLUDE_DIRECTORIES(${iDynTree_INCLUDE_DIRS}
 add_executable(icub_urdf_from_iDyn icub_urdf_from_iDyn.cpp)
                                     
 target_link_libraries(icub_urdf_from_iDyn ${YARP_LIBRARIES} ${ICUB_LIBRARIES} iDynTree ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${kdl_format_io_LIBRARIES} ${TinyXML_LIBRARIES})
+
+INSTALL(TARGETS icub_urdf_from_iDyn DESTINATION bin)

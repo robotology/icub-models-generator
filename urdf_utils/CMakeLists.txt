@@ -27,7 +27,15 @@ include_directories(${urdfdom_INCLUDE_DIR} ${kdl_format_io_INCLUDE_DIRS} ${oroco
 add_executable(urdf_get_meshes urdf_get_meshes.cpp)
 add_executable(urdf_get_limits urdf_get_limits.cpp)
 add_executable(urdf_gazebo_cleanup urdf_gazebo_cleanup.cpp)
+add_executable(urdf_get_total_mass urdf_get_total_mass.cpp)
 
 target_link_libraries(urdf_get_meshes ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES})
 target_link_libraries(urdf_get_limits ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES})
 target_link_libraries(urdf_gazebo_cleanup ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES} ${YARP_LIBRARIES})
+target_link_libraries(urdf_get_total_mass ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES} ${YARP_LIBRARIES})
+
+
+INSTALL(TARGETS urdf_get_meshes DESTINATION bin)
+INSTALL(TARGETS urdf_get_limits DESTINATION bin)
+INSTALL(TARGETS urdf_gazebo_cleanup DESTINATION bin)
+INSTALL(TARGETS urdf_get_total_mass DESTINATION bin)

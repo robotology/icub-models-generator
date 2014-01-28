@@ -94,8 +94,8 @@ int main(int argc, char* argv[])
     yarp::os::Property opt;
     opt.fromCommand(argc,argv);
     
-    double mass_epsilon = 0.005;
-    double inertia_epsilon = 0.0001;
+    double mass_epsilon = 0.1;
+    double inertia_epsilon = 0.01;
     
     if( opt.check("min_mass" )  ) mass_epsilon = opt.find("min_mass").asDouble();
     if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
@@ -212,7 +212,17 @@ int main(int argc, char* argv[])
     for(int i=0; i < input_links.size(); i++ )
     {
      //Rule 3
-        if( input_links[i]->parent_joint->type != urdf::Joint::FIXED ) {
+        if( !(input_links[i]->parent_joint) && opt.check("no_rule0") ) {
+            //If the base_link was not removed, avoid adding masses
+            continue;
+        }
+        
+        int nrOfChildrens = input_links[i]->child_links.size();
+        
+        if( input_links[i]->parent_joint->type != urdf::Joint::FIXED || nrOfChildrens > 0 ) {
+            
+            std::cerr << "Corrected mass for link " << input_links[i]->name << std::endl;
+            
             if( input_links[i]->inertial->mass <= mass_epsilon ) {
                 input_links[i]->inertial->mass = mass_epsilon;
             }
