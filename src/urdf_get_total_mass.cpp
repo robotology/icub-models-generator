@@ -18,6 +18,8 @@
 
 #include <tinyxml.h>
 
+#include "urdf_utils.h"
+
 using namespace kdl_format_io;
 using namespace KDL;
 using namespace std;
@@ -25,24 +27,6 @@ using namespace std;
 using namespace urdf;
 using namespace boost;
 
-double getTotalMass(urdf::ModelInterface & model)
-{
-    std::vector<boost::shared_ptr<Link> > input_links;
-    
-    model.getLinks(input_links);
-    
-    double total_mass = 0.0;
-    
-    std::cout << "Found " << input_links.size() << " links in input URDF " << std::endl;
-    for(int i=0; i < input_links.size(); i++ )
-    {
-        if( input_links[i]->inertial ) {
-            total_mass = total_mass + input_links[i]->inertial->mass;
-        }
-    }
-    
-    return total_mass;
-}
 
 int main(int argc, char* argv[])
 {

@@ -18,6 +18,8 @@
 
 #include <tinyxml.h>
 
+#include "urdf_utils.h"
+
 using namespace kdl_format_io;
 using namespace KDL;
 using namespace std;
@@ -61,30 +63,7 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    
-    //Iterate over the joints of urdf_input, and copy the limits
-    for( std::map<std::string, boost::shared_ptr<urdf::Joint> >::iterator it = urdf_input->joints_.begin();
-         it != urdf_input->joints_.end(); it++ )
-    {
-        std::string input_name = it->first;
-        std::cout << "Processing joint " << it->first << std::endl;
-        
-        boost::shared_ptr<const urdf::Joint> limits_joints_ptr = urdf_limits->getJoint(input_name);
-        
-        
-        if( limits_joints_ptr ) {
-            std::cout << "Tryng to copy limits of joint " << input_name << std::endl;
-            
-            it->second->limits.reset(new urdf::JointLimits);
-            *(it->second->limits) = *(limits_joints_ptr->limits);
-            
-            //Copy also the type to switch from continuous to revolute
-            it->second->type = limits_joints_ptr->type;
-            
-        } else {
-            std::cout << "No joint found with name " << input_name << std::endl;
-        }
-    }
+    urdf_import_limits(urdf_input,urdf_limits);
     
     TiXmlDocument* xml_doc;
     
