@@ -65,6 +65,8 @@ int main(int argc, char* argv[])
         std::cerr << "Default values: head and legs v2" << std::endl;
         return EXIT_FAILURE;
     }
+    
+    std::string output_file = opt.find("output").asString().c_str();
         
     iCub::iDyn::version_tag icub_type;
 
@@ -76,7 +78,6 @@ int main(int argc, char* argv[])
     if( opt.check("headV1") ) icub_type.head_version = 1;
     if( opt.check("legsV1") ) icub_type.legs_version = 1;
     
-    std::string output_file = opt.find("output").asString().c_str();
     
     iCub::iDyn::iCubWholeBody icub_idyn(icub_type);
 

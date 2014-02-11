@@ -19,7 +19,7 @@ using namespace std;
 using namespace boost;
 
 ///< \todo TODO add support for deleting a long chain of null link connected by fixed base
-bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string link_to_delete) 
+bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string link_to_delete, bool verbose=false) 
 {
     if( link_to_delete != urdf_input->getRoot()->name ) {
         //deleting normal link
@@ -37,9 +37,17 @@ bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string 
                 parent_link->child_joints.erase( parent_link->child_joints.begin()+i);
             }
         }
-    
-        urdf_input->links_.erase(link_sptr->name);
-        urdf_input->joints_.erase(joint_sptr->name);
+        
+        if( verbose ) {
+            std::cout << "deleteLink: removing link  " << link_sptr->name << std::endl;
+            std::cout << "deleteLink: removing joint " << joint_sptr->name << std::endl; 
+        }
+        int deleted = 0;
+        deleted = urdf_input->links_.erase(link_sptr->name);
+        if( deleted != 1 ) { if( verbose ) { std::cout << "deleteLink error joint: Link not found" << std::endl; } return false; }
+        deleted = urdf_input->joints_.erase(link_sptr->name);
+        if( deleted != 1 ) { if( verbose ) { std::cout << "deleteLink error joint: Link not found" << std::endl; } return false; }
+
     } else {
         //deleting root link
         
@@ -54,7 +62,7 @@ bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string 
         urdf_input->root_link_ = new_root;
         
         urdf_input->links_.erase(link_sptr->name);
-        urdf_input->joints_.erase(joint_sptr->name);
+        urdf_input->joints_.erase(new_root->name);
 
     }
     
@@ -62,10 +70,10 @@ bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string 
     
 }
 
-bool deleteLinks(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::vector<std::string> linksToDelete) 
+bool deleteLinks(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::vector<std::string> linksToDelete, bool verbose=false) 
 {
     for(int i=0; i < linksToDelete.size(); i++ ) {
-        if( !deleteLink(urdf_input,linksToDelete[i]) ) return false;
+        if( !deleteLink(urdf_input,linksToDelete[i],verbose) ) return false;
     }
     return true;
 }
@@ -299,7 +307,7 @@ bool urdf_import_limits(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
 bool urdf_gazebo_cleanup_remove_massless_root(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
     if( !(urdf_input->getRoot()->inertial) ) {
-            if( !deleteLink(urdf_input,urdf_input->getRoot()->name ) ) return EXIT_FAILURE;
+            if( !deleteLink(urdf_input,urdf_input->getRoot()->name) ) return EXIT_FAILURE;
     }
     return true;
 }
@@ -307,7 +315,7 @@ bool urdf_gazebo_cleanup_remove_massless_root(boost::shared_ptr<urdf::ModelInter
 bool urdf_gazebo_cleanup_remove_frames(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
     std::vector<std::string> linksToDelete;
-        std::vector<boost::shared_ptr<Link> > input_links;
+    std::vector<boost::shared_ptr<Link> > input_links;
 
     input_links.clear();
     urdf_input->getLinks(input_links);
@@ -335,7 +343,7 @@ bool urdf_gazebo_cleanup_remove_frames(boost::shared_ptr<urdf::ModelInterface> u
         }
     }
     
-    if( !deleteLinks(urdf_input,linksToDelete) ) return false;
+    if( !deleteLinks(urdf_input,linksToDelete,true) ) return false;
     linksToDelete.resize(0);
     return true;
 }
