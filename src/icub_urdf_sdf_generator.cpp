@@ -26,6 +26,10 @@
 #include <yarp/os/Property.h>
 #include <yarp/os/Os.h>
 
+
+#include <sdf/parser.hh>
+#include <sdf/parser_urdf.hh>
+
 #include "urdf_utils.h"
 
 #define NAME "icub_urdf_sdf_generator"
@@ -61,6 +65,84 @@ void printJoints(boost::shared_ptr<urdf::ModelInterface> urdf)
         std::cout << it->first << " : " << it->second->name << std::endl;
     }
 }
+
+bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_name)
+{
+    
+}
+
+/**
+ * 
+ * @param part: head,torso,right_arm,left_arm,right_leg,left_leg
+ */
+bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_name)
+{
+    return true;
+}
+
+/**
+ * 
+ * @param sensor: can be only imu_sensor
+ */
+bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor)
+{
+    assert( icub_sdf->root->HasElement("model"));
+    /*
+     <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <visualize>1</visualize>
+        <imu/>
+        <plugin filename="libgazebo_yarp_imu.so" name="iCub_yarp_gazebo_plugin_IMU">
+          <yarpConfigurationFile>model://icub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
+       <pose>0.0185 -0.1108 0.0066 1.5708 -0 0</pose>
+      </sensor>
+     */
+    if( sensor == "imu_sensor" ) {
+        //imu sensor is child of link head
+        sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
+        for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link")) {
+            if( link->GetAttribute("name")->GetAsString() == "head" ) {
+                sdf::ElementPtr sensor = link->AddElement("sensor");
+                sensor->AddAttribute("type","string","imu",false);
+                sdf::ElementPtr always_on = sensor->AddElement("always_on");
+                always_on->AddValue("int","1",false);
+                sdf::ElementPtr update_rate = sensor->AddElement("update_rate");
+                update_rate->AddValue("int","100",false);
+                sdf::ElementPtr visualize = sensor->AddElement("visualize");
+                visualize->AddValue("int","1",false);
+                sdf::ElementPtr imu = sensor->AddElement("imu");
+                sdf::ElementPtr plugin = sensor->AddElement("plugin");
+                plugin->GetAttribute("filename")->SetFromString("libgazebo_yarp_imu.so");
+                plugin->GetAttribute("name")->SetFromString("iCub_yarp_gazebo_plugin_IMU")
+                //plugin->AddAttribute("filename","string","libgazebo_yarp_imu.so",false);
+                //plugin->AddAttribute("name","string","iCub_yarp_gazebo_plugin_IMU",false);
+                sdf::ElementPtr yarpConfigurationFile_description(new sdf::Element);
+                yarpConfigurationFile_description->SetName("yarpConfigurationFile");
+                plugin->AddElementDescription(yarpConfigurationFile_description);
+                sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
+                yarpConfigurationFile->AddValue("string","model://icub/conf/gazebo_icub_inertial.ini",false);
+                sdf::ElementPtr pose = sensor->AddElement("pose");
+                pose->AddValue("string","0.0185 -0.1108 0.0066 1.5708 -0 0",false);
+            }
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+/**
+ * 
+ * @param sensor: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ */
+bool addGazeboYarpPluginsFT(TiXmlDocument & icub_sdf, std::string part)
+{
+    return true;
+}
+
 
 /**
  * 
@@ -175,10 +257,12 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     /////////////////////////////////////////////////////////////////////////    
     xml_doc = exportURDF(urdf_idyn);
 
+    
     if( ! xml_doc->SaveFile(filename_urdf_gazebo) ) {
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
         return false;
     }
+
 
     
     if( ! urdf_gazebo_cleanup_remove_massless_root(urdf_idyn) ) { std::cerr << "Error in removing massless root " << std::endl; return false; }
@@ -191,18 +275,38 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     
     xml_doc = exportURDF(urdf_idyn);
 
+    /*
     if( ! xml_doc->SaveFile(filename_urdf_gazebo_conversion) ) {
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
         return false;
-    }
+    }*/
+    
+    std::stringstream ss;
+    ss << *xml_doc;
+    std::string urdf_for_gazebo_conversion_string = ss.str();
     
     //Ugly workaround, I know, probably can be avoided by directly using sdfformat library
-    std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename; 
-    std::cout << "Running command: " << gazebo_conversion_command << std::endl;
-    system(gazebo_conversion_command.c_str());
+    //std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename; 
+    //std::cout << "Running command: " << gazebo_conversion_command << std::endl;
+  
+    sdf::URDF2SDF urdf_converter;
+    TiXmlDocument sdf_xml = urdf_converter.InitModelString(urdf_for_gazebo_conversion_string);
+    
+    //system(gazebo_conversion_command.c_str());
     //if( !system(gazebo_conversion_command.c_str()) ) { std::cerr << "Error in urdf - sdf conversion" << std::endl; return false; }
     
     //\todo: adding plugins to generated sdf
+    sdf::SDFPtr icub_sdf(new sdf::SDF());
+    sdf::init(icub_sdf);
+    
+    //if( ! sdf::readFile(gazebo_sdf_filename,icub_sdf) ) { std::cerr << "Problem in reading SDF file" << std::endl; return false; }
+    if( ! sdf::readDoc(&sdf_xml,icub_sdf,"custom sdf xml") ) { std::cerr << "Problem in loading SDF file" << std::endl; return false; }
+    
+    if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
+    
+    if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor") ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
+    
+    icub_sdf->Write(gazebo_sdf_filename);
     
     return true;
 }
@@ -243,3 +347,4 @@ int main(int argc, char* argv[])
     
     return EXIT_SUCCESS;
 }
+
