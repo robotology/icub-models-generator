@@ -34,6 +34,8 @@
 
 #define NAME "icub_urdf_sdf_generator"
 
+#define ERROR_FT_SENSOR_JOINT "__error_ft_sensor_joint__"
+
 using namespace urdf;
 
 void printTree(boost::shared_ptr<const Link> link,int level = 0)
@@ -66,25 +68,50 @@ void printJoints(boost::shared_ptr<urdf::ModelInterface> urdf)
     }
 }
 
-bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_name)
+bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_name, std::string robot_name)
 {
+    /*
+     <plugin name="controlboard_right_arm" filename="libgazebo_yarp_controlboard.so">
+        <yarpConfigurationFile>model://icub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
+        <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
+     </plugin>
+     */
+    sdf::ElementPtr plugin = model->AddElement("plugin");
+    plugin->GetAttribute("name")->SetFromString("controlboard_"+part_name);
+    plugin->GetAttribute("filename")->SetFromString("libgazebo_yarp_controlboard.so");
     
+    sdf::ElementPtr yarpConfigurationFile_description(new sdf::Element);
+    yarpConfigurationFile_description->SetName("yarpConfigurationFile");
+    plugin->AddElementDescription(yarpConfigurationFile_description);
+    sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
+    yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/gazebo_icub_"+part_name+".ini",false);
+               
+    if( part_name == "right_arm" || part_name == "left_arm" ) {
+        sdf::ElementPtr initialConfiguration_description(new sdf::Element);
+        initialConfiguration_description->SetName("initialConfiguration");
+        plugin->AddElementDescription(initialConfiguration_description);
+        sdf::ElementPtr initialConfiguration = plugin->AddElement("initialConfiguration");
+        initialConfiguration->AddValue("string","-0.52 0.52 0 0.785 0 0 0.698",false);
+    }
+    
+    return true;
 }
 
 /**
  * 
  * @param part: head,torso,right_arm,left_arm,right_leg,left_leg
  */
-bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_name)
+bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_name, std::string robot_name)
 {
-    return true;
+    /// \todo add check on parts
+    return addGazeboYarpPluginsControlboard(icub_sdf->root->GetElement("model"),part_name,robot_name);
 }
 
 /**
  * 
  * @param sensor: can be only imu_sensor
  */
-bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor)
+bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
 {
     assert( icub_sdf->root->HasElement("model"));
     /*
@@ -99,13 +126,14 @@ bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor)
        <pose>0.0185 -0.1108 0.0066 1.5708 -0 0</pose>
       </sensor>
      */
-    if( sensor == "imu_sensor" ) {
+    if( sensor_name == "imu_sensor" ) {
         //imu sensor is child of link head
         sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
         for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link")) {
             if( link->GetAttribute("name")->GetAsString() == "head" ) {
                 sdf::ElementPtr sensor = link->AddElement("sensor");
-                sensor->AddAttribute("type","string","imu",false);
+                sensor->GetAttribute("name")->SetFromString(sensor_name);
+                sensor->GetAttribute("type")->SetFromString("imu");
                 sdf::ElementPtr always_on = sensor->AddElement("always_on");
                 always_on->AddValue("int","1",false);
                 sdf::ElementPtr update_rate = sensor->AddElement("update_rate");
@@ -115,14 +143,14 @@ bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor)
                 sdf::ElementPtr imu = sensor->AddElement("imu");
                 sdf::ElementPtr plugin = sensor->AddElement("plugin");
                 plugin->GetAttribute("filename")->SetFromString("libgazebo_yarp_imu.so");
-                plugin->GetAttribute("name")->SetFromString("iCub_yarp_gazebo_plugin_IMU")
+                plugin->GetAttribute("name")->SetFromString("iCub_yarp_gazebo_plugin_IMU");
                 //plugin->AddAttribute("filename","string","libgazebo_yarp_imu.so",false);
                 //plugin->AddAttribute("name","string","iCub_yarp_gazebo_plugin_IMU",false);
                 sdf::ElementPtr yarpConfigurationFile_description(new sdf::Element);
                 yarpConfigurationFile_description->SetName("yarpConfigurationFile");
                 plugin->AddElementDescription(yarpConfigurationFile_description);
                 sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
-                yarpConfigurationFile->AddValue("string","model://icub/conf/gazebo_icub_inertial.ini",false);
+                yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/gazebo_icub_inertial.ini",false);
                 sdf::ElementPtr pose = sensor->AddElement("pose");
                 pose->AddValue("string","0.0185 -0.1108 0.0066 1.5708 -0 0",false);
             }
@@ -133,14 +161,88 @@ bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor)
     }
 }
 
+bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_name, std::string robot_name)
+{
+    /*
+     <sensor name="left_leg_ft" type="force_torque">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>100</update_rate>
+        <pose>0 0 0 0 0 0</pose>
+        <plugin filename="libgazebo_yarp_forcetorque.so" name="left_leg_ft_plugin">
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+        </plugin>
+      </sensor> 
+     */
+    sdf::ElementPtr sensor = joint_element->AddElement("sensor");
+                    sensor->GetAttribute("name")->SetFromString(sensor_name+"_ft");
+                    sensor->GetAttribute("type")->SetFromString("force_torque");
+                    sdf::ElementPtr always_on = sensor->AddElement("always_on");
+                    always_on->AddValue("int","1",false);
+                    sdf::ElementPtr update_rate = sensor->AddElement("update_rate");
+                    update_rate->AddValue("int","100",false);
+                    sdf::ElementPtr pose = sensor->AddElement("pose");
+                    pose->AddValue("string","0 0 0 0 0 0",false);
+                    sdf::ElementPtr plugin = sensor->AddElement("plugin");
+                    plugin->GetAttribute("filename")->SetFromString("libgazebo_yarp_forcetorque.so");
+                    plugin->GetAttribute("name")->SetFromString(sensor_name+"_ft_plugin");
+                    sdf::ElementPtr yarpConfigurationFile_description(new sdf::Element);
+                    yarpConfigurationFile_description->SetName("yarpConfigurationFile");
+                    plugin->AddElementDescription(yarpConfigurationFile_description);
+                    sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
+                    yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/FT/gazebo_icub_"+sensor_name+"_ft.ini",false);
+    
+    return true;
+}
 
 /**
  * 
- * @param sensor: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
-bool addGazeboYarpPluginsFT(TiXmlDocument & icub_sdf, std::string part)
+std::string getFTJointName(const std::string sensor_name)
 {
-    return true;
+    if( sensor_name == "left_arm" ) {
+        return "l_arm_ft_sensor";
+    } else if ( sensor_name == "right_arm" ) {
+        return "r_arm_ft_sensor";
+    } else if ( sensor_name == "left_leg" ) {
+        return "l_leg_ft_sensor";
+    } else if ( sensor_name == "right_leg" ) {
+        return "r_leg_ft_sensor";
+    } else if ( sensor_name == "left_foot" ) {
+        return "l_foot_ft_sensor";
+    } else if ( sensor_name == "right_foot" ) {
+        return "r_foot_ft_sensor";
+    } else {
+        return ERROR_FT_SENSOR_JOINT;
+    }
+}
+
+/**
+ * 
+ * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ */
+bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
+{
+    bool ret;
+    
+    sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
+    
+    //Get the gazebo joint that models the FT sensor
+    std::string ft_sensor_joint = getFTJointName(sensor_name);
+    
+    if( ft_sensor_joint == ERROR_FT_SENSOR_JOINT ) {
+        return false;
+    }
+    
+    for (sdf::ElementPtr joint = model_elem->GetElement("joint"); joint; joint = joint->GetNextElement("joint")) {
+        if( joint->GetAttribute("name")->GetAsString() == ft_sensor_joint ) {
+            ret = addGazeboYarpPluginsFT(joint,sensor_name,robot_name);
+            if( !ret ) { return false; }
+        }
+    }
+    
+    return true;   
 }
 
 
@@ -172,11 +274,10 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     
     std::string urdf_general_directory = root_directory+"urdf/";
     std::string urdf_robot_directory = urdf_general_directory+iCub_name+"/";
-    std::string filename_urdf = urdf_robot_directory+"icub.xml";
+    std::string filename_urdf = urdf_robot_directory+"icub.urdf";
     std::string gazebo_model_directory = root_directory + "gazebo_models/";
     std::string gazebo_robot_model_directory = gazebo_model_directory+iCub_name+"/";
-    std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub.xml";
-    std::string filename_urdf_gazebo_conversion = gazebo_robot_model_directory+"icub_conversion.xml";
+    std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub_simulation.urdf";
     std::string gazebo_uri_prefix = "model://"+iCub_name+"/";
     std::string gazebo_sdf_filename = gazebo_robot_model_directory+"icub.sdf";
     
@@ -226,10 +327,13 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     
     std::string filename_urdf_paris = paris_directory+paris_subdirectory+"/icub.xml";
 
+    
     std::ifstream t_um(filename_urdf_paris.c_str());
     std::stringstream buffer_um;
     buffer_um << t_um.rdbuf();
     urdf_paris = parseURDF(buffer_um.str());
+    
+    std::cout << "Loading file " << filename_urdf_paris << std::endl;
     
     urdf_import_limits(urdf_idyn,urdf_paris);
     urdf_import_meshes(urdf_idyn,urdf_paris);
@@ -262,8 +366,6 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
         return false;
     }
-
-
     
     if( ! urdf_gazebo_cleanup_remove_massless_root(urdf_idyn) ) { std::cerr << "Error in removing massless root " << std::endl; return false; }
     printTree(urdf_idyn->getRoot());
@@ -304,7 +406,41 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     
     if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
     
-    if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor") ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
+    //Adding IMU sensor (in all robots)
+    /// \todo add difference between head V1 and head V2
+    if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor",iCub_name) ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
+    
+    //Adding FT sensors (in all robots)
+    bool ret=true;
+    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_leg",iCub_name);
+    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_leg",iCub_name);
+    if( ft_feet ) {
+        ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_foot",iCub_name);
+        ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_foot",iCub_name);
+    }
+    if( !ret ) { std::cerr << "Problem in adding ft sensors" << std::endl; return false; }
+    
+    //Adding controlboards (in all robots, in the future add differences)
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"torso",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding torso controlboard" << std::endl; return false; }
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"head",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding head controlboard" << std::endl; return false; }
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"left_arm",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding left_arm controlboards" << std::endl; return false; }
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_arm",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding right_arm controlboards" << std::endl; return false; }
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"left_leg",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding left_leg controlboards" << std::endl; return false; }
+    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_leg",iCub_name);
+    if( !ret ) { std::cerr << "Problem in adding right_leg controlboards" << std::endl; return false; }
+
+    //Adding pose to avoid intersection with ground
+    //<pose>0 0 0.70 0 0 0 </pose>
+    sdf::ElementPtr pose = icub_sdf->root->GetElement("model")->AddElement("pose");
+    pose->AddValue("string","0 0 0.70 0 0 0",false);
+    
     
     icub_sdf->Write(gazebo_sdf_filename);
     
