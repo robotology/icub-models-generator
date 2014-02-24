@@ -348,6 +348,16 @@ bool urdf_gazebo_cleanup_remove_frames(boost::shared_ptr<urdf::ModelInterface> u
     return true;
 }
 
+
+bool hasEnding (std::string const &fullString, std::string const &ending)
+{
+    if (fullString.length() >= ending.length()) {
+        return (0 == fullString.compare (fullString.length() - ending.length(), ending.length(), ending));
+    } else {
+        return false;
+    }
+}
+
 bool urdf_gazebo_cleanup_transform_FT_sensors(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
     std::vector<boost::shared_ptr<Link> > input_links;
@@ -360,7 +370,11 @@ bool urdf_gazebo_cleanup_transform_FT_sensors(boost::shared_ptr<urdf::ModelInter
         //Rule 2
         int nrOfChildrens = input_links[i]->child_links.size();
        
-        if( input_links[i]->parent_joint->type == urdf::Joint::FIXED && nrOfChildrens > 0) {
+        std::string joint_name = input_links[i]->parent_joint->name;
+        
+        std::string ft_sensor_joint_suffix = "_ft_sensor";        
+        
+        if( hasEnding(joint_name,ft_sensor_joint_suffix) ) {
             input_links[i]->parent_joint->type = urdf::Joint::REVOLUTE;
             if( input_links[i]->parent_joint->limits ) {
                 input_links[i]->parent_joint->limits->clear();

@@ -219,7 +219,7 @@ std::string getFTJointName(const std::string sensor_name)
 }
 
 /**
- * 
+ * Add the force/torque sensor description (with the relative gazebo_yarp_plugin)
  * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
 bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
@@ -245,9 +245,84 @@ bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::
     return true;   
 }
 
+bool addGazeboODEContactsProperty(sdf::ElementPtr collision_elem)
+{
+    /*
+     * <surface>
+         <contact>
+            <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0</min_depth>
+            </ode>
+        </contact>
+        <friction>
+            <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>1 0 0</fdir1>
+            </ode>
+        </friction>
+        </surface>
+    */
+    sdf::ElementPtr surface = collision_elem->AddElement("surface");
+    
+    sdf::ElementPtr contact = surface->AddElement("contact");
+    sdf::ElementPtr ode_contact = contact->AddElement("ode");
+    
+    sdf::ElementPtr kp = ode_contact->AddElement("kp");
+    kp->AddValue("string","1e06",false);
+    
+    sdf::ElementPtr kd = ode_contact->AddElement("kd");
+    kd->AddValue("string","100",false);
+    
+    sdf::ElementPtr max_vel = ode_contact->AddElement("max_vel");
+    max_vel->AddValue("string","1",false);
+    
+    sdf::ElementPtr min_depth = ode_contact->AddElement("min_depth");
+    min_depth->AddValue("string","0",false);
+
+    sdf::ElementPtr friction = surface->AddElement("friction");
+    sdf::ElementPtr ode_friction = friction->AddElement("ode");
+    
+    sdf::ElementPtr mu = ode_friction->AddElement("mu");
+    mu->AddValue("string","1",false);
+    
+    sdf::ElementPtr mu2 = ode_friction->AddElement("mu2");
+    mu2->AddValue("string","1",false);
+    
+    sdf::ElementPtr fdir1 = ode_friction->AddElement("fdir1");
+    fdir1->AddValue("string","1 0 0",false);
+    
+    return true;
+}
+
+bool addGazeboODEContactsProperties(sdf::SDFPtr icub_sdf, std::string link_name, std::string collision_name)
+{    
+    sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
+    
+    for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link")) {
+        if( link->GetAttribute("name")->GetAsString() == link_name ) {
+            for (sdf::ElementPtr collision = link->GetElement("collision"); collision; collision = collision->GetNextElement("collision")) {
+                if( collision->GetAttribute("name")->GetAsString() == collision_name ) {
+                    return addGazeboODEContactsProperty(collision);
+                }
+            }
+        }
+    }
+    
+    return false;
+}
+
+bool addGazeboODEJointProperties(sdf::SDFPtr icub_sdf)
+{
+    return false;
+}
+
 
 /**
- * 
+ * Generate iCub URDF and SDF models, starting from UPMC meshes and kinematics/dynamics information from iDyn
  * 
  * @param head_version can be 1 or 2
  * @param legs_version can be 1 or 2
@@ -262,6 +337,9 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     } else {
         ft_feet = true;
     }
+    
+    std::cout << "Generating iCub model for " << iCub_name << " (head: " << head_version << " , legs: " << legs_version << " , feet: " << feet_version << " )" << std::endl; 
+    if( ft_feet ) { std::cout << "Generating FT sensor in the feet" << std::endl; }
     
     std::string paris_directory = data_directory+"urdf_paris/";
     
@@ -303,7 +381,7 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     
     KDL::JntArray dummy1,dummy2;
     
-    if( ! toKDL(icub_idyn,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,false,true) ) {
+    if( ! toKDL(icub_idyn,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,true) ) {
         std::cerr << "Fatal error in iDyn - KDL conversion" << std::endl;
         return false;
     }
@@ -390,7 +468,7 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     //Ugly workaround, I know, probably can be avoided by directly using sdfformat library
     //std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename; 
     //std::cout << "Running command: " << gazebo_conversion_command << std::endl;
-  
+
     sdf::URDF2SDF urdf_converter;
     TiXmlDocument sdf_xml = urdf_converter.InitModelString(urdf_for_gazebo_conversion_string);
     
@@ -417,6 +495,7 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_leg",iCub_name);
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_leg",iCub_name);
     if( ft_feet ) {
+        std::cerr << "Adding feet FT sensors" << std::endl;
         ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_foot",iCub_name);
         ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_foot",iCub_name);
     }
@@ -435,7 +514,13 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     if( !ret ) { std::cerr << "Problem in adding left_leg controlboards" << std::endl; return false; }
     ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_leg",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding right_leg controlboards" << std::endl; return false; }
-
+    
+    //Adding parameters for properly handling of the contacts
+    ret = ret && addGazeboODEContactsProperties(icub_sdf,"l_foot","l_foot_collision");
+    if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
+    ret = ret && addGazeboODEContactsProperties(icub_sdf,"r_foot","r_foot_collision");
+    if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
+    
     //Adding pose to avoid intersection with ground
     //<pose>0 0 0.70 0 0 0 </pose>
     sdf::ElementPtr pose = icub_sdf->root->GetElement("model")->AddElement("pose");
@@ -465,6 +550,14 @@ int main(int argc, char* argv[])
     
     std::string output_directory = opt.find("output_directory").asString();
     std::string data_directory = opt.find("data_directory").asString();
+    
+    if( *(output_directory.rbegin()) != '/' ) {
+        output_directory = output_directory + "/";
+    }
+    
+    if( *(data_directory.rbegin()) != '/' ) {
+        data_directory = data_directory + "/";
+    }
     
     double mass_epsilon = 0.1;
     double inertia_epsilon = 0.01;
