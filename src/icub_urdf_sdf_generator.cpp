@@ -412,9 +412,21 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     urdf_paris = parseURDF(buffer_um.str());
     
     std::cout << "Loading file " << filename_urdf_paris << std::endl;
+
     
-    urdf_import_limits(urdf_idyn,urdf_paris);
-    urdf_import_meshes(urdf_idyn,urdf_paris);
+    bool ret_ok = urdf_import_limits(urdf_idyn,urdf_paris);
+    
+    if( !ret_ok ) { 
+        std::cerr << "Fatal error in importing limits from " << filename_urdf_paris  << std::endl;
+        return false;
+    }
+    
+    ret_ok = urdf_import_meshes(urdf_idyn,urdf_paris);
+    
+    if( !ret_ok ) {
+        std::cerr << "Fatal error in importing meshes from " << filename_urdf_paris  << std::endl;
+        return false;
+    }
     
     /////////////////////////////////////////////////////////////////////////
     ///// Exporting "normal" urdf file

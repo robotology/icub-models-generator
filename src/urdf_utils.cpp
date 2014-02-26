@@ -138,7 +138,7 @@ double getTotalMass(urdf::ModelInterface & model)
     return total_mass;
 }
 
-bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boost::shared_ptr<urdf::ModelInterface> urdf_meshes)
+bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boost::shared_ptr<urdf::ModelInterface> urdf_meshes, bool verbose)
 {
     bool ret = true;
     KDL::Tree kdl_meshes, kdl_input;
@@ -166,7 +166,7 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
     
     urdf_input->getLinks(input_links);
     
-    std::cout << "Found " << input_links.size() << " links in input URDF " << std::endl;
+    if( verbose ) std::cout << "Found " << input_links.size() << " links in input URDF " << std::endl;
     for(int i=0; i < input_links.size(); i++ )
     {
         KDL::Frame base_link_meshes, base_link_input;
@@ -174,13 +174,13 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
         KDL::Frame link_visual_new, link_collision_new;
         std::string input_name = input_links[i]->name;
     
-        std::cout << "Processing link " << input_name << std::endl;
+        if( verbose ) std::cout << "Processing link " << input_name << std::endl;
         
         boost::shared_ptr<const urdf::Link> mesh_link_ptr = urdf_meshes->getLink(input_name);
         
         
         if( mesh_link_ptr ) {
-            std::cout << "Tryng to copy meshes of link " << input_name << std::endl;
+            if( verbose ) std::cout << "Tryng to copy meshes of link " << input_name << std::endl;
             //if there is a link with the same name, copy the mesh
             //supporting only single mesh
             if( mesh_link_ptr->collision || mesh_link_ptr->visual ) {
@@ -194,8 +194,8 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
                 link_collision_old = toKdl(mesh_link_ptr->collision->origin);
                 link_collision_new = base_link_input.Inverse()*base_link_meshes*link_collision_old;
                 
-                std::cout << "Old collision origin " << link_collision_old << endl;
-                std::cout << "New collision origin " << link_collision_new << endl;
+                if( verbose ) std::cout << "Old collision origin " << link_collision_old << endl;
+                if( verbose ) std::cout << "New collision origin " << link_collision_new << endl;
 
                 
                 input_links[i]->collision.reset(new urdf::Collision);
@@ -219,7 +219,7 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
                     break;
                     case Geometry::MESH:
                         input_links[i]->collision->geometry.reset(new urdf::Mesh);
-                        std::cout << "Copyng collision mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename << std::endl;
+                        if( verbose ) std::cout << "Copyng collision mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename << std::endl;
                         (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->filename = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename;
                         (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->scale;
                     break;
@@ -259,7 +259,7 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
                     break;
                     case Geometry::MESH:
                         input_links[i]->visual->geometry.reset(new urdf::Mesh);
-                        std::cout << "Copyng visual mesh with filename " << (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
+                        if( verbose ) std::cout << "Copyng visual mesh with filename " << (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->filename = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename;
                         (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->scale;
                     break;
@@ -282,14 +282,15 @@ bool urdf_import_limits(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
     for( std::map<std::string, boost::shared_ptr<urdf::Joint> >::iterator it = urdf_input->joints_.begin();
          it != urdf_input->joints_.end(); it++ )
     {
-        std::string input_name = it->first;
-        std::cout << "Processing joint " << it->first << std::endl;
+        std::string joint_name = it->second->name;
+        std::string link_name = it->first;
+        std::cout << "urdf_import_limits: Processing joint " << joint_name << " relative to link " << link_name << std::endl;
         
-        boost::shared_ptr<const urdf::Joint> limits_joints_ptr = urdf_limits->getJoint(input_name);
+        boost::shared_ptr<const urdf::Joint> limits_joints_ptr = urdf_limits->getJoint(joint_name);
         
         
         if( limits_joints_ptr ) {
-            std::cout << "Tryng to copy limits of joint " << input_name << std::endl;
+            std::cout << "urdf_import_limits: Tryng to copy limits of joint " << joint_name << std::endl;
             
             it->second->limits.reset(new urdf::JointLimits);
             *(it->second->limits) = *(limits_joints_ptr->limits);
@@ -298,7 +299,7 @@ bool urdf_import_limits(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
             it->second->type = limits_joints_ptr->type;
             
         } else {
-            std::cout << "No joint found with name " << input_name << std::endl;
+            std::cout << "urdf_import_limits: No joint found with link name " << link_name << std::endl;
         }
     }
     return true;

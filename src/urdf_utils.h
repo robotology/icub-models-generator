@@ -20,7 +20,7 @@
  * @return true if all went ok, false otherwise
  * 
  */
-bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boost::shared_ptr<urdf::ModelInterface> urdf_meshes);
+bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boost::shared_ptr<urdf::ModelInterface> urdf_meshes, bool verbose=false);
 
 /**
  * Get the total mass of a URDF model
