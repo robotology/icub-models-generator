@@ -623,28 +623,28 @@
 		<axis xyz="0 0 1"/>
 		<limit effort="34.0" lower="-0.645771823238" upper="1.74532925199" velocity="100.0"/>
 	</joint>
-	<joint name="r_elbow_pitch" type="revolute">
+	<joint name="r_elbow" type="revolute">
 		<parent link="r_arm"/>
 		<child link="r_elbow_1"/>
 		<origin rpy="-1.5707963268 -0.0 -1.8325957146" xyz="0.0 0.0 -0.15228"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="20.0" lower="0.0959931088597" upper="1.85004900711" velocity="100.0"/>
 	</joint>
-	<joint name="r_elbow_yaw" type="revolute">
+	<joint name="r_wrist_prosup" type="revolute">
 		<parent link="r_elbow_1"/>
 		<child link="r_forearm"/>
 		<origin rpy="1.5707963268 0.0 0.0" xyz="0.015 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="0.45" lower="-0.872664625997" upper="0.872664625997" velocity="100.0"/>
 	</joint>
-	<joint name="r_wrist_roll" type="revolute">
+	<joint name="r_wrist_pitch" type="revolute">
 		<parent link="r_forearm"/>
 		<child link="r_wrist_1"/>
 		<origin rpy="1.5707963268 -0.0 -1.5707963268" xyz="0.0 0.0 -0.1373"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="0.65" lower="-1.1344640138" upper="0.174532925199" velocity="100.0"/>
 	</joint>
-	<joint name="r_wrist_pitch" type="revolute">
+	<joint name="r_wrist_yaw" type="revolute">
 		<parent link="r_wrist_1"/>
 		<child link="r_hand"/>
 		<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.0 0.0"/>
@@ -672,28 +672,28 @@
 		<axis xyz="0 0 1"/>
 		<limit effort="34.0" lower="-0.645771823238" upper="1.74532925199" velocity="100.0"/>
 	</joint>
-	<joint name="l_elbow_pitch" type="revolute">
+	<joint name="l_elbow" type="revolute">
 		<parent link="l_arm"/>
 		<child link="l_elbow_1"/>
 		<origin rpy="-1.5707963268 0.0 1.308996939" xyz="0.0 0.0 0.15228"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="20.0" lower="0.0959931088597" upper="1.85004900711" velocity="100.0"/>
 	</joint>
-	<joint name="l_elbow_yaw" type="revolute">
+	<joint name="l_wrist_prosup" type="revolute">
 		<parent link="l_elbow_1"/>
 		<child link="l_forearm"/>
 		<origin rpy="1.5707963268 0.0 0.0" xyz="-0.015 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="0.45" lower="-0.872664625997" upper="0.872664625997" velocity="100.0"/>
 	</joint>
-	<joint name="l_wrist_roll" type="revolute">
+	<joint name="l_wrist_pitch" type="revolute">
 		<parent link="l_forearm"/>
 		<child link="l_wrist_1"/>
 		<origin rpy="1.5707963268 -0.0 -1.5707963268" xyz="0.0 0.0 0.1373"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="0.65" lower="-1.1344640138" upper="0.174532925199" velocity="100.0"/>
 	</joint>
-	<joint name="l_wrist_pitch" type="revolute">
+	<joint name="l_wrist_yaw" type="revolute">
 		<parent link="l_wrist_1"/>
 		<child link="l_hand"/>
 		<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.0 0.0"/>

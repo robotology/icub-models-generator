@@ -796,11 +796,12 @@
         <parent link="l_upper_arm" />
         <child link="l_arm" />
     </joint>
-    <joint name="l_elbow" type="continuous">
+    <joint name="l_elbow" type="revolute">
         <origin xyz="0 0 0" rpy="1.5708 -0 0" />
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_arm" />
         <child link="l_elbow_1" />
+        <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="l_foot_ft_sensor" type="fixed">
         <origin xyz="0 0 0.041" rpy="0 1.5708 0" />
@@ -808,11 +809,12 @@
         <parent link="l_upper_foot" />
         <child link="l_foot" />
     </joint>
-    <joint name="l_wrist_prosup" type="continuous">
+    <joint name="l_wrist_prosup" type="revolute">
         <origin xyz="-0.015 0 0" rpy="1.5708 -0 -1.5708" />
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_elbow_1" />
         <child link="l_forearm" />
+        <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
     </joint>
     <joint name="l_gripper_joint" type="fixed">
         <origin xyz="0.0625 0 -0.016" rpy="0 -0 0" />
@@ -820,11 +822,12 @@
         <parent link="l_hand" />
         <child link="l_gripper" />
     </joint>
-    <joint name="l_wrist_yaw" type="continuous">
+    <joint name="l_wrist_yaw" type="revolute">
         <origin xyz="0 0 0" rpy="0 -0 0" />
         <axis xyz="0 0 1" />
         <parent link="l_wrist_1" />
         <child link="l_hand" />
+        <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
     </joint>
     <joint name="l_hip_pitch" type="revolute">
         <origin xyz="0 -0.0681 -0.1199" rpy="-3.14159 1.5708 -2.77556e-17" />
@@ -899,7 +902,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_forearm" />
         <child link="l_wrist_1" />
-        <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
+        <limit effort="0.65" velocity="100" lower="-1.13446" upper="0.174533" />
     </joint>
     <joint name="torso_pitch" type="revolute">
         <origin xyz="0 0 0" rpy="-2.77556e-17 -1.5708 3.14159" />
@@ -942,11 +945,12 @@
         <parent link="r_upper_arm" />
         <child link="r_arm" />
     </joint>
-    <joint name="r_elbow" type="continuous">
+    <joint name="r_elbow" type="revolute">
         <origin xyz="0 0 0" rpy="1.5708 -0 0" />
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_arm" />
         <child link="r_elbow_1" />
+        <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="r_foot_ft_sensor" type="fixed">
         <origin xyz="0 0 0.041" rpy="0 1.5708 0" />
@@ -954,11 +958,12 @@
         <parent link="r_upper_foot" />
         <child link="r_foot" />
     </joint>
-    <joint name="r_wrist_prosup" type="continuous">
+    <joint name="r_wrist_prosup" type="revolute">
         <origin xyz="0.015 0 0" rpy="1.5708 -0 -1.5708" />
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_elbow_1" />
         <child link="r_forearm" />
+        <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
     </joint>
     <joint name="r_gripper_joint" type="fixed">
         <origin xyz="0.0625 0 0.016" rpy="0 -0 0" />
@@ -966,11 +971,12 @@
         <parent link="r_hand" />
         <child link="r_gripper" />
     </joint>
-    <joint name="r_wrist_yaw" type="continuous">
+    <joint name="r_wrist_yaw" type="revolute">
         <origin xyz="0 0 0" rpy="0 -0 3.14159" />
         <axis xyz="0 0 1" />
         <parent link="r_wrist_1" />
         <child link="r_hand" />
+        <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
     </joint>
     <joint name="r_hip_pitch" type="revolute">
         <origin xyz="0 0.0681 -0.1199" rpy="-2.77556e-17 1.5708 2.77556e-17" />
@@ -1045,7 +1051,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_forearm" />
         <child link="r_wrist_1" />
-        <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
+        <limit effort="0.65" velocity="100" lower="-1.13446" upper="0.174533" />
     </joint>
     <joint name="base_fixed_joint" type="fixed">
         <origin xyz="0 0 0" rpy="0 -0 0" />
