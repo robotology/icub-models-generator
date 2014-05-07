@@ -288,6 +288,7 @@ bool iCubConfigParser::computeNewPIDsValues()
                 std::map<int, double>::const_iterator encIterator = device->second.encoders.find(originalPID->first);
                 double delta_enc = encIterator != device->second.encoders.end() ? encIterator->second : 0;
                 
+                //formula to be checked
                 newPIDs.p = originalP * pwmFactor * delta_enc * RAD_2_DEG(1) //pid conversion to [V/rad]
                 * motorGain; // pid in [Nm/rad]
                 newPIDs.d = originalD * pwmFactor * delta_enc * RAD_2_DEG(1) //pid conversion to [V/rad]

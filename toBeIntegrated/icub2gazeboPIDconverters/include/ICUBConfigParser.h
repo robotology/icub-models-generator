@@ -24,14 +24,14 @@ namespace icub2gazebo {
     struct DeviceWrapper {
         RobotInterface::Device device;
         
-        int numberOfJoints; /*! Number of joints in the device */
+        int numberOfJoints; /*!< Number of joints in the device */
         
-        std::map<int, double> encoders; /*! Maps the index of the joint to its encoder angle value. I use a map because the index number is important (I can't use a vector) */
-        std::map<int, PIDValues> pids; /*! Maps the index of the joint to its PID values. I use a map because the index number is important (I can't use a vector) */
-        std::map<int, MotorParameters> motors; /*! Maps the index of the joint to its motor parameters. I use a map because the index number is important (I can't use a vector) */
-        std::vector<CoupledJointInfo> coupledJoints; /*! List of coupled joints for the device */
+        std::map<int, double> encoders; /*!< Maps the index of the joint to its encoder angle value. I use a map because the index number is important (I can't use a vector) */
+        std::map<int, PIDValues> pids; /*!< Maps the index of the joint to its PID values. I use a map because the index number is important (I can't use a vector) */
+        std::map<int, MotorParameters> motors; /*!< Maps the index of the joint to its motor parameters. I use a map because the index number is important (I can't use a vector) */
+        std::vector<CoupledJointInfo> coupledJoints; /*!< List of coupled joints for the device */
         
-        std::map<int, PIDsMotorWrapper> newPIDs; /*! Maps the index of the joint to the new computed PID value. I use a map because the index number is important (I can't use a vector) */
+        std::map<int, PIDsMotorWrapper> newPIDs; /*!< Maps the index of the joint to the new computed PID value. I use a map because the index number is important (I can't use a vector) */
         
         DeviceWrapper();
     };
@@ -74,8 +74,8 @@ namespace icub2gazebo {
     
     struct CoupledJointInfo {
         std::string groupName;
-        unsigned int numberOfJoints; /*! Number of motors and joints coupled */
-        std::vector<unsigned int> jointIndexes; /*! indexes of the joints (w.r.t. the device joints) that are coupled */
+        unsigned int numberOfJoints; /*!< Number of motors and joints coupled */
+        std::vector<unsigned int> jointIndexes; /*!< indexes of the joints (w.r.t. the device joints) that are coupled */
         
         double velocityTransformationMatrixCoefficient;
         yarp::sig::Matrix velocityTransformationMatrix;
