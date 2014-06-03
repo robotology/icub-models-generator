@@ -1,8 +1,9 @@
 icub-model-generator
 ==================
 
-Resources (./data/ folder) and programs (./src/) folder to generated models (URDF,SDF) of the iCub robot
+This software repository is still in alpha stage, not ready for normal use. 
 
+Resources (./data/ folder) and programs (./src/) folder to generated models (URDF,SDF) of the iCub robot .
 
 Example
 -------
