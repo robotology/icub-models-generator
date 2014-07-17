@@ -13,7 +13,7 @@ Installation
 - [ICUB](https://github.com/robotology/icub-main)
 - [iDynTree](https://github.com/robotology-playground/iDynTree)
 
-The easiest way to install this repository with all its dependencies is to use the [codyco-superbuild](https://github.com/robotology/yarp).
+The easiest way to install this repository with all its dependencies is to use the [codyco-superbuild](https://github.com/robotology/codyco-superbuild).
  
 Example
 -------
