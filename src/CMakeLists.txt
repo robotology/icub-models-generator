@@ -1,7 +1,7 @@
 # Copyright (C) 2010 RobotCub Consortium
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
- 
+
 SET(PROJECTNAME urdf_utils)
 
 PROJECT(${PROJECTNAME})
@@ -20,12 +20,15 @@ find_package(TinyXML REQUIRED)
 find_package(YARP REQUIRED)
 find_package(ICUB REQUIRED)
 find_package(SDFormat REQUIRED)
-
+find_package(iDynTree REQUIRED)
 
 
 
 # add YARP include directories
-include_directories(${urdfdom_INCLUDE_DIR} ${kdl_format_io_INCLUDE_DIRS} ${orocos_kdl_INCLUDE_DIR}  ${EIGEN3_INCLUDE_DIR} ${YARP_INCLUDE_DIR} ${iDynTree_INCLUDE_DIRS}
+include_directories(${urdfdom_INCLUDE_DIR}
+                    ${kdl_format_io_INCLUDE_DIRS}
+                    ${orocos_kdl_INCLUDE_DIR}
+                    ${EIGEN3_INCLUDE_DIR} ${YARP_INCLUDE_DIR} ${iDynTree_INCLUDE_DIRS}
                     ${iDyn_INCLUDE_DIRS}
                     ${YARP_INCLUDE_DIRS}
                     ${skinDynLib_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
@@ -38,14 +41,14 @@ add_executable(urdf_gazebo_cleanup urdf_gazebo_cleanup.cpp)
 add_executable(urdf_get_total_mass urdf_get_total_mass.cpp)
 add_executable(icub_urdf_from_iDyn icub_urdf_from_iDyn.cpp)
 add_executable(icub_urdf_sdf_generator icub_urdf_sdf_generator.cpp)
-                                   
+
 
 target_link_libraries(urdf_get_meshes urdf_utils ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES})
 target_link_libraries(urdf_get_limits urdf_utils ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES})
 target_link_libraries(urdf_gazebo_cleanup urdf_utils ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES} ${YARP_LIBRARIES})
 target_link_libraries(urdf_get_total_mass urdf_utils ${urdfdom_LIBRARIES} ${orocos_kdl_LIBRARIES} ${TinyXML_LIBRARIES} ${kdl_format_io_LIBRARIES} ${YARP_LIBRARIES})
-target_link_libraries(icub_urdf_from_iDyn ${YARP_LIBRARIES} ${ICUB_LIBRARIES} iDynTree ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${kdl_format_io_LIBRARIES} ${TinyXML_LIBRARIES})
-target_link_libraries(icub_urdf_sdf_generator urdf_utils ${SDFormat_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES} iDynTree ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${kdl_format_io_LIBRARIES} ${TinyXML_LIBRARIES})
+target_link_libraries(icub_urdf_from_iDyn ${YARP_LIBRARIES} ${ICUB_LIBRARIES} ${iDynTree_LIBRARIES} ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${kdl_format_io_LIBRARIES} ${TinyXML_LIBRARIES})
+target_link_libraries(icub_urdf_sdf_generator urdf_utils ${SDFormat_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES}  ${iDynTree_LIBRARIES}  ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${kdl_format_io_LIBRARIES} ${TinyXML_LIBRARIES})
 
 
 INSTALL(TARGETS urdf_get_meshes DESTINATION bin)
