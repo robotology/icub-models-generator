@@ -1,9 +1,20 @@
 icub-model-generator
 ==================
 
-Resources (./data/ folder) and programs (./src/) folder to generated models (URDF,SDF) of the iCub robot
+This software repository is still in alpha stage, not ready for normal use. 
 
+Resources (./data/ folder) and programs (./src/) folder to generated models (URDF,SDF) of the iCub robot .
 
+Installation
+------------
+
+##### Dependencies
+- [YARP](https://github.com/robotology/yarp)
+- [ICUB](https://github.com/robotology/icub-main)
+- [iDynTree](https://github.com/robotology-playground/iDynTree)
+
+The easiest way to install this repository with all its dependencies is to use the [codyco-superbuild](https://github.com/robotology/codyco-superbuild).
+ 
 Example
 -------
 After compiling and installing this repository, you can run:

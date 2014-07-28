@@ -3,10 +3,11 @@
  * Author: Silvio Traversaro
  * website: http://www.codyco.eu
  */
- 
+
 #include <iCub/iDynTree/idyn2kdl_icub.h>
 
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 
 #include <iCub/iDyn/iDyn.h>
@@ -79,13 +80,13 @@ bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_na
     sdf::ElementPtr plugin = model->AddElement("plugin");
     plugin->GetAttribute("name")->SetFromString("controlboard_"+part_name);
     plugin->GetAttribute("filename")->SetFromString("libgazebo_yarp_controlboard.so");
-    
+
     sdf::ElementPtr yarpConfigurationFile_description(new sdf::Element);
     yarpConfigurationFile_description->SetName("yarpConfigurationFile");
     plugin->AddElementDescription(yarpConfigurationFile_description);
     sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
     yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/gazebo_icub_"+part_name+".ini",false);
-               
+
     if( part_name == "right_arm" || part_name == "left_arm" ) {
         sdf::ElementPtr initialConfiguration_description(new sdf::Element);
         initialConfiguration_description->SetName("initialConfiguration");
@@ -93,12 +94,12 @@ bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_na
         sdf::ElementPtr initialConfiguration = plugin->AddElement("initialConfiguration");
         initialConfiguration->AddValue("string","-0.52 0.52 0 0.785 0 0 0.698",false);
     }
-    
+
     return true;
 }
 
 /**
- * 
+ *
  * @param part: head,torso,right_arm,left_arm,right_leg,left_leg
  */
 bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_name, std::string robot_name)
@@ -108,7 +109,7 @@ bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_nam
 }
 
 /**
- * 
+ *
  * @param sensor: can be only imu_sensor
  */
 bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
@@ -172,7 +173,7 @@ bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_na
         <plugin filename="libgazebo_yarp_forcetorque.so" name="left_leg_ft_plugin">
           <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
         </plugin>
-      </sensor> 
+      </sensor>
      */
     sdf::ElementPtr sensor = joint_element->AddElement("sensor");
                     sensor->GetAttribute("name")->SetFromString(sensor_name+"_ft");
@@ -191,12 +192,12 @@ bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_na
                     plugin->AddElementDescription(yarpConfigurationFile_description);
                     sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
                     yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/FT/gazebo_icub_"+sensor_name+"_ft.ini",false);
-    
+
     return true;
 }
 
 /**
- * 
+ *
  * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
 std::string getFTJointName(const std::string sensor_name)
@@ -225,24 +226,24 @@ std::string getFTJointName(const std::string sensor_name)
 bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
 {
     bool ret;
-    
+
     sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
-    
+
     //Get the gazebo joint that models the FT sensor
     std::string ft_sensor_joint = getFTJointName(sensor_name);
-    
+
     if( ft_sensor_joint == ERROR_FT_SENSOR_JOINT ) {
         return false;
     }
-    
+
     for (sdf::ElementPtr joint = model_elem->GetElement("joint"); joint; joint = joint->GetNextElement("joint")) {
         if( joint->GetAttribute("name")->GetAsString() == ft_sensor_joint ) {
             ret = addGazeboYarpPluginsFT(joint,sensor_name,robot_name);
             if( !ret ) { return false; }
         }
     }
-    
-    return true;   
+
+    return true;
 }
 
 bool addGazeboODEContactsProperty(sdf::ElementPtr collision_elem)
@@ -267,41 +268,41 @@ bool addGazeboODEContactsProperty(sdf::ElementPtr collision_elem)
         </surface>
     */
     sdf::ElementPtr surface = collision_elem->AddElement("surface");
-    
+
     sdf::ElementPtr contact = surface->AddElement("contact");
     sdf::ElementPtr ode_contact = contact->AddElement("ode");
-    
+
     sdf::ElementPtr kp = ode_contact->AddElement("kp");
     kp->AddValue("string","1e06",false);
-    
+
     sdf::ElementPtr kd = ode_contact->AddElement("kd");
     kd->AddValue("string","100",false);
-    
+
     sdf::ElementPtr max_vel = ode_contact->AddElement("max_vel");
     max_vel->AddValue("string","1",false);
-    
+
     sdf::ElementPtr min_depth = ode_contact->AddElement("min_depth");
     min_depth->AddValue("string","0",false);
 
     sdf::ElementPtr friction = surface->AddElement("friction");
     sdf::ElementPtr ode_friction = friction->AddElement("ode");
-    
+
     sdf::ElementPtr mu = ode_friction->AddElement("mu");
     mu->AddValue("string","1",false);
-    
+
     sdf::ElementPtr mu2 = ode_friction->AddElement("mu2");
     mu2->AddValue("string","1",false);
-    
+
     sdf::ElementPtr fdir1 = ode_friction->AddElement("fdir1");
     fdir1->AddValue("string","1 0 0",false);
-    
+
     return true;
 }
 
 bool addGazeboODEContactsProperties(sdf::SDFPtr icub_sdf, std::string link_name, std::string collision_name)
-{    
+{
     sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
-    
+
     for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link")) {
         if( link->GetAttribute("name")->GetAsString() == link_name ) {
             for (sdf::ElementPtr collision = link->GetElement("collision"); collision; collision = collision->GetNextElement("collision")) {
@@ -311,7 +312,7 @@ bool addGazeboODEContactsProperties(sdf::SDFPtr icub_sdf, std::string link_name,
             }
         }
     }
-    
+
     return false;
 }
 
@@ -321,15 +322,43 @@ bool addGazeboODEJointProperties(sdf::SDFPtr icub_sdf)
 }
 
 
+bool generate_model_config_file(std::string robot_name, std::string gazebo_robot_model_directory)
+{
+
+    std::ofstream model_config_file;
+    std::string model_config_file_name = gazebo_robot_model_directory+"model.config";
+    model_config_file.open(model_config_file_name.c_str());
+    model_config_file << "<?xml version=\"1.0\"?>\n<model>\n<name>";
+    model_config_file << robot_name;
+    model_config_file << "</name><version>1.0</version><sdf version='1.4'>icub.sdf</sdf>\n</model>\n";
+    model_config_file.close();
+
+    return true;
+}
+
+std::string get_gazebo_model_directory(std::string root_directory)
+{
+    return root_directory+"gazebo_models/";
+}
+
+
 /**
  * Generate iCub URDF and SDF models, starting from UPMC meshes and kinematics/dynamics information from iDyn
- * 
+ *
  * @param head_version can be 1 or 2
  * @param legs_version can be 1 or 2
  * @param feet_version can be 1 or 2
  * @param simple_meshes if true uses the simple visualization meshes, if false uses the heavy detailed one
  */
-bool generate_iCub_model(std::string iCub_name, std::string root_directory, int head_version, int legs_version, int feet_version, bool simple_meshes, std::string data_directory, double mass_epsilon, double inertia_epsilon)
+bool generate_iCub_model(std::string iCub_name,
+                         std::string root_directory,
+                         int head_version,
+                         int legs_version,
+                         int feet_version,
+                         bool simple_meshes,
+                         std::string data_directory,
+                         double mass_epsilon,
+                         double inertia_epsilon)
 {
     bool ft_feet;
     if( feet_version == 1 ) {
@@ -337,28 +366,28 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     } else {
         ft_feet = true;
     }
-    
-    std::cout << "Generating iCub model for " << iCub_name << " (head: " << head_version << " , legs: " << legs_version << " , feet: " << feet_version << " )" << std::endl; 
+
+    std::cout << "Generating iCub model for " << iCub_name << " (head: " << head_version << " , legs: " << legs_version << " , feet: " << feet_version << " )" << std::endl;
     if( ft_feet ) { std::cout << "Generating FT sensor in the feet" << std::endl; }
-    
+
     std::string paris_directory = data_directory+"urdf_paris/";
-    
+
     std::string paris_subdirectory;
     if( simple_meshes ) {
         paris_subdirectory = "icub_simple";
     } else {
         paris_subdirectory = "icub";
     }
-    
+
     std::string urdf_general_directory = root_directory+"urdf/";
     std::string urdf_robot_directory = urdf_general_directory+iCub_name+"/";
     std::string filename_urdf = urdf_robot_directory+"icub.urdf";
-    std::string gazebo_model_directory = root_directory + "gazebo_models/";
+    std::string gazebo_model_directory = get_gazebo_model_directory(root_directory);
     std::string gazebo_robot_model_directory = gazebo_model_directory+iCub_name+"/";
     std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub_simulation.urdf";
-    std::string gazebo_uri_prefix = "model://"+iCub_name+"/";
+    std::string gazebo_uri_prefix = "model://"+"icub"+"/";
     std::string gazebo_sdf_filename = gazebo_robot_model_directory+"icub.sdf";
-    
+
     //Creating needed directories
     yarp::os::mkdir(root_directory.c_str());
     yarp::os::mkdir(urdf_general_directory.c_str());
@@ -372,99 +401,99 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     iCub::iDyn::version_tag icub_type;
 
     icub_type.head_version = head_version;
-    icub_type.legs_version = legs_version;  
-    
-    
+    icub_type.legs_version = legs_version;
+
+
     iCub::iDyn::iCubWholeBody icub_idyn(icub_type);
 
     KDL::Tree icub_kdl;
-    
+
     KDL::JntArray dummy1,dummy2;
-    
+
     if( ! toKDL(icub_idyn,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,true) ) {
         std::cerr << "Fatal error in iDyn - KDL conversion" << std::endl;
         return false;
     }
-    
+
     boost::shared_ptr<urdf::ModelInterface> urdf_idyn(new urdf::ModelInterface);
-    
+
     std::cout << "iCub KDL::Tree: " << std::endl;
     std::cout << icub_kdl << std::endl;
-    
-    
+
+
     if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"test_icub",*urdf_idyn) ) {
         std::cerr << "Fatal error in KDL - URDF conversion" << std::endl;
         return false;
     }
-    
-    
+
+
     //////////////////////////////////////////////////////////////////
     //// Getting meshes and limits from urdf paris files
     //////////////////////////////////////////////////////////////////
     boost::shared_ptr<urdf::ModelInterface> urdf_paris;
-    
+
     std::string filename_urdf_paris = paris_directory+paris_subdirectory+"/icub.xml";
 
-    
+
     std::ifstream t_um(filename_urdf_paris.c_str());
     std::stringstream buffer_um;
     buffer_um << t_um.rdbuf();
     urdf_paris = parseURDF(buffer_um.str());
-    
+
     std::cout << "Loading file " << filename_urdf_paris << std::endl;
 
-    
+
     bool ret_ok = urdf_import_limits(urdf_idyn,urdf_paris);
-    
-    if( !ret_ok ) { 
+
+    if( !ret_ok ) {
         std::cerr << "Fatal error in importing limits from " << filename_urdf_paris  << std::endl;
         return false;
     }
-    
+
     ret_ok = urdf_import_meshes(urdf_idyn,urdf_paris);
-    
+
     if( !ret_ok ) {
         std::cerr << "Fatal error in importing meshes from " << filename_urdf_paris  << std::endl;
         return false;
     }
-    
+
     /////////////////////////////////////////////////////////////////////////
     ///// Exporting "normal" urdf file
     /////////////////////////////////////////////////////////////////////////
     TiXmlDocument* xml_doc;
-    
+
     xml_doc = exportURDF(urdf_idyn);
-    
+
     if( ! xml_doc->SaveFile(filename_urdf) ) {
         std::cerr << "Fatal error in URDF xml saving filename " << filename_urdf  << std::endl;
         return false;
     }
-   
-    
+
+
     //////////////////////////////////////////////////////////////////////////
     ///// Creating gazebo file
     /////////////////////////////////////////////////////////////////////////
     if( ! urdf_gazebo_cleanup_regularize_masses(urdf_idyn,mass_epsilon,inertia_epsilon) ) { std::cerr << "Error in regularizing masses root " << std::endl; return false; }
-    
+
     //////////////////////////////////////////////////////////////////////////
     ////// Creating URDF file coherent with gazebo workarounds for use in iDynTree
-    /////////////////////////////////////////////////////////////////////////    
+    /////////////////////////////////////////////////////////////////////////
     xml_doc = exportURDF(urdf_idyn);
 
-    
+
     if( ! xml_doc->SaveFile(filename_urdf_gazebo) ) {
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
         return false;
     }
-    
+
     if( ! urdf_gazebo_cleanup_remove_massless_root(urdf_idyn) ) { std::cerr << "Error in removing massless root " << std::endl; return false; }
     printTree(urdf_idyn->getRoot());
     printJoints(urdf_idyn);
-    if( ! urdf_gazebo_cleanup_remove_frames(urdf_idyn) ) { std::cerr << "Error in removing frames " << std::endl; return false; } 
-    if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; } 
+    if( ! urdf_gazebo_cleanup_remove_frames(urdf_idyn) ) { std::cerr << "Error in removing frames " << std::endl; return false; }
+    if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_regularize_masses(urdf_idyn,mass_epsilon,inertia_epsilon) ) { std::cerr << "Error in regularizing masses root " << std::endl; return false; }
-    if( ! urdf_gazebo_cleanup_add_model_uri(urdf_idyn,gazebo_uri_prefix) ) { std::cerr << "Error in adding model URIs " << std::endl; return false; } 
-    
+    if( ! urdf_gazebo_cleanup_add_model_uri(urdf_idyn,gazebo_uri_prefix) ) { std::cerr << "Error in adding model URIs " << std::endl; return false; }
+
     xml_doc = exportURDF(urdf_idyn);
 
     /*
@@ -472,34 +501,34 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
         std::cerr << "Fatal error in URDF xml saving" << std::endl;
         return false;
     }*/
-    
+
     std::stringstream ss;
     ss << *xml_doc;
     std::string urdf_for_gazebo_conversion_string = ss.str();
-    
+
     //Ugly workaround, I know, probably can be avoided by directly using sdfformat library
-    //std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename; 
+    //std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename;
     //std::cout << "Running command: " << gazebo_conversion_command << std::endl;
 
     sdf::URDF2SDF urdf_converter;
     TiXmlDocument sdf_xml = urdf_converter.InitModelString(urdf_for_gazebo_conversion_string);
-    
+
     //system(gazebo_conversion_command.c_str());
     //if( !system(gazebo_conversion_command.c_str()) ) { std::cerr << "Error in urdf - sdf conversion" << std::endl; return false; }
-    
+
     //\todo: adding plugins to generated sdf
     sdf::SDFPtr icub_sdf(new sdf::SDF());
     sdf::init(icub_sdf);
-    
+
     //if( ! sdf::readFile(gazebo_sdf_filename,icub_sdf) ) { std::cerr << "Problem in reading SDF file" << std::endl; return false; }
     if( ! sdf::readDoc(&sdf_xml,icub_sdf,"custom sdf xml") ) { std::cerr << "Problem in loading SDF file" << std::endl; return false; }
-    
+
     if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
-    
+
     //Adding IMU sensor (in all robots)
     /// \todo add difference between head V1 and head V2
     if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor",iCub_name) ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
-    
+
     //Adding FT sensors (in all robots)
     bool ret=true;
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_arm",iCub_name);
@@ -512,7 +541,7 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
         ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_foot",iCub_name);
     }
     if( !ret ) { std::cerr << "Problem in adding ft sensors" << std::endl; return false; }
-    
+
     //Adding controlboards (in all robots, in the future add differences)
     ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"torso",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding torso controlboard" << std::endl; return false; }
@@ -526,32 +555,59 @@ bool generate_iCub_model(std::string iCub_name, std::string root_directory, int 
     if( !ret ) { std::cerr << "Problem in adding left_leg controlboards" << std::endl; return false; }
     ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_leg",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding right_leg controlboards" << std::endl; return false; }
-    
+
     //Adding parameters for properly handling of the contacts
     ret = ret && addGazeboODEContactsProperties(icub_sdf,"l_foot","l_foot_collision");
     if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
     ret = ret && addGazeboODEContactsProperties(icub_sdf,"r_foot","r_foot_collision");
     if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
-    
+
     //Adding pose to avoid intersection with ground
     //<pose>0 0 0.70 0 0 0 </pose>
     sdf::ElementPtr pose = icub_sdf->root->GetElement("model")->AddElement("pose");
     pose->AddValue("string","0 0 0.70 0 0 0",false);
-    
-    
+
+
     icub_sdf->Write(gazebo_sdf_filename);
-    
+
+    generate_model_config_file(iCub_name,gazebo_robot_model_directory);
+
     return true;
 }
+
+
+bool generate_gazebo_database(const std::vector<std::string> & robot_names, const std::string root_directory)
+{
+    std::string gazebo_model_directory = get_gazebo_model_directory(root_directory);
+
+    std::ofstream database_file;
+    std::string database_file_name = gazebo_model_directory+"database.config";
+
+    std::cerr << "generating gazebo database at : " << std::endl;;
+
+
+    database_file.open(database_file_name.c_str());
+    database_file << "<?xml version='1.0'?>\n<database>\n";
+    database_file << "<name>icub-model-generator Database</name>\n";
+    database_file << "<models>";
+    for(int i=0; i < robot_names.size(); i++ )
+    {
+        database_file << "<uri>file://"+robot_names[i]+"</uri>\n";
+    }
+
+    database_file << "</models>\n</database>\n" << std::endl;
+    database_file.close();
+}
+
 
 int main(int argc, char* argv[])
 {
     bool status = true;
-    
+
     yarp::os::Property opt;
-    
+
     opt.fromCommand(argc,argv);
-    
+
     if( opt.check("help") || !opt.check("output_directory") || !opt.check("data_directory") ) {
         std::cerr << "Utility for generating URDF and SDF models for iCub robots" << std::endl;
         std::cerr << "Creating one URDF with data from CAD, and a SDF directory with parameters modified to work in Gazebo (with a URDF that matches the modified simulated model)" << std::endl;
@@ -559,33 +615,41 @@ int main(int argc, char* argv[])
         std::cerr << "Additional options: --min_mass and --min_inertia are used to select the minimum mass and minimum inertia to a give to a link in Gazebo model (default: mass 0.1, inertia: 0.01)" << std::endl;
         return EXIT_FAILURE;
     }
-    
+
     std::string output_directory = opt.find("output_directory").asString();
     std::string data_directory = opt.find("data_directory").asString();
-    
+
     if( *(output_directory.rbegin()) != '/' ) {
         output_directory = output_directory + "/";
     }
-    
+
     if( *(data_directory.rbegin()) != '/' ) {
         data_directory = data_directory + "/";
     }
-    
+
     double mass_epsilon = 0.1;
     double inertia_epsilon = 0.01;
-    
+
     if( opt.check("min_mass" )  ) mass_epsilon = opt.find("min_mass").asDouble();
     if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
-    
+
     //Generating model for black iCub
-    //                  robot_name     directory         head   legs   feet  meshes 
+    //                  robot_name     directory         head   legs   feet  meshes
     if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    
+
     //Generating model for red iCub
     if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-        
+
     std::cerr << "iCub model files successfully created" << std::endl;
-    
+
+    //Generate model database
+    std::vector<std::string> robot_names;
+    robot_names.push_back("iCubGenova01");
+    robot_names.push_back("iCubGenova03");
+
+    std::cerr << "Generating gazebo database" << std::endl;
+    generate_gazebo_database(robot_names,output_directory);
+
     return EXIT_SUCCESS;
 }
 
