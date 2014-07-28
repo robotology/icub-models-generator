@@ -305,6 +305,24 @@ bool urdf_import_limits(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
     return true;
 }
 
+
+bool urdf_print_hom_transformations(boost::shared_ptr<urdf::ModelInterface> urdf_input)
+{
+    //Iterate over the joints of urdf_input, and print the transformation matrix
+    for( std::map<std::string, boost::shared_ptr<urdf::Joint> >::iterator it = urdf_input->joints_.begin();
+         it != urdf_input->joints_.end(); it++ )
+    {
+        std::string joint_name = it->second->name;
+        std::string father_link_name = it->second->parent_link_name;
+        std::string child_link_name = it->second->child_link_name;
+        std::cout << "Transformation matrix of frame of link " << child_link_name <<  " expressed in the frame of link " << father_link_name << " : " << std::endl;
+   	    std::cout << toKdl(it->second->parent_to_joint_origin_transform) << std::endl;
+		std::cout << "Axis of joint " << joint_name << " : " << toKdl(it->second->axis) << std::endl;
+
+    }
+    return true;
+}
+
 bool urdf_gazebo_cleanup_remove_massless_root(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
     if( !(urdf_input->getRoot()->inertial) ) {
