@@ -385,7 +385,8 @@ bool generate_iCub_model(std::string iCub_name,
     std::string gazebo_model_directory = get_gazebo_model_directory(root_directory);
     std::string gazebo_robot_model_directory = gazebo_model_directory+iCub_name+"/";
     std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub_simulation.urdf";
-    std::string gazebo_uri_prefix = "model://"+"icub"+"/";
+    std::string gazebo_mesh_model_name = "icub";
+    std::string gazebo_uri_prefix = "model://"+gazebo_mesh_model_name+"/";
     std::string gazebo_sdf_filename = gazebo_robot_model_directory+"icub.sdf";
 
     //Creating needed directories
