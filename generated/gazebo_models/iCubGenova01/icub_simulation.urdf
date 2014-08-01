@@ -735,7 +735,7 @@
     </link>
     <link name="root_link">
         <inertial>
-            <mass value="1.2" />
+            <mass value="4.72" />
             <origin xyz="0 0 0" rpy="0 -0 0" />
             <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
         </inertial>

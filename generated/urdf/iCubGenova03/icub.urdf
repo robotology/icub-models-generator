@@ -108,12 +108,12 @@
     </link>
     <link name="l_foot">
         <inertial>
-            <mass value="-0.09" />
-            <origin xyz="-0.075 -0 -0" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="-0.0005625" iyz="0" izz="-0.0005625" />
+            <mass value="0.761" />
+            <origin xyz="-0.0425846 -0.000613931 0.024069" rpy="0 -0 0" />
+            <inertia ixx="0.00208378" ixy="2.77674e-06" ixz="-0.000650678" iyy="0.00285569" iyz="-4.51893e-06" izz="0.00131975" />
         </inertial>
         <visual>
-            <origin xyz="0.041 -5.54332e-12 4.45646e-12" rpy="5.10331e-12 1.53106e-11 1.53103e-11" />
+            <origin xyz="0.0685 -5.54332e-12 0.0035" rpy="5.10331e-12 1.53106e-11 1.53103e-11" />
             <geometry>
                 <mesh filename="meshes/visual/icub_l_foot.dae" scale="1 1 1" />
             </geometry>
@@ -123,7 +123,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.041 -5.54332e-12 4.45646e-12" rpy="5.10331e-12 1.53106e-11 1.53103e-11" />
+            <origin xyz="0.0685 -5.54332e-12 0.0035" rpy="5.10331e-12 1.53106e-11 1.53103e-11" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_l_foot.dae" scale="1 1 1" />
             </geometry>
@@ -344,7 +344,7 @@
     <link name="l_upper_foot">
         <inertial>
             <mass value="0.1" />
-            <origin xyz="0 0 -0.034" rpy="0 -0 0" />
+            <origin xyz="-0.0035 0 -0.0065" rpy="0 -0 0" />
             <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
     </link>
@@ -486,12 +486,12 @@
     </link>
     <link name="r_foot">
         <inertial>
-            <mass value="-0.09" />
-            <origin xyz="-0.075 -0 -0" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="-0.0005625" iyz="0" izz="-0.0005625" />
+            <mass value="0.761" />
+            <origin xyz="-0.0425846 0.000613931 0.024069" rpy="0 -0 0" />
+            <inertia ixx="0.00208378" ixy="-2.77691e-06" ixz="-0.000650678" iyy="0.00285569" iyz="4.51893e-06" izz="0.00131975" />
         </inertial>
         <visual>
-            <origin xyz="0.041 1.08706e-12 4.45646e-12" rpy="-3.14159 1.53111e-11 -5.10353e-12" />
+            <origin xyz="0.0685 1.08706e-12 0.0035" rpy="-3.14159 1.53111e-11 -5.10353e-12" />
             <geometry>
                 <mesh filename="meshes/visual/icub_r_foot.dae" scale="1 1 1" />
             </geometry>
@@ -501,7 +501,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.041 1.08706e-12 4.45646e-12" rpy="-3.14159 1.53111e-11 -5.10353e-12" />
+            <origin xyz="0.0685 1.08706e-12 0.0035" rpy="-3.14159 1.53111e-11 -5.10353e-12" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_r_foot.dae" scale="1 1 1" />
             </geometry>
@@ -722,8 +722,8 @@
     <link name="r_upper_foot">
         <inertial>
             <mass value="0.1" />
-            <origin xyz="0 0 -0.034" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            <origin xyz="-0.0035 4.28626e-19 -0.0065" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="-2.35099e-38" ixz="0" iyy="0" iyz="4.70198e-38" izz="0" />
         </inertial>
     </link>
     <link name="r_wrist_1">
@@ -735,7 +735,7 @@
     </link>
     <link name="root_link">
         <inertial>
-            <mass value="1.2" />
+            <mass value="4.72" />
             <origin xyz="0 0 0" rpy="0 -0 0" />
             <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
@@ -804,7 +804,7 @@
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="l_foot_ft_sensor" type="fixed">
-        <origin xyz="0 0 0.041" rpy="0 1.5708 0" />
+        <origin xyz="-0.0035 0 0.0685" rpy="0 1.5708 0" />
         <axis xyz="0 0 0" />
         <parent link="l_upper_foot" />
         <child link="l_foot" />
@@ -953,7 +953,7 @@
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="r_foot_ft_sensor" type="fixed">
-        <origin xyz="0 0 0.041" rpy="0 1.5708 0" />
+        <origin xyz="-0.0035 4.28626e-19 0.0685" rpy="0 1.5708 0" />
         <axis xyz="0 0 0" />
         <parent link="r_upper_foot" />
         <child link="r_foot" />
