@@ -634,19 +634,26 @@ int main(int argc, char* argv[])
     if( opt.check("min_mass" )  ) mass_epsilon = opt.find("min_mass").asDouble();
     if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
 
+    //Generate model database
+    std::vector<std::string> robot_names;
+
     //Generating model for black iCub
-    //                  robot_name     directory         head   legs   feet  meshes
+    //                          robot_name     directory    head   legs   feet  
     if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubGenova01");
 
     //Generating model for red iCub
     if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubGenova03");
+    
+    if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis01");
+
+    //Generating model for red iCub
+    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis02");
 
     std::cerr << "iCub model files successfully created" << std::endl;
-
-    //Generate model database
-    std::vector<std::string> robot_names;
-    robot_names.push_back("iCubGenova01");
-    robot_names.push_back("iCubGenova03");
 
     std::cerr << "Generating gazebo database" << std::endl;
     generate_gazebo_database(robot_names,output_directory);
