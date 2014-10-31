@@ -792,7 +792,7 @@
         <parent link="l_shank" />
         <child link="l_ankle_1" />
         <dynamics damping="0.1" friction="0" />
-        <limit effort="24" velocity="100" lower="-0.733038" upper="0.366519" />
+        <limit effort="24" velocity="100" lower="-0.4490658504" upper="0.8679448709" />
     </joint>
     <joint name="l_arm_ft_sensor" type="fixed">
         <origin xyz="0.015 9.36797e-18 0.15228" rpy="-1.5708 0 0" />
@@ -853,7 +853,7 @@
         <parent link="l_hip_1" />
         <child link="l_hip_2" />
         <dynamics damping="0.1" friction="0" />
-        <limit effort="84" velocity="100" lower="-2.07694" upper="0.296706" />
+        <limit effort="84" velocity="100" lower="-0.34" upper="1.6707963268" />
     </joint>
     <joint name="l_leg_ft_sensor" type="fixed">
         <origin xyz="0 0 0" rpy="3.14159 0 -1.5708" />
@@ -963,7 +963,7 @@
         <parent link="r_shank" />
         <child link="r_ankle_1" />
         <dynamics damping="0.1" friction="0" />
-        <limit effort="24" velocity="100" lower="-0.733038" upper="0.366519" />
+        <limit effort="24" velocity="100" lower="-0.4490658504" upper="0.8679448709" />
     </joint>
     <joint name="r_arm_ft_sensor" type="fixed">
         <origin xyz="0.015 -8.93429e-18 0.15228" rpy="1.5708 -0 3.14159" />
@@ -1024,7 +1024,7 @@
         <parent link="r_hip_1" />
         <child link="r_hip_2" />
         <dynamics damping="0.1" friction="0" />
-        <limit effort="84" velocity="100" lower="-2.07694" upper="0.296706" />
+        <limit effort="84" velocity="100" lower="-0.34" upper="1.6707963268" />
     </joint>
     <joint name="r_leg_ft_sensor" type="fixed">
         <origin xyz="0 0 0" rpy="0 -0 1.5708" />
