@@ -9,18 +9,22 @@ PROJECT(${PROJECTNAME})
 # YARP needs CMake 2.6 or greater
 cmake_minimum_required(VERSION 2.6)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+find_package(YCM REQUIRED)
+find_package(YARP REQUIRED)
+find_package(ICUB REQUIRED)
 
 find_package(urdfdom REQUIRED)
 find_package(orocos_kdl REQUIRED)
 find_package(kdl_format_io REQUIRED)
 find_package(Eigen3 REQUIRED)
-#find_package(TinyXML REQUIRED)
-find_package(YARP REQUIRED)
-find_package(ICUB REQUIRED)
+find_package(TinyXML REQUIRED)
+
 find_package(SDFormat REQUIRED)
 find_package(iDynTree REQUIRED)
+
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ICUB_LINK_FLAGS}")
 
 # add YARP include directories
 include_directories(${urdfdom_INCLUDE_DIR}

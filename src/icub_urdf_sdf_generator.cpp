@@ -614,7 +614,7 @@ bool generate_iCub_model(std::string iCub_name,
     if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor",iCub_name) ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
 
     //Adding FT sensors (in all robots)
-    bool ret=true;
+    ret=true;
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_arm",iCub_name);
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_arm",iCub_name);
     ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_leg",iCub_name);
