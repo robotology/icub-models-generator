@@ -1,10 +1,10 @@
-<sdf version='1.4'>
-  <model name='test_icub'>
+<sdf version='1.5'>
+  <model name='iCub'>
     <link name='root_link'>
       <pose>0 0 0 0 -0 0</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
-        <mass>1.2</mass>
+        <mass>4.72</mass>
         <inertia>
           <ixx>0.01</ixx>
           <ixy>0</ixy>
@@ -19,7 +19,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_root_link.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_root_link.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -28,7 +28,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_root_link.dae</uri>
+            <uri>model://icub/meshes/visual/icub_root_link.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -56,7 +56,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_hip_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_hip_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -65,7 +65,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_hip_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_hip_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -85,7 +85,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_hip_2'>
@@ -107,7 +110,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_hip_2.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_hip_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -116,7 +119,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_hip_2.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_hip_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -131,12 +134,15 @@
       <axis>
         <xyz>-1 2.65359e-06 7.34641e-06</xyz>
         <limit>
-          <lower>-2.07694</lower>
-          <upper>0.296706</upper>
+          <lower>-0.34</lower>
+          <upper>1.6707963268</upper>
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_hip_3'>
@@ -169,14 +175,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='left_leg_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_leg_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -199,7 +208,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_thigh.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_thigh.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -208,7 +217,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_thigh.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_thigh.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -228,7 +237,10 @@
           <effort>40</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_shank'>
@@ -250,7 +262,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_shank.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_shank.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -259,7 +271,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_shank.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_shank.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -279,7 +291,10 @@
           <effort>30</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_ankle_1'>
@@ -301,7 +316,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_ankle_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_ankle_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -310,7 +325,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_ankle_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_ankle_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -325,18 +340,21 @@
       <axis>
         <xyz>-8.98037e-06 -1 1.01972e-06</xyz>
         <limit>
-          <lower>-0.733038</lower>
-          <upper>0.366519</upper>
+                    <lower>-0.4490658504</lower>
+                    <upper>0.8679448709</upper>
           <effort>24</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_upper_foot'>
       <pose>-5.14839e-06 -0.0681004 -0.5565 -3.14159 -9.99999e-06 3.14158</pose>
       <inertial>
-        <pose>0 0 -0.034 0 -0 0</pose>
+        <pose>-0.0035 0 -0.0065 0 -0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -363,29 +381,32 @@
           <effort>11</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_foot'>
-      <pose>-5.55839e-06 -0.0681005 -0.5975 -0.0744403 -1.57078 0.0744313</pose>
+      <pose>0.00349417 -0.0681005 -0.625 -0.0744403 -1.57078 0.0744313</pose>
       <inertial>
-        <pose>-0.075 -0 -0 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>-0.0425846 -0.000613931 0.024069 0 -0 0</pose>
+        <mass>0.761</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
+          <ixy>2.77674e-06</ixy>
+          <ixz>-0.000650678</ixz>
           <iyy>0.01</iyy>
-          <iyz>0</iyz>
+          <iyz>-4.51893e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='l_foot_collision'>
-        <pose>0.041 -5.54332e-12 4.45646e-12 5.10331e-12 1.53106e-11 1.53103e-11</pose>
+        <pose>0.0685 -5.54332e-12 0.0035 5.10331e-12 1.53106e-11 1.53103e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_foot.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_foot.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -407,11 +428,11 @@
         </surface>
       </collision>
       <visual name='l_foot_visual'>
-        <pose>0.041 -5.54332e-12 4.45646e-12 5.10331e-12 1.53106e-11 1.53103e-11</pose>
+        <pose>0.0685 -5.54332e-12 0.0035 5.10331e-12 1.53106e-11 1.53103e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_foot.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_foot.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -431,14 +452,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='left_foot_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_foot_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -461,7 +485,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_hip_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_hip_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -470,7 +494,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_hip_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_hip_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -490,7 +514,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_hip_2'>
@@ -512,7 +539,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_hip_2.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_hip_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -521,7 +548,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_hip_2.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_hip_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -536,12 +563,15 @@
       <axis>
         <xyz>1 5.55111e-17 -7.34641e-06</xyz>
         <limit>
-          <lower>-2.07694</lower>
-          <upper>0.296706</upper>
+          <lower>-0.34</lower>
+          <upper>1.6707963268</upper>
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_hip_3'>
@@ -574,14 +604,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='right_leg_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_leg_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -604,7 +637,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_thigh.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_thigh.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -613,7 +646,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_thigh.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_thigh.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -633,7 +666,10 @@
           <effort>40</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_shank'>
@@ -655,7 +691,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_shank.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_shank.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -664,7 +700,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_shank.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_shank.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -684,7 +720,10 @@
           <effort>30</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_ankle_1'>
@@ -706,7 +745,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_ankle_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_ankle_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -715,7 +754,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_ankle_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_ankle_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -730,25 +769,28 @@
       <axis>
         <xyz>1.01959e-06 -1 -3.67322e-06</xyz>
         <limit>
-          <lower>-0.733038</lower>
-          <upper>0.366519</upper>
+                    <lower>-0.4490658504</lower>
+                    <upper>0.8679448709</upper>
           <effort>24</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_upper_foot'>
       <pose>-3.98984e-06 0.0681016 -0.5565 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>0 0 -0.034 0 -0 0</pose>
+        <pose>-0.0035 4.28626e-19 -0.0065 0 -0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>0</ixy>
+          <ixy>-2.35099e-38</ixy>
           <ixz>0</ixz>
           <iyy>0.01</iyy>
-          <iyz>0</iyz>
+          <iyz>4.70198e-38</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
@@ -768,29 +810,32 @@
           <effort>11</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_foot'>
-      <pose>-4.57351e-06 0.0681019 -0.5975 0.388334 -1.57078 -0.388331</pose>
+      <pose>0.00349503 0.0681021 -0.625 0.388334 -1.57078 -0.388331</pose>
       <inertial>
-        <pose>-0.075 -0 -0 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>-0.0425846 0.000613931 0.024069 0 -0 0</pose>
+        <mass>0.761</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
+          <ixy>-2.77691e-06</ixy>
+          <ixz>-0.000650678</ixz>
           <iyy>0.01</iyy>
-          <iyz>0</iyz>
+          <iyz>4.51893e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='r_foot_collision'>
-        <pose>0.041 1.08706e-12 4.45646e-12 -3.14159 1.53111e-11 -5.10353e-12</pose>
+        <pose>0.0685 1.08706e-12 0.0035 -3.14159 1.53111e-11 -5.10353e-12</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_foot.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_foot.dae</uri>
           </mesh>
         </geometry>
         <surface>
@@ -812,11 +857,11 @@
         </surface>
       </collision>
       <visual name='r_foot_visual'>
-        <pose>0.041 1.08706e-12 4.45646e-12 -3.14159 1.53111e-11 -5.10353e-12</pose>
+        <pose>0.0685 1.08706e-12 0.0035 -3.14159 1.53111e-11 -5.10353e-12</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_foot.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_foot.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -836,14 +881,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='right_foot_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_foot_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -866,7 +914,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_lap_belt_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_lap_belt_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -875,7 +923,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_lap_belt_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_lap_belt_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -895,7 +943,10 @@
           <effort>36</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='lap_belt_2'>
@@ -928,7 +979,10 @@
           <effort>80</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='chest'>
@@ -950,7 +1004,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_chest.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_chest.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -959,7 +1013,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_chest.dae</uri>
+            <uri>model://icub/meshes/visual/icub_chest.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -979,7 +1033,10 @@
           <effort>80</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_shoulder_1'>
@@ -1001,7 +1058,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_shoulder_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_shoulder_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1010,7 +1067,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_shoulder_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_shoulder_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1030,7 +1087,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_shoulder_2'>
@@ -1052,7 +1112,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_shoulder_2.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_shoulder_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1061,7 +1121,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_shoulder_2.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_shoulder_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1081,7 +1141,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_upper_arm'>
@@ -1114,7 +1177,10 @@
           <effort>34</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_arm'>
@@ -1136,7 +1202,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_arm.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_arm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1145,7 +1211,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_arm.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_arm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1165,14 +1231,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='left_arm_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_arm_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -1206,7 +1275,10 @@
           <effort>20</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_forearm'>
@@ -1228,7 +1300,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_forearm.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_forearm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1237,7 +1309,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_forearm.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_forearm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1257,7 +1329,10 @@
           <effort>0.45</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_wrist_1'>
@@ -1290,7 +1365,10 @@
           <effort>0.65</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='l_hand'>
@@ -1312,7 +1390,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_l_hand.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_l_hand.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1321,7 +1399,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_l_hand.dae</uri>
+            <uri>model://icub/meshes/visual/icub_l_hand.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1341,7 +1419,10 @@
           <effort>0.65</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='neck_1'>
@@ -1363,7 +1444,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_neck_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_neck_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1372,7 +1453,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_neck_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_neck_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1392,7 +1473,10 @@
           <effort>20</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='neck_2'>
@@ -1414,7 +1498,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_neck_2.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_neck_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1423,7 +1507,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_neck_2.dae</uri>
+            <uri>model://icub/meshes/visual/icub_neck_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1443,7 +1527,10 @@
           <effort>20</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='head'>
@@ -1465,7 +1552,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_head.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_head.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1474,7 +1561,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_head.dae</uri>
+            <uri>model://icub/meshes/visual/icub_head.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1488,7 +1575,7 @@
         <visualize>1</visualize>
         <imu/>
         <plugin name='iCub_yarp_gazebo_plugin_IMU' filename='libgazebo_yarp_imu.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
         </plugin>
         <pose>0.0185 -0.1108 0.0066 1.5708 -0 0</pose>
       </sensor>
@@ -1504,7 +1591,10 @@
           <effort>20</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_shoulder_1'>
@@ -1526,7 +1616,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_shoulder_1.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_shoulder_1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1535,7 +1625,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_shoulder_1.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_shoulder_1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1555,7 +1645,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_shoulder_2'>
@@ -1577,7 +1670,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_shoulder_2.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_shoulder_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1586,7 +1679,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_shoulder_2.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_shoulder_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1606,7 +1699,10 @@
           <effort>84</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_upper_arm'>
@@ -1639,7 +1735,10 @@
           <effort>34</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_arm'>
@@ -1661,7 +1760,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_arm.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_arm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1670,7 +1769,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_arm.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_arm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1690,14 +1789,17 @@
           <effort>0</effort>
           <velocity>0</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
       <sensor name='right_arm_ft' type='force_torque'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_arm_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://iCubGenova03/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -1731,7 +1833,10 @@
           <effort>20</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_forearm'>
@@ -1753,7 +1858,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_forearm.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_forearm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1762,7 +1867,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_forearm.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_forearm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1782,7 +1887,10 @@
           <effort>0.45</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_wrist_1'>
@@ -1815,7 +1923,10 @@
           <effort>0.65</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <link name='r_hand'>
@@ -1837,7 +1948,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/collision/icub_simple_collision_r_hand.dae</uri>
+            <uri>model://icub/meshes/collision/icub_simple_collision_r_hand.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -1846,7 +1957,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://iCubGenova03/meshes/visual/icub_r_hand.dae</uri>
+            <uri>model://icub/meshes/visual/icub_r_hand.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -1866,28 +1977,31 @@
           <effort>0.65</effort>
           <velocity>100</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <damping>0.1</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
     <plugin name='controlboard_torso' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_head' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_head.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_head.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_left_arm' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
       <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
     </plugin>
     <plugin name='controlboard_right_arm' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
       <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
     </plugin>
     <plugin name='controlboard_left_leg' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_right_leg' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubGenova03/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
     </plugin>
     <pose>0 0 0.70 0 0 0</pose>
   </model>
