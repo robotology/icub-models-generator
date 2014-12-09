@@ -162,6 +162,98 @@ bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor_name, std:
     }
 }
 
+/**
+ *
+ * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ */
+std::string getFTJointName(const std::string sensor_name)
+{
+    if( sensor_name == "left_arm" ) {
+        return "l_arm_ft_sensor";
+    } else if ( sensor_name == "right_arm" ) {
+        return "r_arm_ft_sensor";
+    } else if ( sensor_name == "left_leg" ) {
+        return "l_leg_ft_sensor";
+    } else if ( sensor_name == "right_leg" ) {
+        return "r_leg_ft_sensor";
+    } else if ( sensor_name == "left_foot" ) {
+        return "l_foot_ft_sensor";
+    } else if ( sensor_name == "right_foot" ) {
+        return "r_foot_ft_sensor";
+    } else {
+        return ERROR_FT_SENSOR_JOINT;
+    }
+}
+
+/**
+ * Add the force/torque sensor description to the URDF (using gazebo extentions)
+ * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ */
+bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_name)
+{
+    // FT sensors extracted from iDyn are defined with respect to child link reference frame <frame>child</frame>
+    // and they are measuring the wrench that the child link applies on the parent link <measure_direction>child_to_parent</measure_direction>
+
+    //Get the URDF joint that models the FT sensor
+    std::string ft_sensor_joint = getFTJointName(sensor_name);
+
+    if( ft_sensor_joint == ERROR_FT_SENSOR_JOINT ) {
+        return false;
+    }
+
+    /*
+       <gazebo reference="l_foot_ft_sensor">
+        <sensor name='left_foot_ft' type='force_torque'>
+        <force_torque>
+           <frame>child</frame>
+           <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+        <always_on>1</always_on>
+       <update_rate>100</update_rate>
+       </sensor>
+       </gazebo>
+     */
+
+    TiXmlElement * gazebo_element = new TiXmlElement( "gazebo" );
+    urdf_doc->LinkEndChild(gazebo_element);
+
+    gazebo_element->SetAttribute("reference",ft_sensor_joint.c_str());
+
+    TiXmlElement * sensor_element = new TiXmlElement( "sensor" );
+    gazebo_element->LinkEndChild(sensor_element);
+
+    std::string sdf_sensor_name = sensor_name+"_ft";
+    sensor_element->SetAttribute("name",sdf_sensor_name.c_str());
+    sensor_element->SetAttribute("type","force_torque");
+
+    TiXmlElement * force_torque_element = new TiXmlElement( "force_torque" );
+    sensor_element->LinkEndChild(force_torque_element);
+
+    TiXmlElement * frame_element = new TiXmlElement( "frame" );
+    force_torque_element->LinkEndChild(frame_element);
+
+    TiXmlText * frame_text = new TiXmlText( "child" );
+    frame_element->LinkEndChild(frame_text);
+
+    TiXmlElement * measure_direction_element = new TiXmlElement( "measure_direction" );
+    force_torque_element->LinkEndChild(measure_direction_element);
+
+    TiXmlText * measure_direction_text = new TiXmlText( "child_to_parent" );
+    measure_direction_element->LinkEndChild(measure_direction_text);
+
+    TiXmlElement * update_rate_element = new TiXmlElement( "update_rate" );
+    sensor_element->LinkEndChild(update_rate_element);
+
+    TiXmlText * update_rate_text = new TiXmlText( "100" );
+    update_rate_element->LinkEndChild(update_rate_text);
+
+    TiXmlElement * always_on_element = new TiXmlElement( "always_on" );
+    sensor_element->LinkEndChild(always_on_element);
+
+    TiXmlText * always_on_text = new TiXmlText( "1" );
+    always_on_element->LinkEndChild(always_on_text);
+}
+
 bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_name, std::string robot_name)
 {
     /*
@@ -196,28 +288,6 @@ bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_na
     return true;
 }
 
-/**
- *
- * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
- */
-std::string getFTJointName(const std::string sensor_name)
-{
-    if( sensor_name == "left_arm" ) {
-        return "l_arm_ft_sensor";
-    } else if ( sensor_name == "right_arm" ) {
-        return "r_arm_ft_sensor";
-    } else if ( sensor_name == "left_leg" ) {
-        return "l_leg_ft_sensor";
-    } else if ( sensor_name == "right_leg" ) {
-        return "r_leg_ft_sensor";
-    } else if ( sensor_name == "left_foot" ) {
-        return "l_foot_ft_sensor";
-    } else if ( sensor_name == "right_foot" ) {
-        return "r_foot_ft_sensor";
-    } else {
-        return ERROR_FT_SENSOR_JOINT;
-    }
-}
 
 /**
  * Add the force/torque sensor description (with the relative gazebo_yarp_plugin)
@@ -385,7 +455,8 @@ bool generate_iCub_model(std::string iCub_name,
     std::string gazebo_model_directory = get_gazebo_model_directory(root_directory);
     std::string gazebo_robot_model_directory = gazebo_model_directory+iCub_name+"/";
     std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub_simulation.urdf";
-    std::string gazebo_uri_prefix = "model://"+"icub"+"/";
+    std::string gazebo_mesh_model_name = "icub";
+    std::string gazebo_uri_prefix = "model://"+gazebo_mesh_model_name+"/";
     std::string gazebo_sdf_filename = gazebo_robot_model_directory+"icub.sdf";
 
     //Creating needed directories
@@ -463,6 +534,19 @@ bool generate_iCub_model(std::string iCub_name,
     TiXmlDocument* xml_doc;
 
     xml_doc = exportURDF(urdf_idyn);
+
+    // Add sensors
+    bool ret=true;
+    ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"left_arm");
+    ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"right_arm");
+    ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"left_leg");
+    ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"right_leg");
+    if( ft_feet ) {
+        std::cerr << "Adding feet FT sensors" << std::endl;
+        ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"left_foot");
+        ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"right_foot");
+    }
+    if( !ret ) { std::cerr << "Problem in adding ft sensors" << std::endl; return false; }
 
     if( ! xml_doc->SaveFile(filename_urdf) ) {
         std::cerr << "Fatal error in URDF xml saving filename " << filename_urdf  << std::endl;
@@ -633,19 +717,26 @@ int main(int argc, char* argv[])
     if( opt.check("min_mass" )  ) mass_epsilon = opt.find("min_mass").asDouble();
     if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
 
+    //Generate model database
+    std::vector<std::string> robot_names;
+
     //Generating model for black iCub
-    //                  robot_name     directory         head   legs   feet  meshes
+    //                          robot_name     directory    head   legs   feet
     if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubGenova01");
 
     //Generating model for red iCub
     if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubGenova03");
+
+    if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis01");
+
+    //Generating model for red iCub
+    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis02");
 
     std::cerr << "iCub model files successfully created" << std::endl;
-
-    //Generate model database
-    std::vector<std::string> robot_names;
-    robot_names.push_back("iCubGenova01");
-    robot_names.push_back("iCubGenova03");
 
     std::cerr << "Generating gazebo database" << std::endl;
     generate_gazebo_database(robot_names,output_directory);
