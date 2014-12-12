@@ -532,6 +532,14 @@ bool generate_iCub_model(std::string iCub_name,
         return false;
     }
 
+    //Add damping
+    ret_ok = urdf_set_friction_parameters(urdf_idyn,0.1,0.0);
+
+    if( !ret_ok ) {
+        std::cerr << "Fatal error in setting friction parameters"  << std::endl;
+        return false;
+    }
+
     /////////////////////////////////////////////////////////////////////////
     ///// Exporting "normal" urdf file
     /////////////////////////////////////////////////////////////////////////
@@ -575,8 +583,8 @@ bool generate_iCub_model(std::string iCub_name,
     }
 
     if( ! urdf_gazebo_cleanup_remove_massless_root(urdf_idyn) ) { std::cerr << "Error in removing massless root " << std::endl; return false; }
-    printTree(urdf_idyn->getRoot());
-    printJoints(urdf_idyn);
+    //printTree(urdf_idyn->getRoot());
+    //printJoints(urdf_idyn);
     if( ! urdf_gazebo_cleanup_remove_frames(urdf_idyn) ) { std::cerr << "Error in removing frames " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_regularize_masses(urdf_idyn,mass_epsilon,inertia_epsilon) ) { std::cerr << "Error in regularizing masses root " << std::endl; return false; }

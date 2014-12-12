@@ -241,6 +241,22 @@
             <origin xyz="-0.1071 0.00182 0.00211" rpy="0 -0 0" />
             <inertia ixx="0.00099895" ixy="-0.000185699" ixz="-6.3147e-05" iyy="0.00445054" iyz="7.86e-07" izz="0.00420766" />
         </inertial>
+        <visual>
+            <origin xyz="5.55112e-17 2.28232e-12 2.28224e-12" rpy="-3.14159 -7.26746e-17 1.5708" />
+            <geometry>
+                <mesh filename="meshes/visual/icub_l_shank.dae" scale="1 1 1" />
+            </geometry>
+            <material name="material.metal">
+                <texture />
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="5.55112e-17 2.28232e-12 2.28224e-12" rpy="-3.14159 -7.26746e-17 1.5708" />
+            <geometry>
+                <mesh filename="meshes/collision/icub_simple_collision_l_shank.dae" scale="1 1 1" />
+            </geometry>
+        </collision>
     </link>
     <link name="l_shoulder_1">
         <inertial>
@@ -337,36 +353,6 @@
             <mass value="0" />
             <origin xyz="0 0 0" rpy="0 -0 0" />
             <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-        </inertial>
-    </link>
-    <link name="lap_belt_1">
-        <inertial>
-            <mass value="0" />
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <inertia ixx="0.0004544" ixy="-4.263e-05" ixz="-3.889e-08" iyy="0.001141" iyz="0" izz="0.001236" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 0" rpy="-1.5708 5.10314e-12 1.11022e-16" />
-            <geometry>
-                <mesh filename="meshes/visual/icub_lap_belt_1.dae" scale="1 1 1" />
-            </geometry>
-            <material name="material.metal">
-                <texture />
-                <color rgba="0 0 0 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="-1.5708 5.10314e-12 1.11022e-16" />
-            <geometry>
-                <mesh filename="meshes/collision/icub_simple_collision_lap_belt_1.dae" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
-    <link name="lap_belt_2">
-        <inertial>
-            <mass value="0" />
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <inertia ixx="0.0005308" ixy="-1.923e-06" ixz="5.095e-05" iyy="0.002031" iyz="-3.849e-07" izz="0.001803" />
         </inertial>
     </link>
     <link name="neck_1">
@@ -603,6 +589,22 @@
             <origin xyz="-0.1071 0.00182 -0.00211" rpy="0 -0 0" />
             <inertia ixx="-6.2511e-19" ixy="5.42101e-20" ixz="-5.42101e-20" iyy="-1.73472e-18" iyz="8.47033e-22" izz="-1.73472e-18" />
         </inertial>
+        <visual>
+            <origin xyz="5.55112e-17 2.28232e-12 -2.77556e-17" rpy="3.14159 2.71835e-16 1.5708" />
+            <geometry>
+                <mesh filename="meshes/visual/icub_r_shank.dae" scale="1 1 1" />
+            </geometry>
+            <material name="material.metal">
+                <texture />
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="5.55112e-17 2.28232e-12 -2.77556e-17" rpy="3.14159 2.71835e-16 1.5708" />
+            <geometry>
+                <mesh filename="meshes/collision/icub_simple_collision_r_shank.dae" scale="1 1 1" />
+            </geometry>
+        </collision>
     </link>
     <link name="r_shoulder_1">
         <inertial>
@@ -731,11 +733,42 @@
             <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
     </link>
+    <link name="torso_1">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0.0004544" ixy="-4.263e-05" ixz="-3.889e-08" iyy="0.001141" iyz="0" izz="0.001236" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="-1.5708 5.10314e-12 1.11022e-16" />
+            <geometry>
+                <mesh filename="meshes/visual/icub_lap_belt_1.dae" scale="1 1 1" />
+            </geometry>
+            <material name="material.metal">
+                <texture />
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="-1.5708 5.10314e-12 1.11022e-16" />
+            <geometry>
+                <mesh filename="meshes/collision/icub_simple_collision_lap_belt_1.dae" scale="1 1 1" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso_2">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0.0005308" ixy="-1.923e-06" ixz="5.095e-05" iyy="0.002031" iyz="-3.849e-07" izz="0.001803" />
+        </inertial>
+    </link>
     <joint name="torso_yaw" type="revolute">
         <origin xyz="-7.46298e-34 -0.0055 0" rpy="-1.5708 -0 -1.5708" />
         <axis xyz="0 -1 6.12323e-17" />
-        <parent link="lap_belt_2" />
+        <parent link="torso_2" />
         <child link="chest" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="80" velocity="100" lower="-1.02974" upper="1.02974" />
     </joint>
     <joint name="neck_yaw" type="revolute">
@@ -743,6 +776,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="neck_2" />
         <child link="head" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="20" velocity="100" lower="-0.959931" upper="0.959931" />
     </joint>
     <joint name="imu_frame_fixed_joint" type="fixed">
@@ -756,6 +790,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="l_leg" />
         <child link="l_ankle_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="24" velocity="100" lower="-0.733038" upper="0.366519" />
     </joint>
     <joint name="l_arm_ft_sensor" type="fixed">
@@ -769,6 +804,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_arm" />
         <child link="l_elbow_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="l_foot_ft_sensor" type="fixed">
@@ -782,6 +818,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_elbow_1" />
         <child link="l_forearm" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
     </joint>
     <joint name="l_gripper_joint" type="fixed">
@@ -795,6 +832,7 @@
         <axis xyz="0 0 1" />
         <parent link="l_wrist_1" />
         <child link="l_hand" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
     </joint>
     <joint name="l_hip_pitch" type="revolute">
@@ -802,6 +840,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="root_link" />
         <child link="l_hip_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-0.767945" upper="2.30383" />
     </joint>
     <joint name="l_hip_roll" type="revolute">
@@ -809,6 +848,7 @@
         <axis xyz="1 0 -6.12323e-17" />
         <parent link="l_hip_1" />
         <child link="l_hip_2" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-2.07694" upper="0.296706" />
     </joint>
     <joint name="l_leg_ft_sensor" type="fixed">
@@ -822,6 +862,7 @@
         <axis xyz="0 1.22465e-16 -1" />
         <parent link="l_thigh" />
         <child link="l_leg" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="30" velocity="100" lower="-2.18166" upper="0.401426" />
     </joint>
     <joint name="l_shoulder_pitch" type="revolute">
@@ -829,6 +870,7 @@
         <axis xyz="0 -1 5.55112e-17" />
         <parent link="chest" />
         <child link="l_shoulder_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-1.65806" upper="0.0872665" />
     </joint>
     <joint name="l_shoulder_roll" type="revolute">
@@ -836,6 +878,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_shoulder_1" />
         <child link="l_shoulder_2" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="0" upper="2.80649" />
     </joint>
     <joint name="l_sole_joint" type="fixed">
@@ -849,6 +892,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_hip_3" />
         <child link="l_thigh" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="40" velocity="100" lower="-1.37881" upper="1.37881" />
     </joint>
     <joint name="l_shoulder_yaw" type="revolute">
@@ -856,6 +900,7 @@
         <axis xyz="0 6.12323e-17 1" />
         <parent link="l_shoulder_2" />
         <child link="l_upper_arm" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="34" velocity="100" lower="-0.645772" upper="1.74533" />
     </joint>
     <joint name="l_ankle_roll" type="revolute">
@@ -863,6 +908,7 @@
         <axis xyz="1 0 0" />
         <parent link="l_ankle_1" />
         <child link="l_upper_foot" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="11" velocity="100" lower="-0.418879" upper="0.418879" />
     </joint>
     <joint name="l_wrist_pitch" type="revolute">
@@ -870,27 +916,15 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="l_forearm" />
         <child link="l_wrist_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-1.13446" upper="0.174533" />
-    </joint>
-    <joint name="torso_pitch" type="revolute">
-        <origin xyz="0 0 0" rpy="-2.77556e-17 -1.5708 3.14159" />
-        <axis xyz="0 1 6.12323e-17" />
-        <parent link="root_link" />
-        <child link="lap_belt_1" />
-        <limit effort="36" velocity="100" lower="-0.383972" upper="1.46608" />
-    </joint>
-    <joint name="torso_roll" type="revolute">
-        <origin xyz="0.032 -2.67276e-51 0" rpy="1.5708 -0 -1.5708" />
-        <axis xyz="0 1 6.12323e-17" />
-        <parent link="lap_belt_1" />
-        <child link="lap_belt_2" />
-        <limit effort="80" velocity="100" lower="-0.680678" upper="0.680678" />
     </joint>
     <joint name="neck_pitch" type="revolute">
         <origin xyz="0.00231 0.1933 -1.18362e-17" rpy="1.5708 -0 1.5708" />
         <axis xyz="0 1 6.12323e-17" />
         <parent link="chest" />
         <child link="neck_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="20" velocity="100" lower="-0.698132" upper="0.523599" />
     </joint>
     <joint name="neck_roll" type="revolute">
@@ -898,6 +932,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="neck_1" />
         <child link="neck_2" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="20" velocity="100" lower="-1.22173" upper="1.0472" />
     </joint>
     <joint name="r_ankle_pitch" type="revolute">
@@ -905,6 +940,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_leg" />
         <child link="r_ankle_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="24" velocity="100" lower="-0.733038" upper="0.366519" />
     </joint>
     <joint name="r_arm_ft_sensor" type="fixed">
@@ -918,6 +954,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_arm" />
         <child link="r_elbow_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="r_foot_ft_sensor" type="fixed">
@@ -931,6 +968,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_elbow_1" />
         <child link="r_forearm" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
     </joint>
     <joint name="r_gripper_joint" type="fixed">
@@ -944,6 +982,7 @@
         <axis xyz="0 0 1" />
         <parent link="r_wrist_1" />
         <child link="r_hand" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
     </joint>
     <joint name="r_hip_pitch" type="revolute">
@@ -951,6 +990,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="root_link" />
         <child link="r_hip_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-0.767945" upper="2.30383" />
     </joint>
     <joint name="r_hip_roll" type="revolute">
@@ -958,6 +998,7 @@
         <axis xyz="-1 0 6.12323e-17" />
         <parent link="r_hip_1" />
         <child link="r_hip_2" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-2.07694" upper="0.296706" />
     </joint>
     <joint name="r_leg_ft_sensor" type="fixed">
@@ -971,6 +1012,7 @@
         <axis xyz="0 1.22465e-16 -1" />
         <parent link="r_thigh" />
         <child link="r_leg" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="30" velocity="100" lower="-2.18166" upper="0.401426" />
     </joint>
     <joint name="r_shoulder_pitch" type="revolute">
@@ -978,6 +1020,7 @@
         <axis xyz="0 1 5.55112e-17" />
         <parent link="chest" />
         <child link="r_shoulder_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="-1.65806" upper="0.0872665" />
     </joint>
     <joint name="r_shoulder_roll" type="revolute">
@@ -985,6 +1028,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="r_shoulder_1" />
         <child link="r_shoulder_2" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="84" velocity="100" lower="0" upper="2.80649" />
     </joint>
     <joint name="r_sole_joint" type="fixed">
@@ -998,6 +1042,7 @@
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="r_hip_3" />
         <child link="r_thigh" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="40" velocity="100" lower="-1.37881" upper="1.37881" />
     </joint>
     <joint name="r_shoulder_yaw" type="revolute">
@@ -1005,6 +1050,7 @@
         <axis xyz="0 6.12323e-17 -1" />
         <parent link="r_shoulder_2" />
         <child link="r_upper_arm" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="34" velocity="100" lower="-0.645772" upper="1.74533" />
     </joint>
     <joint name="r_ankle_roll" type="revolute">
@@ -1012,6 +1058,7 @@
         <axis xyz="-1 1.22465e-16 0" />
         <parent link="r_ankle_1" />
         <child link="r_upper_foot" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="11" velocity="100" lower="-0.418879" upper="0.418879" />
     </joint>
     <joint name="r_wrist_pitch" type="revolute">
@@ -1019,6 +1066,7 @@
         <axis xyz="0 1 6.12323e-17" />
         <parent link="r_forearm" />
         <child link="r_wrist_1" />
+        <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-1.13446" upper="0.174533" />
     </joint>
     <joint name="base_fixed_joint" type="fixed">
@@ -1032,6 +1080,22 @@
         <axis xyz="0 0 0" />
         <parent link="chest" />
         <child link="torso" />
+    </joint>
+    <joint name="torso_pitch" type="revolute">
+        <origin xyz="0 0 0" rpy="-2.77556e-17 -1.5708 3.14159" />
+        <axis xyz="0 1 6.12323e-17" />
+        <parent link="root_link" />
+        <child link="torso_1" />
+        <dynamics damping="0.1" friction="0" />
+        <limit effort="36" velocity="100" lower="-0.383972" upper="1.46608" />
+    </joint>
+    <joint name="torso_roll" type="revolute">
+        <origin xyz="0.032 -2.67276e-51 0" rpy="1.5708 -0 -1.5708" />
+        <axis xyz="0 1 6.12323e-17" />
+        <parent link="torso_1" />
+        <child link="torso_2" />
+        <dynamics damping="0.1" friction="0" />
+        <limit effort="80" velocity="100" lower="-0.680678" upper="0.680678" />
     </joint>
     <gazebo reference="l_arm_ft_sensor">
         <sensor name="left_arm_ft" type="force_torque">
