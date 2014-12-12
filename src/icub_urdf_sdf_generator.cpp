@@ -532,6 +532,14 @@ bool generate_iCub_model(std::string iCub_name,
         return false;
     }
 
+    //Add damping
+    ret_ok = urdf_set_friction_parameters(urdf_idyn,0.1,0.0);
+
+    if( !ret_ok ) {
+        std::cerr << "Fatal error in setting friction parameters"  << std::endl;
+        return false;
+    }
+
     /////////////////////////////////////////////////////////////////////////
     ///// Exporting "normal" urdf file
     /////////////////////////////////////////////////////////////////////////
@@ -575,8 +583,8 @@ bool generate_iCub_model(std::string iCub_name,
     }
 
     if( ! urdf_gazebo_cleanup_remove_massless_root(urdf_idyn) ) { std::cerr << "Error in removing massless root " << std::endl; return false; }
-    printTree(urdf_idyn->getRoot());
-    printJoints(urdf_idyn);
+    //printTree(urdf_idyn->getRoot());
+    //printJoints(urdf_idyn);
     if( ! urdf_gazebo_cleanup_remove_frames(urdf_idyn) ) { std::cerr << "Error in removing frames " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_regularize_masses(urdf_idyn,mass_epsilon,inertia_epsilon) ) { std::cerr << "Error in regularizing masses root " << std::endl; return false; }
@@ -733,12 +741,12 @@ int main(int argc, char* argv[])
     if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova03");
 
-    if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    robot_names.push_back("iCubParis01");
+    //if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    //robot_names.push_back("iCubParis01");
 
     //Generating model for red iCub
-    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    robot_names.push_back("iCubParis02");
+    //if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    //robot_names.push_back("iCubParis02");
 
     std::cerr << "iCub model files successfully created" << std::endl;
 

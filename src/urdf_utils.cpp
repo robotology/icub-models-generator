@@ -305,6 +305,23 @@ bool urdf_import_limits(boost::shared_ptr<urdf::ModelInterface> urdf_input, boos
     return true;
 }
 
+bool urdf_set_friction_parameters(boost::shared_ptr<urdf::ModelInterface> urdf_input, double damping, double friction)
+{
+    //Iterate over the joints of urdf_input, and copy the limits
+    for( std::map<std::string, boost::shared_ptr<urdf::Joint> >::iterator it = urdf_input->joints_.begin();
+         it != urdf_input->joints_.end(); it++ )
+    {
+        if( it->second->type == urdf::Joint::REVOLUTE ||
+            it->second->type == urdf::Joint::CONTINUOUS )
+        {
+            it->second->dynamics.reset(new urdf::JointDynamics);
+            it->second->dynamics->damping = damping;
+            it->second->dynamics->friction = friction;
+        }
+    }
+
+    return true;
+}
 
 bool urdf_print_hom_transformations(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
