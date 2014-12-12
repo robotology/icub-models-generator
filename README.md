@@ -5,6 +5,10 @@ This software repository is still in alpha stage, not ready for normal use.
 
 Resources (./data/ folder) and programs (./src/) folder to generated models (URDF,SDF) of the iCub robot .
 
+**The generated models are not compatible anymore with CoDyCo software v0.1, for example the
+one that you can find currently in the master branch of the `codyco-superbuild` repository.
+They should be used only with v0.2+**
+
 Installation
 ------------
 
