@@ -214,8 +214,10 @@ bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_na
        </gazebo>
      */
 
+    TiXmlElement * robot_element = urdf_doc->FirstChildElement( "robot" );
+
     TiXmlElement * gazebo_element = new TiXmlElement( "gazebo" );
-    urdf_doc->LinkEndChild(gazebo_element);
+    robot_element->LinkEndChild(gazebo_element);
 
     gazebo_element->SetAttribute("reference",ft_sensor_joint.c_str());
 
@@ -252,6 +254,8 @@ bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_na
 
     TiXmlText * always_on_text = new TiXmlText( "1" );
     always_on_element->LinkEndChild(always_on_text);
+
+    return true;
 }
 
 bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_name, std::string robot_name)
@@ -546,7 +550,7 @@ bool generate_iCub_model(std::string iCub_name,
         ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"left_foot");
         ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"right_foot");
     }
-    if( !ret ) { std::cerr << "Problem in adding ft sensors" << std::endl; return false; }
+    if( !ret ) { std::cerr << "Problem in adding ft sensors to the URDF file" << std::endl; return false; }
 
     if( ! xml_doc->SaveFile(filename_urdf) ) {
         std::cerr << "Fatal error in URDF xml saving filename " << filename_urdf  << std::endl;
