@@ -25,9 +25,9 @@
     </link>
     <link name="head">
         <inertial>
-            <mass value="1.33687" />
+            <mass value="3" />
             <origin xyz="0.0185 -0.1108 6.78454e-18" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="2.40741e-35" iyy="0" iyz="0" izz="0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
         <visual>
             <origin xyz="0.0045 -0.0235 9.42472e-13" rpy="1.81577 1.5708 0.244969" />
