@@ -72,7 +72,7 @@
 			<origin rpy="1.5707963268 0.0 1.5707963268" xyz="-0.0 0.0 -0.1501968774"/>
 		</inertial>
 	</link>
-	<link name="l_shank">
+	<link name="l_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_l_shank.dae"/>
@@ -485,7 +485,7 @@
 			<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.0 0.1501968774"/>
 		</inertial>
 	</link>
-	<link name="r_shank">
+	<link name="r_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_r_shank.dae"/>
@@ -562,13 +562,13 @@
 	</joint>
 	<joint name="l_knee" type="revolute">
 		<parent link="l_thigh"/>
-		<child link="l_shank"/>
+		<child link="l_leg"/>
 		<origin rpy="1.5707963268 -0.0 -1.5707963268" xyz="0.0 0.0 -0.2236"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="30.0" lower="-2.18166156499" upper="0.401425727959" velocity="100.0"/>
 	</joint>
 	<joint name="l_ankle_pitch" type="revolute">
-		<parent link="l_shank"/>
+		<parent link="l_leg"/>
 		<child link="l_ankle_1"/>
 		<origin rpy="3.1415926536 0.0 1.5707963268" xyz="-0.0 -0.213 0.0"/>
 		<axis xyz="0 0 1"/>
@@ -744,13 +744,13 @@
 	</joint>
 	<joint name="r_knee" type="revolute">
 		<parent link="r_thigh"/>
-		<child link="r_shank"/>
+		<child link="r_leg"/>
 		<origin rpy="-1.5707963268 0.0 -1.5707963268" xyz="0.0 0.0 0.2236"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="30.0" lower="-2.18166156499" upper="0.401425727959" velocity="100.0"/>
 	</joint>
 	<joint name="r_ankle_pitch" type="revolute">
-		<parent link="r_shank"/>
+		<parent link="r_leg"/>
 		<child link="r_ankle_1"/>
 		<origin rpy="3.1415926536 0.0 1.5707963268" xyz="-0.0 -0.213 0.0"/>
 		<axis xyz="0 0 1"/>
