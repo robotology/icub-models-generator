@@ -741,12 +741,12 @@ int main(int argc, char* argv[])
     if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova03");
 
-    if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    robot_names.push_back("iCubParis01");
+    //if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    //robot_names.push_back("iCubParis01");
 
     //Generating model for red iCub
-    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    robot_names.push_back("iCubParis02");
+    //if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    //robot_names.push_back("iCubParis02");
 
     std::cerr << "iCub model files successfully created" << std::endl;
 
