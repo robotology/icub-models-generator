@@ -492,8 +492,8 @@ bool generate_iCub_model(std::string iCub_name,
 
     boost::shared_ptr<urdf::ModelInterface> urdf_idyn(new urdf::ModelInterface);
 
-    std::cout << "iCub KDL::Tree: " << std::endl;
-    std::cout << icub_kdl << std::endl;
+    //std::cout << "iCub KDL::Tree: " << std::endl;
+    //std::cout << icub_kdl << std::endl;
 
 
     if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"test_icub",*urdf_idyn) ) {
@@ -747,6 +747,11 @@ int main(int argc, char* argv[])
     //Generating model for red iCub
     //if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     //robot_names.push_back("iCubParis02");
+    
+    //Generating model for Darmastad iCub
+    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubDarmstad01");
+
 
     std::cerr << "iCub model files successfully created" << std::endl;
 

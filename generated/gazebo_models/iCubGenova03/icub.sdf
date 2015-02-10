@@ -87,6 +87,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -143,6 +144,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -150,7 +152,7 @@
       </axis>
     </joint>
     <link name='l_hip_3'>
-      <pose>0 -0.0681 -0.1199 -9.99999e-06 2.65361e-06 -1.5708</pose>
+      <pose>-4.88536e-07 -0.0680998 -0.1864 3.14159 -7.34641e-06 3.14159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -194,8 +196,8 @@
         </plugin>
       </sensor>
     </joint>
-    <link name='l_thigh'>
-      <pose>0 -0.0681 -0.1199 1.5708 -1e-05 3.14159</pose>
+    <link name='l_upper_leg'>
+      <pose>0 -0.0681 -0.1199 1.57079 -7.34641e-06 3.14159</pose>
       <inertial>
         <pose>0.00144 -0.15943 -0.00039 0 -0 0</pose>
         <mass>2.175</mass>
@@ -208,8 +210,8 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='l_thigh_collision'>
-        <pose>0 0 0 -2.67795 1.57079 -1.10714</pose>
+      <collision name='l_upper_leg_collision'>
+        <pose>0 0 0 -2.67797 1.57079 -1.10716</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -217,8 +219,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='l_thigh_visual'>
-        <pose>0 0 0 -2.67795 1.57079 -1.10714</pose>
+      <visual name='l_upper_leg_visual'>
+        <pose>0 0 0 -2.67797 1.57079 -1.10716</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -232,10 +234,10 @@
       </velocity_decay>
     </link>
     <joint name='l_hip_yaw' type='revolute'>
-      <child>l_thigh</child>
+      <child>l_upper_leg</child>
       <parent>l_hip_3</parent>
       <axis>
-        <xyz>1e-05 1.01961e-06 1</xyz>
+        <xyz>7.34639e-06 -6.3268e-06 1</xyz>
         <limit>
           <lower>-1.37881</lower>
           <upper>1.37881</upper>
@@ -244,14 +246,15 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='l_leg'>
-      <pose>-2.236e-06 -0.0681002 -0.3435 1.49636 -1.57078 0.0744313</pose>
+    <link name='l_lower_leg'>
+      <pose>-1.64265e-06 -0.0680986 -0.3435 2.09198 -1.57078 -0.521189</pose>
       <inertial>
         <pose>-0.1071 0.00182 0.00211 0 -0 0</pose>
         <mass>1.264</mass>
@@ -264,8 +267,8 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='l_leg_collision'>
-        <pose>5.55112e-17 2.28232e-12 2.28224e-12 -3.14159 -7.26748e-17 1.5708</pose>
+      <collision name='l_lower_leg_collision'>
+        <pose>5.55112e-17 2.28232e-12 2.2823e-12 -3.14159 -2.33487e-16 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -273,8 +276,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='l_leg_visual'>
-        <pose>5.55112e-17 2.28232e-12 2.28224e-12 -3.14159 -7.26748e-17 1.5708</pose>
+      <visual name='l_lower_leg_visual'>
+        <pose>5.55112e-17 2.28232e-12 2.2823e-12 -3.14159 -2.33487e-16 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -288,10 +291,10 @@
       </velocity_decay>
     </link>
     <joint name='l_knee' type='revolute'>
-      <child>l_leg</child>
-      <parent>l_thigh</parent>
+      <child>l_lower_leg</child>
+      <parent>l_upper_leg</parent>
       <axis>
-        <xyz>5.30716e-06 1 -1.01967e-06</xyz>
+        <xyz>5.30723e-06 1 6.32676e-06</xyz>
         <limit>
           <lower>-2.18166</lower>
           <upper>0.401426</upper>
@@ -300,6 +303,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -307,7 +311,7 @@
       </axis>
     </joint>
     <link name='l_ankle_1'>
-      <pose>-5.14839e-06 -0.0681004 -0.5565 -0.0744403 -1.57078 0.0744313</pose>
+      <pose>-3.98983e-06 -0.0680972 -0.5565 0.52118 -1.57078 -0.521189</pose>
       <inertial>
         <pose>-0.0054 0.00163 0.0172 0 -0 0</pose>
         <mass>0.746</mass>
@@ -321,7 +325,7 @@
         </inertia>
       </inertial>
       <collision name='l_ankle_1_collision'>
-        <pose>1.11022e-16 -5.54333e-12 4.45647e-12 1.5708 1.53106e-11 1.53103e-11</pose>
+        <pose>1.11022e-16 -5.54343e-12 4.45647e-12 1.5708 1.53106e-11 1.53105e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -330,7 +334,7 @@
         </geometry>
       </collision>
       <visual name='l_ankle_1_visual'>
-        <pose>1.11022e-16 -5.54333e-12 4.45647e-12 1.5708 1.53106e-11 1.53103e-11</pose>
+        <pose>1.11022e-16 -5.54343e-12 4.45647e-12 1.5708 1.53106e-11 1.53105e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -345,9 +349,9 @@
     </link>
     <joint name='l_ankle_pitch' type='revolute'>
       <child>l_ankle_1</child>
-      <parent>l_leg</parent>
+      <parent>l_lower_leg</parent>
       <axis>
-        <xyz>-8.98037e-06 -1 1.01972e-06</xyz>
+        <xyz>-8.98043e-06 -1 -6.32672e-06</xyz>
         <limit>
           <lower>-0.733038</lower>
           <upper>0.366519</upper>
@@ -356,14 +360,15 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='l_upper_foot'>
-      <pose>-5.14839e-06 -0.0681004 -0.5565 -3.14159 -9.99999e-06 3.14158</pose>
+    <link name='l_ankle_2'>
+      <pose>-3.98983e-06 -0.0680972 -0.5565 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
         <pose>-0.0035 0 -0.0065 0 -0 0</pose>
         <mass>0.1</mass>
@@ -382,10 +387,10 @@
       </velocity_decay>
     </link>
     <joint name='l_ankle_roll' type='revolute'>
-      <child>l_upper_foot</child>
+      <child>l_ankle_2</child>
       <parent>l_ankle_1</parent>
       <axis>
-        <xyz>-1 8.98038e-06 9.99999e-06</xyz>
+        <xyz>-1 8.98038e-06 7.34645e-06</xyz>
         <limit>
           <lower>-0.418879</lower>
           <upper>0.418879</upper>
@@ -394,6 +399,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -401,21 +407,21 @@
       </axis>
     </joint>
     <link name='l_foot'>
-      <pose>0.00349417 -0.0681005 -0.625 -0.0744403 -1.57078 0.0744313</pose>
+      <pose>0.00349606 -0.0680973 -0.55 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
-        <pose>-0.0425846 -0.000613931 0.024069 0 -0 0</pose>
+        <pose>0.024069 -0.000613931 0.0425846 0 -0 0</pose>
         <mass>0.761</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>2.77674e-06</ixy>
-          <ixz>-0.000650678</ixz>
+          <ixy>-4.51893e-06</ixy>
+          <ixz>-0.000903578</ixz>
           <iyy>0.01</iyy>
-          <iyz>-4.51893e-06</iyz>
+          <iyz>3.68679e-05</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='l_foot_collision'>
-        <pose>0.0685 -5.54332e-12 0.0035 5.10331e-12 1.53106e-11 1.53103e-11</pose>
+        <pose>0.0035 -5.54343e-12 0.0065 -0.785403 1.57079 -0.785403</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -441,7 +447,7 @@
         </surface>
       </collision>
       <visual name='l_foot_visual'>
-        <pose>0.0685 -5.54332e-12 0.0035 5.10331e-12 1.53106e-11 1.53103e-11</pose>
+        <pose>0.0035 -5.54343e-12 0.0065 -0.785403 1.57079 -0.785403</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -456,7 +462,7 @@
     </link>
     <joint name='l_foot_ft_sensor' type='revolute'>
       <child>l_foot</child>
-      <parent>l_upper_foot</parent>
+      <parent>l_ankle_2</parent>
       <axis>
         <xyz>0 0 0</xyz>
         <limit>
@@ -530,6 +536,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -586,6 +593,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -593,7 +601,7 @@
       </axis>
     </joint>
     <link name='r_hip_3'>
-      <pose>0 0.0681 -0.1199 -3.14159 2.69849e-11 1.57079</pose>
+      <pose>-4.88536e-07 0.0681 -0.1864 -3.14159 -7.34641e-06 -3.14159</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -637,7 +645,7 @@
         </plugin>
       </sensor>
     </joint>
-    <link name='r_thigh'>
+    <link name='r_upper_leg'>
       <pose>0 0.0681 -0.1199 1.57079 -7.34641e-06 3.14159</pose>
       <inertial>
         <pose>0.00144 -0.15943 0.00039 0 -0 0</pose>
@@ -651,8 +659,8 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='r_thigh_collision'>
-        <pose>0 0 0 1.57083 -1.57079 -3.26535e-05</pose>
+      <collision name='r_upper_leg_collision'>
+        <pose>0 0 0 1.57087 -1.57079 -7.26536e-05</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -660,8 +668,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='r_thigh_visual'>
-        <pose>0 0 0 1.57083 -1.57079 -3.26535e-05</pose>
+      <visual name='r_upper_leg_visual'>
+        <pose>0 0 0 1.57087 -1.57079 -7.26536e-05</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -675,7 +683,7 @@
       </velocity_decay>
     </link>
     <joint name='r_hip_yaw' type='revolute'>
-      <child>r_thigh</child>
+      <child>r_upper_leg</child>
       <parent>r_hip_3</parent>
       <axis>
         <xyz>-7.34641e-06 3.67321e-06 -1</xyz>
@@ -687,13 +695,14 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='r_leg'>
+    <link name='r_lower_leg'>
       <pose>-1.64266e-06 0.0681008 -0.3435 1.89254 -1.57078 -0.321751</pose>
       <inertial>
         <pose>-0.1071 0.00182 -0.00211 0 -0 0</pose>
@@ -707,8 +716,8 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='r_leg_collision'>
-        <pose>5.55112e-17 2.28232e-12 -2.77556e-17 3.14159 2.71835e-16 1.5708</pose>
+      <collision name='r_lower_leg_collision'>
+        <pose>5.55112e-17 2.28232e-12 -8.32667e-17 3.14159 -1.14426e-17 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -716,8 +725,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='r_leg_visual'>
-        <pose>5.55112e-17 2.28232e-12 -2.77556e-17 3.14159 2.71835e-16 1.5708</pose>
+      <visual name='r_lower_leg_visual'>
+        <pose>5.55112e-17 2.28232e-12 -8.32667e-17 3.14159 -1.14426e-17 1.5708</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -731,8 +740,8 @@
       </velocity_decay>
     </link>
     <joint name='r_knee' type='revolute'>
-      <child>r_leg</child>
-      <parent>r_thigh</parent>
+      <child>r_lower_leg</child>
+      <parent>r_upper_leg</parent>
       <axis>
         <xyz>2.65362e-06 1 3.67318e-06</xyz>
         <limit>
@@ -743,6 +752,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -764,7 +774,7 @@
         </inertia>
       </inertial>
       <collision name='r_ankle_1_collision'>
-        <pose>1.11022e-16 -1.08707e-12 -4.45647e-12 -1.5708 -1.53106e-11 5.10353e-12</pose>
+        <pose>1.11022e-16 -1.08717e-12 -4.45647e-12 -1.5708 -1.53106e-11 5.10376e-12</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -773,7 +783,7 @@
         </geometry>
       </collision>
       <visual name='r_ankle_1_visual'>
-        <pose>1.11022e-16 -1.08707e-12 -4.45647e-12 -1.5708 -1.53106e-11 5.10353e-12</pose>
+        <pose>1.11022e-16 -1.08717e-12 -4.45647e-12 -1.5708 -1.53106e-11 5.10376e-12</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -788,7 +798,7 @@
     </link>
     <joint name='r_ankle_pitch' type='revolute'>
       <child>r_ankle_1</child>
-      <parent>r_leg</parent>
+      <parent>r_lower_leg</parent>
       <axis>
         <xyz>1.01959e-06 -1 -3.67322e-06</xyz>
         <limit>
@@ -799,13 +809,14 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='r_upper_foot'>
+    <link name='r_ankle_2'>
       <pose>-3.98984e-06 0.0681016 -0.5565 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
         <pose>-0.0035 4.28626e-19 -0.0065 0 -0 0</pose>
@@ -825,7 +836,7 @@
       </velocity_decay>
     </link>
     <joint name='r_ankle_roll' type='revolute'>
-      <child>r_upper_foot</child>
+      <child>r_ankle_2</child>
       <parent>r_ankle_1</parent>
       <axis>
         <xyz>1 2.79362e-06 -1.4236e-05</xyz>
@@ -837,6 +848,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -844,21 +856,21 @@
       </axis>
     </joint>
     <link name='r_foot'>
-      <pose>0.00349503 0.0681021 -0.625 0.388334 -1.57078 -0.388331</pose>
+      <pose>0.0034961 0.0681016 -0.55 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>-0.0425846 0.000613931 0.024069 0 -0 0</pose>
+        <pose>0.024069 0.000613931 0.0425846 0 -0 0</pose>
         <mass>0.761</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>-2.77691e-06</ixy>
-          <ixz>-0.000650678</ixz>
+          <ixy>4.51893e-06</ixy>
+          <ixz>-0.000903578</ixz>
           <iyy>0.01</iyy>
-          <iyz>4.51893e-06</iyz>
+          <iyz>-3.68677e-05</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='r_foot_collision'>
-        <pose>0.0685 1.08706e-12 0.0035 -3.14159 1.53111e-11 -5.10353e-12</pose>
+        <pose>0.0035 1.08717e-12 0.0065 -2.81983 1.57079 0.321763</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -884,7 +896,7 @@
         </surface>
       </collision>
       <visual name='r_foot_visual'>
-        <pose>0.0685 1.08706e-12 0.0035 -3.14159 1.53111e-11 -5.10353e-12</pose>
+        <pose>0.0035 1.08717e-12 0.0065 -2.81983 1.57079 0.321763</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -899,7 +911,7 @@
     </link>
     <joint name='r_foot_ft_sensor' type='revolute'>
       <child>r_foot</child>
-      <parent>r_upper_foot</parent>
+      <parent>r_ankle_2</parent>
       <axis>
         <xyz>0 0 0</xyz>
         <limit>
@@ -973,6 +985,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1011,6 +1024,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1067,6 +1081,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1123,6 +1138,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1179,13 +1195,14 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='l_upper_arm'>
+    <link name='l_shoulder_3'>
       <pose>-0.0107487 -0.11026 0.1753 3.14159 -6.5209e-06 -3.14159</pose>
       <inertial>
         <pose>0.00559398 9.77357e-05 0.0501346 0 -0 0</pose>
@@ -1205,7 +1222,7 @@
       </velocity_decay>
     </link>
     <joint name='l_shoulder_yaw' type='revolute'>
-      <child>l_upper_arm</child>
+      <child>l_shoulder_3</child>
       <parent>l_shoulder_2</parent>
       <axis>
         <xyz>-6.5209e-06 2.59738e-06 -1</xyz>
@@ -1217,28 +1234,29 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='l_arm'>
-      <pose>-0.0257497 -0.11026 0.0230202 1.57079 -6.5209e-06 -3.14159</pose>
+    <link name='l_upper_arm'>
+      <pose>-0.0257492 -0.11026 0.1073 3.14159 -6.5209e-06 -3.14159</pose>
       <inertial>
-        <pose>-0.000156 0.05448 -9.87e-05 0 -0 0</pose>
+        <pose>-0.000156 -9.87e-05 0.0298 0 -0 0</pose>
         <mass>0.727843</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>2.29e-06</ixy>
-          <ixz>-1.08e-06</ixz>
+          <ixy>-1.08e-06</ixy>
+          <ixz>-2.29e-06</ixz>
           <iyy>0.01</iyy>
-          <iyz>-3.57e-06</iyz>
+          <iyz>3.57e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='l_arm_collision'>
-        <pose>-0.0204334 0.15228 0.000143922 1.5708 1.309 1.90457e-11</pose>
+      <collision name='l_upper_arm_collision'>
+        <pose>-0.0204334 0.000143922 -0.068 1.15274e-11 4.92958e-12 -1.309</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1246,8 +1264,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='l_arm_visual'>
-        <pose>-0.0204334 0.15228 0.000143922 1.5708 1.309 1.90457e-11</pose>
+      <visual name='l_upper_arm_visual'>
+        <pose>-0.0204334 0.000143922 -0.068 1.15274e-11 4.92958e-12 -1.309</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1261,10 +1279,10 @@
       </velocity_decay>
     </link>
     <joint name='l_arm_ft_sensor' type='revolute'>
-      <child>l_arm</child>
-      <parent>l_upper_arm</parent>
+      <child>l_upper_arm</child>
+      <parent>l_shoulder_3</parent>
       <axis>
-        <xyz>0 0 0</xyz>
+        <xyz>-0 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
@@ -1307,7 +1325,7 @@
     </link>
     <joint name='l_elbow' type='revolute'>
       <child>l_elbow_1</child>
-      <parent>l_arm</parent>
+      <parent>l_upper_arm</parent>
       <axis>
         <xyz>-1.01957e-06 1 2.59739e-06</xyz>
         <limit>
@@ -1318,6 +1336,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1374,6 +1393,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1412,6 +1432,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1433,7 +1454,7 @@
         </inertia>
       </inertial>
       <collision name='l_hand_collision'>
-        <pose>-1.25974e-12 0.0204334 -0.000143922 5.10271e-12 -2.6418e-12 1.49622e-11</pose>
+        <pose>-1.25973e-12 0.0204334 -0.000143922 5.10271e-12 -2.64186e-12 1.49622e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1442,7 +1463,7 @@
         </geometry>
       </collision>
       <visual name='l_hand_visual'>
-        <pose>-1.25974e-12 0.0204334 -0.000143922 5.10271e-12 -2.6418e-12 1.49622e-11</pose>
+        <pose>-1.25973e-12 0.0204334 -0.000143922 5.10271e-12 -2.64186e-12 1.49622e-11</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1468,6 +1489,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1524,6 +1546,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1580,6 +1603,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1646,6 +1670,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1702,6 +1727,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1758,13 +1784,14 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='r_upper_arm'>
+    <link name='r_shoulder_3'>
       <pose>-0.0107489 0.11026 0.1753 3.14159 -6.5209e-06 -3.14159</pose>
       <inertial>
         <pose>0.00553932 -2.47652e-05 0.0493895 0 -0 0</pose>
@@ -1784,7 +1811,7 @@
       </velocity_decay>
     </link>
     <joint name='r_shoulder_yaw' type='revolute'>
-      <child>r_upper_arm</child>
+      <child>r_shoulder_3</child>
       <parent>r_shoulder_2</parent>
       <axis>
         <xyz>6.5209e-06 -5.62481e-08 1</xyz>
@@ -1796,28 +1823,29 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='r_arm'>
-      <pose>-0.0257499 0.11026 0.0230202 -1.57079 6.5209e-06 3.6732e-06</pose>
+    <link name='r_upper_arm'>
+      <pose>-0.0257494 0.11026 0.1073 3.14159 -6.5209e-06 -3.14159</pose>
       <inertial>
-        <pose>0.00015906 -0.0543972 8.28733e-05 0 -0 0</pose>
+        <pose>-0.00015906 8.28733e-05 0.0298828 0 -0 0</pose>
         <mass>0.729</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>2.29e-06</ixy>
-          <ixz>1.08e-06</ixz>
+          <ixy>-1.08e-06</ixy>
+          <ixz>-2.29e-06</ixz>
           <iyy>0.01</iyy>
           <iyz>3.57e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <collision name='r_arm_collision'>
-        <pose>0.0204334 -0.15228 -0.000143922 -1.5708 -1.309 3.14159</pose>
+      <collision name='r_upper_arm_collision'>
+        <pose>-0.0204334 -0.000143922 -0.068 -3.14159 -1.51363e-11 1.309</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1825,8 +1853,8 @@
           </mesh>
         </geometry>
       </collision>
-      <visual name='r_arm_visual'>
-        <pose>0.0204334 -0.15228 -0.000143922 -1.5708 -1.309 3.14159</pose>
+      <visual name='r_upper_arm_visual'>
+        <pose>-0.0204334 -0.000143922 -0.068 -3.14159 -1.51363e-11 1.309</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1840,10 +1868,10 @@
       </velocity_decay>
     </link>
     <joint name='r_arm_ft_sensor' type='revolute'>
-      <child>r_arm</child>
-      <parent>r_upper_arm</parent>
+      <child>r_upper_arm</child>
+      <parent>r_shoulder_3</parent>
       <axis>
-        <xyz>0 -0 0</xyz>
+        <xyz>-0 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
@@ -1866,7 +1894,7 @@
       </sensor>
     </joint>
     <link name='r_elbow_1'>
-      <pose>-0.0257499 0.11026 0.0230202 7.40268e-06 6.5209e-06 3.6732e-06</pose>
+      <pose>-0.0257499 0.11026 0.0230202 -2.59732e-06 6.5209e-06 3.6732e-06</pose>
       <inertial>
         <pose>0.0013 -0.00371 0.00105 0 -0 0</pose>
         <mass>0.1</mass>
@@ -1886,9 +1914,9 @@
     </link>
     <joint name='r_elbow' type='revolute'>
       <child>r_elbow_1</child>
-      <parent>r_arm</parent>
+      <parent>r_upper_arm</parent>
       <axis>
-        <xyz>-3.67316e-06 1 7.40268e-06</xyz>
+        <xyz>-3.67322e-06 1 -2.59732e-06</xyz>
         <limit>
           <lower>0.0959931</lower>
           <upper>1.85005</upper>
@@ -1897,6 +1925,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1904,7 +1933,7 @@
       </axis>
     </joint>
     <link name='r_forearm'>
-      <pose>-0.0107499 0.11026 0.0230201 1.57079 7.40266e-06 -1.5708</pose>
+      <pose>-0.0107499 0.11026 0.0230201 1.57079 -2.59734e-06 -1.5708</pose>
       <inertial>
         <pose>-0.000347 -0.066 -0.00476 0 -0 0</pose>
         <mass>0.525</mass>
@@ -1918,7 +1947,7 @@
         </inertia>
       </inertial>
       <collision name='r_forearm_collision'>
-        <pose>0.000143922 -1.07213e-12 -0.0204334 -1.74166 1.57079 -0.170863</pose>
+        <pose>0.000143922 -1.07214e-12 -0.0204334 -1.74165 1.57079 -0.170863</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1927,7 +1956,7 @@
         </geometry>
       </collision>
       <visual name='r_forearm_visual'>
-        <pose>0.000143922 -1.07213e-12 -0.0204334 -1.74166 1.57079 -0.170863</pose>
+        <pose>0.000143922 -1.07214e-12 -0.0204334 -1.74165 1.57079 -0.170863</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1944,7 +1973,7 @@
       <child>r_forearm</child>
       <parent>r_elbow_1</parent>
       <axis>
-        <xyz>2.84772e-06 -7.40266e-06 1</xyz>
+        <xyz>2.84768e-06 2.59734e-06 1</xyz>
         <limit>
           <lower>-0.872665</lower>
           <upper>0.872665</upper>
@@ -1953,6 +1982,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1960,7 +1990,7 @@
       </axis>
     </joint>
     <link name='r_wrist_1'>
-      <pose>-0.0107503 0.110261 -0.11428 2.48946 -1.57079 -0.918663</pose>
+      <pose>-0.0107503 0.11026 -0.11428 0.426292 -1.57079 1.14451</pose>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -1982,7 +2012,7 @@
       <child>r_wrist_1</child>
       <parent>r_forearm</parent>
       <axis>
-        <xyz>-1 -3.67318e-06 2.84771e-06</xyz>
+        <xyz>-1 -3.67321e-06 2.84771e-06</xyz>
         <limit>
           <lower>-1.13446</lower>
           <upper>0.174533</upper>
@@ -1991,6 +2021,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
@@ -1998,7 +2029,7 @@
       </axis>
     </joint>
     <link name='r_hand'>
-      <pose>-0.0107503 0.110261 -0.11428 -2.16655 1.57079 2.54584</pose>
+      <pose>-0.0107503 0.11026 -0.11428 -0.720145 1.57079 -2.29094</pose>
       <inertial>
         <pose>0.07023 -0.00805 0.007 0 -0 0</pose>
         <mass>0.213</mass>
@@ -2012,7 +2043,7 @@
         </inertia>
       </inertial>
       <collision name='r_hand_collision'>
-        <pose>1.0721e-12 0.0204334 0.000143922 1.53098e-11 2.00653e-11 -3.14159</pose>
+        <pose>1.0721e-12 0.0204334 0.000143922 1.53098e-11 2.00656e-11 -3.14159</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -2021,7 +2052,7 @@
         </geometry>
       </collision>
       <visual name='r_hand_visual'>
-        <pose>1.0721e-12 0.0204334 0.000143922 1.53098e-11 2.00653e-11 -3.14159</pose>
+        <pose>1.0721e-12 0.0204334 0.000143922 1.53098e-11 2.00656e-11 -3.14159</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -2038,7 +2069,7 @@
       <child>r_hand</child>
       <parent>r_wrist_1</parent>
       <axis>
-        <xyz>3.67317e-06 -1 -3.72946e-06</xyz>
+        <xyz>3.67323e-06 -1 6.27054e-06</xyz>
         <limit>
           <lower>-0.436332</lower>
           <upper>0.436332</upper>
@@ -2047,6 +2078,7 @@
         </limit>
         <dynamics>
           <damping>0.1</damping>
+          <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>

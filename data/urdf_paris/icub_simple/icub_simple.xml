@@ -54,7 +54,7 @@
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 		</inertial>
 	</link>
-	<link name="l_thigh">
+	<link name="l_upper_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_l_thigh.dae"/>
@@ -72,7 +72,7 @@
 			<origin rpy="1.5707963268 0.0 1.5707963268" xyz="-0.0 0.0 -0.1501968774"/>
 		</inertial>
 	</link>
-	<link name="l_leg">
+	<link name="l_lower_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_l_shank.dae"/>
@@ -205,7 +205,7 @@
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 		</inertial>
 	</link>
-	<link name="r_arm">
+	<link name="r_upper_arm">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_r_arm.dae"/>
@@ -309,7 +309,7 @@
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 		</inertial>
 	</link>
-	<link name="l_arm">
+	<link name="l_upper_arm">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_l_arm.dae"/>
@@ -467,7 +467,7 @@
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 		</inertial>
 	</link>
-	<link name="r_thigh">
+	<link name="r_upper_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_r_thigh.dae"/>
@@ -485,7 +485,7 @@
 			<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.0 0.1501968774"/>
 		</inertial>
 	</link>
-	<link name="r_leg">
+	<link name="r_lower_leg">
 		<visual>
 			<geometry>
 				<mesh filename="meshes/visual/icub_simple_r_shank.dae"/>

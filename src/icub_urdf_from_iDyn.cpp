@@ -92,8 +92,8 @@ int main(int argc, char* argv[])
 
     boost::shared_ptr<urdf::ModelInterface> icub_ptr(new urdf::ModelInterface);
 
-    std::cout << "iCub KDL::Tree: " << std::endl;
-    std::cout << icub_kdl << std::endl;
+    //std::cout << "iCub KDL::Tree: " << std::endl;
+    //std::cout << icub_kdl << std::endl;
 
 
     if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"test_icub",*icub_ptr) ) {
