@@ -23,6 +23,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="codyco_balancing_world">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="head">
         <inertial>
             <mass value="3" />
@@ -113,6 +120,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="l_foot_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="l_forearm">
         <inertial>
             <mass value="0.525" />
@@ -135,6 +149,13 @@
                 <mesh filename="meshes/collision/icub_simple_collision_l_forearm.dae" scale="1 1 1" />
             </geometry>
         </collision>
+    </link>
+    <link name="l_forearm_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
     </link>
     <link name="l_gripper">
         <inertial>
@@ -165,6 +186,13 @@
                 <mesh filename="meshes/collision/icub_simple_collision_l_hand.dae" scale="1 1 1" />
             </geometry>
         </collision>
+    </link>
+    <link name="l_hand_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
     </link>
     <link name="l_hip_1">
         <inertial>
@@ -325,6 +353,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="l_upper_arm_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="l_upper_leg">
         <inertial>
             <mass value="1.522" />
@@ -461,6 +496,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="r_foot_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="r_forearm">
         <inertial>
             <mass value="0.525" />
@@ -483,6 +525,13 @@
                 <mesh filename="meshes/collision/icub_simple_collision_r_forearm.dae" scale="1 1 1" />
             </geometry>
         </collision>
+    </link>
+    <link name="r_forearm_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
     </link>
     <link name="r_gripper">
         <inertial>
@@ -513,6 +562,13 @@
                 <mesh filename="meshes/collision/icub_simple_collision_r_hand.dae" scale="1 1 1" />
             </geometry>
         </collision>
+    </link>
+    <link name="r_hand_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
     </link>
     <link name="r_hip_1">
         <inertial>
@@ -673,6 +729,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="r_upper_arm_dh_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="r_upper_leg">
         <inertial>
             <mass value="1.522" />
@@ -771,6 +834,12 @@
         <dynamics damping="0.1" friction="0" />
         <limit effort="80" velocity="100" lower="-1.02974" upper="1.02974" />
     </joint>
+    <joint name="codyco_balancing_world_fixed_joint" type="fixed">
+        <origin xyz="-8.67362e-19 -1.38778e-17 0.075" rpy="3.14159 -0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="l_foot" />
+        <child link="codyco_balancing_world" />
+    </joint>
     <joint name="neck_yaw" type="revolute">
         <origin xyz="-5.77779e-34 0 0" rpy="-1.5708 -0 1.5708" />
         <axis xyz="0 -1 6.12323e-17" />
@@ -815,6 +884,12 @@
         <parent link="l_ankle_2" />
         <child link="l_foot" />
     </joint>
+    <joint name="l_foot_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="-8.67362e-19 -1.38778e-17 0.075" rpy="-9.70754e-18 1.5708 -9.70754e-18" />
+        <axis xyz="0 0 0" />
+        <parent link="l_foot" />
+        <child link="l_foot_dh_frame" />
+    </joint>
     <joint name="l_wrist_prosup" type="revolute">
         <origin xyz="-0.015 0 0" rpy="1.5708 -0 -1.5708" />
         <axis xyz="0 1 6.12323e-17" />
@@ -822,6 +897,12 @@
         <child link="l_forearm" />
         <dynamics damping="0.1" friction="0" />
         <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
+    </joint>
+    <joint name="l_forearm_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0 0.1373 8.4072e-18" rpy="0 -0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="l_forearm" />
+        <child link="l_forearm_dh_frame" />
     </joint>
     <joint name="l_gripper_joint" type="fixed">
         <origin xyz="0.0625 0 -0.016" rpy="0 -0 0" />
@@ -836,6 +917,12 @@
         <child link="l_hand" />
         <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
+    </joint>
+    <joint name="l_hand_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0.0625 0 -0.016" rpy="0 -0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="l_hand" />
+        <child link="l_hand_dh_frame" />
     </joint>
     <joint name="l_hip_pitch" type="revolute">
         <origin xyz="0 -0.0681 -0.1199" rpy="-3.14159 1.5708 -2.77556e-17" />
@@ -903,6 +990,12 @@
         <parent link="l_shoulder_3" />
         <child link="l_upper_arm" />
     </joint>
+    <joint name="l_upper_arm_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0 0 0.08428" rpy="-1.5708 0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="l_upper_arm" />
+        <child link="l_upper_arm_dh_frame" />
+    </joint>
     <joint name="l_hip_yaw" type="revolute">
         <origin xyz="0 -1.68519e-34 -0.0665" rpy="-1.5708 -6.16298e-33 -6.12323e-17" />
         <axis xyz="0 1 6.12323e-17" />
@@ -965,6 +1058,12 @@
         <parent link="r_ankle_2" />
         <child link="r_foot" />
     </joint>
+    <joint name="r_foot_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="-4.29004e-17 -0.1362 0.075" rpy="-0.834365 1.5708 -0.834365" />
+        <axis xyz="0 0 0" />
+        <parent link="r_foot" />
+        <child link="r_foot_dh_frame" />
+    </joint>
     <joint name="r_wrist_prosup" type="revolute">
         <origin xyz="0.015 0 0" rpy="1.5708 -0 -1.5708" />
         <axis xyz="0 1 6.12323e-17" />
@@ -972,6 +1071,12 @@
         <child link="r_forearm" />
         <dynamics damping="0.1" friction="0" />
         <limit effort="0.45" velocity="100" lower="-0.872665" upper="0.872665" />
+    </joint>
+    <joint name="r_forearm_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0 -0.1373 -8.4072e-18" rpy="0 -0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="r_forearm" />
+        <child link="r_forearm_dh_frame" />
     </joint>
     <joint name="r_gripper_joint" type="fixed">
         <origin xyz="0.0625 0 0.016" rpy="0 -0 0" />
@@ -986,6 +1091,12 @@
         <child link="r_hand" />
         <dynamics damping="0.1" friction="0" />
         <limit effort="0.65" velocity="100" lower="-0.436332" upper="0.436332" />
+    </joint>
+    <joint name="r_hand_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0.0625 0 0.016" rpy="0 -0 0" />
+        <axis xyz="0 0 0" />
+        <parent link="r_hand" />
+        <child link="r_hand_dh_frame" />
     </joint>
     <joint name="r_hip_pitch" type="revolute">
         <origin xyz="0 0.0681 -0.1199" rpy="-2.77556e-17 1.5708 2.77556e-17" />
@@ -1052,6 +1163,12 @@
         <axis xyz="0 0 0" />
         <parent link="r_shoulder_3" />
         <child link="r_upper_arm" />
+    </joint>
+    <joint name="r_upper_arm_dh_frame_fixed_joint" type="fixed">
+        <origin xyz="0 0 0.08428" rpy="1.5708 -0 3.14159" />
+        <axis xyz="0 0 0" />
+        <parent link="r_upper_arm" />
+        <child link="r_upper_arm_dh_frame" />
     </joint>
     <joint name="r_hip_yaw" type="revolute">
         <origin xyz="0 1.68519e-34 -0.0665" rpy="-1.5708 -6.16298e-33 6.12323e-17" />
