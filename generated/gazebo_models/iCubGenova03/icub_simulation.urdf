@@ -1059,7 +1059,7 @@
         <child link="r_foot" />
     </joint>
     <joint name="r_foot_dh_frame_fixed_joint" type="fixed">
-        <origin xyz="-4.2033e-17 -0.1362 0.075" rpy="-0.834365 1.5708 -0.834365" />
+        <origin xyz="-1.84889e-33 -1.84889e-33 0.075" rpy="-1.01315e-16 1.5708 -1.01315e-16" />
         <axis xyz="0 0 0" />
         <parent link="r_foot" />
         <child link="r_foot_dh_frame" />
