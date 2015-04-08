@@ -69,7 +69,7 @@ void printJoints(boost::shared_ptr<urdf::ModelInterface> urdf)
     }
 }
 
-bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_name, std::string robot_name)
+bool addGazeboYarpPluginsControlboardToSDF(sdf::ElementPtr model, std::string part_name, std::string robot_name)
 {
     /*
      <plugin name="controlboard_right_arm" filename="libgazebo_yarp_controlboard.so">
@@ -102,17 +102,17 @@ bool addGazeboYarpPluginsControlboard(sdf::ElementPtr model, std::string part_na
  *
  * @param part: head,torso,right_arm,left_arm,right_leg,left_leg
  */
-bool addGazeboYarpPluginsControlboard(sdf::SDFPtr icub_sdf, std::string part_name, std::string robot_name)
+bool addGazeboYarpPluginsControlboardToSDF(sdf::SDFPtr icub_sdf, std::string part_name, std::string robot_name)
 {
     /// \todo add check on parts
-    return addGazeboYarpPluginsControlboard(icub_sdf->root->GetElement("model"),part_name,robot_name);
+    return addGazeboYarpPluginsControlboardToSDF(icub_sdf->root->GetElement("model"),part_name,robot_name);
 }
 
 /**
  *
  * @param sensor: can be only imu_sensor
  */
-bool addGazeboYarpPluginsIMU(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
+bool addGazeboYarpPluginsIMUToSDF(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
 {
     assert( icub_sdf->root->HasElement("model"));
     /*
@@ -258,7 +258,121 @@ bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_na
     return true;
 }
 
-bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_name, std::string robot_name)
+void AddElementAndSetValue(sdf::ElementPtr parent, std::string childType, std::string value_type, std::string value)
+{
+    sdf::ElementPtr child = parent->AddElement(childType);
+    child->AddValue(value_type,value,false);
+}
+
+bool addGazeboSurfaceFrictionInformationToCollisionSDF(sdf::ElementPtr collision_sdf)
+{
+        /*
+        From iCub hand modified urdf,
+        commit https://github.com/robotology-playground/icub-gazebo/commit/7cd9ee3059fef2344f9029bffa3a8b2b8895c059
+
+        <collision name='l_foot_collision'>
+                <!-- <pose>3.95315e-11 4.452e-07 -5.14839e-06 8.98039e-06 -1.36732e-05 -1.01971e-06</pose> -->
+           <pose>-3e-02 0 3.5e-2 0 0 0</pose>
+                <geometry>
+<!--                     <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>model://icub/meshes/collision/icub_simple_collision_l_foot.dae</uri>
+                    </mesh> -->
+                   <box>
+                        <size>0.03 0.07 0.15</size>
+                    </box>
+                </geometry>
+                <!-- <max_contacts> 10 </max_contacts> -->
+               <max_contacts> 4 </max_contacts>
+                <surface>
+                    <contact>
+                        <ode>
+                            <soft_erp>  0.200  </soft_erp>
+                            <soft_cfm>  0.000  </soft_cfm>
+                            <kp>        100000.000  </kp>
+                            <kd>        1.0     </kd>
+                            <max_vel>   100.00  </max_vel>
+                            <min_depth> 0.0010  </min_depth>
+                        </ode>
+                    </contact>
+                    <friction>
+                        <ode>
+                            <mu>  1  </mu>
+                            <mu2> 1  </mu2>
+                            <fdir1>0.000000 0.000000 0.000000</fdir1>
+                            <slip1> 0.00000 </slip1>
+                            <slip2> 0.00000 </slip2>
+                        </ode>
+                    </friction>
+                    <bounce>
+                        <restitution_coefficient>0.000000</restitution_coefficient>
+                        <threshold>100000.000000</threshold>
+                    </bounce>
+                </surface>
+            </collision>
+
+     */
+
+    // handle max_contacts
+    sdf::ElementPtr max_contacts = collision_sdf->AddElement("max_contacts");
+    max_contacts->AddValue("int","4",false);
+
+    // handle surface
+    sdf::ElementPtr surface = collision_sdf->AddElement("surface");
+
+    // contact group
+    sdf::ElementPtr contact = surface->AddElement("contact");
+    sdf::ElementPtr ode = contact->AddElement("ode");
+    AddElementAndSetValue(ode,"soft_erp","double","0.2");
+    AddElementAndSetValue(ode,"soft_cfm","double","0.0");
+    AddElementAndSetValue(ode,"kp","double","100000.000");
+    AddElementAndSetValue(ode,"kd","double","1.0");
+    AddElementAndSetValue(ode,"max_vel","double","100.00");
+    AddElementAndSetValue(ode,"min_depth","double","0.0010");
+
+    // friction group
+    sdf::ElementPtr friction = surface->AddElement("friction");
+    sdf::ElementPtr friction_ode = friction->AddElement("ode");
+    AddElementAndSetValue(friction_ode,"mu","double","1.000000");
+    AddElementAndSetValue(friction_ode,"mu2","double","1.000000");
+    AddElementAndSetValue(friction_ode,"fdir1","vector3","0.0 0.0 0.0");
+    AddElementAndSetValue(friction_ode,"slip1","double","0.000000");
+    AddElementAndSetValue(friction_ode,"slip2","double","0.000000");
+
+    // bounce group
+    sdf::ElementPtr bounce = surface->AddElement("bounce");
+    AddElementAndSetValue(bounce,"restitution_coefficient","double","0.000000");
+    AddElementAndSetValue(bounce,"threshold","double","100000.000000");
+
+}
+
+
+/**
+ * For a given link add surface friction informations to the SDF
+ *
+ */
+bool addGazeboSurfaceFrictionInformationToSDF(sdf::SDFPtr icub_sdf, std::string link_name)
+{
+
+    sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
+
+    for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link"))
+    {
+        if( link->GetAttribute("name")->GetAsString() == link_name )
+        {
+            for (sdf::ElementPtr collision = link->GetElement("collision"); collision; collision = link->GetNextElement("collision"))
+            {
+                addGazeboSurfaceFrictionInformationToCollisionSDF(collision);
+            }
+        }
+    }
+
+    return true;
+}
+
+
+
+bool addGazeboYarpPluginsFTToSDF(sdf::ElementPtr joint_element, std::string sensor_name, std::string robot_name)
 {
     /*
      <sensor name="left_leg_ft" type="force_torque">
@@ -297,7 +411,7 @@ bool addGazeboYarpPluginsFT(sdf::ElementPtr joint_element, std::string sensor_na
  * Add the force/torque sensor description (with the relative gazebo_yarp_plugin)
  * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
-bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
+bool addGazeboYarpPluginsFTToSDF(sdf::SDFPtr icub_sdf, std::string sensor_name, std::string robot_name)
 {
     bool ret;
 
@@ -312,13 +426,14 @@ bool addGazeboYarpPluginsFT(sdf::SDFPtr icub_sdf, std::string sensor_name, std::
 
     for (sdf::ElementPtr joint = model_elem->GetElement("joint"); joint; joint = joint->GetNextElement("joint")) {
         if( joint->GetAttribute("name")->GetAsString() == ft_sensor_joint ) {
-            ret = addGazeboYarpPluginsFT(joint,sensor_name,robot_name);
+            ret = addGazeboYarpPluginsFTToSDF(joint,sensor_name,robot_name);
             if( !ret ) { return false; }
         }
     }
 
     return true;
 }
+
 
 bool addGazeboODEContactsProperty(sdf::ElementPtr collision_elem)
 {
@@ -390,11 +505,50 @@ bool addGazeboODEContactsProperties(sdf::SDFPtr icub_sdf, std::string link_name,
     return false;
 }
 
-bool addGazeboODEJointProperties(sdf::SDFPtr icub_sdf)
+bool substituteCollisionWithBoxInCollisionSDF(sdf::ElementPtr collision,
+                                     std::string new_box_collision_pose,
+                                     std::string box_size)
 {
-    return false;
+    sdf::ElementPtr geometry = collision->GetElement("geometry");
+
+    // Remove existing mesh
+    sdf::ElementPtr mesh = geometry->GetElement("mesh");
+    geometry->RemoveChild(mesh);
+
+    // Overwrite existing pose tag
+    sdf::ElementPtr pose = collision->GetElement("pose");
+    pose->Set(new_box_collision_pose);
+
+    // Add a new box
+    sdf::ElementPtr box = geometry->AddElement("box");
+    sdf::ElementPtr size = box->GetElement("size");
+    size->Set(box_size);
+
+    return true;
 }
 
+bool substituteCollisionWithBoxInSDF(sdf::SDFPtr icub_sdf,
+                                     std::string link_name,
+                                     std::string collision_name,
+                                     std::string new_box_collision_pose,
+                                     std::string box_size)
+{
+    sdf::ElementPtr model_elem = icub_sdf->root->GetElement("model");
+
+    for (sdf::ElementPtr link = model_elem->GetElement("link"); link; link = link->GetNextElement("link"))
+    {
+        if( link->GetAttribute("name")->GetAsString() == link_name )
+        {
+            for (sdf::ElementPtr collision = link->GetElement("collision"); collision; collision = link->GetNextElement("collision"))
+            {
+                if( collision->GetAttribute("name")->GetAsString() == collision_name )
+                {
+                    substituteCollisionWithBoxInCollisionSDF(collision,new_box_collision_pose,box_size);
+                }
+            }
+        }
+    }
+}
 
 bool generate_model_config_file(std::string robot_name, std::string gazebo_robot_model_directory)
 {
@@ -534,7 +688,9 @@ bool generate_iCub_model(std::string iCub_name,
     }
 
     //Add damping
-    ret_ok = urdf_set_friction_parameters(urdf_idyn,0.1,0.0);
+    double damping_ie_viscous = 1.0;
+    double friction_ie_coulomb = 0.0;
+    ret_ok = urdf_set_friction_parameters(urdf_idyn,damping_ie_viscous,friction_ie_coulomb);
 
     if( !ret_ok ) {
         std::cerr << "Fatal error in setting friction parameters"  << std::endl;
@@ -622,41 +778,45 @@ bool generate_iCub_model(std::string iCub_name,
 
     if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
 
+    // Substitute foot collisions with a box
+    substituteCollisionWithBoxInSDF(icub_sdf,"l_foot","l_foot_collision","-3e-02 0 3.5e-2 0 0 0","0.03 0.07 0.15");
+    substituteCollisionWithBoxInSDF(icub_sdf,"r_foot","r_foot_collision","-3e-02 0 3.5e-2 0 0 0","0.03 0.07 0.15");
+
     //Adding IMU sensor (in all robots)
     /// \todo add difference between head V1 and head V2
-    if( ! addGazeboYarpPluginsIMU(icub_sdf,"imu_sensor",iCub_name) ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
+    if( ! addGazeboYarpPluginsIMUToSDF(icub_sdf,"imu_sensor",iCub_name) ) { std::cerr << "Problem in adding imu sensor" << std::endl; return false; }
 
     //Adding FT sensors (in all robots)
     ret=true;
-    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_arm",iCub_name);
-    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_arm",iCub_name);
-    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_leg",iCub_name);
-    ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_leg",iCub_name);
+    ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"left_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"right_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"left_leg",iCub_name);
+    ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"right_leg",iCub_name);
     if( ft_feet ) {
         std::cerr << "Adding feet FT sensors" << std::endl;
-        ret = ret && addGazeboYarpPluginsFT(icub_sdf,"left_foot",iCub_name);
-        ret = ret && addGazeboYarpPluginsFT(icub_sdf,"right_foot",iCub_name);
+        ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"left_foot",iCub_name);
+        ret = ret && addGazeboYarpPluginsFTToSDF(icub_sdf,"right_foot",iCub_name);
     }
     if( !ret ) { std::cerr << "Problem in adding ft sensors" << std::endl; return false; }
 
     //Adding controlboards (in all robots, in the future add differences)
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"torso",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"torso",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding torso controlboard" << std::endl; return false; }
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"head",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"head",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding head controlboard" << std::endl; return false; }
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"left_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"left_arm",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding left_arm controlboards" << std::endl; return false; }
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_arm",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"right_arm",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding right_arm controlboards" << std::endl; return false; }
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"left_leg",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"left_leg",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding left_leg controlboards" << std::endl; return false; }
-    ret = ret && addGazeboYarpPluginsControlboard(icub_sdf,"right_leg",iCub_name);
+    ret = ret && addGazeboYarpPluginsControlboardToSDF(icub_sdf,"right_leg",iCub_name);
     if( !ret ) { std::cerr << "Problem in adding right_leg controlboards" << std::endl; return false; }
 
     //Adding parameters for properly handling of the contacts
-    ret = ret && addGazeboODEContactsProperties(icub_sdf,"l_foot","l_foot_collision");
+    ret = ret && addGazeboSurfaceFrictionInformationToSDF(icub_sdf,"l_foot");
     if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
-    ret = ret && addGazeboODEContactsProperties(icub_sdf,"r_foot","r_foot_collision");
+    ret = ret && addGazeboSurfaceFrictionInformationToSDF(icub_sdf,"r_foot");
     if( !ret ) { std::cerr << "Problem in adding contact properties" << std::endl; return false; }
 
     //Adding pose to avoid intersection with ground
@@ -753,6 +913,10 @@ int main(int argc, char* argv[])
     //Generating model for Darmastad iCub
     if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2  , false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubDarmstad01");
+
+    //Generating model for icubGazeboSim
+    if( !generate_iCub_model("icubGazeboSim",output_directory, 2    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("icubGazeboSim");
 
 
     std::cerr << "iCub model files successfully created" << std::endl;

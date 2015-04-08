@@ -138,7 +138,9 @@ double getTotalMass(urdf::ModelInterface & model)
     return total_mass;
 }
 
-bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input, boost::shared_ptr<urdf::ModelInterface> urdf_meshes, bool verbose)
+bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
+                        boost::shared_ptr<urdf::ModelInterface> urdf_meshes,
+                        bool verbose)
 {
     bool ret = true;
     KDL::Tree kdl_meshes, kdl_input;
