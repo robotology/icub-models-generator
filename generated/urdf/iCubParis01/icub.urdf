@@ -33,11 +33,11 @@
     <link name="head">
         <inertial>
             <mass value="3" />
-            <origin xyz="0.0185 -0.1108 6.78454e-18" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            <origin xyz="0.0225 -0.1005 6.15385e-18" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="-4.81482e-35" iyy="-3.46945e-18" iyz="3.85186e-34" izz="0" />
         </inertial>
         <visual>
-            <origin xyz="0.0045 -0.0235 9.42472e-13" rpy="1.81577 1.5708 0.244969" />
+            <origin xyz="0.0055 -5.05151e-15 9.42472e-13" rpy="1.81577 1.5708 0.244969" />
             <geometry>
                 <mesh filename="meshes/visual/icub_head.dae" scale="1 1 1" />
             </geometry>
@@ -47,7 +47,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.0045 -0.0235 9.42472e-13" rpy="1.81577 1.5708 0.244969" />
+            <origin xyz="0.0055 -5.05151e-15 9.42472e-13" rpy="1.81577 1.5708 0.244969" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_head.dae" scale="1 1 1" />
             </geometry>
@@ -392,9 +392,9 @@
     </link>
     <link name="neck_1">
         <inertial>
-            <mass value="0" />
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            <mass value="0.270176" />
+            <origin xyz="0.00246408 -2.13821e-50 -0.000235713" rpy="0 -0 0" />
+            <inertia ixx="0.000100463" ixy="-1.77658e-07" ixz="4.49143e-07" iyy="4.5426e-05" iyz="-1.26829e-07" izz="2.32934e-21" />
         </inertial>
         <visual>
             <origin xyz="-5.55112e-17 9.62889e-13 -0.0055" rpy="-7.25153e-06 -1.5708 -1.57079" />
@@ -415,12 +415,12 @@
     </link>
     <link name="neck_2">
         <inertial>
-            <mass value="0" />
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+            <mass value="0.272306" />
+            <origin xyz="0 0.00337529 0.00545442" rpy="0 -0 0" />
+            <inertia ixx="0.000142823" ixy="-5.92615e-09" ixz="-2.20067e-09" iyy="8.28849e-05" iyz="-9.13211e-06" izz="8.76203e-05" />
         </inertial>
         <visual>
-            <origin xyz="-9.62885e-13 0.0055 0.0235" rpy="2.17538e-05 -1.5708 1.57077" />
+            <origin xyz="-9.62885e-13 0.0055 -5.55112e-17" rpy="2.17538e-05 -1.5708 1.57077" />
             <geometry>
                 <mesh filename="meshes/visual/icub_neck_2.dae" scale="1 1 1" />
             </geometry>
@@ -430,7 +430,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="-9.62885e-13 0.0055 0.0235" rpy="2.17538e-05 -1.5708 1.57077" />
+            <origin xyz="-9.62885e-13 0.0055 -5.55112e-17" rpy="2.17538e-05 -1.5708 1.57077" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_neck_2.dae" scale="1 1 1" />
             </geometry>
@@ -841,7 +841,7 @@
         <child link="codyco_balancing_world" />
     </joint>
     <joint name="neck_yaw" type="revolute">
-        <origin xyz="-5.77779e-34 0 0" rpy="-1.5708 -0 1.5708" />
+        <origin xyz="0 -0.001 0" rpy="-1.5708 -0 1.5708" />
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="neck_2" />
         <child link="head" />
@@ -849,7 +849,7 @@
         <limit effort="20" velocity="100" lower="-0.959931" upper="0.959931" />
     </joint>
     <joint name="imu_frame_fixed_joint" type="fixed">
-        <origin xyz="0.0185 -0.1108 0.0066" rpy="1.5708 -0 0" />
+        <origin xyz="0.0225 -0.1005 0.0066" rpy="1.5708 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="head" />
         <child link="imu_frame" />
@@ -1021,7 +1021,7 @@
         <limit effort="20" velocity="100" lower="-0.698132" upper="0.523599" />
     </joint>
     <joint name="neck_roll" type="revolute">
-        <origin xyz="0.0095 0 0" rpy="-1.5708 -0 -1.5708" />
+        <origin xyz="0.033 -2.13821e-50 0" rpy="-1.5708 -0 -1.5708" />
         <axis xyz="0 -1 6.12323e-17" />
         <parent link="neck_1" />
         <child link="neck_2" />
