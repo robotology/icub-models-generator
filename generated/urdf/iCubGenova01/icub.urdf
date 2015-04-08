@@ -85,8 +85,8 @@
     </link>
     <link name="l_ankle_2">
         <inertial>
-            <mass value="0.1" />
-            <origin xyz="-0.0035 0 -0.0065" rpy="0 -0 0" />
+            <mass value="0.2675" />
+            <origin xyz="-0.0035 0 0.0645" rpy="0 -0 0" />
             <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
     </link>
@@ -99,12 +99,12 @@
     </link>
     <link name="l_foot">
         <inertial>
-            <mass value="0.761" />
-            <origin xyz="0.024069 -0.000613931 0.0425846" rpy="0 -0 0" />
-            <inertia ixx="0.00253893" ixy="-4.51893e-06" ixz="-0.000903578" iyy="0.00407487" iyz="3.68679e-05" izz="0.00208378" />
+            <mass value="0.5935" />
+            <origin xyz="0.024069 -0.000613931 -0.0284154" rpy="0 -0 0" />
+            <inertia ixx="0.00167275" ixy="-4.51893e-06" ixz="0.000567785" iyy="0.00320869" iyz="-6.62361e-07" izz="0.00208378" />
         </inertial>
         <visual>
-            <origin xyz="0.0044175 -5.54343e-12 0.008055" rpy="2.35619 1.5708 2.35619" />
+            <origin xyz="0.0044175 -5.54341e-12 -0.062945" rpy="2.35619 1.5708 2.35619" />
             <geometry>
                 <mesh filename="meshes/visual/icub_l_foot.dae" scale="1 1 1" />
             </geometry>
@@ -114,7 +114,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.0044175 -5.54343e-12 0.008055" rpy="2.35619 1.5708 2.35619" />
+            <origin xyz="0.0044175 -5.54341e-12 -0.062945" rpy="2.35619 1.5708 2.35619" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_l_foot.dae" scale="1 1 1" />
             </geometry>
@@ -461,9 +461,9 @@
     </link>
     <link name="r_ankle_2">
         <inertial>
-            <mass value="0.1" />
-            <origin xyz="-0.0035 4.28626e-19 -0.0065" rpy="0 -0 0" />
-            <inertia ixx="0" ixy="-2.35099e-38" ixz="0" iyy="0" iyz="4.70198e-38" izz="0" />
+            <mass value="0.2675" />
+            <origin xyz="-0.0035 4.28626e-19 0.0645" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="4.70198e-38" ixz="0" iyy="0" iyz="0" izz="0" />
         </inertial>
     </link>
     <link name="r_elbow_1">
@@ -475,12 +475,12 @@
     </link>
     <link name="r_foot">
         <inertial>
-            <mass value="0.761" />
-            <origin xyz="0.024069 0.000613931 0.0425846" rpy="0 -0 0" />
-            <inertia ixx="0.00253893" ixy="4.51893e-06" ixz="-0.000903578" iyy="0.00407487" iyz="-3.68677e-05" izz="0.00208378" />
+            <mass value="0.5935" />
+            <origin xyz="0.024069 0.000613931 -0.0284154" rpy="0 -0 0" />
+            <inertia ixx="0.00167275" ixy="4.51893e-06" ixz="0.000567784" iyy="0.00320869" iyz="6.62535e-07" izz="0.00208378" />
         </inertial>
         <visual>
-            <origin xyz="0.0044175 1.08717e-12 0.008055" rpy="0.321762 1.5708 -2.81983" />
+            <origin xyz="0.0044175 1.08716e-12 -0.062945" rpy="0.321762 1.5708 -2.81983" />
             <geometry>
                 <mesh filename="meshes/visual/icub_r_foot.dae" scale="1 1 1" />
             </geometry>
@@ -490,7 +490,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0.0044175 1.08717e-12 0.008055" rpy="0.321762 1.5708 -2.81983" />
+            <origin xyz="0.0044175 1.08716e-12 -0.062945" rpy="0.321762 1.5708 -2.81983" />
             <geometry>
                 <mesh filename="meshes/collision/icub_simple_collision_r_foot.dae" scale="1 1 1" />
             </geometry>
@@ -835,7 +835,7 @@
         <limit effort="80" velocity="100" lower="-1.02974" upper="1.02974" />
     </joint>
     <joint name="codyco_balancing_world_fixed_joint" type="fixed">
-        <origin xyz="-8.67362e-19 -1.38778e-17 0.075" rpy="3.14159 -0 0" />
+        <origin xyz="-8.67362e-19 -1.38778e-17 0.004" rpy="3.14159 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="l_foot" />
         <child link="codyco_balancing_world" />
@@ -879,13 +879,13 @@
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="l_foot_ft_sensor" type="fixed">
-        <origin xyz="-0.0035 0 -0.0065" rpy="0 -0 0" />
+        <origin xyz="-0.0035 0 0.0645" rpy="0 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="l_ankle_2" />
         <child link="l_foot" />
     </joint>
     <joint name="l_foot_dh_frame_fixed_joint" type="fixed">
-        <origin xyz="-8.67362e-19 -1.38778e-17 0.075" rpy="-9.70754e-18 1.5708 -9.70754e-18" />
+        <origin xyz="0 0 0.004" rpy="0 1.5708 0" />
         <axis xyz="0 0 0" />
         <parent link="l_foot" />
         <child link="l_foot_dh_frame" />
@@ -979,7 +979,7 @@
         <limit effort="34" velocity="100" lower="-0.645772" upper="1.74533" />
     </joint>
     <joint name="l_sole_fixed_joint" type="fixed">
-        <origin xyz="0 0 0.075" rpy="0 1.5708 0" />
+        <origin xyz="-8.67362e-19 -1.38778e-17 0.004" rpy="3.14159 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="l_foot" />
         <child link="l_sole" />
@@ -1053,13 +1053,13 @@
         <limit effort="20" velocity="100" lower="0.0959931" upper="1.85005" />
     </joint>
     <joint name="r_foot_ft_sensor" type="fixed">
-        <origin xyz="-0.0035 4.28626e-19 -0.0065" rpy="0 -0 0" />
+        <origin xyz="-0.0035 4.28626e-19 0.0645" rpy="0 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="r_ankle_2" />
         <child link="r_foot" />
     </joint>
     <joint name="r_foot_dh_frame_fixed_joint" type="fixed">
-        <origin xyz="-8.67362e-19 1.38778e-17 0.075" rpy="-1.01315e-16 1.5708 -1.01315e-16" />
+        <origin xyz="0 0 0.004" rpy="0 1.5708 0" />
         <axis xyz="0 0 0" />
         <parent link="r_foot" />
         <child link="r_foot_dh_frame" />
@@ -1153,7 +1153,7 @@
         <limit effort="34" velocity="100" lower="-0.645772" upper="1.74533" />
     </joint>
     <joint name="r_sole_fixed_joint" type="fixed">
-        <origin xyz="0 0 0.075" rpy="0 1.5708 0" />
+        <origin xyz="-8.67362e-19 1.38778e-17 0.004" rpy="3.14159 -0 0" />
         <axis xyz="0 0 0" />
         <parent link="r_foot" />
         <child link="r_sole" />

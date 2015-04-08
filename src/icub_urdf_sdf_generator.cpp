@@ -429,10 +429,12 @@ bool generate_iCub_model(std::string iCub_name,
                          int head_version,
                          int legs_version,
                          int feet_version,
+                         bool is_iCubParis02,
                          bool simple_meshes,
                          std::string data_directory,
                          double mass_epsilon,
-                         double inertia_epsilon)
+                         double inertia_epsilon
+                        )
 {
     bool ft_feet;
     if( feet_version == 1 ) {
@@ -484,8 +486,7 @@ bool generate_iCub_model(std::string iCub_name,
     KDL::Tree icub_kdl;
 
     KDL::JntArray dummy1,dummy2;
-
-    if( ! toKDL(icub_idyn,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,true) ) {
+    if( ! toKDL(icub_idyn,icub_type,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,true,is_iCubParis02) ) {
         std::cerr << "Fatal error in iDyn - KDL conversion" << std::endl;
         return false;
     }
@@ -734,22 +735,23 @@ int main(int argc, char* argv[])
 
     //Generating model for black iCub
     //                          robot_name     directory    head   legs   feet
-    if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    bool simple_meshes = false;
+    if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova01");
 
     //Generating model for red iCub
-    if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova03");
 
-    //if( !generate_iCub_model("iCubParis01",output_directory, 2    , 1    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    //robot_names.push_back("iCubParis01");
+    if( !generate_iCub_model("iCubParis01",output_directory, 1    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis01");
 
     //Generating model for red iCub
-    //if( !generate_iCub_model("iCubParis02",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    //robot_names.push_back("iCubParis02");
-    
+    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 1    , 2   , true, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    robot_names.push_back("iCubParis02");
+
     //Generating model for Darmastad iCub
-    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2   , false , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2  , false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubDarmstad01");
 
 

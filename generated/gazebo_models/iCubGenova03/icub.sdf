@@ -32,10 +32,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <link name='l_hip_1'>
       <pose>0 -0.0681 -0.1199 2.65359e-06 1.57079 3.14159</pose>
@@ -69,10 +65,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_hip_pitch' type='revolute'>
       <child>l_hip_1</child>
@@ -126,10 +118,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_hip_roll' type='revolute'>
       <child>l_hip_2</child>
@@ -165,10 +153,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_leg_ft_sensor' type='revolute'>
       <child>l_hip_3</child>
@@ -228,10 +212,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_hip_yaw' type='revolute'>
       <child>l_upper_leg</child>
@@ -285,10 +265,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_knee' type='revolute'>
       <child>l_lower_leg</child>
@@ -342,10 +318,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_ankle_pitch' type='revolute'>
       <child>l_ankle_1</child>
@@ -370,8 +342,8 @@
     <link name='l_ankle_2'>
       <pose>-3.98983e-06 -0.0680972 -0.5565 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
-        <pose>-0.0035 0 -0.0065 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>0.0135 0 0.0695 0 -0 0</pose>
+        <mass>0.2675</mass>
         <inertia>
           <ixx>0.01</ixx>
           <ixy>0</ixy>
@@ -381,10 +353,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_ankle_roll' type='revolute'>
       <child>l_ankle_2</child>
@@ -407,21 +375,21 @@
       </axis>
     </joint>
     <link name='l_foot'>
-      <pose>0.00349606 -0.0680973 -0.55 3.14159 -7.34645e-06 3.14158</pose>
+      <pose>-0.0135045 -0.0680967 -0.626 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
-        <pose>0.024069 -0.000613931 0.0425846 0 -0 0</pose>
-        <mass>0.761</mass>
+        <pose>0.007069 -0.000613931 -0.0334154 0 -0 0</pose>
+        <mass>0.5935</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>-4.51893e-06</ixy>
-          <ixz>-0.000903578</ixz>
+          <ixy>-1.3505e-05</ixy>
+          <ixz>0.0001823</ixz>
           <iyy>0.01</iyy>
-          <iyz>3.68679e-05</iyz>
+          <iyz>-3.30533e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='l_foot_collision'>
-        <pose>0.0035 -5.54343e-12 0.0065 -0.785403 1.57079 -0.785403</pose>
+        <pose>-0.0135 -5.54341e-12 -0.0695 -0.785403 1.57079 -0.785403</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -447,7 +415,7 @@
         </surface>
       </collision>
       <visual name='l_foot_visual'>
-        <pose>0.0035 -5.54343e-12 0.0065 -0.785403 1.57079 -0.785403</pose>
+        <pose>-0.0135 -5.54341e-12 -0.0695 -0.785403 1.57079 -0.785403</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -455,10 +423,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_foot_ft_sensor' type='revolute'>
       <child>l_foot</child>
@@ -518,10 +482,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_hip_pitch' type='revolute'>
       <child>r_hip_1</child>
@@ -575,10 +535,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_hip_roll' type='revolute'>
       <child>r_hip_2</child>
@@ -614,10 +570,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_leg_ft_sensor' type='revolute'>
       <child>r_hip_3</child>
@@ -677,10 +629,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_hip_yaw' type='revolute'>
       <child>r_upper_leg</child>
@@ -734,10 +682,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_knee' type='revolute'>
       <child>r_lower_leg</child>
@@ -791,10 +735,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_ankle_pitch' type='revolute'>
       <child>r_ankle_1</child>
@@ -819,21 +759,17 @@
     <link name='r_ankle_2'>
       <pose>-3.98984e-06 0.0681016 -0.5565 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>-0.0035 4.28626e-19 -0.0065 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>0.0135 4.28626e-19 0.0695 0 -0 0</pose>
+        <mass>0.2675</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>-2.35099e-38</ixy>
+          <ixy>-1.88079e-37</ixy>
           <ixz>0</ixz>
           <iyy>0.01</iyy>
-          <iyz>4.70198e-38</iyz>
+          <iyz>0</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_ankle_roll' type='revolute'>
       <child>r_ankle_2</child>
@@ -856,21 +792,21 @@
       </axis>
     </joint>
     <link name='r_foot'>
-      <pose>0.0034961 0.0681016 -0.55 3.14159 -1.4236e-05 -3.14159</pose>
+      <pose>-0.013505 0.0681021 -0.626 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>0.024069 0.000613931 0.0425846 0 -0 0</pose>
-        <mass>0.761</mass>
+        <pose>0.007069 0.000613931 -0.0334154 0 -0 0</pose>
+        <mass>0.5935</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>4.51893e-06</ixy>
-          <ixz>-0.000903578</ixz>
+          <ixy>1.3505e-05</ixy>
+          <ixz>0.0001823</ixz>
           <iyy>0.01</iyy>
-          <iyz>-3.68677e-05</iyz>
+          <iyz>3.30551e-06</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='r_foot_collision'>
-        <pose>0.0035 1.08717e-12 0.0065 -2.81983 1.57079 0.321763</pose>
+        <pose>-0.0135 1.08716e-12 -0.0695 -2.81983 1.57079 0.321763</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -896,7 +832,7 @@
         </surface>
       </collision>
       <visual name='r_foot_visual'>
-        <pose>0.0035 1.08717e-12 0.0065 -2.81983 1.57079 0.321763</pose>
+        <pose>-0.0135 1.08716e-12 -0.0695 -2.81983 1.57079 0.321763</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -904,10 +840,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_foot_ft_sensor' type='revolute'>
       <child>r_foot</child>
@@ -967,10 +899,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='torso_pitch' type='revolute'>
       <child>torso_1</child>
@@ -1006,10 +934,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='torso_roll' type='revolute'>
       <child>torso_2</child>
@@ -1063,10 +987,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='torso_yaw' type='revolute'>
       <child>chest</child>
@@ -1120,10 +1040,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_shoulder_pitch' type='revolute'>
       <child>l_shoulder_1</child>
@@ -1177,10 +1093,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_shoulder_roll' type='revolute'>
       <child>l_shoulder_2</child>
@@ -1216,10 +1128,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_shoulder_yaw' type='revolute'>
       <child>l_shoulder_3</child>
@@ -1273,10 +1181,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_arm_ft_sensor' type='revolute'>
       <child>l_upper_arm</child>
@@ -1318,10 +1222,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_elbow' type='revolute'>
       <child>l_elbow_1</child>
@@ -1375,10 +1275,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_wrist_prosup' type='revolute'>
       <child>l_forearm</child>
@@ -1414,10 +1310,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_wrist_pitch' type='revolute'>
       <child>l_wrist_1</child>
@@ -1471,10 +1363,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='l_wrist_yaw' type='revolute'>
       <child>l_hand</child>
@@ -1528,10 +1416,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='neck_pitch' type='revolute'>
       <child>neck_1</child>
@@ -1585,10 +1469,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='neck_roll' type='revolute'>
       <child>neck_2</child>
@@ -1642,10 +1522,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
       <sensor name='imu_sensor' type='imu'>
         <always_on>1</always_on>
         <update_rate>100</update_rate>
@@ -1709,10 +1585,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_shoulder_pitch' type='revolute'>
       <child>r_shoulder_1</child>
@@ -1766,10 +1638,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_shoulder_roll' type='revolute'>
       <child>r_shoulder_2</child>
@@ -1805,10 +1673,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_shoulder_yaw' type='revolute'>
       <child>r_shoulder_3</child>
@@ -1862,10 +1726,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_arm_ft_sensor' type='revolute'>
       <child>r_upper_arm</child>
@@ -1907,10 +1767,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_elbow' type='revolute'>
       <child>r_elbow_1</child>
@@ -1964,10 +1820,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_wrist_prosup' type='revolute'>
       <child>r_forearm</child>
@@ -2003,10 +1855,6 @@
           <izz>0.01</izz>
         </inertia>
       </inertial>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_wrist_pitch' type='revolute'>
       <child>r_wrist_1</child>
@@ -2060,10 +1908,6 @@
           </mesh>
         </geometry>
       </visual>
-      <velocity_decay>
-        <linear>0</linear>
-        <angular>0</angular>
-      </velocity_decay>
     </link>
     <joint name='r_wrist_yaw' type='revolute'>
       <child>r_hand</child>

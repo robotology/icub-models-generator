@@ -20,7 +20,7 @@ find_package(Eigen3 REQUIRED)
 find_package(TinyXML REQUIRED)
 
 find_package(SDFormat REQUIRED)
-find_package(iDynTree REQUIRED)
+find_package(iDynTree 0.3.4 REQUIRED)
 
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ICUB_LINK_FLAGS}")
