@@ -1,5 +1,5 @@
 <sdf version='1.5'>
-  <model name='test_icub'>
+  <model name='iCub'>
     <link name='root_link'>
       <pose>0 0 0 0 -0 0</pose>
       <inertial>
@@ -78,7 +78,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -131,7 +131,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -176,7 +176,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_leg_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -225,7 +225,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -278,7 +278,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -331,7 +331,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -342,7 +342,7 @@
     <link name='l_ankle_2'>
       <pose>-3.98983e-06 -0.0680972 -0.5565 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
-        <pose>0.0135 0 0.0695 0 -0 0</pose>
+        <pose>0 0 0.037 0 -0 0</pose>
         <mass>0.2675</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -366,7 +366,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -375,24 +375,24 @@
       </axis>
     </joint>
     <link name='l_foot'>
-      <pose>-0.0135045 -0.0680967 -0.626 3.14159 -7.34645e-06 3.14158</pose>
+      <pose>-4.26164e-06 -0.068097 -0.5935 3.14159 -7.34645e-06 3.14158</pose>
       <inertial>
-        <pose>0.007069 -0.000613931 -0.0334154 0 -0 0</pose>
+        <pose>0.024069 -0.000613931 -0.0284154 0 -0 0</pose>
         <mass>0.5935</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>-1.3505e-05</ixy>
-          <ixz>0.0001823</ixz>
+          <ixy>-4.51893e-06</ixy>
+          <ixz>0.000567785</ixz>
           <iyy>0.01</iyy>
-          <iyz>-3.30533e-06</iyz>
+          <iyz>-6.62361e-07</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='l_foot_collision'>
-        <pose>-0.03 0 0.035 0 -0 0</pose>
+        <pose>0.03 0 -0.01 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.03 0.07 0.15</size>
+            <size>0.15 0.07 0.03</size>
           </box>
         </geometry>
         <max_contacts>4</max_contacts>
@@ -423,7 +423,7 @@
         </surface>
       </collision>
       <visual name='l_foot_visual'>
-        <pose>-0.0135 -5.54341e-12 -0.0695 -0.785403 1.57079 -0.785403</pose>
+        <pose>4.45647e-12 -5.54343e-12 -0.037 -0.785403 1.57079 -0.785403</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -454,7 +454,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_foot_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -503,7 +503,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -556,7 +556,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -601,7 +601,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_leg_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -650,7 +650,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -703,7 +703,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -756,7 +756,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -767,11 +767,11 @@
     <link name='r_ankle_2'>
       <pose>-3.98984e-06 0.0681016 -0.5565 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>0.0135 4.28626e-19 0.0695 0 -0 0</pose>
+        <pose>0 0 0.037 0 -0 0</pose>
         <mass>0.2675</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>-1.88079e-37</ixy>
+          <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.01</iyy>
           <iyz>0</iyz>
@@ -791,7 +791,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -800,24 +800,24 @@
       </axis>
     </joint>
     <link name='r_foot'>
-      <pose>-0.013505 0.0681021 -0.626 3.14159 -1.4236e-05 -3.14159</pose>
+      <pose>-4.51657e-06 0.0681019 -0.5935 3.14159 -1.4236e-05 -3.14159</pose>
       <inertial>
-        <pose>0.007069 0.000613931 -0.0334154 0 -0 0</pose>
+        <pose>0.024069 0.000613931 -0.0284154 0 -0 0</pose>
         <mass>0.5935</mass>
         <inertia>
           <ixx>0.01</ixx>
-          <ixy>1.3505e-05</ixy>
-          <ixz>0.0001823</ixz>
+          <ixy>4.51893e-06</ixy>
+          <ixz>0.000567784</ixz>
           <iyy>0.01</iyy>
-          <iyz>3.30551e-06</iyz>
+          <iyz>6.62535e-07</iyz>
           <izz>0.01</izz>
         </inertia>
       </inertial>
       <collision name='r_foot_collision'>
-        <pose>-0.03 0 0.035 0 -0 0</pose>
+        <pose>0.03 0 -0.01 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.03 0.07 0.15</size>
+            <size>0.15 0.07 0.03</size>
           </box>
         </geometry>
         <max_contacts>4</max_contacts>
@@ -848,7 +848,7 @@
         </surface>
       </collision>
       <visual name='r_foot_visual'>
-        <pose>-0.0135 1.08716e-12 -0.0695 -2.81983 1.57079 0.321763</pose>
+        <pose>4.45647e-12 1.08717e-12 -0.037 -2.81983 1.57079 0.321763</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -879,7 +879,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_foot_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -928,7 +928,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -963,7 +963,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1016,7 +1016,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1069,7 +1069,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1122,7 +1122,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1157,7 +1157,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1220,7 +1220,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='left_arm_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -1251,7 +1251,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1304,7 +1304,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1339,7 +1339,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1392,7 +1392,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1445,7 +1445,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1498,7 +1498,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1544,7 +1544,7 @@
         <visualize>1</visualize>
         <imu/>
         <plugin name='iCub_yarp_gazebo_plugin_IMU' filename='libgazebo_yarp_imu.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
         </plugin>
         <pose>0.0185 -0.1108 0.0066 1.5708 -0 0</pose>
       </sensor>
@@ -1561,7 +1561,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1614,7 +1614,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1667,7 +1667,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1702,7 +1702,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1765,7 +1765,7 @@
         <update_rate>100</update_rate>
         <pose>0 0 0 0 0 0</pose>
         <plugin name='right_arm_ft_plugin' filename='libgazebo_yarp_forcetorque.so'>
-          <yarpConfigurationFile>model://icubGazeboSim/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://icub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
         </plugin>
       </sensor>
     </joint>
@@ -1796,7 +1796,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1849,7 +1849,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1884,7 +1884,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1937,7 +1937,7 @@
           <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.1</damping>
+          <damping>1</damping>
           <friction>0</friction>
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
@@ -1946,24 +1946,24 @@
       </axis>
     </joint>
     <plugin name='controlboard_torso' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_head' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_head.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_head.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_left_arm' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
       <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
     </plugin>
     <plugin name='controlboard_right_arm' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
       <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
     </plugin>
     <plugin name='controlboard_left_leg' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_right_leg' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://icubGazeboSim/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://icub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
     </plugin>
     <pose>0 0 0.70 0 0 0</pose>
   </model>

@@ -72,7 +72,8 @@ bool urdf_gazebo_cleanup_regularize_masses(boost::shared_ptr<urdf::ModelInterfac
  * Add a model uri to the meshes address
  *
  */
-bool urdf_gazebo_cleanup_add_model_uri(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string model_prefix);
+bool urdf_gazebo_cleanup_add_model_uri(boost::shared_ptr<urdf::ModelInterface> urdf_input,
+                                       std::string model_prefix);
 
 bool urdf_print_hom_transformations(boost::shared_ptr<urdf::ModelInterface> urdf_input);
 

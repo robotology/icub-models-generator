@@ -85,7 +85,7 @@ bool addGazeboYarpPluginsControlboardToSDF(sdf::ElementPtr model, std::string pa
     yarpConfigurationFile_description->SetName("yarpConfigurationFile");
     plugin->AddElementDescription(yarpConfigurationFile_description);
     sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
-    yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/gazebo_icub_"+part_name+".ini",false);
+    yarpConfigurationFile->AddValue("string","model://icub/conf/gazebo_icub_"+part_name+".ini",false);
 
     if( part_name == "right_arm" || part_name == "left_arm" ) {
         sdf::ElementPtr initialConfiguration_description(new sdf::Element);
@@ -151,7 +151,7 @@ bool addGazeboYarpPluginsIMUToSDF(sdf::SDFPtr icub_sdf, std::string sensor_name,
                 yarpConfigurationFile_description->SetName("yarpConfigurationFile");
                 plugin->AddElementDescription(yarpConfigurationFile_description);
                 sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
-                yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/gazebo_icub_inertial.ini",false);
+                yarpConfigurationFile->AddValue("string","model://icub/conf/gazebo_icub_inertial.ini",false);
                 sdf::ElementPtr pose = sensor->AddElement("pose");
                 pose->AddValue("string","0.0185 -0.1108 0.0066 1.5708 -0 0",false);
             }
@@ -401,7 +401,7 @@ bool addGazeboYarpPluginsFTToSDF(sdf::ElementPtr joint_element, std::string sens
                     yarpConfigurationFile_description->SetName("yarpConfigurationFile");
                     plugin->AddElementDescription(yarpConfigurationFile_description);
                     sdf::ElementPtr yarpConfigurationFile = plugin->AddElement("yarpConfigurationFile");
-                    yarpConfigurationFile->AddValue("string","model://"+robot_name+"/conf/FT/gazebo_icub_"+sensor_name+"_ft.ini",false);
+                    yarpConfigurationFile->AddValue("string","model://icub/conf/FT/gazebo_icub_"+sensor_name+"_ft.ini",false);
 
     return true;
 }
@@ -584,6 +584,7 @@ bool generate_iCub_model(std::string iCub_name,
                          int legs_version,
                          int feet_version,
                          bool is_iCubParis02,
+                         bool is_icubGazeboSim,
                          bool simple_meshes,
                          std::string data_directory,
                          double mass_epsilon,
@@ -616,7 +617,7 @@ bool generate_iCub_model(std::string iCub_name,
     std::string gazebo_robot_model_directory = gazebo_model_directory+iCub_name+"/";
     std::string filename_urdf_gazebo = gazebo_robot_model_directory+"icub_simulation.urdf";
     std::string gazebo_mesh_model_name = "icub";
-    std::string gazebo_uri_prefix = "model://"+gazebo_mesh_model_name+"/";
+    std::string gazebo_uri_prefix = "model://icub/";
     std::string gazebo_sdf_filename = gazebo_robot_model_directory+"icub.sdf";
 
     //Creating needed directories
@@ -640,7 +641,9 @@ bool generate_iCub_model(std::string iCub_name,
     KDL::Tree icub_kdl;
 
     KDL::JntArray dummy1,dummy2;
-    if( ! toKDL(icub_idyn,icub_type,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,true,is_iCubParis02) ) {
+    bool addRootWeight = true;
+    bool debugFlag         = false;
+    if( ! toKDL(icub_idyn,icub_type,icub_kdl,dummy1,dummy2,iCub::iDynTree::SKINDYNLIB_SERIALIZATION,ft_feet,addRootWeight,debugFlag,is_iCubParis02,is_icubGazeboSim) ) {
         std::cerr << "Fatal error in iDyn - KDL conversion" << std::endl;
         return false;
     }
@@ -650,8 +653,7 @@ bool generate_iCub_model(std::string iCub_name,
     //std::cout << "iCub KDL::Tree: " << std::endl;
     //std::cout << icub_kdl << std::endl;
 
-
-    if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"test_icub",*urdf_idyn) ) {
+    if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"iCub",*urdf_idyn) ) {
         std::cerr << "Fatal error in KDL - URDF conversion" << std::endl;
         return false;
     }
@@ -779,8 +781,8 @@ bool generate_iCub_model(std::string iCub_name,
     if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
 
     // Substitute foot collisions with a box
-    substituteCollisionWithBoxInSDF(icub_sdf,"l_foot","l_foot_collision","-3e-02 0 3.5e-2 0 0 0","0.03 0.07 0.15");
-    substituteCollisionWithBoxInSDF(icub_sdf,"r_foot","r_foot_collision","-3e-02 0 3.5e-2 0 0 0","0.03 0.07 0.15");
+    substituteCollisionWithBoxInSDF(icub_sdf,"l_foot","l_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
+    substituteCollisionWithBoxInSDF(icub_sdf,"r_foot","r_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
 
     //Adding IMU sensor (in all robots)
     /// \todo add difference between head V1 and head V2
@@ -894,30 +896,33 @@ int main(int argc, char* argv[])
     std::vector<std::string> robot_names;
 
     //Generating model for black iCub
-    //                          robot_name     directory    head   legs   feet
+    //                          robot_name     directory    head   legs   feet    Paris02  gazeboSim
     bool simple_meshes = false;
-    if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubGenova01",output_directory, 2    , 2    , 2   , false, false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova01");
 
     //Generating model for red iCub
-    if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubGenova03",output_directory, 2    , 1    , 2   , false, false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubGenova03");
 
-    if( !generate_iCub_model("iCubParis01",output_directory, 1    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubParis01",output_directory, 1    , 1    , 2   , false, false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubParis01");
 
     //Generating model for red iCub
-    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 1    , 2   , true, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubParis02",output_directory, 2    , 1    , 2   , true, false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubParis02");
 
     //Generating model for Darmastad iCub
-    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2  , false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2  , false, false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubDarmstad01");
 
     //Generating model for icubGazeboSim
-    if( !generate_iCub_model("icubGazeboSim",output_directory, 2    , 1    , 2   , false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("icubGazeboSim",output_directory, 2    , 1    , 2   , false, true, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("icubGazeboSim");
 
+    //Generating model for icubGazeboSimNoFT
+    //if( !generate_iCub_model("icubGazeboSimNoFT",output_directory, 2    , 1    , 1   , false, false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    //robot_names.push_back("icubGazeboSimNoFT");
 
     std::cerr << "iCub model files successfully created" << std::endl;
 
