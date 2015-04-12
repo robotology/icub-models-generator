@@ -588,7 +588,8 @@ bool generate_iCub_model(std::string iCub_name,
                          bool simple_meshes,
                          std::string data_directory,
                          double mass_epsilon,
-                         double inertia_epsilon
+                         double inertia_epsilon,
+                         bool noFTsimulation = false
                         )
 {
     bool ft_feet;
@@ -745,7 +746,12 @@ bool generate_iCub_model(std::string iCub_name,
     //printTree(urdf_idyn->getRoot());
     //printJoints(urdf_idyn);
     if( ! urdf_gazebo_cleanup_remove_frames(urdf_idyn) ) { std::cerr << "Error in removing frames " << std::endl; return false; }
-    if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; }
+
+    if( ! noFTsimulation )
+    {
+        if( ! urdf_gazebo_cleanup_transform_FT_sensors(urdf_idyn) ) { std::cerr << "Error in transforming FT junctions " << std::endl; return false; }
+    }
+
     if( ! urdf_gazebo_cleanup_regularize_masses(urdf_idyn,mass_epsilon,inertia_epsilon) ) { std::cerr << "Error in regularizing masses root " << std::endl; return false; }
     if( ! urdf_gazebo_cleanup_add_model_uri(urdf_idyn,gazebo_uri_prefix) ) { std::cerr << "Error in adding model URIs " << std::endl; return false; }
 
@@ -781,8 +787,16 @@ bool generate_iCub_model(std::string iCub_name,
     if( ! icub_sdf->root->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
 
     // Substitute foot collisions with a box
-    substituteCollisionWithBoxInSDF(icub_sdf,"l_foot","l_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
-    substituteCollisionWithBoxInSDF(icub_sdf,"r_foot","r_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
+    if( ! noFTsimulation )
+    {
+        substituteCollisionWithBoxInSDF(icub_sdf,"l_foot","l_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
+        substituteCollisionWithBoxInSDF(icub_sdf,"r_foot","r_foot_collision","0.03 0 -0.01 0 0 0","0.15 0.07 0.03");
+    }
+    else
+    {
+        substituteCollisionWithBoxInSDF(icub_sdf,"l_ankle_2","l_ankle_2_collision","0.03 0 0.026 0 -0 0","0.15 0.07 0.03");
+        substituteCollisionWithBoxInSDF(icub_sdf,"r_ankle_2","r_ankle_2_collision","0.03 0 0.026 0 -0 0","0.15 0.07 0.03");
+    }
 
     //Adding IMU sensor (in all robots)
     /// \todo add difference between head V1 and head V2
@@ -920,9 +934,10 @@ int main(int argc, char* argv[])
     if( !generate_iCub_model("icubGazeboSim",output_directory, 2    , 1    , 2   , false, true, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("icubGazeboSim");
 
-    //Generating model for icubGazeboSimNoFT
-    //if( !generate_iCub_model("icubGazeboSimNoFT",output_directory, 2    , 1    , 1   , false, false, simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
-    //robot_names.push_back("icubGazeboSimNoFT");
+    //Generating model for icubGazeboSim
+    if( !generate_iCub_model("icubGazeboSimNoFT",output_directory, 2    , 1    , 2   , false, true, simple_meshes , data_directory,mass_epsilon,inertia_epsilon,true) ) return EXIT_FAILURE;
+    robot_names.push_back("icubGazeboSimNoFT");
+
 
     std::cerr << "iCub model files successfully created" << std::endl;
 
