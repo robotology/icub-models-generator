@@ -24,6 +24,9 @@ find_package(iDynTree 0.3.5 REQUIRED)
 
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ICUB_LINK_FLAGS}")
+# Add Gazebo CXX flags, to support sdformat 3 reckless dependency on C++11
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SDFormat_CXX_FLAGS}")
+
 
 # add YARP include directories
 include_directories(${urdfdom_INCLUDE_DIR}

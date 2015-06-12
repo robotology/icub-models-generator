@@ -23,6 +23,13 @@
             </geometry>
         </collision>
     </link>
+    <link name="chest_skin_frame">
+        <inertial>
+            <mass value="0" />
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
     <link name="codyco_balancing_world">
         <inertial>
             <mass value="0" />
@@ -833,6 +840,12 @@
         <child link="chest" />
         <dynamics damping="1" friction="0" />
         <limit effort="80" velocity="100" lower="-1.02974" upper="1.02974" />
+    </joint>
+    <joint name="chest_skin_frame_fixed_joint" type="fixed">
+        <origin xyz="0.00231 0.1933 -1.18362e-17" rpy="-1.8747e-33 5.77686e-66 6.16298e-33" />
+        <axis xyz="0 0 0" />
+        <parent link="chest" />
+        <child link="chest_skin_frame" />
     </joint>
     <joint name="codyco_balancing_world_fixed_joint" type="fixed">
         <origin xyz="-8.67362e-19 -1.38778e-17 0.004" rpy="3.14159 -0 0" />

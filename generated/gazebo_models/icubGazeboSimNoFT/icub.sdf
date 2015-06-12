@@ -313,7 +313,7 @@
         </inertia>
       </inertial>
       <collision name='l_ankle_2_collision'>
-        <pose>0.03 0 -0.01 0 -0 0</pose>
+        <pose>0.03 0 0.026 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.15 0.07 0.03</size>
@@ -630,7 +630,7 @@
         </inertia>
       </inertial>
       <collision name='r_ankle_2_collision'>
-        <pose>0.03 0 -0.01 0 -0 0</pose>
+        <pose>0.03 0 0.026 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.15 0.07 0.03</size>
