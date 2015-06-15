@@ -927,7 +927,7 @@ int main(int argc, char* argv[])
     robot_names.push_back("iCubParis02");
 
     //Generating model for Darmastad iCub
-    if( !generate_iCub_model("iCubDarmstad01",output_directory, 2    , 2    , 2  , false, false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
+    if( !generate_iCub_model("iCubDarmstadt01",output_directory, 2    , 2    , 2  , false, false,  simple_meshes , data_directory,mass_epsilon,inertia_epsilon) ) return EXIT_FAILURE;
     robot_names.push_back("iCubDarmstad01");
 
     //Generating model for icubGazeboSim
