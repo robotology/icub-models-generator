@@ -34,7 +34,8 @@ include_directories(${urdfdom_INCLUDE_DIR}
                     ${EIGEN3_INCLUDE_DIR} ${YARP_INCLUDE_DIR} ${iDynTree_INCLUDE_DIRS}
                     ${iDyn_INCLUDE_DIRS}
                     ${YARP_INCLUDE_DIRS}
-                    ${skinDynLib_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
+                    ${skinDynLib_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS}
+                    ${urdfdom_INCLUDE_DIRS})
 
 add_library(urdf_utils STATIC urdf_utils.h urdf_utils.cpp)
 
