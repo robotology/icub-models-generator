@@ -11,7 +11,7 @@
 #include <kdl/treefksolverpos_recursive.hpp>
 #include <kdl/frames_io.hpp>
 
-#include <kdl_format_io/urdf_import.hpp>
+#include <iDynTree/ModelIO/impl/urdf_import.hpp>
 
 using namespace urdf;
 using namespace KDL;
@@ -144,8 +144,8 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
 {
     bool ret = true;
     KDL::Tree kdl_meshes, kdl_input;
-    ret = ret && kdl_format_io::treeFromUrdfModel(*urdf_meshes,kdl_meshes,false);
-    ret = ret && kdl_format_io::treeFromUrdfModel(*urdf_input,kdl_input,false);
+    ret = ret && iDynTree::treeFromUrdfModel(*urdf_meshes,kdl_meshes,false);
+    ret = ret && iDynTree::treeFromUrdfModel(*urdf_input,kdl_input,false);
     if( !ret ) {
         std::cerr << "Fatal error in URDF KDL conversion saving" << std::endl;
         return false;

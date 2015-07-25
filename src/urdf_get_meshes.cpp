@@ -9,7 +9,7 @@
 
 #include "urdf_utils.h"
 
-#include <kdl_format_io/urdf_import.hpp>
+#include <iDynTree/ModelIO/impl/urdf_import.hpp>
 
 #include <iostream>
 #include <sstream>
@@ -17,7 +17,7 @@
 
 #include <tinyxml.h>
 
-using namespace kdl_format_io;
+using namespace iDynTree;
 using namespace KDL;
 using namespace std;
 

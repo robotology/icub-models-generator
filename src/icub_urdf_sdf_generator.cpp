@@ -15,7 +15,7 @@
 
 #include <kdl/tree.hpp>
 
-#include <kdl_format_io/urdf_export.hpp>
+#include <iDynTree/ModelIO/impl/urdf_export.hpp>
 
 #include <urdf_model/model.h>
 #include <urdf_parser/urdf_parser.h>
@@ -654,7 +654,7 @@ bool generate_iCub_model(std::string iCub_name,
     //std::cout << "iCub KDL::Tree: " << std::endl;
     //std::cout << icub_kdl << std::endl;
 
-    if( ! kdl_format_io::treeToUrdfModel(icub_kdl,"iCub",*urdf_idyn) ) {
+    if( ! iDynTree::treeToUrdfModel(icub_kdl,"iCub",*urdf_idyn) ) {
         std::cerr << "Fatal error in KDL - URDF conversion" << std::endl;
         return false;
     }
