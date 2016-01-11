@@ -20,6 +20,7 @@
 
 #include <tinyxml.h>
 
+#include <yarp/os/Value.h>
 #include <yarp/os/Property.h>
 
 using namespace iDynTree;
