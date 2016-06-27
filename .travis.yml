@@ -24,7 +24,7 @@ before_script:
   - pwd
   - cd ../..
   # Prepare icub-model-generator build
-  - cd idyntree
+  - cd icub-model-generator 
   - mkdir build
   - cd build
   - cmake ..
