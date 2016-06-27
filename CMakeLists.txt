@@ -31,3 +31,7 @@ endif()
 if(TARGET generate-models-v2)
   add_dependencies(generate-models generate-models-v2)
 endif()
+
+include( CTest )
+enable_testing()
+add_subdirectory(tests)
