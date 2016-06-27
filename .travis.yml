@@ -35,4 +35,4 @@ script:
 
 notifications:
   email:
-- pegua1@gmail.com
+    - pegua1@gmail.com
