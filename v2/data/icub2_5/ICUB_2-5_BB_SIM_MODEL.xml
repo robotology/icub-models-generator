@@ -9,7 +9,7 @@
 
   <createdFrom>"Pro/E Wildfire Creo 2.0 - 2015280"</createdFrom>
 
-  <createdOn>"06/23/16||09:25:11"</createdOn>
+  <createdOn>"06/28/16||20:22:39"</createdOn>
 
   <createdBy>"iCub"</createdBy>
 
@@ -273,8 +273,60 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="2">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_ROOT_LINK_EMS_ACC_EB5"</displayName>
+                <nodeID>"44219(USERADDED)"</nodeID>
+                <position>12.5771,-147.691,-85.7308</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,-0.961262,0.275637,-1,0,0,0,-0.275637,-0.961262</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS3"</name>
+                <displayName>"SCSYS_ROOT_LINK_EMS_GYRO_EB5"</displayName>
+                <nodeID>"44220(USERADDED)"</nodeID>
+                <position>12.5771,-147.691,-85.7308</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,-0.961262,0.275637,-1,0,0,0,-0.275637,-0.961262</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS4"</name>
+                <displayName>"SCSYS_SIM_LAP_BELT_2_ALT_ORIG_1"</displayName>
+                <nodeID>"44222(USERADDED)"</nodeID>
+                <position>0,-32,-36.4</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,0,-1,-1,0,0,0,1,0</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS5"</name>
+                <displayName>"SCSYS_SIM_LAP_BELT_2_ALT_ORIG_2"</displayName>
+                <nodeID>"44223(USERADDED)"</nodeID>
+                <position>0,-32,-36.4</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,0,1,1,0,0,0,1,0</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="2">
+                <name>"CS6"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/126:-:59/RootPart::59/126(AUTOGEN)"</nodeID>
                 <position>-0.103947,-76.0806,-61.2821</position>
@@ -287,7 +339,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="17">
-                <name>"CS3"</name>
+                <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/124:-:59/126::59/126(AUTOGEN)"</nodeID>
                 <position>-27.0463,-32,-36.4</position>
@@ -300,7 +352,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="19">
-                <name>"CS4"</name>
+                <name>"CS8"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/119:59/119/115:-:59/126::59/126(AUTOGEN)"</nodeID>
                 <position>-23.3655,-151.913,-42.8515</position>
@@ -313,7 +365,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="21">
-                <name>"CS5"</name>
+                <name>"CS9"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/120:59/120/83:-:59/126::59/126(AUTOGEN)"</nodeID>
                 <position>22.3861,-151.913,-42.8515</position>
@@ -862,8 +914,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="28">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_FT45"</displayName>
+                    <nodeID>"70925(USERADDED)"</nodeID>
+                    <position>-70.1,-226.213,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="28">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/106:-:59/119/115::59/119/106(AUTOGEN)"</nodeID>
                     <position>-70.1,-151.913,-69.1962</position>
@@ -876,7 +941,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="29">
-                    <name>"CS3"</name>
+                    <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/106:-:59/119/87::59/119/106(AUTOGEN)"</nodeID>
                     <position>-70.1,-215.413,-43.709</position>
@@ -998,8 +1063,164 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="32">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_EMS_ACC_EB8"</displayName>
+                    <nodeID>"23959(USERADDED)"</nodeID>
+                    <position>-29.6928,-280.84,-56.2841</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_EMS_ACC_EB11"</displayName>
+                    <nodeID>"23960(USERADDED)"</nodeID>
+                    <position>-110.507,-324.02,-56.2861</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_EMS_GYRO_EB8"</displayName>
+                    <nodeID>"23961(USERADDED)"</nodeID>
+                    <position>-29.6928,-276.268,-56.788</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_EMS_GYRO_EB11"</displayName>
+                    <nodeID>"23962(USERADDED)"</nodeID>
+                    <position>-110.507,-328.592,-56.79</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_FT45"</displayName>
+                    <nodeID>"23964(USERADDED)"</nodeID>
+                    <position>-70.1,-226.013,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B1"</displayName>
+                    <nodeID>"23966(USERADDED)"</nodeID>
+                    <position>-100.295,-191.673,-0.120388</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-7.76924e-005,1,0.000342804,-0.669131,0.000202766,-0.743145,-0.743145,-0.000287117,0.669131</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS8"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B2"</displayName>
+                    <nodeID>"23967(USERADDED)"</nodeID>
+                    <position>-76.5065,-201.557,10.2377</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-7.76924e-005,1,0.000342804,-0.669131,0.000202766,-0.743145,-0.743145,-0.000287117,0.669131</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS9"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B3"</displayName>
+                    <nodeID>"23968(USERADDED)"</nodeID>
+                    <position>-83.1214,-236.627,10.1223</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00011611,1,0.00042909,-1,-0.00011611,-4.98215e-008,0,-0.00042909,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS10"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B4"</displayName>
+                    <nodeID>"23969(USERADDED)"</nodeID>
+                    <position>-27.8325,-245.658,-11.4371</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-4.34954e-005,1,0.000536745,-0.374607,-0.000513955,0.927184,0.927184,-0.00016074,0.374607</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS11"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B5"</displayName>
+                    <nodeID>"23970(USERADDED)"</nodeID>
+                    <position>-53.6214,-236.627,10.1223</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00011611,1,0.00042909,-1,-0.00011611,-4.98215e-008,0,-0.00042909,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS12"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B6"</displayName>
+                    <nodeID>"23971(USERADDED)"</nodeID>
+                    <position>-85.8594,-267.178,-87.4608</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,-0.00042909,-1,0,0,0,0.00042909,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS13"</name>
+                    <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B7"</displayName>
+                    <nodeID>"23972(USERADDED)"</nodeID>
+                    <position>-53.8614,-267.179,-87.4608</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00011611,-1,-0.00042909,-1,0.00011611,4.98214e-008,0,0.00042909,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="32">
+                    <name>"CS14"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3414:-:59/119/87::59/119/3414(AUTOGEN)"</nodeID>
                     <position>-70.1,-240.813,-43.709</position>
@@ -1012,7 +1233,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="33">
-                    <name>"CS3"</name>
+                    <name>"CS15"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3412:-:59/119/3414::59/119/3414(AUTOGEN)"</nodeID>
                     <position>-46.2961,-386.438,-43.709</position>
@@ -1066,8 +1287,86 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="34">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_EMS_ACC_EB9"</displayName>
+                    <nodeID>"46120(USERADDED)"</nodeID>
+                    <position>-56.2604,-479.203,-0.19527</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0.976296,0.21644,-1,0,0,0,-0.21644,0.976296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_EMS_GYRO_EB9"</displayName>
+                    <nodeID>"46121(USERADDED)"</nodeID>
+                    <position>-55.7565,-474.739,0.794292</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0.976296,0.21644,-1,0,0,0,-0.21644,0.976296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B8"</displayName>
+                    <nodeID>"46123(USERADDED)"</nodeID>
+                    <position>-54.3771,-390.756,10.0427</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.000109107,1,3.97118e-005,-0.939693,-0.00011611,0.34202,0.34202,-1.22134e-012,0.939693</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B9"</displayName>
+                    <nodeID>"46124(USERADDED)"</nodeID>
+                    <position>-112.314,-429.906,-15.8145</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-0.258819,0,-0.965926,-0.965926,0,0.258819</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B10"</displayName>
+                    <nodeID>"46125(USERADDED)"</nodeID>
+                    <position>-85.2958,-390.756,9.92022</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.000112661,1,-2.80894e-005,-0.970296,-0.00011611,-0.241922,-0.241922,0,0.970296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B11"</displayName>
+                    <nodeID>"46126(USERADDED)"</nodeID>
+                    <position>-27.851,-479.396,-27.2289</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-3.00514e-005,1,0.000112153,-0.258819,-0.00011611,0.965926,0.965926,0,0.258819</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="34">
+                    <name>"CS8"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3412:-:59/119/3414::59/119/3412(AUTOGEN)"</nodeID>
                     <position>-46.2961,-386.438,-43.709</position>
@@ -1080,7 +1379,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="35">
-                    <name>"CS3"</name>
+                    <name>"CS9"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3412:-:59/119/3413::59/119/3412(AUTOGEN)"</nodeID>
                     <position>-105.6,-587.438,-43.709</position>
@@ -1202,8 +1501,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="38">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_FOOT_FT45"</displayName>
+                    <nodeID>"56055(USERADDED)"</nodeID>
+                    <position>-70.1,-647.738,-47.209</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="38">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3413::59/119/111(AUTOGEN)"</nodeID>
                     <position>-70.1,-587.438,-62.209</position>
@@ -1216,7 +1528,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="39">
-                    <name>"CS3"</name>
+                    <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3415::59/119/111(AUTOGEN)"</nodeID>
                     <position>-70.1,-636.938,-47.209</position>
@@ -1270,8 +1582,47 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="40">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_FOOT_MTB_ACC_11B12"</displayName>
+                    <nodeID>"24462(USERADDED)"</nodeID>
+                    <position>-69.293,-646.523,56.2654</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,0,1,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_R_FOOT_MTB_ACC_11B13"</displayName>
+                    <nodeID>"24463(USERADDED)"</nodeID>
+                    <position>-58.2928,-646.523,31.2654</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,0,1,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_R_SOLE"</displayName>
+                    <nodeID>"24465(USERADDED)"</nodeID>
+                    <position>-70.1,-651.738,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,1,0,0,0,1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="40">
+                    <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3415::59/119/3415(AUTOGEN)"</nodeID>
                     <position>-70.1,-636.938,-47.209</position>
@@ -1706,8 +2057,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="42">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_FT45"</displayName>
+                    <nodeID>"68935(USERADDED)"</nodeID>
+                    <position>70.1,-226.213,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="42">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/83:-:59/120/96::59/120/96(AUTOGEN)"</nodeID>
                     <position>70.1,-151.913,-68.3915</position>
@@ -1720,7 +2084,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="43">
-                    <name>"CS3"</name>
+                    <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/34:-:59/120/96::59/120/96(AUTOGEN)"</nodeID>
                     <position>70.1,-226.213,-43.709</position>
@@ -1842,8 +2206,164 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="46">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_EMS_ACC_EB6"</displayName>
+                    <nodeID>"23863(USERADDED)"</nodeID>
+                    <position>29.6928,-324.02,-56.2861</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_EMS_ACC_EB10"</displayName>
+                    <nodeID>"23864(USERADDED)"</nodeID>
+                    <position>110.507,-280.84,-56.2841</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,0,0,1,1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_EMS_GYRO_EB6"</displayName>
+                    <nodeID>"23865(USERADDED)"</nodeID>
+                    <position>29.6928,-328.592,-56.79</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,1,-1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_EMS_GYRO_EB10"</displayName>
+                    <nodeID>"23866(USERADDED)"</nodeID>
+                    <position>110.507,-276.268,-56.788</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,0,0,1,1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_FT45"</displayName>
+                    <nodeID>"23868(USERADDED)"</nodeID>
+                    <position>70.1,-226.013,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B1"</displayName>
+                    <nodeID>"23870(USERADDED)"</nodeID>
+                    <position>101.665,-191.481,-1.70737</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-7.76924e-005,1,8.62862e-005,-0.669131,-0.00011611,0.743145,0.743145,0,0.669131</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS8"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B2"</displayName>
+                    <nodeID>"23871(USERADDED)"</nodeID>
+                    <position>78.4839,-201.361,9.64644</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-7.76924e-005,1,8.62862e-005,-0.669131,-0.00011611,0.743145,0.743145,-7.89654e-012,0.669131</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS9"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B3"</displayName>
+                    <nodeID>"23872(USERADDED)"</nodeID>
+                    <position>85.1706,-236.431,10.076</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-1,0,0,0,0,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS10"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B4"</displayName>
+                    <nodeID>"23873(USERADDED)"</nodeID>
+                    <position>55.6706,-236.431,10.076</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-1,0,0,0,0,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS11"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B5"</displayName>
+                    <nodeID>"23874(USERADDED)"</nodeID>
+                    <position>28.6001,-245.471,-9.57951</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-0.374607,0,-0.927184,-0.927184,0,0.374607</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS12"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B6"</displayName>
+                    <nodeID>"23875(USERADDED)"</nodeID>
+                    <position>87.9086,-267.025,-87.494</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00011611,-1,0,-1,0.00011611,0,0,0,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS13"</name>
+                    <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B7"</displayName>
+                    <nodeID>"23876(USERADDED)"</nodeID>
+                    <position>55.9082,-267.024,-87.494</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.000148999,-1,0,-1,0.000148999,0,0,0,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="46">
+                    <name>"CS14"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/34:-:59/120/86::59/120/86(AUTOGEN)"</nodeID>
                     <position>70.1,-240.813,-43.709</position>
@@ -1856,7 +2376,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="47">
-                    <name>"CS3"</name>
+                    <name>"CS15"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/86:-:59/120/87::59/120/86(AUTOGEN)"</nodeID>
                     <position>46.3168,-386.438,-43.709</position>
@@ -1910,8 +2430,86 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="48">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_EMS_ACC_EB7"</displayName>
+                    <nodeID>"45827(USERADDED)"</nodeID>
+                    <position>81.4146,-479.203,-0.19527</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0.976296,0.21644,-1,0,0,0,-0.21644,0.976296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_EMS_GYRO_EB7"</displayName>
+                    <nodeID>"45828(USERADDED)"</nodeID>
+                    <position>81.9185,-474.739,0.794292</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0.976296,0.21644,-1,0,0,0,-0.21644,0.976296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B8"</displayName>
+                    <nodeID>"45830(USERADDED)"</nodeID>
+                    <position>56.3009,-390.756,10.7428</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.000109107,1,-3.97118e-005,-0.939693,-0.00011611,-0.34202,-0.34202,0,0.939693</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B9"</displayName>
+                    <nodeID>"45831(USERADDED)"</nodeID>
+                    <position>112.844,-429.906,-17.7939</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-3.00514e-005,1,0.000112153,-0.258819,-0.00011611,0.965926,0.965926,0,0.258819</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B10"</displayName>
+                    <nodeID>"45832(USERADDED)"</nodeID>
+                    <position>77.3058,-397.475,8.67233</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-0.241922,0,-0.970296,-0.970296,0,0.241922</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B11"</displayName>
+                    <nodeID>"45833(USERADDED)"</nodeID>
+                    <position>28.3813,-479.396,-25.2497</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>6.81452e-006,1,2.54321e-005,-0.258819,2.63293e-005,-0.965926,-0.965926,0,0.258819</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="48">
+                    <name>"CS8"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/86:-:59/120/87::59/120/87(AUTOGEN)"</nodeID>
                     <position>46.3168,-386.438,-43.709</position>
@@ -1924,7 +2522,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="49">
-                    <name>"CS3"</name>
+                    <name>"CS9"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/87:-:59/120/88::59/120/87(AUTOGEN)"</nodeID>
                     <position>105.6,-587.438,-43.709</position>
@@ -2046,8 +2644,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="52">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_FOOT_FT45"</displayName>
+                    <nodeID>"54189(USERADDED)"</nodeID>
+                    <position>70.1,-647.738,-47.209</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="52">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/88::59/120/85(AUTOGEN)"</nodeID>
                     <position>70.1,-587.438,4.37855</position>
@@ -2060,7 +2671,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="53">
-                    <name>"CS3"</name>
+                    <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/89::59/120/85(AUTOGEN)"</nodeID>
                     <position>70.1,-647.738,-47.209</position>
@@ -2114,8 +2725,47 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="54">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_FOOT_MTB_ACC_10B12"</displayName>
+                    <nodeID>"23179(USERADDED)"</nodeID>
+                    <position>69.2928,-646.523,58.3134</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-1,0,0,0,0,-1,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_L_FOOT_MTB_ACC_10B13"</displayName>
+                    <nodeID>"23180(USERADDED)"</nodeID>
+                    <position>58.2928,-646.523,33.3134</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-1,0,0,0,0,-1,0,-1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_L_SOLE"</displayName>
+                    <nodeID>"23182(USERADDED)"</nodeID>
+                    <position>70.1,-651.738,-43.709</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,0,1,1,0,0,0,1,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="54">
+                    <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/89::59/120/89(AUTOGEN)"</nodeID>
                     <position>70.1,-647.738,-47.209</position>
@@ -2418,8 +3068,164 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="10">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_CHEST_EMS_ACC_EB1"</displayName>
+                <nodeID>"16996(USERADDED)"</nodeID>
+                <position>64.7855,114.043,-95.6125</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.965926,0.00028267,0.258819,0.000273039,-1,7.31605e-005,0.258819,0,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS3"</name>
+                <displayName>"SCSYS_CHEST_EMS_GYRO_EB1"</displayName>
+                <nodeID>"16997(USERADDED)"</nodeID>
+                <position>69.2016,114.548,-94.4292</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.965926,0.00028267,0.258819,0.000273039,-1,7.31605e-005,0.258819,0,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS4"</name>
+                <displayName>"SCSYS_CHEST_EMS_ACC_EB2"</displayName>
+                <nodeID>"16999(USERADDED)"</nodeID>
+                <position>20.4533,138.063,-95.068</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.965926,8.03342e-006,-0.258819,7.75969e-006,1,2.0792e-006,0.258819,0,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS5"</name>
+                <displayName>"SCSYS_CHEST_EMS_GYRO_EB2"</displayName>
+                <nodeID>"17000(USERADDED)"</nodeID>
+                <position>16.0371,137.559,-96.2513</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.965926,8.03342e-006,-0.258819,7.75969e-006,1,2.0792e-006,0.258819,0,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS6"</name>
+                <displayName>"SCSYS_CHEST_EMS_ACC_EB3"</displayName>
+                <nodeID>"17002(USERADDED)"</nodeID>
+                <position>-23.0588,114.019,-106.802</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.966107,-0.000298596,-0.258144,-0.000184261,-1,0.000467104,-0.258144,-0.000403707,-0.966106</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS7"</name>
+                <displayName>"SCSYS_CHEST_EMS_GYRO_EB3"</displayName>
+                <nodeID>"17003(USERADDED)"</nodeID>
+                <position>-18.6417,114.521,-107.982</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.966107,-0.000298596,-0.258144,-0.000184261,-1,0.000467104,-0.258144,-0.000403707,-0.966106</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS8"</name>
+                <displayName>"SCSYS_CHEST_EMS_ACC_EB4"</displayName>
+                <nodeID>"17005(USERADDED)"</nodeID>
+                <position>-62.1621,138.063,-83.8921</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.965926,8.03044e-006,0.258819,7.75756e-006,1,-2.07561e-006,-0.258819,2.92322e-009,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS9"</name>
+                <displayName>"SCSYS_CHEST_EMS_GYRO_EB4"</displayName>
+                <nodeID>"17006(USERADDED)"</nodeID>
+                <position>-66.5784,137.559,-82.7088</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.965926,8.03044e-006,0.258819,7.75756e-006,1,-2.07561e-006,-0.258819,2.92322e-009,-0.965926</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS10"</name>
+                <displayName>"SCSYS_CHEST_MTB_ACC_0B7"</displayName>
+                <nodeID>"17008(USERADDED)"</nodeID>
+                <position>-60.754,48.2164,13.3307</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.0841481,-0.989666,-0.116101,0.646115,-0.0345097,0.76246,-0.758587,-0.139174,0.636534</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS11"</name>
+                <displayName>"SCSYS_CHEST_MTB_ACC_0B8"</displayName>
+                <nodeID>"17009(USERADDED)"</nodeID>
+                <position>-45.7047,48.154,25.8392</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.0922956,-0.989954,-0.107108,0.878109,0.0302044,0.477505,-0.469473,-0.138124,0.872076</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS12"</name>
+                <displayName>"SCSYS_CHEST_MTB_ACC_0B9"</displayName>
+                <nodeID>"17010(USERADDED)"</nodeID>
+                <position>43.9036,48.2159,26.8186</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.0922964,-0.989954,-0.107109,0.878109,-0.0302044,-0.477505,0.469473,-0.138126,0.872076</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS13"</name>
+                <displayName>"SCSYS_CHEST_MTB_ACC_0B10"</displayName>
+                <nodeID>"17011(USERADDED)"</nodeID>
+                <position>59.4286,48.1457,14.8947</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.0841467,-0.989667,-0.1161,0.646115,0.0345097,-0.76246,0.758588,-0.139172,0.636534</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="10">
+                <name>"CS14"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/RootPart::60/132(AUTOGEN)"</nodeID>
                 <position>0.188619,123.091,-78.1415</position>
@@ -2432,7 +3238,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="26">
-                <name>"CS3"</name>
+                <name>"CS15"</name>
                 <displayName>""</displayName>
                 <nodeID>"59:59/125:-:60:60/132::60/132(AUTOGEN)"</nodeID>
                 <position>-1.90735e-007,50,-30.9035</position>
@@ -2445,7 +3251,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="55">
-                <name>"CS4"</name>
+                <name>"CS16"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/94::60/132(AUTOGEN)"</nodeID>
                 <position>-120.016,142.8,-22.9341</position>
@@ -2458,7 +3264,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="57">
-                <name>"CS5"</name>
+                <name>"CS17"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/71::60/132(AUTOGEN)"</nodeID>
                 <position>120.016,142.8,-22.9341</position>
@@ -2471,7 +3277,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="59">
-                <name>"CS6"</name>
+                <name>"CS18"</name>
                 <displayName>""</displayName>
                 <nodeID>"60:60/132:-:61:61/59::60/132(AUTOGEN)"</nodeID>
                 <position>-14.3,222.797,-25.5917</position>
@@ -2716,8 +3522,21 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="64">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_R_UPPER_ARM_FT45"</displayName>
+                <nodeID>"23201(USERADDED)"</nodeID>
+                <position>-109.391,63,-10.7811</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="64">
+                <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/95::60/125(AUTOGEN)"</nodeID>
                 <position>-109.391,119.712,-25.7811</position>
@@ -2730,7 +3549,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="65">
-                <name>"CS3"</name>
+                <name>"CS4"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/133::60/125(AUTOGEN)"</nodeID>
                 <position>-109.391,63,-10.7811</position>
@@ -2784,8 +3603,60 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="66">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_R_UPPER_ARM_MTB_ACC_2B10"</displayName>
+                <nodeID>"38288(USERADDED)"</nodeID>
+                <position>-138.979,33.4721,-52.0006</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>5.54488e-006,1,-1.12192e-005,0.443071,-1.25146e-005,-0.896486,-0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS3"</name>
+                <displayName>"SCSYS_R_UPPER_ARM_MTB_ACC_2B11"</displayName>
+                <nodeID>"38289(USERADDED)"</nodeID>
+                <position>-138.071,-13.0604,-53.8379</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.000129759,-1,0.000262547,-0.443071,0.000292862,0.896486,-0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS4"</name>
+                <displayName>"SCSYS_R_UPPER_ARM_MTB_ACC_2B12"</displayName>
+                <nodeID>"38290(USERADDED)"</nodeID>
+                <position>-138.072,58.0078,-53.8366</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,-1,0,-0.443071,0,0.896486,-0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS5"</name>
+                <displayName>"SCSYS_R_UPPER_ARM_MTB_ACC_2B13"</displayName>
+                <nodeID>"38291(USERADDED)"</nodeID>
+                <position>-137.741,73.738,-0.187916</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.615922,-0.00021452,-0.787807,0.000132128,-1,0.000169001,-0.787807,0,0.615922</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="66">
+                <name>"CS6"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/133::60/133(AUTOGEN)"</nodeID>
                 <position>-109.391,63,-10.7811</position>
@@ -2798,7 +3669,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="67">
-                <name>"CS3"</name>
+                <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/133:-:60/150:60/150/98::60/133(AUTOGEN)"</nodeID>
                 <position>-86.8911,-16.26,-10.7811</position>
@@ -2988,8 +3859,21 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="78">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_L_UPPER_ARM_FT45"</displayName>
+                <nodeID>"42532(USERADDED)"</nodeID>
+                <position>109.391,63,-10.7811</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="78">
+                <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/103:-:60/108::60/108(AUTOGEN)"</nodeID>
                 <position>109.391,119.746,-25.7811</position>
@@ -3002,7 +3886,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="79">
-                <name>"CS3"</name>
+                <name>"CS4"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/108:-:60/140::60/108(AUTOGEN)"</nodeID>
                 <position>109.391,73.8,-10.7811</position>
@@ -3056,8 +3940,60 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="80">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_L_UPPER_ARM_MTB_ACC_1B10"</displayName>
+                <nodeID>"38225(USERADDED)"</nodeID>
+                <position>138.072,33.4721,-53.8365</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.000129759,-1,-0.000262547,-0.443071,0.000292862,-0.896486,0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS3"</name>
+                <displayName>"SCSYS_L_UPPER_ARM_MTB_ACC_1B11"</displayName>
+                <nodeID>"38226(USERADDED)"</nodeID>
+                <position>138.98,-13.0604,-51.9992</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-0.000129759,-1,-0.000262547,-0.443071,0.000292862,-0.896486,0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS4"</name>
+                <displayName>"SCSYS_L_UPPER_ARM_MTB_ACC_1B12"</displayName>
+                <nodeID>"38227(USERADDED)"</nodeID>
+                <position>138.979,58.0079,-52.0006</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>-5.54488e-006,-1,-1.12192e-005,-0.443071,1.25146e-005,-0.896486,0.896486,0,-0.443071</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame>
+                <name>"CS5"</name>
+                <displayName>"SCSYS_L_UPPER_ARM_MTB_ACC_1B13"</displayName>
+                <nodeID>"38228(USERADDED)"</nodeID>
+                <position>137.742,71.6914,-0.188443</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0.615922,0.00021452,-0.787807,-0.000132128,1,0.000169001,0.787807,0,0.615922</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="80">
+                <name>"CS6"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/108:-:60/140::60/140(AUTOGEN)"</nodeID>
                 <position>109.391,73.8,-10.7811</position>
@@ -3070,7 +4006,7 @@
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
               <Frame ref="81">
-                <name>"CS3"</name>
+                <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/140:-:60/151:60/151/75::60/140(AUTOGEN)"</nodeID>
                 <position>75.3911,-16.26,-10.7811</position>
@@ -3589,8 +4525,47 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="70">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B7"</displayName>
+                    <nodeID>"1629(USERADDED)"</nodeID>
+                    <position>-114.888,-122.454,-56.3488</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-1,-0.000350235,-0.000477325,0.000350235,-1,1.78204e-007,-0.000477325,1.10286e-008,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B8"</displayName>
+                    <nodeID>"1631(USERADDED)"</nodeID>
+                    <position>-90.6426,-111.416,-0.250017</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0908365,0.989465,0.112724,-0.777644,-0.000234306,0.628705,0.622108,-0.144769,0.769431</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B9"</displayName>
+                    <nodeID>"1632(USERADDED)"</nodeID>
+                    <position>-137.315,-68.5316,-44.1791</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0521895,0.998637,0.000242604,0.208175,0.011117,-0.978028,-0.976698,-0.0509923,-0.208472</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="70">
+                    <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/98:-:60/150/99::60/150/99(AUTOGEN)"</nodeID>
                     <position>-109.391,-52.06,-25.7811</position>
@@ -3603,7 +4578,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="71">
-                    <name>"CS3"</name>
+                    <name>"CS6"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/99::60/150/99(AUTOGEN)"</nodeID>
                     <position>-109.398,-157.56,-28.2311</position>
@@ -3725,8 +4700,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="74">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_R_HAND_DH_FRAME"</displayName>
+                    <nodeID>"1001(USERADDED)"</nodeID>
+                    <position>-84.3413,-216.794,-27.476</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,-1,1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="74">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/108::60/150/108(AUTOGEN)"</nodeID>
                     <position>-89.8981,-157.56,-25.7811</position>
@@ -4045,8 +5033,47 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="84">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B7"</displayName>
+                    <nodeID>"1635(USERADDED)"</nodeID>
+                    <position>103.908,-122.454,-56.3488</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-1,-0.000350235,-0.000477325,0.000350235,-1,1.78204e-007,-0.000477325,1.10285e-008,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS3"</name>
+                    <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B8"</displayName>
+                    <nodeID>"1637(USERADDED)"</nodeID>
+                    <position>91.3631,-111.279,0.271475</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0909373,0.989466,0.112643,-0.777632,0.000106014,-0.628719,-0.622108,-0.144769,0.769431</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS4"</name>
+                    <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B9"</displayName>
+                    <nodeID>"1638(USERADDED)"</nodeID>
+                    <position>135.048,-68.4935,-46.1032</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0522089,0.998636,0.000333723,0.20817,-0.01121,0.978028,0.976698,-0.0509923,-0.208472</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="84">
+                    <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/75:-:60/151/82::60/151/82(AUTOGEN)"</nodeID>
                     <position>109.391,-52.06,-25.7811</position>
@@ -4059,7 +5086,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="85">
-                    <name>"CS3"</name>
+                    <name>"CS6"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/82:-:60/151/87::60/151/82(AUTOGEN)"</nodeID>
                     <position>109.398,-157.56,5.30835</position>
@@ -4181,8 +5208,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="88">
+                  <Frame>
                     <name>"CS2"</name>
+                    <displayName>"SCSYS_L_HAND_DH_FRAME"</displayName>
+                    <nodeID>"1091(USERADDED)"</nodeID>
+                    <position>84.3413,-216.794,-27.176</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,-1,0,0,0,-1,1,0,0</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="88">
+                    <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/93::60/151/93(AUTOGEN)"</nodeID>
                     <position>89.8981,-157.56,-25.4811</position>
@@ -4573,8 +5613,21 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="92">
+              <Frame>
                 <name>"CS2"</name>
+                <displayName>"SCSYS_HEAD_MTX_IMU"</displayName>
+                <nodeID>"133392(USERADDED)"</nodeID>
+                <position>9.5,343.397,-16.2917</position>
+                <positionOrigin>"WORLD"</positionOrigin>
+                <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                <positionUnits>"mm"</positionUnits>
+                <orientation>0,0,-1,-1,0,0,0,1,0</orientation>
+                <orientationType>"3x3 Transform"</orientationType>
+                <orientationUnits>"rad"</orientationUnits>
+                <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+              </Frame>
+              <Frame ref="92">
+                <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"61/60:-:61/6480::61/6480(AUTOGEN)"</nodeID>
                 <position>-1.90735e-007,209.953,-25.5917</position>
