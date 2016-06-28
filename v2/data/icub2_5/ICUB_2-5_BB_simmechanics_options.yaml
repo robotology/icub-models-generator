@@ -340,7 +340,6 @@ reverseRotationAxis:
   r_hip_roll
   r_ankle_roll
   torso_pitch
-  torso_roll
   l_shoulder_roll
   l_elbow
   r_shoulder_pitch
@@ -358,6 +357,19 @@ assignedMasses:
   r_ankle_1  : 0.6803
 
 XMLBlobs: 
+  - | 
+        <link name="base_link" />
+  - |
+        <joint name="base_fixed_joint" type="fixed">
+          <origin xyz="0 0 0" rpy="0 -0 0" />
+          <axis xyz="0 0 0" />
+          <parent link="base_link" />
+          <child link="root_link" />
+        </joint>
+  - |
+        <gazebo reference="r_arm_ft_sensor">
+          <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
   - |
         <gazebo reference="r_arm_ft_sensor">
           <disableFixedJointLumping>true</disableFixedJointLumping>

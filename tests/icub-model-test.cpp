@@ -129,6 +129,8 @@ bool checkBaseLink(iDynTree::KinDynComputations & comp)
         return false;
     }
 
+    std::cerr << "icub-model-test error: base_link test performed correctly " << std::endl;
+
     return true;
 }
 
@@ -170,6 +172,8 @@ bool checkAxisDirections(iDynTree::KinDynComputations & comp)
             return false;
         }
     }
+
+    return true;
 }
 
 int main(int argc, char ** argv)
@@ -224,6 +228,8 @@ int main(int argc, char ** argv)
     {
         return EXIT_FAILURE;
     }
+
+    std::cerr << "Check for model " << modelPath << " concluded correctly!" << std::endl;
 
     return EXIT_SUCCESS;
 }

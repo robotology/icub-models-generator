@@ -19,12 +19,12 @@ macro(generate_icub_v2 yarpRobotName simmechanicsXML simmechanicsYAML simmechani
 endmacro()
 
 set(model-v2-generated-models "")
-generate_icub_v2(iCubGenova02 "icub2_5/iCubGenova02_SIM_MODEL.xml"
-                 "icub2_5/iCubGenova02_simmechanics_options.yaml" "icub2_5/iCubGenova02_joint_parameters.csv")
-generate_icub_v2(iCubDarmstadt01 "icub2_5/iCubGenova02_SIM_MODEL.xml"
-                 "icub2_5/iCubGenova02_simmechanics_options.yaml" "icub2_5/iCubGenova02_joint_parameters.csv")
-generate_icub_v2(iCubGenova05 "icub2_5/iCubGenova02_SIM_MODEL.xml"
-                 "icub2_5/iCubGenova02_simmechanics_options.yaml" "icub2_5/iCubGenova02_joint_parameters.csv")
+generate_icub_v2(iCubGenova02 "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                 "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml" "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
+generate_icub_v2(iCubDarmstadt01 "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                 "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml" "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
+generate_icub_v2(iCubGenova05 "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                 "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml" "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
 
 add_custom_target(generate-models-v2
                   ALL
