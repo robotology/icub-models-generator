@@ -30,12 +30,18 @@ rename:
  SIM_SEA_2-5_R_SHOULDER_2: r_shoulder_2
  SIM_SEA_2-5_R_UPPER_ARM: r_shoulder_3
  SIM_SEA_2-5_R_ELBOW: r_upper_arm
- SIM_SEA_2-5_R_FOREARM_HAND: r_elbow_1
+ SIM_SEA_2-5_R_ELBOW_PROSUP: r_elbow_1
+ SIM_SEA_2-5_R_FOREARM: r_forearm 
+ SIM_SEA_2-5_R_WRIST_PITCH: r_wrist_1 
+ SIM_SEA_2-5_R_HAND: r_hand
  SIM_SEA_2-5_L_SHOULDER_1: l_shoulder_1
  SIM_SEA_2-5_L_SHOULDER_2: l_shoulder_2
  SIM_SEA_2-5_L_UPPER_ARM: l_shoulder_3
  SIM_SEA_2-5_L_ELBOW: l_upper_arm
- SIM_SEA_2-5_L_FOREARM_HAND: l_elbow_1
+ SIM_SEA_2-5_L_ELBOW_PROSUP: l_elbow_1
+ SIM_SEA_2-5_L_FOREARM: l_forearm
+ SIM_SEA_2-5_L_WRIST_PITCH: l_wrist_1
+ SIM_SEA_2-5_L_HAND: l_hand
  SIM_SEA_2-5_NECK_1: neck_1
  SIM_SEA_2-5_NECK_2: neck_2
  SIM_SEA_2-5_HEAD: head
@@ -69,12 +75,18 @@ rename:
  SIM_SEA_2-5_R_SHOULDER_1--SIM_SEA_2-5_R_SHOULDER_2: r_shoulder_roll
  SIM_SEA_2-5_R_SHOULDER_2--SIM_SEA_2-5_R_UPPER_ARM: r_shoulder_yaw
  SIM_SEA_2-5_R_UPPER_ARM--SIM_SEA_2-5_R_ELBOW: r_arm_ft_sensor
- SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_FOREARM_HAND: r_elbow
+ SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_ELBOW_PROSUP: r_elbow
+ SIM_SEA_2-5_R_ELBOW_PROSUP--SIM_SEA_2-5_R_FOREARM: r_wrist_prosup 
+ SIM_SEA_2-5_R_FOREARM--SIM_SEA_2-5_R_WRIST_PITCH: r_wrist_pitch
+ SIM_SEA_2-5_R_WRIST_PITCH--SIM_SEA_2-5_R_HAND: r_wrist_yaw 
  SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_L_SHOULDER_1: l_shoulder_pitch
  SIM_SEA_2-5_L_SHOULDER_1--SIM_SEA_2-5_L_SHOULDER_2: l_shoulder_roll
  SIM_SEA_2-5_L_SHOULDER_2--SIM_SEA_2-5_L_UPPER_ARM: l_shoulder_yaw
  SIM_SEA_2-5_L_UPPER_ARM--SIM_SEA_2-5_L_ELBOW: l_arm_ft_sensor
  SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_FOREARM_HAND: l_elbow
+ SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM: l_wrist_prosup
+ SIM_SEA_2-5_L_FOREARM--SIM_SEA_2-5_L_WRIST_PITCH: l_wrist_pitch
+ SIM_SEA_2-5_L_WRIST_PITCH--SIM_SEA_2-5_L_HAND: l_wrist_yaw
  SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_NECK_1: neck_pitch
  SIM_SEA_2-5_NECK_1--SIM_SEA_2-5_NECK_2: neck_roll
  SIM_SEA_2-5_NECK_2--SIM_SEA_2-5_HEAD: neck_yaw
@@ -287,6 +299,13 @@ exportedFrames:
   - frameName:  SCSYS_R_SOLE
     frameReferenceLink: r_foot
     exportedFrameName: r_sole
+  - frameName: SCSYS_L_HAND_DH_FRAME
+    frameReferenceLink: l_hand
+    exportedFrameName: l_hand_dh_frame
+  - frameName:  SCSYS_R_HAND_DH_FRAME
+    frameReferenceLink: r_hand
+    exportedFrameName: r_hand_dh_frame
+
 
 linkFrames: 
   - linkName: root_link

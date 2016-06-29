@@ -18,10 +18,16 @@ r_shoulder_pitch,-95.5,10,0.06
 r_shoulder_roll,0,160.8,0.06
 r_shoulder_yaw,-37,80,0.06
 r_elbow,15,106,0.06
+r_wrist_prosup,-60,60,0.06
+r_wrist_pitch,-80,25,0.06
+r_wrist_yaw,-20,25,0.06
 l_shoulder_pitch,-95.5,10,0.06
 l_shoulder_roll,0,160.8,0.06
 l_shoulder_yaw,-37,80,0.06
 l_elbow,15,106,0.06
+l_wrist_prosup,-60,60,0.06
+l_wrist_pitch,-80,25,0.06
+l_wrist_yaw,-20,25,0.06
 neck_pitch,-40,22,0.06
 neck_roll,-20,20,0.06
 neck_yaw,-50,50,0.06
