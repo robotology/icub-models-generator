@@ -404,13 +404,6 @@ XMLBlobs:
           <child link="r_foot_dh_frame" />
         </joint>
   - |
-        <joint name="base_fixed_joint" type="fixed">
-          <origin xyz="0 0 0" rpy="0 -0 0" />
-          <axis xyz="0 0 0" />
-          <parent link="base_link" />
-          <child link="root_link" />
-        </joint>
-  - |
         <gazebo reference="r_arm_ft_sensor">
           <disableFixedJointLumping>true</disableFixedJointLumping>
         </gazebo>
