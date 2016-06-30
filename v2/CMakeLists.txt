@@ -26,7 +26,7 @@ macro(generate_icub_v2)
         # instead of just copyng, we also modify the com on the fly
         add_custom_command(OUTPUT "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf"
                            MAIN_DEPENDENCY "${GIVTWO_YARP_ROBOT_NAME}.urdf"
-                           COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/adjust_com_for_model_without_backpack.py
+                           COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/adjust_com_for_model_without_backpack.py
                                     --input_urdf  "${GIVTWO_YARP_ROBOT_NAME}.urdf"
                                     --output_urdf "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
     else()
