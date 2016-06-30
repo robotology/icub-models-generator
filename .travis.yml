@@ -9,16 +9,16 @@ before_script:
   - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
   # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another, 
   # let's install both debian packages and pip packages to be sure
-  - sudo pip install lxml numpy pyyaml 
+  - pip install lxml numpy pyyaml 
   # install urdf_parser_py
   - git clone https://github.com/ros/urdf_parser_py
   - cd urdf_parser_py
-  - sudo python setup.py install
+  - python setup.py install
   - cd ../
   # install simmechanics-to-urdf
   - git clone https://github.com/robotology/simmechanics-to-urdf
   - cd simmechanics-to-urdf
-  - sudo python setup.py install
+  - python setup.py install
   - cd ../
   # use superbuild for getting icub-model-generator C++ dependencies
   - git clone https://github.com/robotology/codyco-superbuild
