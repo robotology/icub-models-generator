@@ -6,7 +6,7 @@ cache: ccache
 before_script:
   # Start in the parent directory of icub-model-generator 
   - cd ..
-  - sudo apt-get install  --assume-yes --force-yespython-lxml python-yaml python-numpy python-setuptools
+  - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
   # install urdf_parser_py
   - git clone https://github.com/ros/urdf_parser_py
   - cd urdf_parser_py
