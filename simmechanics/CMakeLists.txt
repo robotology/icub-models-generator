@@ -1,8 +1,8 @@
 find_package(PythonInterp REQUIRED)
 
 # Generate URDF models for
-# v2.5 robots using the simmechanics-to-urdf
-macro(generate_icub_v2)
+# v2.5 robots using the simmechanics-to-urdf script
+macro(generate_icub_simmechanics)
     set(options NO_BACKPACK BOGUS)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML CSV)
     set(multiValueArgs)
@@ -37,30 +37,36 @@ macro(generate_icub_v2)
     endif()
 
 
-    list(APPEND model-v2-generated-models "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
+    list(APPEND model-simmechanics-generated-models "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
 endmacro()
 
-set(model-v2-generated-models "")
-generate_icub_v2(YARP_ROBOT_NAME iCubGenova02
-                 SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
-                 YAML "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml"
-                 CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
+set(model-simmechanics-generated-models "")
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova02
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml"
+                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
 
-generate_icub_v2(YARP_ROBOT_NAME iCubDarmstadt01
-                 SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
-                 YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
-                 CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
-                 NO_BACKPACK)
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubDarmstadt01
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
+                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
+                           NO_BACKPACK)
 
-generate_icub_v2(YARP_ROBOT_NAME iCubGenova05
-                 SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
-                 YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
-                 CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
-                 NO_BACKPACK)
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova01
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
+                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
+                           NO_BACKPACK)
 
-add_custom_target(generate-models-v2
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova05
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
+                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
+                           NO_BACKPACK)
+
+add_custom_target(generate-models-simmechanics
                   ALL
-                  DEPENDS ${model-v2-generated-models})
+                  DEPENDS ${model-simmechanics-generated-models})
 
 
 

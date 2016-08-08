@@ -1,3 +1,50 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.11)
 
+# Compile the actual dh --> URDF converter
 add_subdirectory(src)
+
+
+# Generate URDF models for
+# v1/v2 robots using the simmechanics-to-urdf script
+macro(generate_icub_dh)
+    set(options)
+    set(oneValueArgs YARP_ROBOT_NAME PARTS_VERSIONS)
+    set(multiValueArgs)
+    cmake_parse_arguments(GIDH "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+
+    add_custom_command(OUTPUT ${GIDH_YARP_ROBOT_NAME}.urdf
+                       COMMAND simmechanics_to_urdf
+                       ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}
+                            --outputfile ${GIDH_YARP_ROBOT_NAME}.urdf
+                       MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}"
+                       DEPENDS  "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_YAML}"
+                                "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_CSV}")
+
+
+    # instead of just copyng, we also modify the com on the fly
+    add_custom_command(OUTPUT "${CMAKE_SOURCE_DIR}/generated/robots/${GIDH_YARP_ROBOT_NAME}/model.urdf"
+                       MAIN_DEPENDENCY "${GIDH_YARP_ROBOT_NAME}.urdf"
+                       COMMAND ${CMAKE_COMMAND} -E copy "${GIDH_YARP_ROBOT_NAME}.urdf"
+                                                         "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
+
+
+    list(APPEND model-dh-generated-models "${CMAKE_SOURCE_DIR}/generated/robots/${GIDH_YARP_ROBOT_NAME}/model.urdf")
+endmacro()
+
+set(model-dh-generated-models "")
+#generate_icub_dh(YARP_ROBOT_NAME iCubGenova03
+#                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2")
+
+#generate_icub_dh(YARP_ROBOT_NAME iCubParis01
+#                 PARTS_VERSIONS "--headV1 --armsV1 --legsV1 --feetV2")
+
+
+
+add_custom_target(generate-models-dh
+                  ALL
+                  DEPENDS ${model-dh-generated-models})
+
+
+
+

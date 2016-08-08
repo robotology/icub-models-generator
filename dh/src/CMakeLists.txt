@@ -1,14 +1,5 @@
-# Copyright (C) 2010 RobotCub Consortium
+# Copyright (C) 2016 Fondazione Istituto Italiano di Tecnologia - iCub Facility
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
-
-
-SET(PROJECTNAME urdf_utils)
-
-PROJECT(${PROJECTNAME})
-
-# YARP needs CMake 2.6 or greater
-cmake_minimum_required(VERSION 2.6)
-
 
 find_package(YCM REQUIRED)
 find_package(YARP REQUIRED)
