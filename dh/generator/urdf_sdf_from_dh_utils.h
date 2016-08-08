@@ -61,11 +61,20 @@ bool addGazeboYarpPluginsIMUToSDF(sdf::SDFPtr icub_sdf, std::string sensor_name,
  * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
 std::string getFTJointName(const std::string sensor_name);
+
 /**
  * Add the force/torque sensor description to the URDF (using gazebo extentions)
  * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
  */
 bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_name);
+
+/**
+ * Add the force/torque sensor description to the URDF (using iDynTree extentions, documented
+ * in https://github.com/robotology/idyntree/blob/master/doc/model_loading.md).
+ *
+ * @param sensor_name: left_arm,right_arm,left_leg,right_leg,left_foot,right_foot
+ */
+bool add_iDynTreeFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_name);
 
 void AddElementAndSetValue(sdf::ElementPtr parent, std::string childType, std::string value_type, std::string value);
 

@@ -191,6 +191,62 @@ bool addGazeboYarpPluginsFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_na
     return true;
 }
 
+bool add_iDynTreeFTToURDF(TiXmlDocument* urdf_doc, std::string sensor_name)
+{
+    // FT sensors extracted from iDyn are defined with respect to child link reference frame <frame>child</frame>
+    // and they are measuring the wrench that the child link applies on the parent link <measure_direction>child_to_parent</measure_direction>
+
+    //Get the URDF joint that models the FT sensor
+    std::string ft_sensor_joint = getFTJointName(sensor_name);
+
+    if( ft_sensor_joint == ERROR_FT_SENSOR_JOINT ) {
+        return false;
+    }
+
+    /*
+        <sensor name="l_leg_ft_sensor" type="force_torque">
+            <parent joint="l_leg_ft_sensor"/>
+            <force_torque>
+                <frame>child</frame>
+                <measure_direction>child_to_parent</measure_direction>
+            </force_torque>
+        </sensor>
+     */
+
+    TiXmlElement * robot_element = urdf_doc->FirstChildElement( "robot" );
+
+    TiXmlElement * sensor_element = new TiXmlElement( "sensor" );
+    robot_element->LinkEndChild(sensor_element);
+
+    sensor_element->SetAttribute("type","force_torque");
+    sensor_element->SetAttribute("name",ft_sensor_joint.c_str());
+
+    sensor_element->SetAttribute("type","force_torque");
+
+    TiXmlElement * parent_element = new TiXmlElement( "parent" );
+    sensor_element->LinkEndChild(parent_element);
+
+    parent_element->SetAttribute("joint",ft_sensor_joint);
+
+    TiXmlElement * force_torque_element = new TiXmlElement( "force_torque" );
+    sensor_element->LinkEndChild(force_torque_element);
+
+    TiXmlElement * frame_element = new TiXmlElement( "frame" );
+    force_torque_element->LinkEndChild(frame_element);
+
+    TiXmlText * frame_text = new TiXmlText( "child" );
+    frame_element->LinkEndChild(frame_text);
+
+    TiXmlElement * measure_direction_element = new TiXmlElement( "measure_direction" );
+    force_torque_element->LinkEndChild(measure_direction_element);
+
+    TiXmlText * measure_direction_text = new TiXmlText( "child_to_parent" );
+    measure_direction_element->LinkEndChild(measure_direction_text);
+
+
+    return true;
+}
+
 void AddElementAndSetValue(sdf::ElementPtr parent, std::string childType, std::string value_type, std::string value)
 {
     sdf::ElementPtr child = parent->AddElement(childType);
@@ -627,6 +683,16 @@ bool generate_iCub_urdf_model(std::string iCub_name,
         ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"left_foot");
         ret = ret && addGazeboYarpPluginsFTToURDF(xml_doc,"right_foot");
     }
+
+    ret = ret && add_iDynTreeFTToURDF(xml_doc,"left_arm");
+    ret = ret && add_iDynTreeFTToURDF(xml_doc,"right_arm");
+    ret = ret && add_iDynTreeFTToURDF(xml_doc,"left_leg");
+    ret = ret && add_iDynTreeFTToURDF(xml_doc,"right_leg");
+    if( ft_feet ) {
+        ret = ret && add_iDynTreeFTToURDF(xml_doc,"left_foot");
+        ret = ret && add_iDynTreeFTToURDF(xml_doc,"right_foot");
+    }
+
     if( !ret ) { std::cerr << "Problem in adding ft sensors to the URDF file" << std::endl; return false; }
 
     if( ! xml_doc->SaveFile(outputfilename) ) {

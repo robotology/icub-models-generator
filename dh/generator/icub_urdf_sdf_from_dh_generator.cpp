@@ -48,28 +48,61 @@ int main(int argc, char* argv[])
     if( opt.check("min_inertia" )  ) inertia_epsilon = opt.find("min_inertia").asDouble();
 
     // Parse part info
-    int version_head = 1;
+    int version_head = -1;
     if( opt.check("headV2") )
     {
         version_head = 2;
     }
+    if( opt.check("headV1") )
+    {
+        version_head = 1;
+    }
+    if( version_head < 0 )
+    {
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing head version";
+    }
 
-    int version_arms = 1;
+
+    int version_arms = -1;
     if( opt.check("armsV2") )
     {
         version_arms = 2;
     }
+    if( opt.check("armsV1") )
+    {
+        version_arms = 1;
+    }
+    if( version_arms < 0 )
+    {
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing arms version";
+    }
 
-    int version_legs = 1;
+    int version_legs = -1;
     if( opt.check("legsV2") )
     {
         version_legs = 2;
     }
+    if( opt.check("legsV1") )
+    {
+        version_legs = 1;
+    }
+    if( version_legs < 0 )
+    {
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing legs version";
+    }
 
-    int version_feet = 1;
+    int version_feet = -1;
     if( opt.check("feetV2") )
     {
         version_feet = 2;
+    }
+    if( opt.check("feetV1") )
+    {
+        version_feet = 1;
+    }
+    if( version_feet < 0 )
+    {
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing feet version";
     }
 
     // iCubParis02 is a special robot, and needs a special options
