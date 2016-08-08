@@ -59,7 +59,8 @@ int main(int argc, char* argv[])
     }
     if( version_head < 0 )
     {
-        std::cerr << "icub_urdf_sdf_from_dh_generator : missing head version";
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing head version"  << std::endl;
+        return EXIT_FAILURE;
     }
 
 
@@ -74,7 +75,8 @@ int main(int argc, char* argv[])
     }
     if( version_arms < 0 )
     {
-        std::cerr << "icub_urdf_sdf_from_dh_generator : missing arms version";
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing arms version"  << std::endl;
+        return EXIT_FAILURE;
     }
 
     int version_legs = -1;
@@ -88,7 +90,8 @@ int main(int argc, char* argv[])
     }
     if( version_legs < 0 )
     {
-        std::cerr << "icub_urdf_sdf_from_dh_generator : missing legs version";
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing legs version"  << std::endl;
+        return EXIT_FAILURE;
     }
 
     int version_feet = -1;
@@ -102,7 +105,8 @@ int main(int argc, char* argv[])
     }
     if( version_feet < 0 )
     {
-        std::cerr << "icub_urdf_sdf_from_dh_generator : missing feet version";
+        std::cerr << "icub_urdf_sdf_from_dh_generator : missing feet version" << std::endl;
+        return EXIT_FAILURE;
     }
 
     // iCubParis02 is a special robot, and needs a special options

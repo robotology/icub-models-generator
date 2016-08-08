@@ -8,8 +8,8 @@ add_subdirectory(generator)
 # v1/v2 robots using the simmechanics-to-urdf script
 macro(generate_icub_dh)
     set(options)
-    set(oneValueArgs YARP_ROBOT_NAME PARTS_VERSIONS)
-    set(multiValueArgs)
+    set(oneValueArgs YARP_ROBOT_NAME)
+    set(multiValueArgs PARTS_VERSIONS)
     cmake_parse_arguments(GIDH "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
 
@@ -34,13 +34,13 @@ endmacro()
 
 set(model-dh-generated-models "")
 generate_icub_dh(YARP_ROBOT_NAME iCubGenova03
-                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2")
+                 PARTS_VERSIONS --headV2 --armsV2 --legsV1 --feetV2)
 
 generate_icub_dh(YARP_ROBOT_NAME iCubParis01
-                 PARTS_VERSIONS "--headV1 --armsV1 --legsV1 --feetV2")
+                 PARTS_VERSIONS --headV1 --armsV1 --legsV1 --feetV2)
 
 generate_icub_dh(YARP_ROBOT_NAME iCubParis02
-                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2 --iCubParis02")
+                 PARTS_VERSIONS --headV2 --armsV2 --legsV1 --feetV2 --iCubParis02)
 
 add_custom_target(generate-models-dh
                   ALL
