@@ -4,12 +4,12 @@ language: cpp
 cache: ccache
 
 before_script:
-  # Start in the parent directory of icub-model-generator 
+  # Start in the parent directory of icub-model-generator
   - cd ..
   - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
-  # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another, 
+  # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
   # let's install both debian packages and pip packages to be sure
-  - sudo pip install lxml numpy pyyaml 
+  - sudo pip install lxml numpy pyyaml
   # install urdf_parser_py
   - git clone https://github.com/ros/urdf_parser_py
   - cd urdf_parser_py
@@ -34,8 +34,13 @@ before_script:
   - cmake --build .
   - pwd
   - cd ../..
+  # Install sdformat
+  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
+  - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+  - sudo apt-get update
+  - sudo apt-get install libsdformat4-dev
   # Prepare icub-model-generator build
-  - cd icub-model-generator 
+  - cd icub-model-generator
   - mkdir build
   - cd build
   - cmake ..

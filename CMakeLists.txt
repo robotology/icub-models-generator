@@ -11,7 +11,7 @@ if(POLICY CMP0046)
   cmake_policy(SET CMP0046 NEW)
 endif()
 
-option(ICUB_MODEL_GENERATE_DH "Generate models using the model generation pipeline from Denativ Hartenberg models" OFF)
+option(ICUB_MODEL_GENERATE_DH "Generate models using the model generation pipeline from Denativ Hartenberg models" ON)
 option(ICUB_MODEL_GENERATE_SIMMECHANICS "Generate models using the model generation pipeline from simmechanics" ON)
 
 if( ICUB_MODEL_GENERATE_DH )

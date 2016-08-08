@@ -13,13 +13,17 @@ macro(add_icub_model_test yarpRobotName)
 endmacro()
 
 # Model generated from DH
-add_icub_model_test(iCubGenova03)
-add_icub_model_test(iCubParis01)
-add_icub_model_test(iCubParis02)
+if( ICUB_MODEL_GENERATE_DH )
+    add_icub_model_test(iCubGenova03)
+    add_icub_model_test(iCubParis01)
+    add_icub_model_test(iCubParis02)
+endif()
 
 # Model generated with simmechanics
-add_icub_model_test(iCubGenova01)
-add_icub_model_test(iCubGenova02)
-add_icub_model_test(iCubGenova05)
-add_icub_model_test(iCubDarmstadt01)
+if( ICUB_MODEL_GENERATE_SIMMECHANICS )
+    add_icub_model_test(iCubGenova01)
+    add_icub_model_test(iCubGenova02)
+    add_icub_model_test(iCubGenova05)
+    add_icub_model_test(iCubDarmstadt01)
+endif()
 
