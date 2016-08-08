@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.11)
 
 # Compile the actual dh --> URDF converter
-add_subdirectory(src)
+add_subdirectory(generator)
 
 
 # Generate URDF models for
@@ -14,32 +14,33 @@ macro(generate_icub_dh)
 
 
     add_custom_command(OUTPUT ${GIDH_YARP_ROBOT_NAME}.urdf
-                       COMMAND simmechanics_to_urdf
-                       ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}
+                       COMMAND icub_urdf_sdf_from_dh_generator
+                       ARGS ${GIDH_PARTS_VERSIONS}
                             --outputfile ${GIDH_YARP_ROBOT_NAME}.urdf
-                       MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}"
-                       DEPENDS  "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_YAML}"
-                                "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_CSV}")
+                            --YARP_ROBOT_NAME ${GIDH_YARP_ROBOT_NAME}
+                            --data_directory ${CMAKE_CURRENT_SOURCE_DIR}/data/
+                       MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/data/urdf_paris/icub/icub.xml")
 
 
     # instead of just copyng, we also modify the com on the fly
     add_custom_command(OUTPUT "${CMAKE_SOURCE_DIR}/generated/robots/${GIDH_YARP_ROBOT_NAME}/model.urdf"
                        MAIN_DEPENDENCY "${GIDH_YARP_ROBOT_NAME}.urdf"
                        COMMAND ${CMAKE_COMMAND} -E copy "${GIDH_YARP_ROBOT_NAME}.urdf"
-                                                         "${CMAKE_SOURCE_DIR}/generated/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
+                                                         "${CMAKE_SOURCE_DIR}/generated/robots/${GIDH_YARP_ROBOT_NAME}/model.urdf")
 
 
     list(APPEND model-dh-generated-models "${CMAKE_SOURCE_DIR}/generated/robots/${GIDH_YARP_ROBOT_NAME}/model.urdf")
 endmacro()
 
 set(model-dh-generated-models "")
-#generate_icub_dh(YARP_ROBOT_NAME iCubGenova03
-#                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2")
+generate_icub_dh(YARP_ROBOT_NAME iCubGenova03
+                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2")
 
-#generate_icub_dh(YARP_ROBOT_NAME iCubParis01
-#                 PARTS_VERSIONS "--headV1 --armsV1 --legsV1 --feetV2")
+generate_icub_dh(YARP_ROBOT_NAME iCubParis01
+                 PARTS_VERSIONS "--headV1 --armsV1 --legsV1 --feetV2")
 
-
+generate_icub_dh(YARP_ROBOT_NAME iCubParis02
+                 PARTS_VERSIONS "--headV2 --armsV2 --legsV1 --feetV2 --iCubParis02")
 
 add_custom_target(generate-models-dh
                   ALL

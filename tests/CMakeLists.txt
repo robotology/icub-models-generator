@@ -12,6 +12,13 @@ macro(add_icub_model_test yarpRobotName)
              COMMAND icub-model-test --model ${CMAKE_SOURCE_DIR}/generated/robots/${yarpRobotName}/model.urdf)
 endmacro()
 
+# Model generated from DH
+add_icub_model_test(iCubGenova03)
+add_icub_model_test(iCubParis01)
+add_icub_model_test(iCubParis02)
+
+# Model generated with simmechanics
+add_icub_model_test(iCubGenova01)
 add_icub_model_test(iCubGenova02)
 add_icub_model_test(iCubGenova05)
 add_icub_model_test(iCubDarmstadt01)

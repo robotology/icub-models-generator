@@ -5,9 +5,24 @@
 #include <iDynTree/Model/Indeces.h>
 #include <iDynTree/Model/Model.h>
 #include <iDynTree/Model/RevoluteJoint.h>
+
+#include <iDynTree/ModelIO/ModelLoader.h>
+
 #include <yarp/os/Property.h>
 #include <cmath>
 #include <cstdlib>
+
+inline bool checkDoubleAreEqual(const double & val1,
+                                const double & val2,
+                                const double tol)
+{
+    if( std::fabs(val1-val2) > tol )
+    {
+        return false;
+    }
+
+    return true;
+}
 
 
 template<typename VectorType1, typename VectorType2>
@@ -134,6 +149,50 @@ bool checkBaseLink(iDynTree::KinDynComputations & comp)
     return true;
 }
 
+bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
+{
+    iDynTree::LinkIndex rootLinkIdx = comp.getFrameIndex("root_link");
+
+    if( rootLinkIdx == iDynTree::FRAME_INVALID_INDEX )
+    {
+        std::cerr << "icub-model-test error: impossible to find root_link in model" << std::endl;
+        return false;
+    }
+
+    iDynTree::LinkIndex l_sole = comp.getFrameIndex("l_sole");
+
+    if( rootLinkIdx == iDynTree::FRAME_INVALID_INDEX )
+    {
+        std::cerr << "icub-model-test error: impossible to find frame l_sole in model" << std::endl;
+        return false;
+    }
+
+    iDynTree::LinkIndex r_sole = comp.getFrameIndex("r_sole");
+
+    if( rootLinkIdx == iDynTree::FRAME_INVALID_INDEX )
+    {
+        std::cerr << "icub-model-test error: impossible to find frame r_sole in model" << std::endl;
+        return false;
+    }
+
+    iDynTree::Transform root_H_l_sole = comp.getRelativeTransform(rootLinkIdx,l_sole);
+    iDynTree::Transform root_H_r_sole = comp.getRelativeTransform(rootLinkIdx,r_sole);
+
+    double l_sole_height = root_H_l_sole.getPosition().getVal(2);
+    double r_sole_height = root_H_r_sole.getPosition().getVal(2);
+
+    if( !checkDoubleAreEqual(l_sole_height,r_sole_height,1e-8) )
+    {
+        std::cerr << "icub-model-test error: l_sole_height is " << l_sole_height << ", while r_sole_height is " << r_sole_height << " (diff : " << std::fabs(l_sole_height-r_sole_height) <<  " )"  << std::endl;
+        return false;
+    }
+
+    std::cerr << "icub-model-test error: sole are parallel test performed correctly " << std::endl;
+
+    return true;
+}
+
+
 
 bool checkAxisDirections(iDynTree::KinDynComputations & comp)
 {
@@ -165,13 +224,36 @@ bool checkAxisDirections(iDynTree::KinDynComputations & comp)
             return false;
         }
 
-        if( !checkVectorAreEqual(axisInRootLink.getDirection(),expectedDirection,1e-6) )
+        if( !checkVectorAreEqual(axisInRootLink.getDirection(),expectedDirection,1e-5) )
         {
             std::cerr << "icub-model-test error:" << axisToCheck << " got direction of " << axisInRootLink.getDirection().toString()
                   << " instead of expected " << expectedDirection.toString() << std::endl;
             return false;
         }
     }
+
+    return true;
+}
+
+/**
+ * All the iCub have a even and not null number of F/T sensors.
+ */
+bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
+{
+    int nrOfFTSensors = mdlLoader.sensors().getNrOfSensors(iDynTree::SIX_AXIS_FORCE_TORQUE);
+
+    if( nrOfFTSensors == 0 )
+    {
+        std::cerr << "icub-model-test error: no F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
+    if( nrOfFTSensors % 2 == 1 )
+    {
+        std::cerr << "icub-model-test error: odd number of F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
 
     return true;
 }
@@ -206,7 +288,6 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
 
-
     iDynTree::Vector3 grav;
     grav.zero();
     iDynTree::JointPosDoubleArray qj(comp.getRobotModel());
@@ -225,6 +306,23 @@ int main(int argc, char ** argv)
     // Check if base_link exist, and check that is a frame attached to root_link and if its
     // transform is the idyn
     if( !checkBaseLink(comp) )
+    {
+        return EXIT_FAILURE;
+    }
+
+
+    // Check if l_sole/r_sole have the same distance from the root_link
+    if( !checkSolesAreParallel(comp) )
+    {
+        return EXIT_FAILURE;
+    }
+
+    // Now some test that test the sensors
+    iDynTree::ModelLoader mdlLoader;
+    mdlLoader.loadModelFromFile(modelPath);
+
+
+    if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
     {
         return EXIT_FAILURE;
     }

@@ -4,8 +4,8 @@
  * website: http://www.codyco.eu
  */
 
-#ifndef __URDF_UTILS_FUNCTIONS__
-#define __URDF_UTILS_FUNCTIONS__
+#ifndef URDF_UTILS_FUNCTIONS__
+#define URDF_UTILS_FUNCTIONS__
 
 #include <urdf_model/model.h>
 
