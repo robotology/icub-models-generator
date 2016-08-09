@@ -1,0 +1,7 @@
+This are the files provided by UPMC. 
+Only a little modification in link and joint name was done by hand:
+  * link "waist" was renamed in "root_link" (for having a clear root_link)
+  * joint "neck_pitch" was renamed in "head_pitch" (for using the same joint names define in http://wiki.icub.org/wiki/ICub_joints)
+  * joint "neck_roll" was renamed in "head_roll" (for using the same joint names defined in http://wiki.icub.org/wiki/ICub_joints)
+  * joint "neck_yaw" was renamed in "head_yaw" (for using the same joint names defined in http://wiki.icub.org/wiki/ICub_joints)
+  * link  "l_shank" and "r_shank" were renamed in "l_leg" and "r_leg" (after this discussion https://github.com/robotology/icub-main/issues/57)

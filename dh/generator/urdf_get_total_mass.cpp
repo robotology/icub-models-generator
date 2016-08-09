@@ -1,0 +1,63 @@
+/**
+ * Copyright  (C)  2013 CoDyCo Project
+ * Author: Silvio Traversaro
+ * website: http://www.codyco.eu
+ */
+ 
+#include <urdf_model/model.h>
+#include <urdf_parser/urdf_parser.h>
+
+#include <kdl/treefksolverpos_recursive.hpp>
+#include <kdl/frames_io.hpp>
+
+#include <iDynTree/ModelIO/impl/urdf_import.hpp>
+
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+#include <tinyxml.h>
+
+#include "urdf_utils.h"
+
+using namespace iDynTree;
+using namespace KDL;
+using namespace std;
+
+using namespace urdf;
+using namespace boost;
+
+
+int main(int argc, char* argv[])
+{
+    bool status = true;
+        bool ret = true;
+        
+    bool verbose = true;
+    
+    if( argc != 2 ) {
+        std::cerr << "Usage: \t urdf_get_total mass urdf_model.xml" << std::endl;
+        std::cerr << "Prints the total mass of the urdf model" << std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    std::string file_name_urdf(argv[1]);
+
+    boost::shared_ptr<urdf::ModelInterface> urdf_input;
+
+    
+    std::ifstream t_im(file_name_urdf.c_str());
+    std::stringstream buffer_im;
+    buffer_im << t_im.rdbuf();
+    urdf_input = parseURDF(buffer_im.str());
+    if( !urdf_input ) {
+        std::cerr << "Fatal error in URDF xml parsing" << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    double mass = getTotalMass(*urdf_input);
+    
+    std::cout << "URDF file has a total mass of " << mass << std::endl;
+    
+    return EXIT_SUCCESS;
+}
