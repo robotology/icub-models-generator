@@ -26,5 +26,6 @@ if( ICUB_MODEL_GENERATE_SIMMECHANICS )
     add_icub_model_test(iCubGenova02)
     add_icub_model_test(iCubGenova05)
     add_icub_model_test(iCubDarmstadt01)
+    add_icub_model_test(iCubHeidelberg01)
 endif()
 
