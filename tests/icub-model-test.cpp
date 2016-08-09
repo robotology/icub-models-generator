@@ -181,7 +181,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     double l_sole_height = root_H_l_sole.getPosition().getVal(2);
     double r_sole_height = root_H_r_sole.getPosition().getVal(2);
 
-    if( !checkDoubleAreEqual(l_sole_height,r_sole_height,1e-8) )
+    if( !checkDoubleAreEqual(l_sole_height,r_sole_height,1e-5) )
     {
         std::cerr << "icub-model-test error: l_sole_height is " << l_sole_height << ", while r_sole_height is " << r_sole_height << " (diff : " << std::fabs(l_sole_height-r_sole_height) <<  " )"  << std::endl;
         return false;
