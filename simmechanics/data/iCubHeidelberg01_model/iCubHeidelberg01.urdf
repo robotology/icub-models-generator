@@ -1,0 +1,820 @@
+<robot name="iCubHeidelberg01_SIM_MODEL">
+  <link name="root_link">
+    <inertial>
+      <origin xyz="0.0251137 0.000104218 -0.0437451" rpy="0 0 0"/>
+      <mass value="5.1504"/>
+      <inertia ixx="0.0252712" ixy="-8.71849e-05" ixz="0.00172034" iyy="0.0140911" iyz="-6.63933e-05" izz="0.0205529"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0364 0 0.032" rpy="1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_root_link_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0364 0 0.032" rpy="1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_root_link_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="r_hip_1">
+    <inertial>
+      <origin xyz="-0.0529681 -4e-05 -0.0005388" rpy="0 0 0"/>
+      <mass value="0.9279"/>
+      <inertia ixx="0.000403391" ixy="-1.44877e-06" ixz="2.87683e-06" iyy="0.000572457" iyz="-1.70772e-07" izz="0.00057759"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0111 0.151913 0.0428515000001" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0111 0.151913 0.0428515000001" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_hip_pitch" type="revolute">
+    <origin xyz="0.0064515 0.0111 -0.119913" rpy="1.57079632679 0 -1.57079632679"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+    <parent link="root_link"/>
+    <child link="r_hip_1"/>
+    <limit effort="50000" lower="-0.523598775598" upper="1.4835298642" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_hip_2">
+    <inertial>
+      <origin xyz="3.49999999999e-06 -0.044278 0.0249831" rpy="0 0 0"/>
+      <mass value="0.4184"/>
+      <inertia ixx="0.000487899" ixy="-2.35279e-07" ixz="1.93211e-07" iyy="0.000286147" iyz="1.23695e-05" izz="0.000315134"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.151913 0.0692136998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.151913 0.0692136998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_hip_roll" type="revolute">
+    <origin xyz="-0.059 0 -0.0263622" rpy="0 0 0"/>
+    <axis xyz="-0.0 -0.0 -1.0"/>
+    <parent link="r_hip_1"/>
+    <child link="r_hip_2"/>
+    <limit effort="50000" lower="0.0" upper="1.57079632679" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_hip_3">
+    <inertial>
+      <origin xyz="-0.000123 -0.0002823 0.008718" rpy="0 0 0"/>
+      <mass value="0.1262"/>
+      <inertia ixx="3.33523e-05" ixy="4.04554e-08" ixz="8.80407e-08" iyy="3.34665e-05" iyz="7.47286e-08" izz="5.70757e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0437089998094 -0.0701 -0.226213" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0437089998094 -0.0701 -0.226213" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_leg_ft_sensor" type="fixed">
+    <origin xyz="0 -0.0743 0.0255047" rpy="1.57079632679 -1.57079632679 0"/>
+    <parent link="r_hip_2"/>
+    <child link="r_hip_3"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="r_upper_leg">
+    <inertial>
+      <origin xyz="-5.89e-05 -0.079146 0.0033012" rpy="0 0 0"/>
+      <mass value="2.2544"/>
+      <inertia ixx="0.00794621" ixy="0.000169783" ixz="9.58795e-06" iyy="0.00179234" iyz="-0.000163445" izz="0.00796958"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.241013 0.0437089998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.241013 0.0437089998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_hip_yaw" type="revolute">
+    <origin xyz="0 0 0.018" rpy="-1.57079632679 0 -1.57079632679"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <parent link="r_hip_3"/>
+    <child link="r_upper_leg"/>
+    <limit effort="50000" lower="-1.2217304764" upper="1.2217304764" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_lower_leg">
+    <inertial>
+      <origin xyz="0.0117639 -0.083358 0.0024521" rpy="0 0 0"/>
+      <mass value="1.7086"/>
+      <inertia ixx="0.00565145" ixy="0.000651976" ixz="1.347e-05" iyy="0.00170964" iyz="-0.000147573" izz="0.00615412"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.084257 0.386638 0.0437089998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_shank_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="pink">
+        <color rgba="1 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.084257 0.386638 0.0437089998094" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_shank_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_knee" type="revolute">
+    <origin xyz="-0.017957 -0.145625 0" rpy="0 0 0"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+    <parent link="r_upper_leg"/>
+    <child link="r_lower_leg"/>
+    <limit effort="50000" lower="-1.74532925199" upper="0.0" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_ankle_1">
+    <inertial>
+      <origin xyz="0.034639 -4.73650698208e-05 0.0151613988639" rpy="0 0 0"/>
+      <mass value="0.8929"/>
+      <inertia ixx="0.000539928" ixy="-6.33371e-07" ixz="-3.92688e-05" iyy="0.00058171" iyz="1.26546e-06" izz="0.000414634"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.1056 0.587137997706 0.0437089997498" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_ankle_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="cyan">
+        <color rgba="0 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.1056 0.587137997706 0.0437089997498" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_ankle_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_ankle_pitch" type="revolute">
+    <origin xyz="-0.021343 -0.201 0" rpy="-2.40788999988e-05 0 0"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="r_lower_leg"/>
+    <child link="r_ankle_1"/>
+    <limit effort="50000" lower="-0.349065850399" upper="0.523598775598" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_ankle_2">
+    <inertial>
+      <origin xyz="-8.19999999999e-06 -0.0382019454736 -0.0437950868735" rpy="0 0 0"/>
+      <mass value="0.2675"/>
+      <inertia ixx="0.000329604" ixy="6.02821e-07" ixz="7.59365e-08" iyy="0.000253765" iyz="-1.08449e-08" izz="0.000148708"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.587138070721 -0.000853467361358" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_foot_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.587138070721 -0.000853467361358" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_foot_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_ankle_roll" type="revolute">
+    <origin xyz="0.0355 0 0.0445624670112" rpy="0 0 0"/>
+    <axis xyz="-0.0 -2.40789e-05 -1.0"/>
+    <parent link="r_ankle_1"/>
+    <child link="r_ankle_2"/>
+    <limit effort="50000" lower="-0.349065850399" upper="0.349065850399" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="r_foot">
+    <inertial>
+      <origin xyz="0.033882827801 0.0054048 -0.00115418414893" rpy="0 0 0"/>
+      <mass value="0.3794"/>
+      <inertia ixx="0.000283689000005" ixy="5.83551999997e-05" ixz="7.84955032621e-06" iyy="0.00121493" iyz="-8.90111016917e-07" izz="0.00140898"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0472090514428 -0.0701 -0.647438913459" rpy="-1.57079632708 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_sole_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0472090514428 -0.0701 -0.647438913459" rpy="-1.57079632708 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_sole_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="r_foot_ft_sensor" type="fixed">
+    <origin xyz="0 -0.0603008427249 -0.0480625189919" rpy="3.14159265359 -1.57079632651 -1.57079632679"/>
+    <parent link="r_ankle_2"/>
+    <child link="r_foot"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="r_sole"/>
+  <joint name="r_sole_fixed_joint" type="fixed">
+    <origin xyz="0 0 0.0144000000055" rpy="-3.14159265359 0 0"/>
+    <parent link="r_foot"/>
+    <child link="r_sole"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_hip_1">
+    <inertial>
+      <origin xyz="-0.0529681 -3.63786457601e-05 0.000539056614961" rpy="0 0 0"/>
+      <mass value="0.9279"/>
+      <inertia ixx="0.000403391" ixy="-1.46806806969e-06" ixz="-2.86703008435e-06" iyy="0.000572459526705" iyz="2.05246847003e-07" izz="0.000577587473295"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0111 0.151913000127 -0.0428515024748" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dblue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0111 0.151913000127 -0.0428515024748" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_hip_pitch" type="revolute">
+    <origin xyz="0.0064515 -0.0111 -0.119913" rpy="1.57751584879 0 1.57079632679"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="root_link"/>
+    <child link="l_hip_1"/>
+    <limit effort="50000" lower="-0.523598775598" upper="1.4835298642" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_hip_2">
+    <inertial>
+      <origin xyz="3.50000000005e-06 -0.0442668735976 -0.0246856073077" rpy="0 0 0"/>
+      <mass value="0.4184"/>
+      <inertia ixx="0.000487899" ixy="-2.36571964158e-07" ixz="-1.9162568757e-07" iyy="0.00028598207955" iyz="-1.21736100812e-05" izz="0.00031529892045"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.151913860158 -0.069213693404" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dgreen">
+        <color rgba="0.1 0.8 0.1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.151913860158 -0.069213693404" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_hip_roll" type="revolute">
+    <origin xyz="-0.059 -8.59963575406e-07 0.026362200929" rpy="0 0 0"/>
+    <axis xyz="-0.0 -0.00671947 -0.999977"/>
+    <parent link="l_hip_1"/>
+    <child link="l_hip_2"/>
+    <limit effort="50000" lower="0.0" upper="1.57079632679" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_hip_3">
+    <inertial>
+      <origin xyz="-0.0006222 0.0002823 0.008713" rpy="0 0 0"/>
+      <mass value="0.1262"/>
+      <inertia ixx="3.33523e-05" ixy="-4.04554e-08" ixz="8.80407e-08" iyy="3.34665e-05" iyz="-7.47286e-08" izz="5.70757e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.04218805 0.0701 -0.22650251" rpy="-1.5640768048 0 1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.04218805 0.0701 -0.22650251" rpy="-1.5640768048 0 1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_leg_ft_sensor" type="fixed">
+    <origin xyz="0 -0.0743000549473 -0.0255046186937" rpy="0 1.5640768048 -1.57079632679"/>
+    <parent link="l_hip_2"/>
+    <child link="l_hip_3"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_upper_leg">
+    <inertial>
+      <origin xyz="-5.88999999999e-05 -0.0791582282008 -0.0021491470665" rpy="0 0 0"/>
+      <mass value="2.2544"/>
+      <inertia ixx="0.00794621" ixy="0.000169714741039" ixz="-1.07285855603e-05" iyy="0.00179481538882" iyz="0.000204937091082" izz="0.00796710461118"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.241013319523 -0.0437090288843" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.241013319523 -0.0437090288843" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_hip_yaw" type="revolute">
+    <origin xyz="0.000121 0 0.017999" rpy="-1.5640768048 0 1.57079632679"/>
+    <axis xyz="-0.0 0.999977 -0.00671947"/>
+    <parent link="l_hip_3"/>
+    <child link="l_upper_leg"/>
+    <limit effort="50000" lower="-1.2217304764" upper="1.2217304764" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_lower_leg">
+    <inertial>
+      <origin xyz="0.0117639 -0.0833608525374 -0.000293265754161" rpy="0 0 0"/>
+      <mass value="1.7086"/>
+      <inertia ixx="0.00565145" ixy="0.000651870769773" ixz="-1.78506300043e-05" iyy="0.00171182385437" iyz="0.000177423555915" izz="0.00615193614563"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.084257 0.386638606977 -0.0437090538427" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_shank_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.084257 0.386638606977 -0.0437090538427" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_shank_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_knee" type="revolute">
+    <origin xyz="-0.017957 -0.145625287455 0" rpy="0 0 0"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="l_upper_leg"/>
+    <child link="l_lower_leg"/>
+    <limit effort="50000" lower="-1.74532925199" upper="0.0" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_ankle_1">
+    <inertial>
+      <origin xyz="0.034639 -0.000149240603678 -0.0151607383132" rpy="0 0 0"/>
+      <mass value="0.8929"/>
+      <inertia ixx="0.000539928" ixy="-3.69491078227e-07" ixz="3.92721693901e-05" iyy="0.000581685450236" iyz="-2.38798297277e-06" izz="0.000414658549764"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.1056 0.587122257231 -0.0466583197332" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_ankle_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="0.1056 0.587122257231 -0.0466583197332" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_ankle_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_ankle_pitch" type="revolute">
+    <origin xyz="-0.021343 -0.200983719847 0.00294927094483" rpy="2.4080004131e-05 0 0"/>
+    <axis xyz="-1.0 -0.0 -0.0"/>
+    <parent link="l_lower_leg"/>
+    <child link="l_ankle_1"/>
+    <limit effort="50000" lower="-0.349065850399" upper="0.523598775598" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_ankle_2">
+    <inertial>
+      <origin xyz="-8.19999999983e-06 -0.0381899139561 0.0470011143392" rpy="0 0 0"/>
+      <mass value="0.2675"/>
+      <inertia ixx="0.000329604" ixy="6.02297137541e-07" ixz="-7.99854248137e-08" iyy="0.000253760402279" iyz="-6.95067767841e-07" izz="0.000148712597721"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0701 0.587138655708 0.000853460005578" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_foot_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0701 0.587138655708 0.000853460005578" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_foot_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_ankle_roll" type="revolute">
+    <origin xyz="0.0355 -1.6398477099e-05 -0.0475117797388" rpy="0 0 0"/>
+    <axis xyz="-0.0 -0.00674355 -0.999977"/>
+    <parent link="l_ankle_1"/>
+    <child link="l_ankle_2"/>
+    <limit effort="50000" lower="-0.349065850399" upper="0.349065850399" velocity="50000"/>
+    <dynamics damping="0.223"/>
+  </joint>
+  <link name="l_foot">
+    <inertial>
+      <origin xyz="0.0305282 -0.0054048 -0.001173" rpy="0 0 0"/>
+      <mass value="0.3794"/>
+      <inertia ixx="0.000283689378669" ixy="-5.83551785502e-05" ixz="7.87664576035e-06" iyy="0.00121493" iyz="8.91516128767e-07" izz="0.00140897962133"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.04284197 0.0701 -0.64774255" rpy="-1.5640527248 0 1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_sole_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+    <collision>
+      <origin xyz="0.04284197 0.0701 -0.64774255" rpy="-1.5640527248 0 1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_sole_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="l_foot_ft_sensor" type="fixed">
+    <origin xyz="0 -0.0603002589183 0.0480625407102" rpy="0 1.5640527248 -1.57079632679"/>
+    <parent link="l_ankle_2"/>
+    <child link="l_foot"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_sole"/>
+  <joint name="l_sole_fixed_joint" type="fixed">
+    <origin xyz="9.72e-05 0 0.014399" rpy="-3.14159265359 0.00674386312028 0"/>
+    <parent link="l_foot"/>
+    <child link="l_sole"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="torso_1">
+    <inertial>
+      <origin xyz="0.0393679204 0.0293082 0.000142300004739" rpy="0 0 0"/>
+      <mass value="0.7112"/>
+      <inertia ixx="0.000416742" ixy="-8.88072e-07" ixz="1.08936e-07" iyy="0.000392401" iyz="5.37987e-06" izz="0.000307697"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0393999998093 0.032 0.0364" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="pink"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0393999998093 0.032 0.0364" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_1_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_pitch" type="revolute">
+    <origin xyz="0 0.0394 0" rpy="1.57079632663 0 -1.57079632679"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="root_link"/>
+    <child link="torso_1"/>
+    <limit effort="50000" lower="-0.349065850399" upper="1.2217304764" velocity="50000"/>
+    <dynamics damping="0.06"/>
+  </joint>
+  <link name="torso_2">
+    <inertial>
+      <origin xyz="-0.000121587809265 0.0287460000001 0.0580375000046" rpy="0 0 0"/>
+      <mass value="0.3954"/>
+      <inertia ixx="0.000620392" ixy="3.75632e-07" ixz="1.15418e-07" iyy="0.000446223" iyz="2.06978e-05" izz="0.00039084"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0951918999948" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="cyan"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0951918999948" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_roll" type="revolute">
+    <origin xyz="0.0393999998093 0.032 -0.0587918999948" rpy="0 0 0"/>
+    <axis xyz="0.0 -1.61681e-10 -1.0"/>
+    <parent link="torso_1"/>
+    <child link="torso_2"/>
+    <limit effort="50000" lower="-0.523598775598" upper="0.523598775598" velocity="50000"/>
+    <dynamics damping="0.06"/>
+  </joint>
+  <link name="chest">
+    <inertial>
+      <origin xyz="-0.000279596809265 0.0998630000009 -0.00564929998385" rpy="0 0 0"/>
+      <mass value="6.1306"/>
+      <inertia ixx="0.0252769" ixy="1.73516e-05" ixz="-0.0001136" iyy="0.0497471" iyz="0.000340001" izz="0.0580977"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 -0.052000000005 0.0308999999865" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_chest__prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.052000000005 0.0308999999865" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/sim_chest__prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_yaw" type="revolute">
+    <origin xyz="0 0.0514999999991 0.0642919000083" rpy="0 0 0"/>
+    <axis xyz="0.0 -1.0 1.61681e-10"/>
+    <parent link="torso_2"/>
+    <child link="chest"/>
+    <limit effort="50000" lower="-0.872664625997" upper="0.872664625997" velocity="50000"/>
+    <dynamics damping="0.06"/>
+  </joint>
+  <link name="imu_frame"/>
+  <joint name="imu_frame_fixed_joint" type="fixed">
+    <origin xyz="-0.0169999998093 0.100500000006 -0.0380999999838" rpy="3.14159265359 0 0"/>
+    <parent link="chest"/>
+    <child link="imu_frame"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG-4">
+    <inertial>
+      <origin xyz="-1e-06 1.46e-05 -1e-06" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="2.32350596163e-19" iyy="0.00108866" iyz="4.73841999998e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG-4_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_5" type="fixed">
+    <origin xyz="-0.132249999809 0.0955 0" rpy="1.57079632679 0 1.57079632679"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG-4"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG-3">
+    <inertial>
+      <origin xyz="-1.137569265e-06 1.46000000002e-05 -9.99999997586e-07" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="0.0" iyy="0.00108866" iyz="4.73842e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG-3_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_4" type="fixed">
+    <origin xyz="0 0.22525 0" rpy="1.57079632679 0 0"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG-3"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG-5">
+    <inertial>
+      <origin xyz="-1e-06 1.46e-05 -1e-06" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="2.32350596163e-19" iyy="0.00108866" iyz="4.73841999998e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG-5_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_6" type="fixed">
+    <origin xyz="-0.150749999809 0.0955 0" rpy="1.57079632679 0 1.57079632679"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG-5"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG">
+    <inertial>
+      <origin xyz="-1.00000000003e-06 1.46e-05 -1e-06" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="-2.32336632888e-19" iyy="0.00108866" iyz="4.73841999998e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_1" type="fixed">
+    <origin xyz="0.132250000191 0.0955 0" rpy="1.57079632679 0 -1.57079632679"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG-2">
+    <inertial>
+      <origin xyz="-1.137569265e-06 1.46000000002e-05 -9.99999997642e-07" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="0.0" iyy="0.00108866" iyz="4.73842e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG-2_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_3" type="fixed">
+    <origin xyz="0 0.20675 0" rpy="1.57079632679 0 0"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG-2"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WEIGHT-1KG-1">
+    <inertial>
+      <origin xyz="-1.00000000003e-06 1.46e-05 -1e-06" rpy="0 0 0"/>
+      <mass value="1.00161"/>
+      <inertia ixx="0.0010891" ixy="3.14425e-08" ixz="-2.32336632888e-19" iyy="0.00108866" iyz="4.73841999998e-08" izz="0.00213553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="WEIGHT-1KG-1_color">
+        <color rgba="0.666667 0.666667 0.666667 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chest_weight_2" type="fixed">
+    <origin xyz="0.150750000191 0.0955 0" rpy="1.57079632679 0 -1.57079632679"/>
+    <parent link="chest"/>
+    <child link="WEIGHT-1KG-1"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <gazebo reference="l_leg_ft_sensor">
+    <sensor name="l_leg_ft_sensor" type="force_torque">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <force_torque>
+        <frame>child</frame>
+        <measure_direction>child_to_parent</measure_direction>
+      </force_torque>
+    </sensor>
+  </gazebo>
+  <gazebo reference="r_leg_ft_sensor">
+    <sensor name="r_leg_ft_sensor" type="force_torque">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <force_torque>
+        <frame>child</frame>
+        <measure_direction>child_to_parent</measure_direction>
+      </force_torque>
+    </sensor>
+  </gazebo>
+  <gazebo reference="l_foot_ft_sensor">
+    <sensor name="l_foot_ft_sensor" type="force_torque">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <force_torque>
+        <frame>child</frame>
+        <measure_direction>child_to_parent</measure_direction>
+      </force_torque>
+    </sensor>
+  </gazebo>
+  <gazebo reference="r_foot_ft_sensor">
+    <sensor name="r_foot_ft_sensor" type="force_torque">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <force_torque>
+        <frame>child</frame>
+        <measure_direction>child_to_parent</measure_direction>
+      </force_torque>
+    </sensor>
+  </gazebo>
+  <gazebo reference="chest">
+    <sensor name="imu_frame" type="imu">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <pose>-0.0169999998093 0.100500000006 -0.0380999999838 -3.14159265359 -0.0 0.0</pose>
+    </sensor>
+  </gazebo>
+  <gazebo>
+<plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
+    <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_torso.ini</yarpConfigurationFile>
+</plugin>
+<plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
+    <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_right_leg.ini</yarpConfigurationFile>
+</plugin>
+<plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
+    <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_left_leg.ini</yarpConfigurationFile>
+</plugin>
+<plugin name="apply_external_wrench" filename="libgazebo_yarp_externalwrench.so">
+    <robotNamefromConfigFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_robotname.ini</robotNamefromConfigFile>
+</plugin>
+<pose> 0 0 0.68 0 0 3.1415</pose>
+</gazebo>
+</robot>
+

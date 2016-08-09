@@ -1,0 +1,1128 @@
+<sdf version='1.5'>
+  <model name='iCubHeidelberg01_SIM_MODEL'>
+    <link name='root_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.0251137 0.000104218 -0.0437451 0 -0 0</pose>
+        <mass>5.1504</mass>
+        <inertia>
+          <ixx>0.0252712</ixx>
+          <ixy>-8.71849e-05</ixy>
+          <ixz>0.00172034</ixz>
+          <iyy>0.0140911</iyy>
+          <iyz>-6.63933e-05</iyz>
+          <izz>0.0205529</izz>
+        </inertia>
+      </inertial>
+      <collision name='root_link_collision'>
+        <pose>-0.0364 0 0.032 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_root_link_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='root_link_visual'>
+        <pose>-0.0364 0 0.032 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_root_link_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='l_hip_1'>
+      <pose>0.0064515 -0.0111 -0.119913 1.57752 -0 1.5708</pose>
+      <inertial>
+        <pose>-0.0529681 -3.63786e-05 0.000539057 0 -0 0</pose>
+        <mass>0.9279</mass>
+        <inertia>
+          <ixx>0.000403391</ixx>
+          <ixy>-1.46807e-06</ixy>
+          <ixz>-2.86703e-06</ixz>
+          <iyy>0.00057246</iyy>
+          <iyz>2.05247e-07</iyz>
+          <izz>0.000577587</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_hip_1_collision'>
+        <pose>0.0111 0.151913 -0.0428515 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_hip_1_visual'>
+        <pose>0.0111 0.151913 -0.0428515 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_hip_pitch' type='revolute'>
+      <child>l_hip_1</child>
+      <parent>root_link</parent>
+      <axis>
+        <xyz>4.89669e-12 1 5.55112e-17</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>1.48353</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_hip_2'>
+      <pose>0.0328131 -0.0701 -0.120091 1.57752 -0 1.5708</pose>
+      <inertial>
+        <pose>6.81062e-05 -0.0532445 -0.0247177 0 -0 0</pose>
+        <mass>0.5446</mass>
+        <inertia>
+          <ixx>0.000666891</ixx>
+          <ixy>8.85666e-07</ixy>
+          <ixz>-1.47935e-07</ixz>
+          <iyy>0.000343067</iyy>
+          <iyz>-1.27644e-05</iyz>
+          <izz>0.000494182</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_hip_2_collision'>
+        <pose>0.0701 0.151914 -0.0692137 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='l_hip_2_collision_l_hip_2_1'>
+        <pose>0.0701 0.151914 -0.0692137 1.19077e-23 4.89647e-12 4.86378e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_upper_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_hip_2_visual'>
+        <pose>0.0701 0.151914 -0.0692137 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_hip_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_hip_2_visual_l_hip_2_1'>
+        <pose>0.0701 0.151914 -0.0692137 1.19077e-23 4.89647e-12 4.86378e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_upper_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_hip_roll' type='revolute'>
+      <child>l_hip_2</child>
+      <parent>l_hip_1</parent>
+      <axis>
+        <xyz>-1 4.89667e-12 -1.42114e-09</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_upper_leg'>
+      <pose>0.0066888 -0.0701 -0.212217 1.57752 -4.89658e-12 1.5708</pose>
+      <inertial>
+        <pose>-5.89e-05 -0.0791582 -0.00214915 0 -0 0</pose>
+        <mass>2.2544</mass>
+        <inertia>
+          <ixx>0.00794621</ixx>
+          <ixy>0.000169715</ixy>
+          <ixz>-1.07286e-05</ixz>
+          <iyy>0.00179482</iyy>
+          <iyz>0.000204937</iyz>
+          <izz>0.0079671</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_upper_leg_collision'>
+        <pose>0.0701 0.241013 -0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_upper_leg_visual'>
+        <pose>0.0701 0.241013 -0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_hip_yaw' type='revolute'>
+      <child>l_upper_leg</child>
+      <parent>l_hip_2</parent>
+      <axis>
+        <xyz>-1.42114e-09 -4.89658e-12 1</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_lower_leg'>
+      <pose>0.00571028 -0.088057 -0.357839 1.57752 -4.89658e-12 1.5708</pose>
+      <inertial>
+        <pose>0.0117639 -0.0833609 -0.000293266 0 -0 0</pose>
+        <mass>1.7086</mass>
+        <inertia>
+          <ixx>0.00565145</ixx>
+          <ixy>0.000651871</ixy>
+          <ixz>-1.78506e-05</ixz>
+          <iyy>0.00171182</iyy>
+          <iyz>0.000177424</iyz>
+          <izz>0.00615194</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_lower_leg_collision'>
+        <pose>0.084257 0.386639 -0.0437091 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_shank_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_lower_leg_visual'>
+        <pose>0.084257 0.386639 -0.0437091 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_shank_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_knee' type='revolute'>
+      <child>l_lower_leg</child>
+      <parent>l_upper_leg</parent>
+      <axis>
+        <xyz>3.29181e-14 1 4.89664e-12</xyz>
+        <limit>
+          <lower>-1.74533</lower>
+          <upper>0</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_ankle_1'>
+      <pose>0.00730898 -0.1094 -0.558838 1.57754 -4.89669e-12 1.5708</pose>
+      <inertial>
+        <pose>0.034639 -0.000149241 -0.0151607 0 -0 0</pose>
+        <mass>0.8929</mass>
+        <inertia>
+          <ixx>0.000539928</ixx>
+          <ixy>-3.69491e-07</ixy>
+          <ixz>3.92722e-05</ixz>
+          <iyy>0.000581685</iyy>
+          <iyz>-2.38798e-06</iyz>
+          <izz>0.000414659</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_ankle_1_collision'>
+        <pose>0.1056 0.587122 -0.0466583 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_ankle_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_ankle_1_visual'>
+        <pose>0.1056 0.587122 -0.0466583 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_ankle_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_ankle_pitch' type='revolute'>
+      <child>l_ankle_1</child>
+      <parent>l_lower_leg</parent>
+      <axis>
+        <xyz>-3.28348e-14 -1 -4.89653e-12</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.523599</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_ankle_2'>
+      <pose>-0.0402018 -0.0739 -0.558534 1.57754 -4.89669e-12 1.5708</pose>
+      <inertial>
+        <pose>-0.00317325 -0.0505902 0.0297149 0 -0 0</pose>
+        <mass>0.6469</mass>
+        <inertia>
+          <ixx>0.00175096</ixx>
+          <ixy>-1.77966e-05</ixy>
+          <ixz>3.33257e-05</ixz>
+          <iyy>0.00180365</iyy>
+          <iyz>-9.81749e-05</iyz>
+          <izz>0.00050705</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_ankle_2_collision'>
+        <pose>0.0701 0.587139 0.00085346 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_foot_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='l_ankle_2_collision_l_ankle_2_1'>
+        <pose>0.0701 0.587139 0.00085346 1.19073e-23 4.89653e-12 4.86355e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_sole_prt.dae</uri>
+          </mesh>
+        </geometry>
+	<surface>
+            <contact>
+                <ode>
+                    <soft_erp>  0.5    </soft_erp>
+                    <kp>        1e+05  </kp>
+                    <kd>        10000  </kd>
+                    <max_vel>   1      </max_vel>
+                    <min_depth> 0      </min_depth>
+                </ode>
+            </contact>
+            <friction>
+                <ode>
+                    <mu>  1  </mu>
+                    <mu2> 1  </mu2>
+                    <slip1> 0.000001 </slip1>
+                    <slip2> 0.000001 </slip2>
+                </ode>
+            </friction>
+        </surface>
+      </collision>
+      <visual name='l_ankle_2_visual'>
+        <pose>0.0701 0.587139 0.00085346 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_foot_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='l_ankle_2_visual_l_ankle_2_1'>
+        <pose>0.0701 0.587139 0.00085346 1.19073e-23 4.89653e-12 4.86355e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_l_sole_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_ankle_roll' type='revolute'>
+      <child>l_ankle_2</child>
+      <parent>l_ankle_1</parent>
+      <axis>
+        <xyz>-1 3.28626e-14 -8.79691e-10</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_hip_1'>
+      <pose>0.0064515 0.0111 -0.119913 1.5708 5.55112e-17 -1.5708</pose>
+      <inertial>
+        <pose>-0.0529681 -4e-05 -0.0005388 0 -0 0</pose>
+        <mass>0.9279</mass>
+        <inertia>
+          <ixx>0.000403391</ixx>
+          <ixy>-1.44877e-06</ixy>
+          <ixz>2.87683e-06</ixz>
+          <iyy>0.000572457</iyy>
+          <iyz>-1.70772e-07</iyz>
+          <izz>0.00057759</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_hip_1_collision'>
+        <pose>0.0111 0.151913 0.0428515 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='r_hip_1_visual'>
+        <pose>0.0111 0.151913 0.0428515 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_hip_pitch' type='revolute'>
+      <child>r_hip_1</child>
+      <parent>root_link</parent>
+      <axis>
+        <xyz>-4.89658e-12 1 5.55112e-17</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>1.48353</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_hip_2'>
+      <pose>0.0328137 0.0701 -0.119913 1.5708 5.55112e-17 -1.5708</pose>
+      <inertial>
+        <pose>6.81062e-05 -0.0532552 0.0250755 0 -0 0</pose>
+        <mass>0.5446</mass>
+        <inertia>
+          <ixx>0.000666891</ixx>
+          <ixy>8.8664e-07</ixy>
+          <ixz>1.41981e-07</ixz>
+          <iyy>0.000343246</iyy>
+          <iyz>1.37786e-05</iyz>
+          <izz>0.000494004</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_hip_2_collision'>
+        <pose>0.0701 0.151913 0.0692137 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='r_hip_2_collision_r_hip_2_1'>
+        <pose>0.0701 0.151913 0.0692137 4.89664e-12 5.55112e-17 -4.89658e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_upper_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='r_hip_2_visual'>
+        <pose>0.0701 0.151913 0.0692137 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_hip_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_hip_2_visual_r_hip_2_1'>
+        <pose>0.0701 0.151913 0.0692137 4.89664e-12 5.55112e-17 -4.89658e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_upper_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_hip_roll' type='revolute'>
+      <child>r_hip_2</child>
+      <parent>r_hip_1</parent>
+      <axis>
+        <xyz>1 4.89656e-12 -4.89658e-12</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5708</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_upper_leg'>
+      <pose>0.007309 0.0701 -0.212213 1.5708 4.89669e-12 -1.5708</pose>
+      <inertial>
+        <pose>-5.89e-05 -0.079146 0.0033012 0 -0 0</pose>
+        <mass>2.2544</mass>
+        <inertia>
+          <ixx>0.00794621</ixx>
+          <ixy>0.000169783</ixy>
+          <ixz>9.58795e-06</ixz>
+          <iyy>0.00179234</iyy>
+          <iyz>-0.000163445</iyz>
+          <izz>0.00796958</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_upper_leg_collision'>
+        <pose>0.0701 0.241013 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='r_upper_leg_visual'>
+        <pose>0.0701 0.241013 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_thigh_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_hip_yaw' type='revolute'>
+      <child>r_upper_leg</child>
+      <parent>r_hip_2</parent>
+      <axis>
+        <xyz>-1.38778e-16 4.89667e-12 -1</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_lower_leg'>
+      <pose>0.007309 0.088057 -0.357838 1.5708 4.89669e-12 -1.5708</pose>
+      <inertial>
+        <pose>0.0117639 -0.083358 0.0024521 0 -0 0</pose>
+        <mass>1.7086</mass>
+        <inertia>
+          <ixx>0.00565145</ixx>
+          <ixy>0.000651976</ixy>
+          <ixz>1.347e-05</ixz>
+          <iyy>0.00170964</iyy>
+          <iyz>-0.000147573</iyz>
+          <izz>0.00615412</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_lower_leg_collision'>
+        <pose>0.084257 0.386638 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_shank_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='r_lower_leg_visual'>
+        <pose>0.084257 0.386638 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_shank_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_knee' type='revolute'>
+      <child>r_lower_leg</child>
+      <parent>r_upper_leg</parent>
+      <axis>
+        <xyz>-4.89669e-12 1 4.89667e-12</xyz>
+        <limit>
+          <lower>-1.74533</lower>
+          <upper>0</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_ankle_1'>
+      <pose>0.007309 0.1094 -0.558838 1.57077 4.89658e-12 -1.5708</pose>
+      <inertial>
+        <pose>0.034639 -4.73651e-05 0.0151614 0 -0 0</pose>
+        <mass>0.8929</mass>
+        <inertia>
+          <ixx>0.000539928</ixx>
+          <ixy>-6.33371e-07</ixy>
+          <ixz>-3.92688e-05</ixz>
+          <iyy>0.00058171</iyy>
+          <iyz>1.26546e-06</iyz>
+          <izz>0.000414634</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_ankle_1_collision'>
+        <pose>0.1056 0.587138 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_ankle_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='r_ankle_1_visual'>
+        <pose>0.1056 0.587138 0.043709 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_ankle_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_ankle_pitch' type='revolute'>
+      <child>r_ankle_1</child>
+      <parent>r_lower_leg</parent>
+      <axis>
+        <xyz>4.89653e-12 -1 -4.89669e-12</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.523599</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='r_ankle_2'>
+      <pose>-0.0372535 0.0739 -0.558837 1.57077 4.89658e-12 -1.5708</pose>
+      <inertial>
+        <pose>-0.00317325 -0.0504858 -0.026426 0 -0 0</pose>
+        <mass>0.6469</mass>
+        <inertia>
+          <ixx>0.00175096</ixx>
+          <ixy>-1.80201e-05</ixy>
+          <ixz>-3.32054e-05</ixz>
+          <iyy>0.00180491</iyy>
+          <iyz>8.94538e-05</iyz>
+          <izz>0.000505789</izz>
+        </inertia>
+      </inertial>
+      <collision name='r_ankle_2_collision'>
+        <pose>0.0701 0.587138 -0.000853467 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_foot_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='r_ankle_2_collision_r_ankle_2_1'>
+        <pose>0.0701 0.587138 -0.000853467 -2.0689e-13 -4.89642e-12 5.10347e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_sole_prt.dae</uri>
+          </mesh>
+        </geometry>
+	<surface>
+            <contact>
+                <ode>
+                    <soft_erp>  0.5    </soft_erp>
+                    <kp>        1e+05  </kp>
+                    <kd>        10000  </kd>
+                    <max_vel>   1      </max_vel>
+                    <min_depth> 0      </min_depth>
+                </ode>
+            </contact>
+            <friction>
+                <ode>
+                    <mu>  1  </mu>
+                    <mu2> 1  </mu2>
+                    <slip1> 0.000001 </slip1>
+                    <slip2> 0.000001 </slip2>
+                </ode>
+            </friction>
+        </surface>
+      </collision>
+      <visual name='r_ankle_2_visual'>
+        <pose>0.0701 0.587138 -0.000853467 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_foot_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='r_ankle_2_visual_r_ankle_2_1'>
+        <pose>0.0701 0.587138 -0.000853467 -2.0689e-13 -4.89642e-12 5.10347e-12</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_sea_r_sole_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='r_ankle_roll' type='revolute'>
+      <child>r_ankle_2</child>
+      <parent>r_ankle_1</parent>
+      <axis>
+        <xyz>1 4.89683e-12 -4.81578e-05</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>0.349066</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.223</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='torso_1'>
+      <pose>0 0.0394 0 1.5708 5.55112e-17 -1.5708</pose>
+      <inertial>
+        <pose>0.0393679 0.0293082 0.0001423 0 -0 0</pose>
+        <mass>0.7112</mass>
+        <inertia>
+          <ixx>0.000416742</ixx>
+          <ixy>-8.88072e-07</ixy>
+          <ixz>1.08936e-07</ixz>
+          <iyy>0.000392401</iyy>
+          <iyz>5.37987e-06</iyz>
+          <izz>0.000307697</izz>
+        </inertia>
+      </inertial>
+      <collision name='torso_1_collision'>
+        <pose>0.0394 0.032 0.0364 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='torso_1_visual'>
+        <pose>0.0394 0.032 0.0364 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_1_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='torso_pitch' type='revolute'>
+      <child>torso_1</child>
+      <parent>root_link</parent>
+      <axis>
+        <xyz>4.89658e-12 -1 -5.55112e-17</xyz>
+        <limit>
+          <lower>-0.349066</lower>
+          <upper>1.22173</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.06</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='torso_2'>
+      <pose>0.0587919 1.90988e-10 0.032 1.5708 5.55112e-17 -1.5708</pose>
+      <inertial>
+        <pose>-0.000121588 0.028746 0.0580375 0 -0 0</pose>
+        <mass>0.3954</mass>
+        <inertia>
+          <ixx>0.000620392</ixx>
+          <ixy>3.75632e-07</ixy>
+          <ixz>1.15418e-07</ixz>
+          <iyy>0.000446223</iyy>
+          <iyz>2.06978e-05</iyz>
+          <izz>0.00039084</izz>
+        </inertia>
+      </inertial>
+      <collision name='torso_2_collision'>
+        <pose>0 0 0.0951919 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='torso_2_visual'>
+        <pose>0 0 0.0951919 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_lap_belt_2_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='torso_roll' type='revolute'>
+      <child>torso_2</child>
+      <parent>torso_1</parent>
+      <axis>
+        <xyz>1 4.89664e-12 -3.26578e-10</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.06</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='chest'>
+      <pose>-0.0055 1.90673e-10 0.0835 1.5708 5.55112e-17 -1.5708</pose>
+      <inertial>
+        <pose>-0.000141379 0.117587 -0.00284556 0 -0 0</pose>
+        <mass>12.1403</mass>
+        <inertia>
+          <ixx>0.0595481</ixx>
+          <ixy>-1.33711e-05</ixy>
+          <ixz>-0.000118336</ixz>
+          <iyy>0.139034</iyy>
+          <iyz>-0.000275514</iyz>
+          <izz>0.168645</izz>
+        </inertia>
+      </inertial>
+      <collision name='chest_collision'>
+        <pose>0 -0.052 0.0309 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_chest__prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_1'>
+        <pose>0.13225 0.0955 0 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_2'>
+        <pose>0.15075 0.0955 0 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_3'>
+        <pose>0 0.20675 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_4'>
+        <pose>0 0.22525 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_5'>
+        <pose>-0.13225 0.0955 0 1.5708 -5.55112e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='chest_collision_chest_6'>
+        <pose>-0.15075 0.0955 0 1.5708 -5.55112e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='chest_visual'>
+        <pose>0 -0.052 0.0309 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/sim_chest__prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_1'>
+        <pose>0.13225 0.0955 0 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_2'>
+        <pose>0.15075 0.0955 0 1.5708 5.55112e-17 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_3'>
+        <pose>0 0.20675 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_4'>
+        <pose>0 0.22525 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_5'>
+        <pose>-0.13225 0.0955 0 1.5708 -5.55112e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chest_visual_chest_6'>
+        <pose>-0.15075 0.0955 0 1.5708 -5.55112e-17 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://iCubHeidelberg01_model/dae_meshes/weight-1kg_prt.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+      <sensor name='imu_frame' type='imu'>
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <pose>-0.017 0.1005 -0.0381 3.14159 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='torso_yaw' type='revolute'>
+      <child>chest</child>
+      <parent>torso_2</parent>
+      <axis>
+        <xyz>-3.26578e-10 5.55112e-17 -1</xyz>
+        <limit>
+          <lower>-0.872665</lower>
+          <upper>0.872665</upper>
+          <effort>50000</effort>
+          <velocity>50000</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.06</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='controlboard_torso' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_torso.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='controlboard_right_leg' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_right_leg.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='controlboard_left_leg' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_left_leg.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='apply_external_wrench' filename='libgazebo_yarp_externalwrench.so'>
+      <robotNamefromConfigFile>model://iCubHeidelberg01_model/conf/gazebo_iCubHeidelberg01_robotname.ini</robotNamefromConfigFile>
+    </plugin>
+    <pose>0 0 0.68 0 -0 3.1415</pose>
+  </model>
+</sdf>
