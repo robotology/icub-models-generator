@@ -59,7 +59,7 @@
   </link>
   <joint name="r_hip_pitch" type="revolute">
     <origin xyz="0.0064515 0.0233655 -0.119913" rpy="1.57079632679 0 -1.57079632679"/>
-    <axis xyz="-1.0 -0.0 -0.0"/>
+    <axis xyz="-1.0 0.0 0.0"/>
     <parent link="root_link"/>
     <child link="r_hip_1"/>
     <limit effort="50000" lower="-0.523598775598" upper="1.4835298642" velocity="50000"/>
@@ -89,7 +89,7 @@
   </link>
   <joint name="r_hip_roll" type="revolute">
     <origin xyz="-0.0467345 0 -0.0263447" rpy="0 0 0"/>
-    <axis xyz="-0.0 -0.0 -1.0"/>
+    <axis xyz="0.0 0.0 -1.0"/>
     <parent link="r_hip_1"/>
     <child link="r_hip_2"/>
     <limit effort="50000" lower="0.0" upper="1.57079632679" velocity="50000"/>
@@ -341,7 +341,7 @@
   </link>
   <joint name="r_ankle_roll" type="revolute">
     <origin xyz="0.0355 0 -0.0185" rpy="0 0 0"/>
-    <axis xyz="-0.0 -0.0 -1.0"/>
+    <axis xyz="0.0 0.0 -1.0"/>
     <parent link="r_ankle_1"/>
     <child link="r_ankle_2"/>
     <limit effort="50000" lower="-0.349065850399" upper="0.349065850399" velocity="50000"/>
@@ -598,7 +598,7 @@
   </link>
   <joint name="l_knee" type="revolute">
     <origin xyz="-0.0237832 -0.145625 0" rpy="0 0 0"/>
-    <axis xyz="-1.0 -0.0 -0.0"/>
+    <axis xyz="-1.0 0.0 0.0"/>
     <parent link="l_upper_leg"/>
     <child link="l_lower_leg"/>
     <limit effort="50000" lower="-1.74532925199" upper="0.0" velocity="50000"/>
@@ -1501,6 +1501,13 @@
     <limit effort="50000" lower="-0.872664625997" upper="0.872664625997" velocity="50000"/>
     <dynamics damping="0.06"/>
   </joint>
+  <link name="imu"/>
+  <joint name="imu_fixed_joint" type="fixed">
+    <origin xyz="0.00950000019074 0.133444 0.0093" rpy="-1.57079632679 1.57079632679 0"/>
+    <parent link="head"/>
+    <child link="imu"/>
+    <dynamics damping="0.1"/>
+  </joint>
   <gazebo reference="l_leg_ft_sensor">
     <sensor name="l_leg_ft_sensor" type="force_torque">
       <always_on>1</always_on>
@@ -1602,6 +1609,17 @@
       <frame>child</frame>
       <measure_direction>child_to_parent</measure_direction>
     </force_torque>
+  </sensor>
+  <gazebo reference="head">
+    <sensor name="imu" type="imu">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <pose>0.00950000019074 0.133444 0.0093 -1.57079632679 1.57079632679 0.0</pose>
+    </sensor>
+  </gazebo>
+  <sensor name="imu" type="imu">
+    <parent link="head"/>
+    <origin rpy="-1.57079632679 1.57079632679 0.0" xyz="0.00950000019074 0.133444 0.0093"/>
   </sensor>
   <link name="base_link"/>
   <joint name="base_fixed_joint" type="fixed">
