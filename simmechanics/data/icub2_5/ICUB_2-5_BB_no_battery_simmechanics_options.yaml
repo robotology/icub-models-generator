@@ -69,12 +69,18 @@ rename:
  SIM_SEA_2-5_R_SHOULDER_1--SIM_SEA_2-5_R_SHOULDER_2: r_shoulder_roll
  SIM_SEA_2-5_R_SHOULDER_2--SIM_SEA_2-5_R_UPPER_ARM: r_shoulder_yaw
  SIM_SEA_2-5_R_UPPER_ARM--SIM_SEA_2-5_R_ELBOW: r_arm_ft_sensor
- SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_FOREARM_HAND: r_elbow
+ SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_ELBOW_PROSUP: r_elbow
+ SIM_SEA_2-5_R_ELBOW_PROSUP--SIM_SEA_2-5_R_FOREARM: r_wrist_prosup 
+ SIM_SEA_2-5_R_FOREARM--SIM_SEA_2-5_R_WRIST_PITCH: r_wrist_pitch
+ SIM_SEA_2-5_R_WRIST_PITCH--SIM_SEA_2-5_R_HAND: r_wrist_yaw 
  SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_L_SHOULDER_1: l_shoulder_pitch
  SIM_SEA_2-5_L_SHOULDER_1--SIM_SEA_2-5_L_SHOULDER_2: l_shoulder_roll
  SIM_SEA_2-5_L_SHOULDER_2--SIM_SEA_2-5_L_UPPER_ARM: l_shoulder_yaw
  SIM_SEA_2-5_L_UPPER_ARM--SIM_SEA_2-5_L_ELBOW: l_arm_ft_sensor
- SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_FOREARM_HAND: l_elbow
+ SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_ELBOW_PROSUP: l_elbow
+ SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM: l_wrist_prosup
+ SIM_SEA_2-5_L_FOREARM--SIM_SEA_2-5_L_WRIST_PITCH: l_wrist_pitch
+ SIM_SEA_2-5_L_WRIST_PITCH--SIM_SEA_2-5_L_HAND: l_wrist_yaw
  SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_NECK_1: neck_pitch
  SIM_SEA_2-5_NECK_1--SIM_SEA_2-5_NECK_2: neck_roll
  SIM_SEA_2-5_NECK_2--SIM_SEA_2-5_HEAD: neck_yaw
@@ -138,13 +144,13 @@ exportedFrames:
     frameReferenceLink: r_upper_arm
     exportedFrameName: r_upper_arm_mtb_acc_2b13
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B7
-    frameReferenceLink: r_elbow_1
+    frameReferenceLink: r_forearm
     exportedFrameName: r_forearm_mtb_acc_2b7
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B8
-    frameReferenceLink: r_elbow_1
+    frameReferenceLink: r_forearm
     exportedFrameName: r_forearm_mtb_acc_2b8
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B9
-    frameReferenceLink: r_elbow_1
+    frameReferenceLink: r_forearm
     exportedFrameName: r_forearm_mtb_acc_2b9
   - frameName: SCSYS_L_UPPER_ARM_MTB_ACC_1B10
     frameReferenceLink: l_upper_arm
@@ -159,13 +165,13 @@ exportedFrames:
     frameReferenceLink: l_upper_arm
     exportedFrameName: l_upper_arm_mtb_acc_1b13
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B7
-    frameReferenceLink: l_elbow_1
+    frameReferenceLink: l_forearm
     exportedFrameName: l_forearm_mtb_acc_1b7
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B8
-    frameReferenceLink: l_elbow_1
+    frameReferenceLink: l_forearm
     exportedFrameName: l_forearm_mtb_acc_1b8
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B9
-    frameReferenceLink: l_elbow_1
+    frameReferenceLink: l_forearm
     exportedFrameName: l_forearm_mtb_acc_1b9
   - frameName: SCSYS_R_UPPER_LEG_EMS_ACC_EB8
     frameReferenceLink: r_upper_leg
