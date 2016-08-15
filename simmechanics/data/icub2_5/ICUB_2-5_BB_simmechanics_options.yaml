@@ -83,7 +83,7 @@ rename:
  SIM_SEA_2-5_L_SHOULDER_1--SIM_SEA_2-5_L_SHOULDER_2: l_shoulder_roll
  SIM_SEA_2-5_L_SHOULDER_2--SIM_SEA_2-5_L_UPPER_ARM: l_shoulder_yaw
  SIM_SEA_2-5_L_UPPER_ARM--SIM_SEA_2-5_L_ELBOW: l_arm_ft_sensor
- SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_FOREARM_HAND: l_elbow
+ SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_ELBOW_PROSUP: l_elbow
  SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM: l_wrist_prosup
  SIM_SEA_2-5_L_FOREARM--SIM_SEA_2-5_L_WRIST_PITCH: l_wrist_pitch
  SIM_SEA_2-5_L_WRIST_PITCH--SIM_SEA_2-5_L_HAND: l_wrist_yaw
@@ -234,15 +234,15 @@ sensors:
     sensorName: r_upper_arm_mtb_acc_2b13
     sensorType: "accelerometer"
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B7
-    linkName: r_elbow_1
+    linkName: r_forearm
     sensorName: r_forearm_mtb_acc_2b7
     sensorType: "accelerometer"
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B8
-    linkName: r_elbow_1
+    linkName: r_forearm
     sensorName: r_forearm_mtb_acc_2b8
     sensorType: "accelerometer"
   - frameName: SCSYS_R_FOREARM_MTB_ACC_2B9
-    linkName: r_elbow_1
+    linkName: r_forearm
     sensorName: r_forearm_mtb_acc_2b9
     sensorType: "accelerometer"
   - frameName: SCSYS_L_UPPER_ARM_MTB_ACC_1B10
@@ -262,15 +262,15 @@ sensors:
     sensorName: l_upper_arm_mtb_acc_1b13
     sensorType: "accelerometer"
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B7
-    linkName: l_elbow_1
+    linkName: l_forearm
     sensorName: l_forearm_mtb_acc_1b7
     sensorType: "accelerometer"
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B8
-    linkName: l_elbow_1
+    linkName: l_forearm
     sensorName: l_forearm_mtb_acc_1b8
     sensorType: "accelerometer"
   - frameName: SCSYS_L_FOREARM_MTB_ACC_1B9
-    linkName: l_elbow_1
+    linkName: l_forearm
     sensorName: l_forearm_mtb_acc_1b9
     sensorType: "accelerometer"
   - frameName: SCSYS_R_UPPER_LEG_EMS_ACC_EB8
