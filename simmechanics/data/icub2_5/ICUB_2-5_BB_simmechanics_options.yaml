@@ -149,14 +149,22 @@ forceTorqueSensors:
 sensors:
   - linkName: head
     frameName: SCSYS_HEAD_MTX_IMU
-    sensorName: "imu"
+    sensorName: "imu_frame"
     exportFrameInURDF: Yes
     sensorType: "imu"
     updateRate: "100"
+    sensorBlobs: 
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCubGenova02/conf/inertial.ini</yarpConfigurationFile>
+        </plugin>
   - sensorName: "default"
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
     updateRate: "100"
+    sensorBlobs: 
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertialmtb.so" />
   - sensorName: "default"
     exportFrameInURDF: Yes
     sensorType: "gyroscope"
@@ -510,6 +518,9 @@ XMLBlobs:
         </gazebo>
   - | 
         <gazebo>
+        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_inertialmtbPart.so">
+          <yarpConfigurationFile>model://iCubGenova02/conf/MTB/gazebo-right_leg-mtb.ini</yarpConfigurationFile>
+        </plugin>
         <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
             <yarpConfigurationFile>model://iCubGenova02/conf/gazebo_iCubGenova02_torso.ini</yarpConfigurationFile>
         </plugin>
