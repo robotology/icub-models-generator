@@ -13,11 +13,6 @@
 
 #include <iDynTree/ModelIO/impl/urdf_import.hpp>
 
-using namespace urdf;
-using namespace KDL;
-using namespace std;
-using namespace boost;
-
 ///< \todo TODO add support for deleting a long chain of null link connected by fixed base
 bool deleteLink(boost::shared_ptr<urdf::ModelInterface> urdf_input, std::string link_to_delete, bool verbose=false)
 {
@@ -196,8 +191,8 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
                 link_collision_old = toKdl(mesh_link_ptr->collision->origin);
                 link_collision_new = base_link_input.Inverse()*base_link_meshes*link_collision_old;
 
-                if( verbose ) std::cout << "Old collision origin " << link_collision_old << endl;
-                if( verbose ) std::cout << "New collision origin " << link_collision_new << endl;
+                if( verbose ) std::cout << "Old collision origin " << link_collision_old << std::endl;
+                if( verbose ) std::cout << "New collision origin " << link_collision_new << std::endl;
 
 
                 input_links[i]->collision.reset(new urdf::Collision);
@@ -211,15 +206,15 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
                         input_links[i]->collision->geometry.reset(new urdf::Sphere);
                         *(input_links[i]->collision->geometry) = *(mesh_link_ptr->collision->geometry);
                     break;
-                    case Geometry::BOX:
+                    case urdf::Geometry::BOX:
                         input_links[i]->collision->geometry.reset(new urdf::Box);
                         *(input_links[i]->collision->geometry) = *(mesh_link_ptr->collision->geometry);
                     break;
-                    case Geometry::CYLINDER:
+                    case urdf::Geometry::CYLINDER:
                         input_links[i]->collision->geometry.reset(new urdf::Cylinder);
                         *(input_links[i]->collision->geometry) = *(mesh_link_ptr->collision->geometry);
                     break;
-                    case Geometry::MESH:
+                    case urdf::Geometry::MESH:
                         input_links[i]->collision->geometry.reset(new urdf::Mesh);
                         if( verbose ) std::cout << "Copyng collision mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename << std::endl;
                         (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->filename = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename;
@@ -247,19 +242,19 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
                 input_links[i]->visual->geometry.reset(new urdf::Geometry);
 
                 switch( mesh_link_ptr->visual->geometry->type ) {
-                    case Geometry::SPHERE:
+                    case urdf::Geometry::SPHERE:
                         input_links[i]->visual->geometry.reset(new urdf::Sphere);
                         *(input_links[i]->visual->geometry) = *(mesh_link_ptr->visual->geometry);
                     break;
-                    case Geometry::BOX:
+                    case urdf::Geometry::BOX:
                         input_links[i]->visual->geometry.reset(new urdf::Box);
                         *(input_links[i]->visual->geometry) = *(mesh_link_ptr->visual->geometry);
                     break;
-                    case Geometry::CYLINDER:
+                    case urdf::Geometry::CYLINDER:
                         input_links[i]->visual->geometry.reset(new urdf::Cylinder);
                         *(input_links[i]->visual->geometry) = *(mesh_link_ptr->visual->geometry);
                     break;
-                    case Geometry::MESH:
+                    case urdf::Geometry::MESH:
                         input_links[i]->visual->geometry.reset(new urdf::Mesh);
                         if( verbose ) std::cout << "Copyng visual mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
                         (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->filename = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename;
@@ -358,7 +353,7 @@ bool urdf_gazebo_cleanup_remove_massless_root(boost::shared_ptr<urdf::ModelInter
 bool urdf_gazebo_cleanup_remove_frames(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
     std::vector<std::string> linksToDelete;
-    std::vector<boost::shared_ptr<Link> > input_links;
+    std::vector<boost::shared_ptr<urdf::Link> > input_links;
 
     input_links.clear();
     urdf_input->getLinks(input_links);
@@ -403,7 +398,7 @@ bool hasEnding (std::string const &fullString, std::string const &ending)
 
 bool urdf_gazebo_cleanup_transform_FT_sensors(boost::shared_ptr<urdf::ModelInterface> urdf_input)
 {
-    std::vector<boost::shared_ptr<Link> > input_links;
+    std::vector<boost::shared_ptr<urdf::Link> > input_links;
     input_links.clear();
 
     urdf_input->getLinks(input_links);
@@ -422,7 +417,7 @@ bool urdf_gazebo_cleanup_transform_FT_sensors(boost::shared_ptr<urdf::ModelInter
             if( input_links[i]->parent_joint->limits ) {
                 input_links[i]->parent_joint->limits->clear();
             } else {
-                input_links[i]->parent_joint->limits.reset(new JointLimits());
+                input_links[i]->parent_joint->limits.reset(new urdf::JointLimits());
             }
         }
 
@@ -433,7 +428,7 @@ bool urdf_gazebo_cleanup_transform_FT_sensors(boost::shared_ptr<urdf::ModelInter
 
 bool urdf_gazebo_cleanup_regularize_masses(boost::shared_ptr<urdf::ModelInterface> urdf_input, double mass_epsilon, double inertia_epsilon)
 {
-    std::vector<boost::shared_ptr<Link> > input_links;
+    std::vector<boost::shared_ptr<urdf::Link> > input_links;
     input_links.clear();
     urdf_input->getLinks(input_links);
     for(int i=0; i < input_links.size(); i++ )
@@ -470,7 +465,7 @@ bool urdf_gazebo_cleanup_regularize_masses(boost::shared_ptr<urdf::ModelInterfac
 
 bool urdf_gazebo_cleanup_add_model_uri(boost::shared_ptr<urdf::ModelInterface> urdf_input,std::string rule4_prefix)
 {
-    std::vector<boost::shared_ptr<Link> > input_links;
+    std::vector<boost::shared_ptr<urdf::Link> > input_links;
     input_links.clear();
     urdf_input->getLinks(input_links);
 
@@ -478,13 +473,13 @@ bool urdf_gazebo_cleanup_add_model_uri(boost::shared_ptr<urdf::ModelInterface> u
     {
         //Rule 4
         for(int j=0; j < input_links[i]->visual_array.size(); j++ ) {
-            if( input_links[i]->visual_array[j]->geometry->type == Geometry::MESH ) {
+            if( input_links[i]->visual_array[j]->geometry->type == urdf::Geometry::MESH ) {
                 (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename = rule4_prefix + (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename;
             }
         }
 
         for(int j=0; j < input_links[i]->collision_array.size(); j++ ) {
-            if( input_links[i]->collision_array[j]->geometry->type == Geometry::MESH ) {
+            if( input_links[i]->collision_array[j]->geometry->type == urdf::Geometry::MESH ) {
                 (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename = rule4_prefix + (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename;
             }
         }
