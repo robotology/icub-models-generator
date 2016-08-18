@@ -1098,6 +1098,27 @@
     <limit effort="50000" lower="-1.0471975512" upper="1.0471975512" velocity="50000"/>
     <dynamics damping="0.06"/>
   </joint>
+  <link name="r_forearm_mtb_acc_2b7"/>
+  <joint name="r_forearm_mtb_acc_2b7_fixed_joint" type="fixed">
+    <origin xyz="-0.0759068847722 0.005497 -0.0113068281789" rpy="0.26179949998 0.000370413042328 1.57125816863"/>
+    <parent link="r_forearm"/>
+    <child link="r_forearm_mtb_acc_2b7"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="r_forearm_mtb_acc_2b8"/>
+  <joint name="r_forearm_mtb_acc_2b8_fixed_joint" type="fixed">
+    <origin xyz="-0.0507255655432 -0.0187484 0.040023592236" rpy="0.661159832193 0.147746087249 -0.0919671195152"/>
+    <parent link="r_forearm"/>
+    <child link="r_forearm_mtb_acc_2b8"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="r_forearm_mtb_acc_2b9"/>
+  <joint name="r_forearm_mtb_acc_2b9_fixed_joint" type="fixed">
+    <origin xyz="-0.0206720957139 0.027924 -0.0135079409739" rpy="-1.76682626732 0.261191225646 0.054048344372"/>
+    <parent link="r_forearm"/>
+    <child link="r_forearm_mtb_acc_2b9"/>
+    <dynamics damping="0.1"/>
+  </joint>
   <link name="r_wrist_1">
     <inertial>
       <origin xyz="0.000986076073649 -0.001176 0.00410123077465" rpy="0 0 0"/>
@@ -1319,12 +1340,13 @@
       </geometry>
     </collision>
   </link>
-  <joint name="SIM_SEA_2-5_L_ELBOW--SIM_SEA_2-5_L_ELBOW_PROSUP" type="continuous">
+  <joint name="l_elbow" type="revolute">
     <origin xyz="0 0.0339999 0.07926" rpy="0 -1.30899700697 -3.14159265359"/>
-    <axis xyz="-2.22044604925e-16 1.0 0.0"/>
+    <axis xyz="2.22044604925e-16 -1.0 0.0"/>
     <parent link="l_upper_arm"/>
     <child link="l_elbow_1"/>
-    <dynamics damping="0.1"/>
+    <limit effort="50000" lower="0.261799387799" upper="1.85004900711" velocity="50000"/>
+    <dynamics damping="0.06"/>
   </joint>
   <link name="l_forearm">
     <inertial>
@@ -1353,6 +1375,27 @@
     <child link="l_forearm"/>
     <limit effort="50000" lower="-1.0471975512" upper="1.0471975512" velocity="50000"/>
     <dynamics damping="0.06"/>
+  </joint>
+  <link name="l_forearm_mtb_acc_1b7"/>
+  <joint name="l_forearm_mtb_acc_1b7_fixed_joint" type="fixed">
+    <origin xyz="0.0759068847722 -0.005483 -0.0113068281789" rpy="0.26179949998 0.000370413042328 -1.57033448496"/>
+    <parent link="l_forearm"/>
+    <child link="l_forearm_mtb_acc_1b7"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_forearm_mtb_acc_1b8"/>
+  <joint name="l_forearm_mtb_acc_1b8_fixed_joint" type="fixed">
+    <origin xyz="0.0504582616754 -0.0180279 0.040491856636" rpy="-0.661143946092 0.147825248461 -3.04952253889"/>
+    <parent link="l_forearm"/>
+    <child link="l_forearm_mtb_acc_1b8"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_forearm_mtb_acc_1b9"/>
+  <joint name="l_forearm_mtb_acc_1b9_fixed_joint" type="fixed">
+    <origin xyz="0.0211332875376 0.025657 -0.0153763398932" rpy="1.76682134218 0.261099829847 3.08752548202"/>
+    <parent link="l_forearm"/>
+    <child link="l_forearm_mtb_acc_1b9"/>
+    <dynamics damping="0.1"/>
   </joint>
   <link name="l_wrist_1">
     <inertial>
