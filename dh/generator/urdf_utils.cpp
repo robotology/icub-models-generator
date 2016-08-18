@@ -223,7 +223,7 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
                         input_links[i]->collision->geometry.reset(new urdf::Mesh);
                         if( verbose ) std::cout << "Copyng collision mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename << std::endl;
                         (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->filename = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->filename;
-                        (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->scale;
+                        (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision->geometry))->scale = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->collision->geometry))->scale;
                     break;
                 }
 
@@ -261,9 +261,9 @@ bool urdf_import_meshes(boost::shared_ptr<urdf::ModelInterface> urdf_input,
                     break;
                     case Geometry::MESH:
                         input_links[i]->visual->geometry.reset(new urdf::Mesh);
-                        if( verbose ) std::cout << "Copyng visual mesh with filename " << (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
-                        (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->filename = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename;
-                        (static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->scale = (static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->scale;
+                        if( verbose ) std::cout << "Copyng visual mesh with filename " << (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename << std::endl;
+                        (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->filename = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->filename;
+                        (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual->geometry))->scale = (boost::static_pointer_cast<urdf::Mesh>(mesh_link_ptr->visual->geometry))->scale;
                     break;
                 }
 
@@ -479,13 +479,13 @@ bool urdf_gazebo_cleanup_add_model_uri(boost::shared_ptr<urdf::ModelInterface> u
         //Rule 4
         for(int j=0; j < input_links[i]->visual_array.size(); j++ ) {
             if( input_links[i]->visual_array[j]->geometry->type == Geometry::MESH ) {
-                (static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename = rule4_prefix + (static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename;
+                (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename = rule4_prefix + (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->visual_array[j]->geometry))->filename;
             }
         }
 
         for(int j=0; j < input_links[i]->collision_array.size(); j++ ) {
             if( input_links[i]->collision_array[j]->geometry->type == Geometry::MESH ) {
-                (static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename = rule4_prefix + (static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename;
+                (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename = rule4_prefix + (boost::static_pointer_cast<urdf::Mesh>(input_links[i]->collision_array[j]->geometry))->filename;
             }
         }
         std::cout << "urdf_gazebo_cleanup: Rule 4 applied successfully with prefix " <<  rule4_prefix << " on link " << input_links[i]->name << " ( i : " << i << " ) "  << std::endl;
