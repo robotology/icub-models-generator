@@ -35,7 +35,7 @@ if not os.path.exists(os.path.dirname(args.output_urdf)):
             raise
 
 with open(args.output_urdf, "w") as text_file:
-    text_file.write(etree.tostring(robot));
+    text_file.write(etree.tostring(robot)+'\n');
     
 
     
