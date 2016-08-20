@@ -555,20 +555,20 @@
 	</joint>
 	<joint name="l_hip_yaw" type="revolute">
 		<parent link="l_hip_2"/>
-		<child link="l_thigh"/>
+		<child link="l_upper_leg"/>
 		<origin rpy="-1.5707963268 -0.0 1.5707963268" xyz="0.0 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="40.0" lower="-1.37881010908" upper="1.37881010908" velocity="100.0"/>
 	</joint>
 	<joint name="l_knee" type="revolute">
-		<parent link="l_thigh"/>
-		<child link="l_leg"/>
+		<parent link="l_upper_leg"/>
+		<child link="l_lower_leg"/>
 		<origin rpy="1.5707963268 -0.0 -1.5707963268" xyz="0.0 0.0 -0.2236"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="30.0" lower="-2.18166156499" upper="0.401425727959" velocity="100.0"/>
 	</joint>
 	<joint name="l_ankle_pitch" type="revolute">
-		<parent link="l_leg"/>
+		<parent link="l_lower_leg"/>
 		<child link="l_ankle_1"/>
 		<origin rpy="3.1415926536 0.0 1.5707963268" xyz="-0.0 -0.213 0.0"/>
 		<axis xyz="0 0 1"/>
@@ -737,14 +737,14 @@
 	</joint>
 	<joint name="r_hip_yaw" type="revolute">
 		<parent link="r_hip_2"/>
-		<child link="r_thigh"/>
+		<child link="r_upper_leg"/>
 		<origin rpy="1.5707963268 0.0 1.5707963268" xyz="0.0 0.0 0.0"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="40.0" lower="-1.37881010908" upper="1.37881010908" velocity="100.0"/>
 	</joint>
 	<joint name="r_knee" type="revolute">
-		<parent link="r_thigh"/>
-		<child link="r_leg"/>
+		<parent link="r_upper_leg"/>
+		<child link="r_lower_leg"/>
 		<origin rpy="-1.5707963268 0.0 -1.5707963268" xyz="0.0 0.0 0.2236"/>
 		<axis xyz="0 0 1"/>
 		<limit effort="30.0" lower="-2.18166156499" upper="0.401425727959" velocity="100.0"/>
