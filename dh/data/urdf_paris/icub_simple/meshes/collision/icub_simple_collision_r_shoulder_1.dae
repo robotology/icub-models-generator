@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset>
-    <created>2013-11-15T10:34:56.627716</created>
-    <modified>2013-11-15T10:34:56.627722</modified>
-    <up_axis>Y_UP</up_axis>
-  </asset>
-  <library_effects><effect id="iCub_soft_grey-effect" name="iCub_soft_grey-effect">
+  <asset><created>2013-11-15T10:34:56.627716</created><modified>2013-11-15T10:34:56.627722</modified><up_axis>Y_UP</up_axis></asset><library_effects><effect id="iCub_soft_grey-effect" name="iCub_soft_grey-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -23,7 +17,7 @@
   <library_geometries><geometry id="Cylinder-mesh" name="Cylinder">
       <mesh>
         <source id="Cylinder-mesh-positions">
-          <float_array id="Cylinder-mesh-positions-array" count="48">0.01186317 0.02864021 -0.005499899 -0.01186317 0.02864027 -0.005499899 -0.02864027 0.01186317 -0.005499899 -0.02864021 -0.01186317 -0.005499899 0.01186317 -0.02864027 -0.005499899 0.02864027 -0.01186317 -0.005499899 0.02864027 0.01186317 -0.005499899 -0.01186317 -0.02864027 -0.005499899 0.02864027 0.01186311 0.005499899 0.02864021 -0.01186317 0.005499899 0.01186311 -0.02864027 0.005499899 -0.01186323 -0.02864021 0.005499899 -0.02864027 -0.01186311 0.005499899 -0.02864021 0.01186323 0.005499899 -0.01186305 0.02864027 0.005499899 0.01186323 0.02864021 0.005499899</float_array>
+          <float_array id="Cylinder-mesh-positions-array" count="48">0.01186317 0.02864021 -0.0777399 -0.01186317 0.02864027 -0.0777399 -0.02864027 0.01186317 -0.0777399 -0.02864021 -0.01186317 -0.0777399 0.01186317 -0.02864027 -0.0777399 0.02864027 -0.01186317 -0.0777399 0.02864027 0.01186317 -0.0777399 -0.01186317 -0.02864027 -0.0777399 0.02864027 0.01186311 -0.0667401 0.02864021 -0.01186317 -0.0667401 0.01186311 -0.02864027 -0.0667401 -0.01186323 -0.02864021 -0.0667401 -0.02864027 -0.01186311 -0.0667401 -0.02864021 0.01186323 -0.0667401 -0.01186305 0.02864027 -0.0667401 0.01186323 0.02864021 -0.0667401</float_array>
           <technique_common>
             <accessor count="16" source="#Cylinder-mesh-positions-array" stride="3"><param type="float" name="X"/><param type="float" name="Y"/><param type="float" name="Z"/></accessor></technique_common>
         </source>
@@ -59,11 +53,8 @@
                 </technique_common>
               </bind_material>
             </instance_geometry>
-          <translate>-0.0 0.0 -0.07224</translate></node>
+          </node>
         </node>
       </visual_scene>
   </library_visual_scenes>
-  <scene>
-    <instance_visual_scene url="#scene_r_shoulder_1"/>
-  </scene>
-</COLLADA>
+  <scene><instance_visual_scene url="#scene_r_shoulder_1"/></scene></COLLADA>

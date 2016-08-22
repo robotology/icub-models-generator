@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset>
-    <created>2013-11-15T10:34:56.144807</created>
-    <modified>2013-11-15T10:34:56.144816</modified>
-    <up_axis>Y_UP</up_axis>
-  </asset>
-  <library_effects><effect id="iCub_metal-effect" name="iCub_metal-effect">
+  <asset><created>2013-11-15T10:34:56.144807</created><modified>2013-11-15T10:34:56.144816</modified><up_axis>Y_UP</up_axis></asset><library_effects><effect id="iCub_metal-effect" name="iCub_metal-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -87,7 +81,4 @@
         </node>
       </visual_scene>
   </library_visual_scenes>
-  <scene>
-    <instance_visual_scene url="#scene_r_ankle_1"/>
-  </scene>
-</COLLADA>
+  <scene><instance_visual_scene url="#scene_r_ankle_1"/></scene></COLLADA>
