@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset>
-    <created>2013-11-15T10:35:02.017416</created>
-    <modified>2013-11-15T10:35:02.017422</modified>
-    <up_axis>Y_UP</up_axis>
-  </asset>
-  <library_geometries><geometry id="Cylinder_007-mesh" name="Cylinder.007">
+  <asset><created>2013-11-15T10:35:02.017416</created><modified>2013-11-15T10:35:02.017422</modified><up_axis>Y_UP</up_axis></asset><library_geometries><geometry id="Cylinder_007-mesh" name="Cylinder.007">
       <mesh>
         <source id="Cylinder_007-mesh-positions">
           <float_array id="Cylinder_007-mesh-positions-array" count="48">0 0.02999997 -0.02949988 -0.02121317 0.02121317 -0.02949988 -0.02999997 0 -0.02949988 0.02121317 -0.02121317 -0.02949988 0.02121317 0.02121317 -0.02949988 0 0.02999997 0.02949988 -0.02121311 0.02121323 0.02949988 0.02999997 0 0.02949988 0.02121317 0.02121317 0.02949988 0.02999997 0 -0.02949988 0 -0.02999997 -0.02949988 -0.02121317 -0.02121317 -0.02949988 0.02121317 -0.02121323 0.02949988 0 -0.02999997 0.02949988 -0.02121323 -0.02121311 0.02949988 -0.02999997 0 0.02949988</float_array>
@@ -38,7 +32,4 @@
         </node>
       </visual_scene>
   </library_visual_scenes>
-  <scene>
-    <instance_visual_scene url="#scene_r_shoulder_2"/>
-  </scene>
-</COLLADA>
+  <scene><instance_visual_scene url="#scene_r_shoulder_2"/></scene></COLLADA>
