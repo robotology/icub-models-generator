@@ -79,6 +79,7 @@ exportAllUseradded: No
 
 exportedFrames:
   - frameName: SCSYS_L_SOLE
+    frameReferenceLink: l_foot
     exportedFrameName: l_sole
   - frameName:  SCSYS_R_SOLE
     frameReferenceLink: r_foot
