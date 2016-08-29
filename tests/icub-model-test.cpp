@@ -144,7 +144,7 @@ bool checkBaseLink(iDynTree::KinDynComputations & comp)
         return false;
     }
 
-    std::cerr << "icub-model-test error: base_link test performed correctly " << std::endl;
+    std::cerr << "icub-model-test : base_link test performed correctly " << std::endl;
 
     return true;
 }
@@ -209,7 +209,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     }
 
 
-    std::cerr << "icub-model-test error: sole are parallel test performed correctly " << std::endl;
+    std::cerr << "icub-model-test : sole are parallel test performed correctly " << std::endl;
 
     return true;
 }
@@ -272,7 +272,7 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
 
     if( nrOfFTSensors % 2 == 1 )
     {
-        std::cerr << "icub-model-test error: odd number of F/T sensor found in the model" << std::endl;
+        std::cerr << "icub-model-test : odd number of F/T sensor found in the model" << std::endl;
         return false;
     }
 
