@@ -44,6 +44,9 @@ generate_icub_dh(YARP_ROBOT_NAME iCubParis01
 
 generate_icub_dh(YARP_ROBOT_NAME iCubParis02
                  PARTS_VERSIONS --headV2 --armsV2 --legsV1 --feetV2 --iCubParis02)
+                 
+generate_icub_dh(YARP_ROBOT_NAME iCubLisboa01 
+                 PARTS_VERSIONS --headV2 --armsV1 --legsV1 --feetV1)
 
 add_custom_target(generate-models-dh
                   ALL

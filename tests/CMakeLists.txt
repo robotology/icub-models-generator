@@ -18,6 +18,7 @@ if( ICUB_MODEL_GENERATE_DH )
     add_icub_model_test(iCubNancy01)
     add_icub_model_test(iCubParis01)
     add_icub_model_test(iCubParis02)
+    add_icub_model_test(iCubLisboa01)
 endif()
 
 # Model generated with simmechanics
