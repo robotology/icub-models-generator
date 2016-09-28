@@ -305,6 +305,150 @@ exportedFrames:
   - frameName:  SCSYS_R_HAND_DH_FRAME
     frameReferenceLink: r_hand
     exportedFrameName: r_hand_dh_frame
+  - frameName:  SCSYS_R_FOREARM_SKIN_17
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_17
+  - frameName:  SCSYS_R_FOREARM_SKIN_16
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_16
+  - frameName:  SCSYS_R_FOREARM_SKIN_24
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_24
+  - frameName:  SCSYS_R_FOREARM_SKIN_25
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_25
+  - frameName:  SCSYS_R_FOREARM_SKIN_29
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_29
+  - frameName:  SCSYS_R_FOREARM_SKIN_28
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_28
+  - frameName:  SCSYS_R_FOREARM_SKIN_22
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_22
+  - frameName:  SCSYS_R_FOREARM_SKIN_19
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_19
+  - frameName:  SCSYS_R_FOREARM_SKIN_4
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_4
+  - frameName:  SCSYS_R_FOREARM_SKIN_3
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_3
+  - frameName:  SCSYS_R_FOREARM_SKIN_6
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_6
+  - frameName:  SCSYS_R_FOREARM_SKIN_7
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_7
+  - frameName:  SCSYS_R_FOREARM_SKIN_5
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_5
+  - frameName:  SCSYS_R_FOREARM_SKIN_10
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_10
+  - frameName:  SCSYS_R_FOREARM_SKIN_9
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_9
+  - frameName:  SCSYS_R_FOREARM_SKIN_8
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_8
+  - frameName:  SCSYS_R_FOREARM_SKIN_14
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_14
+  - frameName:  SCSYS_R_FOREARM_SKIN_11
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_11
+  - frameName:  SCSYS_R_FOREARM_SKIN_12
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_12
+  - frameName:  SCSYS_R_FOREARM_SKIN_13
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_13
+  - frameName:  SCSYS_R_FOREARM_SKIN_15
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_15
+  - frameName:  SCSYS_R_FOREARM_SKIN_0
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_0
+  - frameName:  SCSYS_R_FOREARM_SKIN_1
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_1
+  - frameName:  SCSYS_R_FOREARM_SKIN_2
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_skin_2
+  - frameName:  SCSYS_L_FOREARM_SKIN_17
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_17
+  - frameName:  SCSYS_L_FOREARM_SKIN_16
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_16
+  - frameName:  SCSYS_L_FOREARM_SKIN_24
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_24
+  - frameName:  SCSYS_L_FOREARM_SKIN_25
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_25
+  - frameName:  SCSYS_L_FOREARM_SKIN_29
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_29
+  - frameName:  SCSYS_L_FOREARM_SKIN_28
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_28
+  - frameName:  SCSYS_L_FOREARM_SKIN_22
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_22
+  - frameName:  SCSYS_L_FOREARM_SKIN_19
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_19
+  - frameName:  SCSYS_L_FOREARM_SKIN_4
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_4
+  - frameName:  SCSYS_L_FOREARM_SKIN_3
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_3
+  - frameName:  SCSYS_L_FOREARM_SKIN_6
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_6
+  - frameName:  SCSYS_L_FOREARM_SKIN_7
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_7
+  - frameName:  SCSYS_L_FOREARM_SKIN_5
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_5
+  - frameName:  SCSYS_L_FOREARM_SKIN_10
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_10
+  - frameName:  SCSYS_L_FOREARM_SKIN_9
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_9
+  - frameName:  SCSYS_L_FOREARM_SKIN_8
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_8
+  - frameName:  SCSYS_L_FOREARM_SKIN_14
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_14
+  - frameName:  SCSYS_L_FOREARM_SKIN_11
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_11
+  - frameName:  SCSYS_L_FOREARM_SKIN_12
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_12
+  - frameName:  SCSYS_L_FOREARM_SKIN_13
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_13
+  - frameName:  SCSYS_L_FOREARM_SKIN_15
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_15
+  - frameName:  SCSYS_L_FOREARM_SKIN_0
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_0
+  - frameName:  SCSYS_L_FOREARM_SKIN_1
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_1
+  - frameName:  SCSYS_L_FOREARM_SKIN_2
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_skin_2
 
 
 linkFrames: 
