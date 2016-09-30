@@ -1287,6 +1287,13 @@
     <child link="r_forearm_skin_29"/>
     <dynamics damping="0.1"/>
   </joint>
+  <link name="r_forearm_dh_frame"/>
+  <joint name="r_forearm_dh_frame_fixed_joint" type="fixed">
+    <origin xyz="-0.102871102373 7.00000000002e-06 0.0275642213111" rpy="-0.261799319827 0 -1.57079632679"/>
+    <parent link="r_forearm"/>
+    <child link="r_forearm_dh_frame"/>
+    <dynamics damping="0.1"/>
+  </joint>
   <link name="r_wrist_1">
     <inertial>
       <origin xyz="0.000986076073649 -0.001176 0.00410123077465" rpy="0 0 0"/>
@@ -1731,6 +1738,13 @@
     <origin xyz="0.0700355934441 -0.0111936 0.050011055327" rpy="0.248630982209 -0.0383136556786 0.0583026624266"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_29"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="l_forearm_dh_frame"/>
+  <joint name="l_forearm_dh_frame_fixed_joint" type="fixed">
+    <origin xyz="0.102871102373 7.00000000002e-06 0.0275642213111" rpy="2.87979333376 0 1.57079632679"/>
+    <parent link="l_forearm"/>
+    <child link="l_forearm_dh_frame"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_wrist_1">

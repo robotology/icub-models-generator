@@ -449,6 +449,12 @@ exportedFrames:
   - frameName:  SCSYS_L_FOREARM_SKIN_2
     frameReferenceLink: l_forearm
     exportedFrameName: l_forearm_skin_2
+  - frameName:  SCSYS_L_FOREARM_DH_FRAME
+    frameReferenceLink: l_forearm
+    exportedFrameName: l_forearm_dh_frame
+  - frameName:  SCSYS_R_FOREARM_DH_FRAME
+    frameReferenceLink: r_forearm
+    exportedFrameName: r_forearm_dh_frame
 
 
 linkFrames: 

@@ -9,7 +9,7 @@
 
   <createdFrom>"Pro/E Wildfire Creo 2.0 - 2015280"</createdFrom>
 
-  <createdOn>"09/28/16||09:43:45"</createdOn>
+  <createdOn>"09/30/16||09:31:23"</createdOn>
 
   <createdBy>"iCub"</createdBy>
 
@@ -4876,8 +4876,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="70">
+                  <Frame>
                     <name>"CS29"</name>
+                    <displayName>"SCSYS_R_FOREARM_DH_FRAME"</displayName>
+                    <nodeID>"2781(USERADDED)"</nodeID>
+                    <position>-109.398,-158.56,-25.7811</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,1,0,0,0,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="70">
+                    <name>"CS30"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/112:-:60/150/98::60/150/112(AUTOGEN)"</nodeID>
                     <position>-109.391,-52.06,-25.7811</position>
@@ -4890,7 +4903,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="71">
-                    <name>"CS30"</name>
+                    <name>"CS31"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/112::60/150/112(AUTOGEN)"</nodeID>
                     <position>-109.398,-158.56,-28.2311</position>
@@ -5696,8 +5709,21 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="84">
+                  <Frame>
                     <name>"CS29"</name>
+                    <displayName>"SCSYS_L_FOREARM_DH_FRAME"</displayName>
+                    <nodeID>"2763(USERADDED)"</nodeID>
+                    <position>109.398,-158.56,-25.7811</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,-1,0,0,0,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="84">
+                    <name>"CS30"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/75:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
                     <position>109.391,-52.06,-25.7811</position>
@@ -5710,7 +5736,7 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="85">
-                    <name>"CS30"</name>
+                    <name>"CS31"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
                     <position>109.398,-158.56,-27.9311</position>
