@@ -72,7 +72,7 @@
       <inertia ixx="0.00048916" ixy="-2.70159e-07" ixz="1.85233e-07" iyy="0.00028697" iyz="1.28773e-05" izz="0.000315599"/>
     </inertial>
     <visual>
-      <origin xyz="0.0701 0.151913 0.0691961998093" rpy="0 0 0"/>
+      <origin xyz="0.0701 0.151913 0.0691961998094" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -81,7 +81,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0701 0.151913 0.0691961998093" rpy="0 0 0"/>
+      <origin xyz="0.0701 0.151913 0.0691961998094" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -101,6 +101,21 @@
       <mass value="0.126212"/>
       <inertia ixx="3.27938e-05" ixy="2.67901e-07" ixz="-4.41463e-09" iyy="5.69957e-05" iyz="3.32338e-08" izz="3.26449e-05"/>
     </inertial>
+    <visual>
+      <origin xyz="0.0437089998094 -0.0701 -0.226213" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0437089998094 -0.0701 -0.226213" rpy="-1.57079632679 0 -1.57079632679"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="r_leg_ft_sensor" type="fixed">
     <origin xyz="0 -0.0743 0.0254872" rpy="1.57079632679 -1.57079632679 0"/>
@@ -115,16 +130,16 @@
       <inertia ixx="0.00646378343182" ixy="0.000122685853522" ixz="4.94531545868e-06" iyy="0.00144539832219" iyz="-0.000137533175718" izz="0.00645582688618"/>
     </inertial>
     <visual>
-      <origin xyz="0.0700999999999 0.241013 0.0437089998093" rpy="0 0 0"/>
+      <origin xyz="0.0701 0.241013 0.0437089998094" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_thigh_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue">
-        <color rgba="0 0 1 1"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
       </material>
     </visual>
     <collision>
-      <origin xyz="0.0700999999999 0.241013 0.0437089998093" rpy="0 0 0"/>
+      <origin xyz="0.0701 0.241013 0.0437089998094" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_thigh_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -226,8 +241,8 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_shank_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="yellow">
-        <color rgba="1 1 0 1"/>
+      <material name="pink">
+        <color rgba="1 0 1 1"/>
       </material>
     </visual>
     <collision>
@@ -298,8 +313,8 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_ankle_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="pink">
-        <color rgba="1 0 1 1"/>
+      <material name="cyan">
+        <color rgba="0 1 1 1"/>
       </material>
     </visual>
     <collision>
@@ -328,9 +343,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_foot_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="cyan">
-        <color rgba="0 1 1 1"/>
-      </material>
+      <material name="green"/>
     </visual>
     <collision>
       <origin xyz="0.0701000001907 0.587138 0.0622089996185" rpy="0 0 0"/>
@@ -358,7 +371,9 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_sole_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="green"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
     </visual>
     <collision>
       <origin xyz="0.0472089996185 -0.0701000001907 -0.647438" rpy="-1.57079632679 0 -1.57079632679"/>
@@ -405,8 +420,8 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_hip_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
+      <material name="dblue">
+        <color rgba="0 0 0.8 1"/>
       </material>
     </visual>
     <collision>
@@ -435,8 +450,8 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_hip_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dblue">
-        <color rgba="0 0 0.8 1"/>
+      <material name="dgreen">
+        <color rgba="0.1 0.8 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -460,6 +475,21 @@
       <mass value="0.126212"/>
       <inertia ixx="3.27938e-05" ixy="2.67901e-07" ixz="-4.41463e-09" iyy="5.69957e-05" iyz="3.32338e-08" izz="3.26449e-05"/>
     </inertial>
+    <visual>
+      <origin xyz="-0.0701 0.043709 -0.226213" rpy="-1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0701 0.043709 -0.226213" rpy="-1.57079632679 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_upper_thigh_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="l_leg_ft_sensor" type="fixed">
     <origin xyz="0 -0.0743 0.0246825" rpy="1.57079632679 -1.57079632679 0"/>
@@ -478,9 +508,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_thigh_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dgreen">
-        <color rgba="0.1 0.8 0.1 1"/>
-      </material>
+      <material name="green"/>
     </visual>
     <collision>
       <origin xyz="-0.0701 0.241013 0.0437089998093" rpy="0 0 0"/>
@@ -585,9 +613,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_shank_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="gray">
-        <color rgba="0.5 0.5 0.5 1"/>
-      </material>
+      <material name="black"/>
     </visual>
     <collision>
       <origin xyz="-0.0565145001907 0.386638 0.0437089998093" rpy="0 0 0"/>
@@ -657,7 +683,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_ankle_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="green"/>
+      <material name="red"/>
     </visual>
     <collision>
       <origin xyz="-0.0971179001907 0.587138 0.043409" rpy="0 0 0"/>
@@ -685,7 +711,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_foot_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="black"/>
+      <material name="blue"/>
     </visual>
     <collision>
       <origin xyz="-0.0701000001907 0.587138 -0.00467855" rpy="0 0 0"/>
@@ -713,7 +739,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_sole_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="red"/>
+      <material name="yellow"/>
     </visual>
     <collision>
       <origin xyz="0.0472089996187 0.0701000001907 -0.647438" rpy="-1.57079632679 0 -1.57079632679"/>
@@ -760,7 +786,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_lap_belt_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <material name="pink"/>
     </visual>
     <collision>
       <origin xyz="0.0270462998093 0.032 0.0364" rpy="0 0 0"/>
@@ -779,13 +805,26 @@
   </joint>
   <link name="torso_2">
     <inertial>
-      <origin xyz="-0.000112850809265 0.036182 0.0576606" rpy="0 0 0"/>
-      <mass value="0.428161"/>
-      <inertia ixx="0.000833014" ixy="2.2275e-08" ixz="8.1931e-08" iyy="0.000440576" iyz="-6.00823e-07" izz="0.000605488"/>
+      <origin xyz="-0.000113507809265 0.0361525 0.0570963" rpy="0 0 0"/>
+      <mass value="0.425685"/>
+      <inertia ixx="0.000829234" ixy="2.37006e-08" ixz="9.25231e-08" iyy="0.000436517" iyz="-1.74814e-07" izz="0.000604802"/>
     </inertial>
+    <visual>
+      <origin xyz="0 0.1433 0.0386531" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_lap_belt_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="cyan"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0.1433 0.0386531" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_lap_belt_2_prt.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
   <joint name="torso_roll" type="revolute">
-    <origin xyz="0.0270462998093 0.032 -0.0576906" rpy="0 0 0"/>
+    <origin xyz="0.0270462998093 0.032 -0.0573446" rpy="0 0 0"/>
     <axis xyz="0.0 0.0 -1.0"/>
     <parent link="torso_1"/>
     <child link="torso_2"/>
@@ -794,26 +833,26 @@
   </joint>
   <link name="chest">
     <inertial>
-      <origin xyz="0.000188619190735 0.073091 -0.047238" rpy="0 0 0"/>
+      <origin xyz="0.000188619190735 0.073091 -0.0472381" rpy="0 0 0"/>
       <mass value="7.638"/>
       <inertia ixx="0.0430324878618" ixy="2.91075388804e-05" ixz="0.000181985229949" iyy="0.0440835725548" iyz="-0.000429106409108" izz="0.0260563249911"/>
     </inertial>
     <visual>
-      <origin xyz="0 0.0928 -0.0241889" rpy="0 0 0"/>
+      <origin xyz="0 0.0928 -0.024189" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_chest_bb_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="yellow"/>
+      <material name="green"/>
     </visual>
     <collision>
-      <origin xyz="0 0.0928 -0.0241889" rpy="0 0 0"/>
+      <origin xyz="0 0.0928 -0.024189" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_chest_bb_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <joint name="torso_yaw" type="revolute">
-    <origin xyz="0 0.05 0.0631871" rpy="0 0 0"/>
+    <origin xyz="0 0.05 0.0628421" rpy="0 0 0"/>
     <axis xyz="0.0 -1.0 0.0"/>
     <parent link="torso_2"/>
     <child link="chest"/>
@@ -822,14 +861,14 @@
   </joint>
   <link name="chest_ems_acc_eb1"/>
   <joint name="chest_ems_acc_eb1_fixed_joint" type="fixed">
-    <origin xyz="0.0647855001907 0.064043 -0.064709" rpy="3.1415169123 -0.261799309122 0.000292641880255"/>
+    <origin xyz="0.0647855001907 0.064043 -0.0647091" rpy="3.1415169123 -0.261799309122 0.000292641880255"/>
     <parent link="chest"/>
     <child link="chest_ems_acc_eb1"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="chest_ems_gyro_eb1"/>
   <joint name="chest_ems_gyro_eb1_fixed_joint" type="fixed">
-    <origin xyz="0.0692016001907 0.064548 -0.0635257" rpy="3.1415169123 -0.261799309122 0.000292641880255"/>
+    <origin xyz="0.0692016001907 0.064548 -0.0635258" rpy="3.1415169123 -0.261799309122 0.000292641880255"/>
     <parent link="chest"/>
     <child link="chest_ems_gyro_eb1"/>
     <dynamics damping="0.1"/>
@@ -843,7 +882,7 @@
   </joint>
   <link name="chest_ems_gyro_eb2"/>
   <joint name="chest_ems_gyro_eb2_fixed_joint" type="fixed">
-    <origin xyz="0.0160371001907 0.087559 -0.0653478" rpy="3.14159050104 0.261799319819 3.14158433678"/>
+    <origin xyz="0.0160371001907 0.087559 -0.0653479" rpy="3.14159050104 0.261799319819 3.14158433678"/>
     <parent link="chest"/>
     <child link="chest_ems_gyro_eb2"/>
     <dynamics damping="0.1"/>
@@ -864,21 +903,21 @@
   </joint>
   <link name="chest_ems_acc_eb4"/>
   <joint name="chest_ems_acc_eb4_fixed_joint" type="fixed">
-    <origin xyz="-0.0621620998093 0.088063 -0.0529886" rpy="-3.14159050476 -0.261799319819 3.14158433987"/>
+    <origin xyz="-0.0621620998093 0.088063 -0.0529887" rpy="-3.14159050476 -0.261799319819 3.14158433987"/>
     <parent link="chest"/>
     <child link="chest_ems_acc_eb4"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="chest_ems_gyro_eb4"/>
   <joint name="chest_ems_gyro_eb4_fixed_joint" type="fixed">
-    <origin xyz="-0.0665783998093 0.087559 -0.0518053" rpy="-3.14159050476 -0.261799319819 3.14158433987"/>
+    <origin xyz="-0.0665783998093 0.087559 -0.0518054" rpy="-3.14159050476 -0.261799319819 3.14158433987"/>
     <parent link="chest"/>
     <child link="chest_ems_gyro_eb4"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="chest_mtb_acc_0b7"/>
   <joint name="chest_mtb_acc_0b7_fixed_joint" type="fixed">
-    <origin xyz="-0.0607539998093 -0.0017836 0.0442342" rpy="0.875167771492 0.116363734392 -1.48597350247"/>
+    <origin xyz="-0.0607539998093 -0.0017836 0.0442341" rpy="0.875167771492 0.116363734392 -1.48597350247"/>
     <parent link="chest"/>
     <child link="chest_mtb_acc_0b7"/>
     <dynamics damping="0.1"/>
@@ -899,33 +938,33 @@
   </joint>
   <link name="chest_mtb_acc_0b10"/>
   <joint name="chest_mtb_acc_0b10_fixed_joint" type="fixed">
-    <origin xyz="0.0594286001907 -0.0018543 0.0457982" rpy="-0.875168153475 0.116362025479 -1.65561807505"/>
+    <origin xyz="0.0594286001907 -0.0018543 0.0457981" rpy="-0.875168153475 0.116362025479 -1.65561807505"/>
     <parent link="chest"/>
     <child link="chest_mtb_acc_0b10"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_shoulder_1">
     <inertial>
-      <origin xyz="-0.0122656514133 3.2e-05 -0.00321072950703" rpy="0 0 0"/>
+      <origin xyz="-0.0122656014133 3.2e-05 -0.00321064290449" rpy="0 0 0"/>
       <mass value="0.114862"/>
       <inertia ixx="2.24541e-05" ixy="-1.65173e-08" ixz="-3.55626e-06" iyy="2.29582e-05" iyz="-6.13337e-08" izz="1.00116e-05"/>
     </inertial>
     <visual>
-      <origin xyz="0.0990078953076 0 -0.0265293007173" rpy="0 0 0"/>
+      <origin xyz="0.0990079253076 0 -0.0265292487558" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_shoulder_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="pink"/>
+      <material name="white"/>
     </visual>
     <collision>
-      <origin xyz="0.0990078953076 0 -0.0265293007173" rpy="0 0 0"/>
+      <origin xyz="0.0990079253076 0 -0.0265292487558" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_shoulder_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <joint name="r_shoulder_pitch" type="revolute">
-    <origin xyz="-0.120015999809 0.0928 0.0079694" rpy="0 -0.523598883792 3.14159265359"/>
+    <origin xyz="-0.120015999809 0.0928 0.0079693" rpy="0 -0.523598883792 3.14159265359"/>
     <axis xyz="-0.965925926173 0.0 0.258819275525"/>
     <parent link="chest"/>
     <child link="r_shoulder_1"/>
@@ -934,7 +973,7 @@
   </joint>
   <link name="r_shoulder_2">
     <inertial>
-      <origin xyz="-0.0214141959438 0.000271699390655 -0.0194403277547" rpy="0 0 0"/>
+      <origin xyz="-0.0214141709438 0.000271725272551 -0.0194402344535" rpy="0 0 0"/>
       <mass value="0.238162"/>
       <inertia ixx="0.000158626" ixy="-1.12091e-07" ixz="1.02574e-05" iyy="0.000206526" iyz="1.19785e-06" izz="0.000104956"/>
     </inertial>
@@ -943,7 +982,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_shoulder_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="cyan"/>
+      <material name="dblue"/>
     </visual>
     <collision>
       <origin xyz="0.106587808568 2.31914715418e-07 -0.0407392121175" rpy="0 0 0"/>
@@ -971,7 +1010,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_upper_arm_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="green"/>
+      <material name="dgreen"/>
     </visual>
     <collision>
       <origin xyz="0.131933879164 0 -0.0353515667647" rpy="0 0 0"/>
@@ -999,7 +1038,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_elbow_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="white"/>
+      <material name="gray"/>
     </visual>
     <collision>
       <origin xyz="-0.015 0 -0.1933" rpy="0 1.30899700697 0"/>
@@ -1016,7 +1055,7 @@
   </joint>
   <link name="r_upper_arm_mtb_acc_2b10"/>
   <joint name="r_upper_arm_mtb_acc_2b10_fixed_joint" type="fixed">
-    <origin xyz="-0.0412195 0.029588 0.0295279" rpy="1.57079546365 1.57078381225 -2.68257161164"/>
+    <origin xyz="-0.0412194 0.029588 0.0295279" rpy="1.57079546365 1.57078381225 -2.68257161164"/>
     <parent link="r_upper_arm"/>
     <child link="r_upper_arm_mtb_acc_2b10"/>
     <dynamics damping="0.1"/>
@@ -1030,21 +1069,21 @@
   </joint>
   <link name="r_upper_arm_mtb_acc_2b12"/>
   <joint name="r_upper_arm_mtb_acc_2b12_fixed_joint" type="fixed">
-    <origin xyz="-0.0430555 0.028681 0.0049922" rpy="-1.11177442168 -1.57079632679 0"/>
+    <origin xyz="-0.0430554 0.028681 0.0049922" rpy="-1.11177442168 -1.57079632679 0"/>
     <parent link="r_upper_arm"/>
     <child link="r_upper_arm_mtb_acc_2b12"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_upper_arm_mtb_acc_2b13"/>
   <joint name="r_upper_arm_mtb_acc_2b13_fixed_joint" type="fixed">
-    <origin xyz="0.010593184 0.02835 -0.010738" rpy="1.57079632702 -0.000214520362041 2.47803674451"/>
+    <origin xyz="0.010593237 0.02835 -0.010738" rpy="1.57079632702 -0.000214520362041 2.47803674451"/>
     <parent link="r_upper_arm"/>
     <child link="r_upper_arm_mtb_acc_2b13"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_elbow_1">
     <inertial>
-      <origin xyz="-0.00673915521033 0.0188019 -0.00465778895412" rpy="0 0 0"/>
+      <origin xyz="-0.00673912932843 0.0188019 -0.00465769236154" rpy="0 0 0"/>
       <mass value="0.267903"/>
       <inertia ixx="8.13344e-05" ixy="7.36974e-06" ixz="-1.04536e-05" iyy="5.86947e-05" iyz="3.92498e-06" izz="9.68353e-05"/>
     </inertial>
@@ -1053,7 +1092,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_elbow_prosup_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dblue"/>
+      <material name="green"/>
     </visual>
     <collision>
       <origin xyz="0.259390463317 0.0224999 -0.0850325886962" rpy="0 0 0"/>
@@ -1081,7 +1120,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_forearm_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dgreen"/>
+      <material name="black"/>
     </visual>
     <collision>
       <origin xyz="0.296886967375 0 -0.0795506015227" rpy="0 0 0"/>
@@ -1100,21 +1139,21 @@
   </joint>
   <link name="r_forearm_mtb_acc_2b7"/>
   <joint name="r_forearm_mtb_acc_2b7_fixed_joint" type="fixed">
-    <origin xyz="-0.0768728106161 0.005497 -0.0110480091994" rpy="0.26179949998 0.000370413042328 1.57125816863"/>
+    <origin xyz="-0.0768727847342 0.005497 -0.0110479126068" rpy="0.26179949998 0.000370413042328 1.57125816863"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_mtb_acc_2b7"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_mtb_acc_2b8"/>
   <joint name="r_forearm_mtb_acc_2b8_fixed_joint" type="fixed">
-    <origin xyz="-0.0514186285381 0.015786 0.0407521034996" rpy="-0.661143946092 0.147825248461 0.092070114703"/>
+    <origin xyz="-0.0514186150796 0.015786 0.0407521537277" rpy="-0.661143946092 0.147825248461 0.092070114703"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_mtb_acc_2b8"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_mtb_acc_2b9"/>
   <joint name="r_forearm_mtb_acc_2b9_fixed_joint" type="fixed">
-    <origin xyz="-0.0216380215578 0.027924 -0.0132491219944" rpy="-1.76682626732 0.261191225646 0.054048344372"/>
+    <origin xyz="-0.0216379956759 0.027924 -0.0132490254018" rpy="-1.76682626732 0.261191225646 0.054048344372"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_mtb_acc_2b9"/>
     <dynamics damping="0.1"/>
@@ -1128,28 +1167,28 @@
   </joint>
   <link name="r_forearm_skin_1"/>
   <joint name="r_forearm_skin_1_fixed_joint" type="fixed">
-    <origin xyz="-0.0333729194645 0.028826 -0.0198457833637" rpy="1.86694023278 -0.274442533764 -3.09946977984"/>
+    <origin xyz="-0.0333728935826 0.028826 -0.0198456867711" rpy="1.86694023278 -0.274442533764 -3.09946977984"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_1"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_2"/>
   <joint name="r_forearm_skin_2_fixed_joint" type="fixed">
-    <origin xyz="-0.0146989188671 0.031279 -0.0160118304296" rpy="1.72847287019 -0.264015219116 -3.12733260687"/>
+    <origin xyz="-0.0146988929852 0.031279 -0.0160117338371" rpy="1.72847287019 -0.264015219116 -3.12733260687"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_2"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_3"/>
   <joint name="r_forearm_skin_3_fixed_joint" type="fixed">
-    <origin xyz="-0.0455673195039 -0.030891 -0.00633010588609" rpy="-1.69487280859 -0.269757727104 3.07959743574"/>
+    <origin xyz="-0.045567293622 -0.030891 -0.00633000929351" rpy="-1.69487280859 -0.269757727104 3.07959743574"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_3"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_4"/>
   <joint name="r_forearm_skin_4_fixed_joint" type="fixed">
-    <origin xyz="-0.0635326591815 -0.0281163 -0.00899793917324" rpy="-1.80734960194 -0.0393131796327 2.97997643632"/>
+    <origin xyz="-0.0635326332996 -0.0281163 -0.00899784258066" rpy="-1.80734960194 -0.0393131796327 2.97997643632"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_4"/>
     <dynamics damping="0.1"/>
@@ -1163,14 +1202,14 @@
   </joint>
   <link name="r_forearm_skin_6"/>
   <joint name="r_forearm_skin_6_fixed_joint" type="fixed">
-    <origin xyz="-0.0333948695074 -0.0295479 -0.0198326549359" rpy="-1.86628164653 -0.272886336181 3.10448585021"/>
+    <origin xyz="-0.0333948436255 -0.0295479 -0.0198325583433" rpy="-1.86628164653 -0.272886336181 3.10448585021"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_6"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_7"/>
   <joint name="r_forearm_skin_7_fixed_joint" type="fixed">
-    <origin xyz="-0.0147224518893 -0.0319422 -0.0159327448629" rpy="-1.72564640857 -0.263992900722 3.12721254266"/>
+    <origin xyz="-0.0147224260074 -0.0319422 -0.0159326482703" rpy="-1.72564640857 -0.263992900722 3.12721254266"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_7"/>
     <dynamics damping="0.1"/>
@@ -1191,35 +1230,35 @@
   </joint>
   <link name="r_forearm_skin_10"/>
   <joint name="r_forearm_skin_10_fixed_joint" type="fixed">
-    <origin xyz="-0.0542285469707 -0.0097861 -0.0321470048792" rpy="-2.94123313406 -0.328304471922 3.1276263754"/>
+    <origin xyz="-0.0542285210888 -0.0097861 -0.0321469082866" rpy="-2.94123313406 -0.328304471922 3.1276263754"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_10"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_11"/>
   <joint name="r_forearm_skin_11_fixed_joint" type="fixed">
-    <origin xyz="-0.0542241170843 0.009043 -0.0321432225378" rpy="2.93929835957 -0.329101389745 -3.12731916446"/>
+    <origin xyz="-0.0542240912024 0.009043 -0.0321431259452" rpy="2.93929835957 -0.329101389745 -3.12731916446"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_11"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_12"/>
   <joint name="r_forearm_skin_12_fixed_joint" type="fixed">
-    <origin xyz="-0.0375994892687 0.018216 -0.0340192145887" rpy="2.58303505964 -0.29483050207 -3.12026580314"/>
+    <origin xyz="-0.0375994633868 0.018216 -0.0340191179961" rpy="2.58303505964 -0.29483050207 -3.12026580314"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_12"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_13"/>
   <joint name="r_forearm_skin_13_fixed_joint" type="fixed">
-    <origin xyz="-0.0228551127224 0.009048 -0.0418919975134" rpy="2.94896679198 -0.270583947189 -3.13981880352"/>
+    <origin xyz="-0.0228550868405 0.009048 -0.0418919009209" rpy="2.94896679198 -0.270583947189 -3.13981880352"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_13"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_14"/>
   <joint name="r_forearm_skin_14_fixed_joint" type="fixed">
-    <origin xyz="-0.0687703535183 0.01716 -0.0230240524437" rpy="2.48044991868 -0.295542566281 -2.91877349139"/>
+    <origin xyz="-0.0687703276364 0.01716 -0.0230239558511" rpy="2.48044991868 -0.295542566281 -2.91877349139"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_14"/>
     <dynamics damping="0.1"/>
@@ -1247,42 +1286,42 @@
   </joint>
   <link name="r_forearm_skin_19"/>
   <joint name="r_forearm_skin_19_fixed_joint" type="fixed">
-    <origin xyz="-0.0381266365957 -0.0312941 0.0206905088005" rpy="-1.41560888703 -0.252569290226 3.07715217889"/>
+    <origin xyz="-0.0381266107138 -0.0312941 0.020690605393" rpy="-1.41560888703 -0.252569290226 3.07715217889"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_19"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_22"/>
   <joint name="r_forearm_skin_22_fixed_joint" type="fixed">
-    <origin xyz="-0.054417420924 -0.0287223 0.0306036550683" rpy="-1.2658242728 -0.234328151379 3.04788317971"/>
+    <origin xyz="-0.0544173950421 -0.0287223 0.0306037516609" rpy="-1.2658242728 -0.234328151379 3.04788317971"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_22"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_24"/>
   <joint name="r_forearm_skin_24_fixed_joint" type="fixed">
-    <origin xyz="-0.0700345474855 -0.0097164 0.0500690507585" rpy="-0.23489327644 -0.0388172993982 3.08676345459"/>
+    <origin xyz="-0.0700345319564 -0.0097164 0.050069108714" rpy="-0.23489327644 -0.0388172993982 3.08676345459"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_24"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_25"/>
   <joint name="r_forearm_skin_25_fixed_joint" type="fixed">
-    <origin xyz="-0.0535999345704 -0.0182238 0.0454697642082" rpy="-0.564295527715 -0.136980272197 3.05963182792"/>
+    <origin xyz="-0.0535999216295 -0.0182238 0.0454698125045" rpy="-0.564295527715 -0.136980272197 3.05963182792"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_25"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_28"/>
   <joint name="r_forearm_skin_28_fixed_joint" type="fixed">
-    <origin xyz="-0.0535859427439 0.017412 0.0453519794414" rpy="0.59077064408 -0.0531607226063 3.10597081167"/>
+    <origin xyz="-0.0535859272148 0.017412 0.045352037397" rpy="0.59077064408 -0.0531607226063 3.10597081167"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_28"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="r_forearm_skin_29"/>
   <joint name="r_forearm_skin_29_fixed_joint" type="fixed">
-    <origin xyz="-0.0700355934441 0.008954 0.050011055327" rpy="0.248630982209 -0.0383136556786 -3.08328999116"/>
+    <origin xyz="-0.0700355805031 0.008954 0.0500111036233" rpy="0.248630982209 -0.0383136556786 -3.08328999116"/>
     <parent link="r_forearm"/>
     <child link="r_forearm_skin_29"/>
     <dynamics damping="0.1"/>
@@ -1296,7 +1335,7 @@
   </joint>
   <link name="r_wrist_1">
     <inertial>
-      <origin xyz="0.000986076073649 -0.001176 0.00410123077465" rpy="0 0 0"/>
+      <origin xyz="0.000986101955547 -0.001176 0.00410132736724" rpy="0 0 0"/>
       <mass value="0.0362615"/>
       <inertia ixx="5.57722e-06" ixy="-3.10462e-08" ixz="-9.44554e-07" iyy="5.29845e-06" iyz="-1.59685e-07" izz="1.87724e-06"/>
     </inertial>
@@ -1305,7 +1344,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_wrist_pitch_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="gray"/>
+      <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0.400392176248 -7.00000000009e-06 -0.104748304516" rpy="0 0 0"/>
@@ -1324,7 +1363,7 @@
   </joint>
   <link name="r_hand">
     <inertial>
-      <origin xyz="-0.0646681895989 0.0056002 0.0226811974992" rpy="0 0 0"/>
+      <origin xyz="-0.064668163717 0.0056002 0.0226812940918" rpy="0 0 0"/>
       <mass value="0.248289"/>
       <inertia ixx="0.000162381" ixy="-2.3536e-06" ixz="3.61526e-05" iyy="0.00043138" iyz="2.07146e-05" izz="0.00030575"/>
     </inertial>
@@ -1333,7 +1372,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_r_hand_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="green"/>
+      <material name="blue"/>
     </visual>
     <collision>
       <origin xyz="0.399758069749 0.0194929 -0.107114822834" rpy="0 0 0"/>
@@ -1352,14 +1391,14 @@
   </joint>
   <link name="r_hand_dh_frame"/>
   <joint name="r_hand_dh_frame_fixed_joint" type="fixed">
-    <origin xyz="-0.0576543237247 -0.0055568 0.0136937357157" rpy="-1.57079632679 -0.261799319827 3.14159265359"/>
+    <origin xyz="-0.0576542978428 -0.0055568 0.0136938323083" rpy="-1.57079632679 -0.261799319827 3.14159265359"/>
     <parent link="r_hand"/>
     <child link="r_hand_dh_frame"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_shoulder_1">
     <inertial>
-      <origin xyz="-0.008985 -3.3e-05 -0.0088999" rpy="0 0 0"/>
+      <origin xyz="-0.008985 -3.3e-05 -0.0088998" rpy="0 0 0"/>
       <mass value="0.114882"/>
       <inertia ixx="2.24676e-05" ixy="-1.77064e-08" ixz="3.55951e-06" iyy="2.29712e-05" iyz="6.57597e-08" izz="1.00139e-05"/>
     </inertial>
@@ -1368,7 +1407,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_shoulder_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="black"/>
+      <material name="yellow"/>
     </visual>
     <collision>
       <origin xyz="-0.120257482 0 -0.032223" rpy="0 0 0"/>
@@ -1378,7 +1417,7 @@
     </collision>
   </link>
   <joint name="l_shoulder_pitch" type="revolute">
-    <origin xyz="0.120016000191 0.0928 0.0079694" rpy="0 0 0"/>
+    <origin xyz="0.120016000191 0.0928 0.0079693" rpy="0 0 0"/>
     <axis xyz="0.965926 0.0 0.258819"/>
     <parent link="chest"/>
     <child link="l_shoulder_1"/>
@@ -1387,26 +1426,26 @@
   </joint>
   <link name="l_shoulder_2">
     <inertial>
-      <origin xyz="0.0214745701273 0.000268983781583 -0.0194106428522" rpy="0 0 0"/>
+      <origin xyz="0.0214745951272 0.000268957899687 -0.0194107361535" rpy="0 0 0"/>
       <mass value="0.238162"/>
       <inertia ixx="0.000159621" ixy="1.19701e-07" ixz="-1.29687e-05" iyy="0.000222574" iyz="1.20112e-06" izz="0.000120056"/>
     </inertial>
     <visual>
-      <origin xyz="-0.106586716581 1.3668283029e-07 -0.0407432874697" rpy="0 0 0"/>
+      <origin xyz="-0.106586691581 1.10800934344e-07 -0.040743380771" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_shoulder_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="red"/>
+      <material name="pink"/>
     </visual>
     <collision>
-      <origin xyz="-0.106586716581 1.3668283029e-07 -0.0407432874697" rpy="0 0 0"/>
+      <origin xyz="-0.106586691581 1.10800934344e-07 -0.040743380771" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_shoulder_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <joint name="l_shoulder_roll" type="revolute">
-    <origin xyz="-0.013671 0 0.0085203" rpy="0.270597317916 0.252680177542 -1.50155688559"/>
+    <origin xyz="-0.013671 0 0.0085204" rpy="0.270597317916 0.252680177542 -1.50155688559"/>
     <axis xyz="-0.258819 2.77555756156e-17 0.965926"/>
     <parent link="l_shoulder_1"/>
     <child link="l_shoulder_2"/>
@@ -1424,7 +1463,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_upper_arm_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue"/>
+      <material name="cyan"/>
     </visual>
     <collision>
       <origin xyz="-0.131901037685 0 -0.0353427669194" rpy="0 0 0"/>
@@ -1434,7 +1473,7 @@
     </collision>
   </link>
   <joint name="l_shoulder_yaw" type="revolute">
-    <origin xyz="0.0253143218312 1.37518334151e-07 -0.00540052326137" rpy="-0.252689546175 -0.0085186183214 -0.067039889142"/>
+    <origin xyz="0.0253143468312 1.11636438205e-07 -0.00540061656265" rpy="-0.252689546175 -0.0085186183214 -0.067039889142"/>
     <axis xyz="0.965925843882 2.22044604925e-16 0.258818979447"/>
     <parent link="l_shoulder_2"/>
     <child link="l_shoulder_3"/>
@@ -1452,7 +1491,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_elbow_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="yellow"/>
+      <material name="green"/>
     </visual>
     <collision>
       <origin xyz="-0.015 0 -0.1933" rpy="0 -1.30899700697 -3.14159265359"/>
@@ -1483,21 +1522,21 @@
   </joint>
   <link name="l_upper_arm_mtb_acc_1b12"/>
   <joint name="l_upper_arm_mtb_acc_1b12_fixed_joint" type="fixed">
-    <origin xyz="-0.0412195 -0.029588 0.0049921" rpy="-1.57079718993 -1.57078381225 2.68257161162"/>
+    <origin xyz="-0.0412194 -0.029588 0.0049921" rpy="-1.57079718993 -1.57078381225 2.68257161162"/>
     <parent link="l_upper_arm"/>
     <child link="l_upper_arm_mtb_acc_1b12"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_upper_arm_mtb_acc_1b13"/>
   <joint name="l_upper_arm_mtb_acc_1b13_fixed_joint" type="fixed">
-    <origin xyz="0.010592657 -0.028351 -0.0086914" rpy="-1.57079632657 0.000214520362042 -2.47803674451"/>
+    <origin xyz="0.010592709 -0.028351 -0.0086914" rpy="-1.57079632657 0.000214520362042 -2.47803674451"/>
     <parent link="l_upper_arm"/>
     <child link="l_upper_arm_mtb_acc_1b13"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_elbow_1">
     <inertial>
-      <origin xyz="0.00673915521033 0.0303019 -0.00465778895412" rpy="0 0 0"/>
+      <origin xyz="0.00673912932843 0.0303019 -0.00465769236154" rpy="0 0 0"/>
       <mass value="0.267903"/>
       <inertia ixx="8.13352e-05" ixy="-7.37159e-06" ixz="1.04505e-05" iyy="5.86823e-05" iyz="3.9319e-06" izz="9.68469e-05"/>
     </inertial>
@@ -1506,7 +1545,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_elbow_prosup_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="pink"/>
+      <material name="white"/>
     </visual>
     <collision>
       <origin xyz="-0.259390463317 0.0339999 -0.0850325886962" rpy="0 0 0"/>
@@ -1534,7 +1573,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_forearm_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="cyan"/>
+      <material name="dblue"/>
     </visual>
     <collision>
       <origin xyz="-0.296886967375 0 -0.0795506015227" rpy="0 0 0"/>
@@ -1553,21 +1592,21 @@
   </joint>
   <link name="l_forearm_mtb_acc_1b7"/>
   <joint name="l_forearm_mtb_acc_1b7_fixed_joint" type="fixed">
-    <origin xyz="0.0768728106161 -0.005483 -0.0110480091994" rpy="0.26179949998 0.000370413042328 -1.57033448496"/>
+    <origin xyz="0.0768727847342 -0.005483 -0.0110479126068" rpy="0.26179949998 0.000370413042328 -1.57033448496"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_mtb_acc_1b7"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_mtb_acc_1b8"/>
   <joint name="l_forearm_mtb_acc_1b8_fixed_joint" type="fixed">
-    <origin xyz="0.0514241875192 -0.0180279 0.0407506756155" rpy="-0.661143946092 0.147825248461 -3.04952253889"/>
+    <origin xyz="0.0514241740607 -0.0180279 0.0407507258436" rpy="-0.661143946092 0.147825248461 -3.04952253889"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_mtb_acc_1b8"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_mtb_acc_1b9"/>
   <joint name="l_forearm_mtb_acc_1b9_fixed_joint" type="fixed">
-    <origin xyz="0.0220992133815 0.025657 -0.0151175209138" rpy="1.76682134218 0.261099829847 3.08752548202"/>
+    <origin xyz="0.0220991874996 0.025657 -0.0151174243212" rpy="1.76682134218 0.261099829847 3.08752548202"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_mtb_acc_1b9"/>
     <dynamics damping="0.1"/>
@@ -1581,28 +1620,28 @@
   </joint>
   <link name="l_forearm_skin_1"/>
   <joint name="l_forearm_skin_1_fixed_joint" type="fixed">
-    <origin xyz="0.0333729194645 -0.0310662 -0.0198457833637" rpy="1.86694023278 -0.274442533764 0.0421228737473"/>
+    <origin xyz="0.0333728935826 -0.0310662 -0.0198456867711" rpy="1.86694023278 -0.274442533764 0.0421228737473"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_1"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_2"/>
   <joint name="l_forearm_skin_2_fixed_joint" type="fixed">
-    <origin xyz="0.0146989188671 -0.0335184 -0.0160118304296" rpy="1.72847287019 -0.264015219116 0.0142600467197"/>
+    <origin xyz="0.0146988929852 -0.0335184 -0.0160117338371" rpy="1.72847287019 -0.264015219116 0.0142600467197"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_2"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_3"/>
   <joint name="l_forearm_skin_3_fixed_joint" type="fixed">
-    <origin xyz="0.0455673195039 0.028651 -0.00633010588609" rpy="-1.69487280859 -0.269757727104 -0.061995217851"/>
+    <origin xyz="0.045567293622 0.028651 -0.00633000929351" rpy="-1.69487280859 -0.269757727104 -0.061995217851"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_3"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_4"/>
   <joint name="l_forearm_skin_4_fixed_joint" type="fixed">
-    <origin xyz="0.0635326591815 0.025877 -0.00899793917324" rpy="-1.81747870108 -0.287406884885 -0.0998316152826"/>
+    <origin xyz="0.0635326332996 0.025877 -0.00899784258066" rpy="-1.81747870108 -0.287406884885 -0.0998316152826"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_4"/>
     <dynamics damping="0.1"/>
@@ -1616,14 +1655,14 @@
   </joint>
   <link name="l_forearm_skin_6"/>
   <joint name="l_forearm_skin_6_fixed_joint" type="fixed">
-    <origin xyz="0.0333948695074 0.027308 -0.0198326549359" rpy="-1.86628164653 -0.272886336181 -0.0371068033783"/>
+    <origin xyz="0.0333948436255 0.027308 -0.0198325583433" rpy="-1.86628164653 -0.272886336181 -0.0371068033783"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_6"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_7"/>
   <joint name="l_forearm_skin_7_fixed_joint" type="fixed">
-    <origin xyz="0.0147224518893 0.029702 -0.0159327448629" rpy="-1.72564640857 -0.263992900722 -0.0143801109253"/>
+    <origin xyz="0.0147224260074 0.029702 -0.0159326482703" rpy="-1.72564640857 -0.263992900722 -0.0143801109253"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_7"/>
     <dynamics damping="0.1"/>
@@ -1644,35 +1683,35 @@
   </joint>
   <link name="l_forearm_skin_10"/>
   <joint name="l_forearm_skin_10_fixed_joint" type="fixed">
-    <origin xyz="0.0542285469707 0.007546 -0.0321470048792" rpy="-2.94123313406 -0.328304471922 -0.0139662781936"/>
+    <origin xyz="0.0542285210888 0.007546 -0.0321469082866" rpy="-2.94123313406 -0.328304471922 -0.0139662781936"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_10"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_11"/>
   <joint name="l_forearm_skin_11_fixed_joint" type="fixed">
-    <origin xyz="0.0542241170843 -0.0112832 -0.0321432225378" rpy="2.93929835957 -0.329101389745 0.0142734891292"/>
+    <origin xyz="0.0542240912024 -0.0112832 -0.0321431259452" rpy="2.93929835957 -0.329101389745 0.0142734891292"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_11"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_12"/>
   <joint name="l_forearm_skin_12_fixed_joint" type="fixed">
-    <origin xyz="0.0375994892687 -0.0204556 -0.0340192145887" rpy="2.58303505964 -0.29483050207 0.021326850448"/>
+    <origin xyz="0.0375994633868 -0.0204556 -0.0340191179961" rpy="2.58303505964 -0.29483050207 0.021326850448"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_12"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_13"/>
   <joint name="l_forearm_skin_13_fixed_joint" type="fixed">
-    <origin xyz="0.0228551127224 -0.0112878 -0.0418919975134" rpy="2.94896679198 -0.270583947189 0.00177385006765"/>
+    <origin xyz="0.0228550868405 -0.0112878 -0.0418919009209" rpy="2.94896679198 -0.270583947189 0.00177385006765"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_13"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_14"/>
   <joint name="l_forearm_skin_14_fixed_joint" type="fixed">
-    <origin xyz="0.0687703535183 -0.0193999 -0.0230240524437" rpy="2.52462250363 -0.387794511771 0.0912924111683"/>
+    <origin xyz="0.0687703276364 -0.0193999 -0.0230239558511" rpy="2.52462250363 -0.387794511771 0.0912924111683"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_14"/>
     <dynamics damping="0.1"/>
@@ -1700,42 +1739,42 @@
   </joint>
   <link name="l_forearm_skin_19"/>
   <joint name="l_forearm_skin_19_fixed_joint" type="fixed">
-    <origin xyz="0.0381266365957 0.029054 0.0206905088005" rpy="-1.41560888703 -0.252569290226 -0.0644404747027"/>
+    <origin xyz="0.0381266107138 0.029054 0.020690605393" rpy="-1.41560888703 -0.252569290226 -0.0644404747027"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_19"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_22"/>
   <joint name="l_forearm_skin_22_fixed_joint" type="fixed">
-    <origin xyz="0.054417420924 0.026483 0.0306036550683" rpy="-1.2658242728 -0.234328151379 -0.0937094738802"/>
+    <origin xyz="0.0544173950421 0.026483 0.0306037516609" rpy="-1.2658242728 -0.234328151379 -0.0937094738802"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_22"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_24"/>
   <joint name="l_forearm_skin_24_fixed_joint" type="fixed">
-    <origin xyz="0.0700345474855 0.007477 0.0500690507585" rpy="-0.23489327644 -0.0388172993982 -0.0548291989999"/>
+    <origin xyz="0.0700345319564 0.007477 0.050069108714" rpy="-0.23489327644 -0.0388172993982 -0.0548291989999"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_24"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_25"/>
   <joint name="l_forearm_skin_25_fixed_joint" type="fixed">
-    <origin xyz="0.0535999345704 0.015984 0.0454697642082" rpy="-0.564295527715 -0.136980272197 -0.0819608256656"/>
+    <origin xyz="0.0535999216295 0.015984 0.0454698125045" rpy="-0.564295527715 -0.136980272197 -0.0819608256656"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_25"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_28"/>
   <joint name="l_forearm_skin_28_fixed_joint" type="fixed">
-    <origin xyz="0.0535859427439 -0.0196522 0.0453519794414" rpy="0.579311106949 -0.133994306778 0.0867597858312"/>
+    <origin xyz="0.0535859272148 -0.0196522 0.045352037397" rpy="0.579311106949 -0.133994306778 0.0867597858312"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_28"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="l_forearm_skin_29"/>
   <joint name="l_forearm_skin_29_fixed_joint" type="fixed">
-    <origin xyz="0.0700355934441 -0.0111936 0.050011055327" rpy="0.248630982209 -0.0383136556786 0.0583026624266"/>
+    <origin xyz="0.0700355805031 -0.0111936 0.0500111036233" rpy="0.248630982209 -0.0383136556786 0.0583026624266"/>
     <parent link="l_forearm"/>
     <child link="l_forearm_skin_29"/>
     <dynamics damping="0.1"/>
@@ -1758,7 +1797,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_wrist_pitch_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="green"/>
+      <material name="dgreen"/>
     </visual>
     <collision>
       <origin xyz="-0.400314530555 -7.00000000009e-06 -0.105038082269" rpy="0 0 0"/>
@@ -1777,7 +1816,7 @@
   </joint>
   <link name="l_hand">
     <inertial>
-      <origin xyz="0.0647680462876 0.0056304 0.0226601242523" rpy="0 0 0"/>
+      <origin xyz="0.0647680204057 0.0056304 0.0226602208449" rpy="0 0 0"/>
       <mass value="0.247806"/>
       <inertia ixx="0.000162491" ixy="2.96453e-06" ixz="-3.68906e-05" iyy="0.000430657" iyz="2.06885e-05" izz="0.000304729"/>
     </inertial>
@@ -1786,7 +1825,7 @@
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_l_hand_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="white"/>
+      <material name="gray"/>
     </visual>
     <collision>
       <origin xyz="-0.399680424055 0.0194929 -0.107404600587" rpy="0 0 0"/>
@@ -1805,26 +1844,26 @@
   </joint>
   <link name="l_hand_dh_frame"/>
   <joint name="l_hand_dh_frame_fixed_joint" type="fixed">
-    <origin xyz="0.0576543237247 -0.0055568 0.0136937357157" rpy="-1.57079632679 -0.261799319827 0"/>
+    <origin xyz="0.0576542978428 -0.0055568 0.0136938323083" rpy="-1.57079632679 -0.261799319827 0"/>
     <parent link="l_hand"/>
     <child link="l_hand_dh_frame"/>
     <dynamics damping="0.1"/>
   </joint>
   <link name="neck_1">
     <inertial>
-      <origin xyz="0.0143705608 0.006567 -0.0063841" rpy="0 0 0"/>
+      <origin xyz="0.0143705608 0.006567 -0.0063842" rpy="0 0 0"/>
       <mass value="0.125793"/>
       <inertia ixx="4.0647e-05" ixy="8.09156e-08" ixz="-3.74998e-08" iyy="3.881e-05" iyz="9.39717e-06" izz="4.7535e-05"/>
     </inertial>
     <visual>
-      <origin xyz="0.0142999998093 -0.079997 -0.0295007" rpy="0 0 0"/>
+      <origin xyz="0.0142999998093 -0.079997 -0.0295008" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_neck_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dblue"/>
+      <material name="green"/>
     </visual>
     <collision>
-      <origin xyz="0.0142999998093 -0.079997 -0.0295007" rpy="0 0 0"/>
+      <origin xyz="0.0142999998093 -0.079997 -0.0295008" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_neck_1_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -1840,26 +1879,26 @@
   </joint>
   <link name="neck_2">
     <inertial>
-      <origin xyz="-8.8573009265e-05 0.035225 -0.01954521" rpy="0 0 0"/>
+      <origin xyz="-8.8573009265e-05 0.035225 -0.01954527" rpy="0 0 0"/>
       <mass value="0.177087"/>
       <inertia ixx="0.000117943" ixy="-5.25591e-07" ixz="4.68307e-07" iyy="4.04013e-05" iyz="9.81476e-06" izz="0.000105186"/>
     </inertial>
     <visual>
-      <origin xyz="0 -0.089497 -0.05030071" rpy="0 0 0"/>
+      <origin xyz="0 -0.089497 -0.05030077" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_neck_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="dgreen"/>
+      <material name="black"/>
     </visual>
     <collision>
-      <origin xyz="0 -0.089497 -0.05030071" rpy="0 0 0"/>
+      <origin xyz="0 -0.089497 -0.05030077" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_neck_2_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <joint name="neck_roll" type="revolute">
-    <origin xyz="0.0142999998093 0.0095 0.02080001" rpy="0 0 0"/>
+    <origin xyz="0.0142999998093 0.0095 0.02079997" rpy="0 0 0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="neck_1"/>
     <child link="neck_2"/>
@@ -1873,21 +1912,21 @@
       <inertia ixx="0.00680478" ixy="-1.60267e-05" ixz="7.28166e-05" iyy="0.00634736" iyz="0.000292091" izz="0.00478116"/>
     </inertial>
     <visual>
-      <origin xyz="0 -0.067153 -0.0295007" rpy="0 0 0"/>
+      <origin xyz="0 -0.067153 -0.0295008" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_head_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="gray"/>
+      <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0 -0.067153 -0.0295007" rpy="0 0 0"/>
+      <origin xyz="0 -0.067153 -0.0295008" rpy="0 0 0"/>
       <geometry>
         <mesh filename="model://iCubGenova02/meshes/dae/sim_sea_2-5_head_prt.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
   <joint name="neck_yaw" type="revolute">
-    <origin xyz="0 -0.022344 -0.02080001" rpy="0 0 0"/>
+    <origin xyz="0 -0.022344 -0.02079997" rpy="0 0 0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="neck_2"/>
     <child link="head"/>
