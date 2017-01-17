@@ -424,7 +424,7 @@ def generate_3d_positions(args):
 
 
     # Export results
-    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownX,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
+    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownZ,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
 
 def main():
     parser = argparse.ArgumentParser(description='Generate 3D positions for iCub skin taxels, from centers extracted from CAD and iCubSkinGui 2D configuration files.')
