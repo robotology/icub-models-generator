@@ -10,6 +10,9 @@ The generation system from Denavit Hartenberg parametsrs based on data on robot 
 
 The generation system from actual CAD models converted to simmechanics file, described in http://wiki.icub.org/wiki/Creo_Mechanism_to_URDF , available in the `simmechanics` directory.
 
+As the two pipeline process data from two different sources, **the link frames are not guaranteed to be have the same orientation 
+or location across different models**. The only frames (that are represented in URDF as massless links) whose position is guaranteed to be consistent across different models are the one documented in http://wiki.icub.org/wiki/ICub_Model_naming_conventions#Frames . 
+
 Both generation pipelines are still a work in progress, and several issues need to be properly solved, for example: 
 * [Meshes are not properly handled #28](https://github.com/robotology-playground/icub-model-generator/issues/28)
 * [Gazebo SDF Models are not generated #25](https://github.com/robotology-playground/icub-model-generator/issues/25)
