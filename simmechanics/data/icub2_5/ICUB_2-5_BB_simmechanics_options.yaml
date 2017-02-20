@@ -309,14 +309,14 @@ sensors:
             <yarpConfigurationFile>model://icub/conf/inertial.ini</yarpConfigurationFile>
         </plugin>
   - sensorName: "default"
-    exportFrameInURDF: Yes
+    exportFrameInURDF: No
     sensorType: "accelerometer"
     updateRate: "100"
     sensorBlobs: 
     - |
         <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertialmtb.so" />
   - sensorName: "default"
-    exportFrameInURDF: Yes
+    exportFrameInURDF: No
     sensorType: "gyroscope"
     updateRate: "100"
   - frameName: SCSYS_ROOT_LINK_EMS_ACC_EB5
@@ -601,6 +601,7 @@ reverseRotationAxis:
   r_elbow
   neck_roll
   r_knee
+  r_wrist_prosup
 
 assignedMasses:
   chest: 7.6380
