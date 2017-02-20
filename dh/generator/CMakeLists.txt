@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SDFormat_CXX_FLAGS}")
 
 # add YARP include directories
 include_directories(${urdfdom_INCLUDE_DIR}
-                    ${orocos_kdl_INCLUDE_DIR}
+                    ${orocos_kdl_INCLUDE_DIRS}
                     ${EIGEN3_INCLUDE_DIR} ${YARP_INCLUDE_DIR} ${iDynTree_INCLUDE_DIRS}
                     ${iDyn_INCLUDE_DIRS}
                     ${YARP_INCLUDE_DIRS}

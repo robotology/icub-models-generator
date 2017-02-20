@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset>
-    <created>2013-11-15T10:34:58.874078</created>
-    <modified>2013-11-15T10:34:58.874090</modified>
-    <up_axis>Y_UP</up_axis>
-  </asset>
-  <library_effects><effect id="iCub_inner_secondary-effect" name="iCub_inner_secondary-effect">
+  <asset><created>2013-11-15T10:34:58.874078</created><modified>2013-11-15T10:34:58.874090</modified><up_axis>Y_UP</up_axis></asset><library_effects><effect id="iCub_inner_secondary-effect" name="iCub_inner_secondary-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -37,7 +31,7 @@
   <library_geometries><geometry id="Cube_002-mesh" name="Cube.002">
       <mesh>
         <source id="Cube_002-mesh-positions">
-          <float_array id="Cube_002-mesh-positions-array" count="24">0.03449994 0.0324999 -0.01199996 0.03449994 -0.0324999 -0.01199996 -0.03449994 -0.0324999 -0.01199996 -0.03449994 0.0324999 -0.01199996 0.03449994 0.0324999 0.01199996 0.03449994 -0.0324999 0.01199996 -0.0345 -0.03249984 0.01199996 -0.03449994 0.0324999 0.01199996</float_array>
+          <float_array id="Cube_002-mesh-positions-array" count="24">-5.960464e-08 0.0324999 -0.01199996 -5.960464e-08 -0.0324999 -0.01199996 -0.06899994 -0.0324999 -0.01199996 -0.06899994 0.0324999 -0.01199996 -5.960464e-08 0.0324999 0.01199996 -5.960464e-08 -0.0324999 0.01199996 -0.069 -0.03249984 0.01199996 -0.06899994 0.0324999 0.01199996</float_array>
           <technique_common>
             <accessor count="8" source="#Cube_002-mesh-positions-array" stride="3"><param type="float" name="X"/><param type="float" name="Y"/><param type="float" name="Z"/></accessor></technique_common>
         </source>
@@ -83,11 +77,8 @@
                 </technique_common>
               </bind_material>
             </instance_geometry>
-          <translate>-0.0345 0.0 0.0</translate></node>
+          </node>
         </node>
       </visual_scene>
   </library_visual_scenes>
-  <scene>
-    <instance_visual_scene url="#scene_r_hand"/>
-  </scene>
-</COLLADA>
+  <scene><instance_visual_scene url="#scene_r_hand"/></scene></COLLADA>

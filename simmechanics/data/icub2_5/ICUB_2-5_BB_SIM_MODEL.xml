@@ -9,7 +9,7 @@
 
   <createdFrom>"Pro/E Wildfire Creo 2.0 - 2015280"</createdFrom>
 
-  <createdOn>"06/28/16||20:22:39"</createdOn>
+  <createdOn>"09/30/16||09:31:23"</createdOn>
 
   <createdBy>"iCub"</createdBy>
 
@@ -36,7 +36,7 @@
             <name>"CG"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart::CG(AUTOGEN)"</nodeID>
-            <position>0.0227825,-120.457,-48.7725</position>
+            <position>0.0191907,-120.542,-48.762</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -62,7 +62,7 @@
             <name>"CS2"</name>
             <displayName>""</displayName>
             <nodeID>"59/RootPart:-:ICUB_2-5_BB_SIM_MODEL/RootPart::ICUB_2-5_BB_SIM_MODEL/RootPart(AUTOGEN)"</nodeID>
-            <position>-0.008955,-291.568,-44.3463</position>
+            <position>-0.00924417,-291.518,-44.3326</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -75,7 +75,7 @@
             <name>"CS3"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart:-:RootGround::ICUB_2-5_BB_SIM_MODEL/RootPart(AUTOGEN)"</nodeID>
-            <position>0.0227825,-120.457,-48.7725</position>
+            <position>0.0191907,-120.542,-48.762</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -216,7 +216,7 @@
             <name>"CS1"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart:-:RootGround::RootGround(AUTOGEN)"</nodeID>
-            <position>0.0227825,-120.457,-48.7725</position>
+            <position>0.0191907,-120.542,-48.762</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -397,7 +397,7 @@
                 <name>"CG"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/RootPart::CG(AUTOGEN)"</nodeID>
-                <position>-0.008955,-291.568,-44.3463</position>
+                <position>-0.00924417,-291.518,-44.3326</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -436,7 +436,7 @@
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/RootPart:-:ICUB_2-5_BB_SIM_MODEL/RootPart::59/RootPart(AUTOGEN)"</nodeID>
-                <position>-0.008955,-291.568,-44.3463</position>
+                <position>-0.00924417,-291.518,-44.3326</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -478,7 +478,7 @@
                 <name>"CS1"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/124::CS1(AUTOGEN)"</nodeID>
-                <position>-1.90735e-007,-3.2258e-013,2.95698e-013</position>
+                <position>-1.90735e-007,-3.19802e-013,3.0042e-013</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -769,7 +769,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/115::CS1(AUTOGEN)"</nodeID>
-                    <position>-7.94484e-013,-3.21469e-011,1.1212e-010</position>
+                    <position>-7.99505e-013,-3.20771e-011,1.12139e-010</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -837,7 +837,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/RootPart::CG(AUTOGEN)"</nodeID>
-                    <position>-70.6785,-392.778,-38.8226</position>
+                    <position>-70.6867,-392.611,-38.8081</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -850,7 +850,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/RootPart::CS1(AUTOGEN)"</nodeID>
-                    <position>-7.94484e-013,-3.21469e-011,1.1212e-010</position>
+                    <position>-7.99505e-013,-3.20771e-011,1.12139e-010</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -905,7 +905,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/106::CS1(AUTOGEN)"</nodeID>
-                    <position>4.21807e-012,-3.37372e-011,-1.90668e-007</position>
+                    <position>4.21969e-012,-3.37469e-011,-1.90668e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -986,7 +986,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/87::CS1(AUTOGEN)"</nodeID>
-                    <position>-5.87179e-011,-1.05179e-011,-1.90727e-007</position>
+                    <position>-5.87087e-011,-1.05619e-011,-1.90727e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1011,7 +1011,7 @@
                   <Frame ref="31">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3414:-:59/119/87::59/119/87(AUTOGEN)"</nodeID>
+                    <nodeID>"59/119/3418:-:59/119/87::59/119/87(AUTOGEN)"</nodeID>
                     <position>-70.1,-240.813,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1026,22 +1026,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_R_THIGH"</name>
-                <nodeID>"59/119/3414"</nodeID>
+                <nodeID>"59/119/3418"</nodeID>
                 <status>""</status>
-                <mass>2.20355</mass>
+                <mass>2.21002</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.00791322,0.000147226,6.31387e-006,0.000147226,0.00176632,-0.000167232,6.31387e-006,-0.000167232,0.00790413</inertia>
+                <inertia>0.00792076,0.00015034,6.06002e-006,0.00015034,0.0017712,-0.000168534,6.06002e-006,-0.000168534,0.00791101</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>641874</volume>
+                <volume>641690</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>428458</surfaceArea>
+                <surfaceArea>427954</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3414::CG(AUTOGEN)"</nodeID>
-                    <position>-70.1389,-319.71,-40.3874</position>
+                    <nodeID>"59/119/3418::CG(AUTOGEN)"</nodeID>
+                    <position>-70.1767,-319.679,-40.3478</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1053,8 +1053,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3414::CS1(AUTOGEN)"</nodeID>
-                    <position>-5.90248e-011,0.2,-1.90727e-007</position>
+                    <nodeID>"59/119/3418::CS1(AUTOGEN)"</nodeID>
+                    <position>-5.87273e-011,0.2,-1.90727e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1066,7 +1066,7 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_EMS_ACC_EB8"</displayName>
-                    <nodeID>"23959(USERADDED)"</nodeID>
+                    <nodeID>"5609(USERADDED)"</nodeID>
                     <position>-29.6928,-280.84,-56.2841</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1079,7 +1079,7 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_EMS_ACC_EB11"</displayName>
-                    <nodeID>"23960(USERADDED)"</nodeID>
+                    <nodeID>"5610(USERADDED)"</nodeID>
                     <position>-110.507,-324.02,-56.2861</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1092,7 +1092,7 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_EMS_GYRO_EB8"</displayName>
-                    <nodeID>"23961(USERADDED)"</nodeID>
+                    <nodeID>"5611(USERADDED)"</nodeID>
                     <position>-29.6928,-276.268,-56.788</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1105,7 +1105,7 @@
                   <Frame>
                     <name>"CS5"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_EMS_GYRO_EB11"</displayName>
-                    <nodeID>"23962(USERADDED)"</nodeID>
+                    <nodeID>"5612(USERADDED)"</nodeID>
                     <position>-110.507,-328.592,-56.79</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1118,7 +1118,7 @@
                   <Frame>
                     <name>"CS6"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_FT45"</displayName>
-                    <nodeID>"23964(USERADDED)"</nodeID>
+                    <nodeID>"5614(USERADDED)"</nodeID>
                     <position>-70.1,-226.013,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1131,7 +1131,7 @@
                   <Frame>
                     <name>"CS7"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B1"</displayName>
-                    <nodeID>"23966(USERADDED)"</nodeID>
+                    <nodeID>"5616(USERADDED)"</nodeID>
                     <position>-100.295,-191.673,-0.120388</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1144,12 +1144,12 @@
                   <Frame>
                     <name>"CS8"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B2"</displayName>
-                    <nodeID>"23967(USERADDED)"</nodeID>
+                    <nodeID>"5617(USERADDED)"</nodeID>
                     <position>-76.5065,-201.557,10.2377</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>-7.76924e-005,1,0.000342804,-0.669131,0.000202766,-0.743145,-0.743145,-0.000287117,0.669131</orientation>
+                    <orientation>-0.000112153,1,0.000399038,-0.965926,-5.05289e-006,-0.258819,-0.258819,-0.000414469,0.965926</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
@@ -1157,7 +1157,7 @@
                   <Frame>
                     <name>"CS9"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B3"</displayName>
-                    <nodeID>"23968(USERADDED)"</nodeID>
+                    <nodeID>"5618(USERADDED)"</nodeID>
                     <position>-83.1214,-236.627,10.1223</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1170,7 +1170,7 @@
                   <Frame>
                     <name>"CS10"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B4"</displayName>
-                    <nodeID>"23969(USERADDED)"</nodeID>
+                    <nodeID>"5619(USERADDED)"</nodeID>
                     <position>-27.8325,-245.658,-11.4371</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1183,7 +1183,7 @@
                   <Frame>
                     <name>"CS11"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B5"</displayName>
-                    <nodeID>"23970(USERADDED)"</nodeID>
+                    <nodeID>"5620(USERADDED)"</nodeID>
                     <position>-53.6214,-236.627,10.1223</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1196,7 +1196,7 @@
                   <Frame>
                     <name>"CS12"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B6"</displayName>
-                    <nodeID>"23971(USERADDED)"</nodeID>
+                    <nodeID>"5621(USERADDED)"</nodeID>
                     <position>-85.8594,-267.178,-87.4608</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1209,7 +1209,7 @@
                   <Frame>
                     <name>"CS13"</name>
                     <displayName>"SCSYS_R_UPPER_LEG_MTB_ACC_11B7"</displayName>
-                    <nodeID>"23972(USERADDED)"</nodeID>
+                    <nodeID>"5622(USERADDED)"</nodeID>
                     <position>-53.8614,-267.179,-87.4608</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1222,7 +1222,7 @@
                   <Frame ref="32">
                     <name>"CS14"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3414:-:59/119/87::59/119/3414(AUTOGEN)"</nodeID>
+                    <nodeID>"59/119/3418:-:59/119/87::59/119/3418(AUTOGEN)"</nodeID>
                     <position>-70.1,-240.813,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1235,8 +1235,8 @@
                   <Frame ref="33">
                     <name>"CS15"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412:-:59/119/3414::59/119/3414(AUTOGEN)"</nodeID>
-                    <position>-46.2961,-386.438,-43.709</position>
+                    <nodeID>"59/119/3418:-:59/119/3419::59/119/3418(AUTOGEN)"</nodeID>
+                    <position>-79.7675,-386.438,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1250,22 +1250,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_R_SHANK"</name>
-                <nodeID>"59/119/3412"</nodeID>
+                <nodeID>"59/119/3419"</nodeID>
                 <status>""</status>
-                <mass>1.87201</mass>
+                <mass>1.8722</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.00540828,0.000292508,-7.03247e-005,0.000292508,0.00192613,-0.000332689,-7.03247e-005,-0.000332689,0.00583736</inertia>
+                <inertia>0.00539556,0.000291936,-7.04118e-005,0.000291936,0.00192334,-0.000331799,-7.04118e-005,-0.000331799,0.0058222</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>550696</volume>
+                <volume>550441</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>401836</surfaceArea>
+                <surfaceArea>401270</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412::CG(AUTOGEN)"</nodeID>
-                    <position>-73.7133,-475.225,-42.6177</position>
+                    <nodeID>"59/119/3419::CG(AUTOGEN)"</nodeID>
+                    <position>-73.7011,-475.281,-42.6038</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1277,8 +1277,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412::CS1(AUTOGEN)"</nodeID>
-                    <position>1.90687e-007,0.2,-1.90525e-007</position>
+                    <nodeID>"59/119/3419::CS1(AUTOGEN)"</nodeID>
+                    <position>1.90676e-007,0.2,-1.90727e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1290,7 +1290,7 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_LOWER_LEG_EMS_ACC_EB9"</displayName>
-                    <nodeID>"46120(USERADDED)"</nodeID>
+                    <nodeID>"9654(USERADDED)"</nodeID>
                     <position>-56.2604,-479.203,-0.19527</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1303,7 +1303,7 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_R_LOWER_LEG_EMS_GYRO_EB9"</displayName>
-                    <nodeID>"46121(USERADDED)"</nodeID>
+                    <nodeID>"9655(USERADDED)"</nodeID>
                     <position>-55.7565,-474.739,0.794292</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1316,33 +1316,7 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B8"</displayName>
-                    <nodeID>"46123(USERADDED)"</nodeID>
-                    <position>-54.3771,-390.756,10.0427</position>
-                    <positionOrigin>"WORLD"</positionOrigin>
-                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
-                    <positionUnits>"mm"</positionUnits>
-                    <orientation>-0.000109107,1,3.97118e-005,-0.939693,-0.00011611,0.34202,0.34202,-1.22134e-012,0.939693</orientation>
-                    <orientationType>"3x3 Transform"</orientationType>
-                    <orientationUnits>"rad"</orientationUnits>
-                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
-                  </Frame>
-                  <Frame>
-                    <name>"CS5"</name>
-                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B9"</displayName>
-                    <nodeID>"46124(USERADDED)"</nodeID>
-                    <position>-112.314,-429.906,-15.8145</position>
-                    <positionOrigin>"WORLD"</positionOrigin>
-                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
-                    <positionUnits>"mm"</positionUnits>
-                    <orientation>0,1,0,-0.258819,0,-0.965926,-0.965926,0,0.258819</orientation>
-                    <orientationType>"3x3 Transform"</orientationType>
-                    <orientationUnits>"rad"</orientationUnits>
-                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
-                  </Frame>
-                  <Frame>
-                    <name>"CS6"</name>
-                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B10"</displayName>
-                    <nodeID>"46125(USERADDED)"</nodeID>
+                    <nodeID>"9657(USERADDED)"</nodeID>
                     <position>-85.2958,-390.756,9.92022</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1353,9 +1327,35 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B9"</displayName>
+                    <nodeID>"9658(USERADDED)"</nodeID>
+                    <position>-54.3771,-390.756,10.0427</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.000109107,1,3.97118e-005,-0.939693,-0.00011611,0.34202,0.34202,0,0.939693</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B10"</displayName>
+                    <nodeID>"9659(USERADDED)"</nodeID>
+                    <position>-112.314,-429.906,-15.8145</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-0.258819,0,-0.965926,-0.965926,0,0.258819</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
                     <name>"CS7"</name>
                     <displayName>"SCSYS_R_LOWER_LEG_MTB_ACC_11B11"</displayName>
-                    <nodeID>"46126(USERADDED)"</nodeID>
+                    <nodeID>"9660(USERADDED)"</nodeID>
                     <position>-27.851,-479.396,-27.2289</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -1368,8 +1368,8 @@
                   <Frame ref="34">
                     <name>"CS8"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412:-:59/119/3414::59/119/3412(AUTOGEN)"</nodeID>
-                    <position>-46.2961,-386.438,-43.709</position>
+                    <nodeID>"59/119/3418:-:59/119/3419::59/119/3419(AUTOGEN)"</nodeID>
+                    <position>-79.7675,-386.438,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1381,8 +1381,8 @@
                   <Frame ref="35">
                     <name>"CS9"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412:-:59/119/3413::59/119/3412(AUTOGEN)"</nodeID>
-                    <position>-105.6,-587.438,-43.709</position>
+                    <nodeID>"59/119/3413:-:59/119/3419::59/119/3419(AUTOGEN)"</nodeID>
+                    <position>-98.6,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1411,7 +1411,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3413::CG(AUTOGEN)"</nodeID>
-                    <position>-70.9718,-587.375,-28.4583</position>
+                    <position>-70.9718,-586.875,-28.4583</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1424,7 +1424,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3413::CS1(AUTOGEN)"</nodeID>
-                    <position>1.90685e-007,-0.3,-1.90525e-007</position>
+                    <position>1.90677e-007,0.2,-1.90727e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1436,8 +1436,8 @@
                   <Frame ref="36">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/3412:-:59/119/3413::59/119/3413(AUTOGEN)"</nodeID>
-                    <position>-105.6,-587.438,-43.709</position>
+                    <nodeID>"59/119/3413:-:59/119/3419::59/119/3413(AUTOGEN)"</nodeID>
+                    <position>-98.6,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1450,7 +1450,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3413::59/119/3413(AUTOGEN)"</nodeID>
-                    <position>-70.1,-587.438,-62.209</position>
+                    <position>-70.1,-586.938,-62.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1479,7 +1479,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111::CG(AUTOGEN)"</nodeID>
-                    <position>-70.1082,-625.64,-42.9417</position>
+                    <position>-70.1082,-625.14,-42.9417</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1492,7 +1492,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111::CS1(AUTOGEN)"</nodeID>
-                    <position>1.90686e-007,-0.3,-3.8126e-007</position>
+                    <position>1.90676e-007,0.2,-3.81456e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1505,7 +1505,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_FOOT_FT45"</displayName>
                     <nodeID>"56055(USERADDED)"</nodeID>
-                    <position>-70.1,-647.738,-47.209</position>
+                    <position>-70.1,-647.238,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1518,7 +1518,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3413::59/119/111(AUTOGEN)"</nodeID>
-                    <position>-70.1,-587.438,-62.209</position>
+                    <position>-70.1,-586.938,-62.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1531,7 +1531,7 @@
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3415::59/119/111(AUTOGEN)"</nodeID>
-                    <position>-70.1,-636.938,-47.209</position>
+                    <position>-70.1,-636.438,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1560,7 +1560,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3415::CG(AUTOGEN)"</nodeID>
-                    <position>-75.4646,-646.6,-13.5853</position>
+                    <position>-75.4646,-646.1,-13.5853</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1573,7 +1573,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/3415::CS1(AUTOGEN)"</nodeID>
-                    <position>1.90686e-007,-0.3,-3.8126e-007</position>
+                    <position>1.90676e-007,0.2,-3.81456e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1586,7 +1586,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_FOOT_MTB_ACC_11B12"</displayName>
                     <nodeID>"24462(USERADDED)"</nodeID>
-                    <position>-69.293,-646.523,56.2654</position>
+                    <position>-69.293,-646.023,56.2654</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1599,7 +1599,7 @@
                     <name>"CS3"</name>
                     <displayName>"SCSYS_R_FOOT_MTB_ACC_11B13"</displayName>
                     <nodeID>"24463(USERADDED)"</nodeID>
-                    <position>-58.2928,-646.523,31.2654</position>
+                    <position>-58.2928,-646.023,31.2654</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1612,7 +1612,7 @@
                     <name>"CS4"</name>
                     <displayName>"SCSYS_R_SOLE"</displayName>
                     <nodeID>"24465(USERADDED)"</nodeID>
-                    <position>-70.1,-651.738,-43.709</position>
+                    <position>-70.1,-651.238,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1625,7 +1625,7 @@
                     <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/111:-:59/119/3415::59/119/3415(AUTOGEN)"</nodeID>
-                    <position>-70.1,-636.938,-47.209</position>
+                    <position>-70.1,-636.438,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1728,7 +1728,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_R_UPPER_THIGH--SIM_SEA_2-5_R_THIGH"</name>
-                <nodeID>"59/119/3414:-:59/119/87"</nodeID>
+                <nodeID>"59/119/3418:-:59/119/87"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -1757,7 +1757,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_R_THIGH--SIM_SEA_2-5_R_SHANK"</name>
-                <nodeID>"59/119/3412:-:59/119/3414"</nodeID>
+                <nodeID>"59/119/3418:-:59/119/3419"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -1780,13 +1780,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>-1,0,0</axis>
+                    <axis>1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_R_SHANK--SIM_SEA_2-5_R_ANKLE"</name>
-                <nodeID>"59/119/3412:-:59/119/3413"</nodeID>
+                <nodeID>"59/119/3413:-:59/119/3419"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -1809,7 +1809,7 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>1,0,0</axis>
+                    <axis>-1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
@@ -1980,7 +1980,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/RootPart::CG(AUTOGEN)"</nodeID>
-                    <position>70.7096,-392.74,-38.8697</position>
+                    <position>70.7169,-392.573,-38.8552</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2048,7 +2048,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/96::CS1(AUTOGEN)"</nodeID>
-                    <position>-5.6275e-012,-1.39627e-011,-1.90698e-007</position>
+                    <position>-5.17625e-012,-1.78734e-011,-1.9069e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2154,7 +2154,7 @@
                   <Frame ref="45">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/34:-:59/120/86::59/120/34(AUTOGEN)"</nodeID>
+                    <nodeID>"59/120/34:-:59/120/97::59/120/34(AUTOGEN)"</nodeID>
                     <position>70.1,-240.813,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2169,22 +2169,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_L_THIGH"</name>
-                <nodeID>"59/120/86"</nodeID>
+                <nodeID>"59/120/97"</nodeID>
                 <status>""</status>
-                <mass>2.20843</mass>
+                <mass>2.21491</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.00791838,-0.000140684,-4.64418e-006,-0.000140684,0.00176919,-0.000167361,-4.64418e-006,-0.000167361,0.00791102</inertia>
+                <inertia>0.00792591,-0.000143926,-4.37611e-006,-0.000143926,0.00177403,-0.000168664,-4.37611e-006,-0.000168664,0.00791783</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>642449</volume>
+                <volume>642265</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>429365</surfaceArea>
+                <surfaceArea>428860</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/86::CG(AUTOGEN)"</nodeID>
-                    <position>70.2157,-319.671,-40.4001</position>
+                    <nodeID>"59/120/97::CG(AUTOGEN)"</nodeID>
+                    <position>70.2504,-319.64,-40.3605</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2196,8 +2196,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/86::CS1(AUTOGEN)"</nodeID>
-                    <position>-8.88952e-012,0.2,-0.3</position>
+                    <nodeID>"59/120/97::CS1(AUTOGEN)"</nodeID>
+                    <position>-7.83526e-012,0.2,-1.90688e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2209,7 +2209,7 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_EMS_ACC_EB6"</displayName>
-                    <nodeID>"23863(USERADDED)"</nodeID>
+                    <nodeID>"5613(USERADDED)"</nodeID>
                     <position>29.6928,-324.02,-56.2861</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2222,7 +2222,7 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_EMS_ACC_EB10"</displayName>
-                    <nodeID>"23864(USERADDED)"</nodeID>
+                    <nodeID>"5614(USERADDED)"</nodeID>
                     <position>110.507,-280.84,-56.2841</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2235,7 +2235,7 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_EMS_GYRO_EB6"</displayName>
-                    <nodeID>"23865(USERADDED)"</nodeID>
+                    <nodeID>"5615(USERADDED)"</nodeID>
                     <position>29.6928,-328.592,-56.79</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2248,7 +2248,7 @@
                   <Frame>
                     <name>"CS5"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_EMS_GYRO_EB10"</displayName>
-                    <nodeID>"23866(USERADDED)"</nodeID>
+                    <nodeID>"5616(USERADDED)"</nodeID>
                     <position>110.507,-276.268,-56.788</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2261,7 +2261,7 @@
                   <Frame>
                     <name>"CS6"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_FT45"</displayName>
-                    <nodeID>"23868(USERADDED)"</nodeID>
+                    <nodeID>"5618(USERADDED)"</nodeID>
                     <position>70.1,-226.013,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2274,7 +2274,7 @@
                   <Frame>
                     <name>"CS7"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B1"</displayName>
-                    <nodeID>"23870(USERADDED)"</nodeID>
+                    <nodeID>"5620(USERADDED)"</nodeID>
                     <position>101.665,-191.481,-1.70737</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2287,12 +2287,12 @@
                   <Frame>
                     <name>"CS8"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B2"</displayName>
-                    <nodeID>"23871(USERADDED)"</nodeID>
+                    <nodeID>"5621(USERADDED)"</nodeID>
                     <position>78.4839,-201.361,9.64644</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>-7.76924e-005,1,8.62862e-005,-0.669131,-0.00011611,0.743145,0.743145,-7.89654e-012,0.669131</orientation>
+                    <orientation>-0.000112153,1,3.00514e-005,-0.965926,-0.00011611,0.258819,0.258819,0,0.965926</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
@@ -2300,7 +2300,7 @@
                   <Frame>
                     <name>"CS9"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B3"</displayName>
-                    <nodeID>"23872(USERADDED)"</nodeID>
+                    <nodeID>"5622(USERADDED)"</nodeID>
                     <position>85.1706,-236.431,10.076</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2313,7 +2313,7 @@
                   <Frame>
                     <name>"CS10"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B4"</displayName>
-                    <nodeID>"23873(USERADDED)"</nodeID>
+                    <nodeID>"5623(USERADDED)"</nodeID>
                     <position>55.6706,-236.431,10.076</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2326,7 +2326,7 @@
                   <Frame>
                     <name>"CS11"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B5"</displayName>
-                    <nodeID>"23874(USERADDED)"</nodeID>
+                    <nodeID>"5624(USERADDED)"</nodeID>
                     <position>28.6001,-245.471,-9.57951</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2339,7 +2339,7 @@
                   <Frame>
                     <name>"CS12"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B6"</displayName>
-                    <nodeID>"23875(USERADDED)"</nodeID>
+                    <nodeID>"5625(USERADDED)"</nodeID>
                     <position>87.9086,-267.025,-87.494</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2352,7 +2352,7 @@
                   <Frame>
                     <name>"CS13"</name>
                     <displayName>"SCSYS_L_UPPER_LEG_MTB_ACC_10B7"</displayName>
-                    <nodeID>"23876(USERADDED)"</nodeID>
+                    <nodeID>"5626(USERADDED)"</nodeID>
                     <position>55.9082,-267.024,-87.494</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2365,7 +2365,7 @@
                   <Frame ref="46">
                     <name>"CS14"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/34:-:59/120/86::59/120/86(AUTOGEN)"</nodeID>
+                    <nodeID>"59/120/34:-:59/120/97::59/120/97(AUTOGEN)"</nodeID>
                     <position>70.1,-240.813,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2378,8 +2378,8 @@
                   <Frame ref="47">
                     <name>"CS15"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/86:-:59/120/87::59/120/86(AUTOGEN)"</nodeID>
-                    <position>46.3168,-386.438,-43.709</position>
+                    <nodeID>"59/120/97:-:59/120/98::59/120/97(AUTOGEN)"</nodeID>
+                    <position>56.5145,-386.438,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2393,22 +2393,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_L_SHANK"</name>
-                <nodeID>"59/120/87"</nodeID>
+                <nodeID>"59/120/98"</nodeID>
                 <status>""</status>
-                <mass>1.87237</mass>
+                <mass>1.87257</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.00540418,-0.000305905,8.58509e-005,-0.000305905,0.0019275,-0.000293159,8.58509e-005,-0.000293159,0.00583249</inertia>
+                <inertia>0.00539152,-0.000305343,8.59412e-005,-0.000305343,0.00192473,-0.000292239,8.59412e-005,-0.000292239,0.00581738</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>550721</volume>
+                <volume>550466</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>401861</surfaceArea>
+                <surfaceArea>401294</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/87::CG(AUTOGEN)"</nodeID>
-                    <position>73.6936,-474.997,-42.855</position>
+                    <nodeID>"59/120/98::CG(AUTOGEN)"</nodeID>
+                    <position>73.6814,-475.053,-42.841</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2420,8 +2420,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/87::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90742e-007,0.2,-0.3</position>
+                    <nodeID>"59/120/98::CS1(AUTOGEN)"</nodeID>
+                    <position>-1.90743e-007,0.2,-1.90687e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2433,7 +2433,7 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_LOWER_LEG_EMS_ACC_EB7"</displayName>
-                    <nodeID>"45827(USERADDED)"</nodeID>
+                    <nodeID>"9562(USERADDED)"</nodeID>
                     <position>81.4146,-479.203,-0.19527</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2446,7 +2446,7 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_L_LOWER_LEG_EMS_GYRO_EB7"</displayName>
-                    <nodeID>"45828(USERADDED)"</nodeID>
+                    <nodeID>"9563(USERADDED)"</nodeID>
                     <position>81.9185,-474.739,0.794292</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2459,7 +2459,20 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B8"</displayName>
-                    <nodeID>"45830(USERADDED)"</nodeID>
+                    <nodeID>"9565(USERADDED)"</nodeID>
+                    <position>87.2841,-390.756,9.42447</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0,1,0,-0.970296,0,0.241922,0.241922,0,0.970296</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS5"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B9"</displayName>
+                    <nodeID>"9566(USERADDED)"</nodeID>
                     <position>56.3009,-390.756,10.7428</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2470,9 +2483,9 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame>
-                    <name>"CS5"</name>
-                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B9"</displayName>
-                    <nodeID>"45831(USERADDED)"</nodeID>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B10"</displayName>
+                    <nodeID>"9567(USERADDED)"</nodeID>
                     <position>112.844,-429.906,-17.7939</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2483,22 +2496,9 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame>
-                    <name>"CS6"</name>
-                    <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B10"</displayName>
-                    <nodeID>"45832(USERADDED)"</nodeID>
-                    <position>77.3058,-397.475,8.67233</position>
-                    <positionOrigin>"WORLD"</positionOrigin>
-                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
-                    <positionUnits>"mm"</positionUnits>
-                    <orientation>0,1,0,-0.241922,0,-0.970296,-0.970296,0,0.241922</orientation>
-                    <orientationType>"3x3 Transform"</orientationType>
-                    <orientationUnits>"rad"</orientationUnits>
-                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
-                  </Frame>
-                  <Frame>
                     <name>"CS7"</name>
                     <displayName>"SCSYS_L_LOWER_LEG_MTB_ACC_10B11"</displayName>
-                    <nodeID>"45833(USERADDED)"</nodeID>
+                    <nodeID>"9568(USERADDED)"</nodeID>
                     <position>28.3813,-479.396,-25.2497</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -2511,8 +2511,8 @@
                   <Frame ref="48">
                     <name>"CS8"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/86:-:59/120/87::59/120/87(AUTOGEN)"</nodeID>
-                    <position>46.3168,-386.438,-43.709</position>
+                    <nodeID>"59/120/97:-:59/120/98::59/120/98(AUTOGEN)"</nodeID>
+                    <position>56.5145,-386.438,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2524,8 +2524,8 @@
                   <Frame ref="49">
                     <name>"CS9"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/87:-:59/120/88::59/120/87(AUTOGEN)"</nodeID>
-                    <position>105.6,-587.438,-43.709</position>
+                    <nodeID>"59/120/88:-:59/120/98::59/120/98(AUTOGEN)"</nodeID>
+                    <position>97.1179,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2554,7 +2554,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/88::CG(AUTOGEN)"</nodeID>
-                    <position>71.0063,-587.375,-28.4484</position>
+                    <position>71.0063,-586.875,-28.4484</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2567,7 +2567,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/88::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.9074e-007,-0.3,-0.3</position>
+                    <position>-1.90733e-007,0.2,-0.3</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2579,8 +2579,8 @@
                   <Frame ref="50">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/120/87:-:59/120/88::59/120/88(AUTOGEN)"</nodeID>
-                    <position>105.6,-587.438,-43.709</position>
+                    <nodeID>"59/120/88:-:59/120/98::59/120/88(AUTOGEN)"</nodeID>
+                    <position>97.1179,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2593,7 +2593,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/88::59/120/88(AUTOGEN)"</nodeID>
-                    <position>70.1,-587.438,4.37855</position>
+                    <position>70.1,-586.938,4.37855</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2622,7 +2622,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85::CG(AUTOGEN)"</nodeID>
-                    <position>70.0918,-625.64,-42.9417</position>
+                    <position>70.0918,-625.14,-42.9417</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2635,7 +2635,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90741e-007,-0.3,-0.3</position>
+                    <position>-1.90733e-007,0.2,-0.3</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2648,7 +2648,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_FOOT_FT45"</displayName>
                     <nodeID>"54189(USERADDED)"</nodeID>
-                    <position>70.1,-647.738,-47.209</position>
+                    <position>70.1,-647.238,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2661,7 +2661,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/88::59/120/85(AUTOGEN)"</nodeID>
-                    <position>70.1,-587.438,4.37855</position>
+                    <position>70.1,-586.938,4.37855</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2674,7 +2674,7 @@
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/89::59/120/85(AUTOGEN)"</nodeID>
-                    <position>70.1,-647.738,-47.209</position>
+                    <position>70.1,-647.238,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2703,7 +2703,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/89::CG(AUTOGEN)"</nodeID>
-                    <position>75.4662,-646.584,-13.5184</position>
+                    <position>75.4662,-646.084,-13.5184</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2716,7 +2716,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/89::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90694e-007,-0.3,-3.81345e-007</position>
+                    <position>-1.90686e-007,0.2,-3.81341e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2729,7 +2729,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_FOOT_MTB_ACC_10B12"</displayName>
                     <nodeID>"23179(USERADDED)"</nodeID>
-                    <position>69.2928,-646.523,58.3134</position>
+                    <position>69.2928,-646.023,58.3134</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2742,7 +2742,7 @@
                     <name>"CS3"</name>
                     <displayName>"SCSYS_L_FOOT_MTB_ACC_10B13"</displayName>
                     <nodeID>"23180(USERADDED)"</nodeID>
-                    <position>58.2928,-646.523,33.3134</position>
+                    <position>58.2928,-646.023,33.3134</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2755,7 +2755,7 @@
                     <name>"CS4"</name>
                     <displayName>"SCSYS_L_SOLE"</displayName>
                     <nodeID>"23182(USERADDED)"</nodeID>
-                    <position>70.1,-651.738,-43.709</position>
+                    <position>70.1,-651.238,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2768,7 +2768,7 @@
                     <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/85:-:59/120/89::59/120/89(AUTOGEN)"</nodeID>
-                    <position>70.1,-647.738,-47.209</position>
+                    <position>70.1,-647.238,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2871,7 +2871,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_UPPER_THIGH--SIM_SEA_2-5_L_THIGH"</name>
-                <nodeID>"59/120/34:-:59/120/86"</nodeID>
+                <nodeID>"59/120/34:-:59/120/97"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2900,7 +2900,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_THIGH--SIM_SEA_2-5_L_SHANK"</name>
-                <nodeID>"59/120/86:-:59/120/87"</nodeID>
+                <nodeID>"59/120/97:-:59/120/98"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2923,13 +2923,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>1,0,0</axis>
+                    <axis>-1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_SHANK--SIM_SEA_2-5_L_ANKLE"</name>
-                <nodeID>"59/120/87:-:59/120/88"</nodeID>
+                <nodeID>"59/120/88:-:59/120/98"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -3309,7 +3309,7 @@
                 <name>"CG"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/RootPart::CG(AUTOGEN)"</nodeID>
-                <position>0.134692,73.2563,-57.3898</position>
+                <position>0.125826,73.1046,-57.3859</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -4418,7 +4418,7 @@
                   <Frame ref="69">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/98:-:60/150/99::60/150/98(AUTOGEN)"</nodeID>
+                    <nodeID>"60/150/112:-:60/150/98::60/150/98(AUTOGEN)"</nodeID>
                     <position>-109.391,-52.06,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -4448,7 +4448,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/RootPart::CG(AUTOGEN)"</nodeID>
-                    <position>-105.32,-105.861,-25.5116</position>
+                    <position>-105.44,-106.621,-25.5141</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4488,22 +4488,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_R_FOREARM"</name>
-                <nodeID>"60/150/99"</nodeID>
+                <nodeID>"60/150/112"</nodeID>
                 <status>""</status>
-                <mass>0.63385</mass>
+                <mass>0.6347</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.000369432,-3.85808e-006,0.000105279,-3.85808e-006,0.000672046,5.3443e-006,0.000105279,5.3443e-006,0.000552077</inertia>
+                <inertia>0.000370044,-1.65419e-006,0.00010538,-1.65419e-006,0.000672279,1.1456e-006,0.00010538,1.1456e-006,0.000553637</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>173604</volume>
+                <volume>173722</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>152718</surfaceArea>
+                <surfaceArea>153062</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/99::CG(AUTOGEN)"</nodeID>
-                    <position>-108.844,-91.5059,-31.1045</position>
+                    <nodeID>"60/150/112::CG(AUTOGEN)"</nodeID>
+                    <position>-109.063,-92.5,-31.1017</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4515,8 +4515,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/99::CS1(AUTOGEN)"</nodeID>
-                    <position>-109.391,256.3,-25.7811</position>
+                    <nodeID>"60/150/112::CS1(AUTOGEN)"</nodeID>
+                    <position>-109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4528,8 +4528,8 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B7"</displayName>
-                    <nodeID>"1629(USERADDED)"</nodeID>
-                    <position>-114.888,-122.454,-56.3488</position>
+                    <nodeID>"2742(USERADDED)"</nodeID>
+                    <position>-114.888,-123.454,-56.3488</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4541,12 +4541,12 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B8"</displayName>
-                    <nodeID>"1631(USERADDED)"</nodeID>
-                    <position>-90.6426,-111.416,-0.250017</position>
+                    <nodeID>"2744(USERADDED)"</nodeID>
+                    <position>-125.177,-112.274,0.274293</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>0.0908365,0.989465,0.112724,-0.777644,-0.000234306,0.628705,0.622108,-0.144769,0.769431</orientation>
+                    <orientation>-0.0909373,0.989466,0.112643,-0.777632,0.000106014,-0.628719,-0.622108,-0.144769,0.769431</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
@@ -4554,8 +4554,8 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_R_FOREARM_MTB_ACC_2B9"</displayName>
-                    <nodeID>"1632(USERADDED)"</nodeID>
-                    <position>-137.315,-68.5316,-44.1791</position>
+                    <nodeID>"2745(USERADDED)"</nodeID>
+                    <position>-137.315,-69.5316,-44.1791</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4564,10 +4564,335 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="70">
+                  <Frame>
                     <name>"CS5"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_0"</displayName>
+                    <nodeID>"2746(USERADDED)"</nodeID>
+                    <position>-139.468,-94.3336,-43.6166</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0700692,-0.997493,0.00988788,-0.139731,0,0.990189,-0.987707,-0.0707635,-0.139381</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_1"</displayName>
+                    <nodeID>"2747(USERADDED)"</nodeID>
+                    <position>-138.217,-79.1593,-53.5882</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0405346,-0.999095,0.012864,-0.302491,0,0.953152,-0.95229,-0.0425269,-0.302217</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_2"</displayName>
+                    <nodeID>"2748(USERADDED)"</nodeID>
+                    <position>-140.67,-62.1139,-45.0517</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0137658,-0.999903,0.00224104,-0.160683,0,0.987006,-0.98691,-0.013947,-0.160667</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS8"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_3"</displayName>
+                    <nodeID>"2749(USERADDED)"</nodeID>
+                    <position>-78.5,-94.4363,-43.6892</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0597153,-0.99818,0.00843745,-0.139905,0,-0.990165,0.988363,-0.0603085,-0.13965</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS9"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_4"</displayName>
+                    <nodeID>"2750(USERADDED)"</nodeID>
+                    <position>-81.2747,-111.099,-50.9159</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.160789,-0.962774,-0.217285,-0.237448,0.251417,-0.938301,0.958001,-0.0992748,-0.269034</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS10"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_5"</displayName>
+                    <nodeID>"2751(USERADDED)"</nodeID>
+                    <position>-91.4427,-112.554,-65.9191</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0802531,-0.98898,0.124413,-0.840337,0,-0.542064,0.53609,-0.148051,-0.831077</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS11"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_6"</displayName>
+                    <nodeID>"2752(USERADDED)"</nodeID>
+                    <position>-79.8431,-79.1839,-53.5812</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0357256,-0.999298,0.0112586,-0.300569,0,-0.95376,0.953091,-0.0374576,-0.300358</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS12"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_7"</displayName>
+                    <nodeID>"2753(USERADDED)"</nodeID>
+                    <position>-77.4488,-62.1571,-44.9814</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0138813,-0.999901,0.00222003,-0.157923,0,-0.987451,0.987354,-0.0140577,-0.157908</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS13"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_8"</displayName>
+                    <nodeID>"2754(USERADDED)"</nodeID>
+                    <position>-99.6048,-63.2935,-72.1538</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00172191,-0.99996,0.00880593,-0.981413,0,-0.191905,0.191897,-0.0089727,-0.981374</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS14"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_9"</displayName>
+                    <nodeID>"2755(USERADDED)"</nodeID>
+                    <position>-90.436,-79.5779,-68.3708</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0194398,-0.999313,0.031568,-0.851497,0,-0.524359,0.523998,-0.0370735,-0.850912</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS15"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_10"</displayName>
+                    <nodeID>"2756(USERADDED)"</nodeID>
+                    <position>-99.6049,-96.1205,-70.8681</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.01322,-0.9977,0.0664798,-0.980796,0,-0.195038,0.194589,-0.0677815,-0.97854</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS16"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_11"</displayName>
+                    <nodeID>"2757(USERADDED)"</nodeID>
+                    <position>-118.434,-96.1172,-70.8633</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0135071,-0.997643,0.0672762,-0.980435,0,0.196842,-0.196378,-0.0686187,-0.978124</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS17"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_12"</displayName>
+                    <nodeID>"2758(USERADDED)"</nodeID>
+                    <position>-127.607,-79.5735,-68.3726</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0204053,-0.999244,0.0330813,-0.851112,0,0.524985,-0.524588,-0.0388683,-0.850468</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS18"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_13"</displayName>
+                    <nodeID>"2759(USERADDED)"</nodeID>
+                    <position>-118.439,-63.2939,-72.161</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.00170916,-0.99996,0.00878474,-0.981594,0,0.190979,-0.190971,-0.00894947,-0.981555</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS19"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_14"</displayName>
+                    <nodeID>"2760(USERADDED)"</nodeID>
+                    <position>-126.551,-112.528,-65.8197</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.211399,-0.976587,0.0398579,-0.809298,-0.15203,0.567383,-0.548039,-0.152201,-0.822489</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS20"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_15"</displayName>
+                    <nodeID>"2761(USERADDED)"</nodeID>
+                    <position>-136.536,-111.003,-50.6791</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.108947,-0.993607,0.0295885,-0.262093,0,0.965043,-0.958873,-0.112893,-0.260418</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS21"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_16"</displayName>
+                    <nodeID>"2762(USERADDED)"</nodeID>
+                    <position>-139.878,-94.0338,-15.663</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0734209,-0.997248,-0.0102534,0.13831,0,0.990389,-0.987664,-0.0741334,0.137929</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS22"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_17"</displayName>
+                    <nodeID>"2763(USERADDED)"</nodeID>
+                    <position>-137.116,-112.376,-10.5437</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.106522,-0.993867,-0.0296885,0.268476,0,0.963286,-0.957379,-0.110582,0.266829</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS23"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_19"</displayName>
+                    <nodeID>"2764(USERADDED)"</nodeID>
+                    <position>-78.0969,-94.2426,-15.6635</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0623527,-0.998016,-0.00870999,0.138346,0,-0.990384,0.988419,-0.0629582,0.138071</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS24"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_22"</displayName>
+                    <nodeID>"2765(USERADDED)"</nodeID>
+                    <position>-80.6687,-112.544,-10.3045</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0910149,-0.995501,-0.0263635,0.278225,0,-0.960516,0.956194,-0.0947562,0.276973</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS25"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_24"</displayName>
+                    <nodeID>"2766(USERADDED)"</nodeID>
+                    <position>-99.6746,-132.667,4.45562</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0547605,-0.973792,-0.22075,0.970583,0,-0.240768,0.234458,-0.227441,0.945146</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS26"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_25"</displayName>
+                    <nodeID>"2767(USERADDED)"</nodeID>
+                    <position>-91.1672,-115.602,4.26664</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0811022,-0.989008,-0.123634,0.83615,0,-0.548501,0.542472,-0.147862,0.826959</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS27"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_28"</displayName>
+                    <nodeID>"2768(USERADDED)"</nodeID>
+                    <position>-126.803,-115.558,4.15649</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0355638,-0.977702,-0.206964,0.831039,-0.143959,0.537262,-0.555076,-0.152888,0.817628</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS28"</name>
+                    <displayName>"SCSYS_R_FOREARM_SKIN_29"</displayName>
+                    <nodeID>"2769(USERADDED)"</nodeID>
+                    <position>-118.345,-132.653,4.39933</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0582271,-0.973491,-0.221191,0.967054,0,0.254571,-0.247823,-0.228726,0.941418</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS29"</name>
+                    <displayName>"SCSYS_R_FOREARM_DH_FRAME"</displayName>
+                    <nodeID>"2781(USERADDED)"</nodeID>
+                    <position>-109.398,-158.56,-25.7811</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,1,0,0,0,1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="70">
+                    <name>"CS30"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/98:-:60/150/99::60/150/99(AUTOGEN)"</nodeID>
+                    <nodeID>"60/150/112:-:60/150/98::60/150/112(AUTOGEN)"</nodeID>
                     <position>-109.391,-52.06,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -4578,10 +4903,10 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="71">
-                    <name>"CS6"</name>
+                    <name>"CS31"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/105:-:60/150/99::60/150/99(AUTOGEN)"</nodeID>
-                    <position>-109.398,-157.56,-28.2311</position>
+                    <nodeID>"60/150/105:-:60/150/112::60/150/112(AUTOGEN)"</nodeID>
+                    <position>-109.398,-158.56,-28.2311</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4610,7 +4935,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105::CG(AUTOGEN)"</nodeID>
-                    <position>-108.222,-157.669,-24.0144</position>
+                    <position>-108.222,-158.669,-24.0144</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4623,7 +4948,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105::CS1(AUTOGEN)"</nodeID>
-                    <position>-109.391,256.3,-25.7811</position>
+                    <position>-109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4635,8 +4960,8 @@
                   <Frame ref="72">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/150/105:-:60/150/99::60/150/105(AUTOGEN)"</nodeID>
-                    <position>-109.398,-157.56,-28.2311</position>
+                    <nodeID>"60/150/105:-:60/150/112::60/150/105(AUTOGEN)"</nodeID>
+                    <position>-109.398,-158.56,-28.2311</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4649,7 +4974,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/108::60/150/105(AUTOGEN)"</nodeID>
-                    <position>-89.8981,-157.56,-25.7811</position>
+                    <position>-89.8981,-158.56,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4678,7 +5003,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/108::CG(AUTOGEN)"</nodeID>
-                    <position>-95.4983,-225.895,-20.6101</position>
+                    <position>-95.4983,-226.895,-20.6101</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4691,7 +5016,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/108::CS1(AUTOGEN)"</nodeID>
-                    <position>-109.391,256.3,-25.7811</position>
+                    <position>-109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4704,7 +5029,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_R_HAND_DH_FRAME"</displayName>
                     <nodeID>"1001(USERADDED)"</nodeID>
-                    <position>-84.3413,-216.794,-27.476</position>
+                    <position>-84.3413,-217.794,-27.476</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4717,7 +5042,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/108::60/150/108(AUTOGEN)"</nodeID>
-                    <position>-89.8981,-157.56,-25.7811</position>
+                    <position>-89.8981,-158.56,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4762,7 +5087,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_R_ELBOW_PROSUP--SIM_SEA_2-5_R_FOREARM"</name>
-                <nodeID>"60/150/98:-:60/150/99"</nodeID>
+                <nodeID>"60/150/112:-:60/150/98"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -4791,7 +5116,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_R_FOREARM--SIM_SEA_2-5_R_WRIST_PITCH"</name>
-                <nodeID>"60/150/105:-:60/150/99"</nodeID>
+                <nodeID>"60/150/105:-:60/150/112"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -4926,7 +5251,7 @@
                   <Frame ref="83">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/75:-:60/151/82::60/151/75(AUTOGEN)"</nodeID>
+                    <nodeID>"60/151/75:-:60/151/98::60/151/75(AUTOGEN)"</nodeID>
                     <position>109.391,-52.06,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -4956,7 +5281,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/RootPart::CG(AUTOGEN)"</nodeID>
-                    <position>105.247,-105.816,-25.4682</position>
+                    <position>105.263,-106.578,-25.4652</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4996,22 +5321,22 @@
               </Body>
               <Body>
                 <name>"SIM_SEA_2-5_L_FOREARM"</name>
-                <nodeID>"60/151/82"</nodeID>
+                <nodeID>"60/151/98"</nodeID>
                 <status>""</status>
-                <mass>0.635334</mass>
+                <mass>0.636185</mass>
                 <massUnits>"kg"</massUnits>
-                <inertia>0.000370491,4.56754e-006,-0.000105702,4.56754e-006,0.000673595,4.13735e-006,-0.000105702,4.13735e-006,0.000555689</inertia>
+                <inertia>0.000371447,4.34562e-006,-0.000105871,4.34562e-006,0.000674229,4.05222e-006,-0.000105871,4.05222e-006,0.000557115</inertia>
                 <inertiaUnits>"kg*m^2"</inertiaUnits>
-                <volume>173793</volume>
+                <volume>173911</volume>
                 <volumeUnits>"mm^3"</volumeUnits>
-                <surfaceArea>153267</surfaceArea>
+                <surfaceArea>153610</surfaceArea>
                 <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
                 <frames>
                   <Frame>
                     <name>"CG"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/82::CG(AUTOGEN)"</nodeID>
-                    <position>108.68,-91.5157,-31.1215</position>
+                    <nodeID>"60/151/98::CG(AUTOGEN)"</nodeID>
+                    <position>108.705,-92.5107,-31.1084</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5023,8 +5348,8 @@
                   <Frame>
                     <name>"CS1"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/82::CS1(AUTOGEN)"</nodeID>
-                    <position>109.391,256.3,-25.7811</position>
+                    <nodeID>"60/151/98::CS1(AUTOGEN)"</nodeID>
+                    <position>109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5036,8 +5361,8 @@
                   <Frame>
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B7"</displayName>
-                    <nodeID>"1635(USERADDED)"</nodeID>
-                    <position>103.908,-122.454,-56.3488</position>
+                    <nodeID>"2732(USERADDED)"</nodeID>
+                    <position>103.908,-123.454,-56.3488</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5049,8 +5374,8 @@
                   <Frame>
                     <name>"CS3"</name>
                     <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B8"</displayName>
-                    <nodeID>"1637(USERADDED)"</nodeID>
-                    <position>91.3631,-111.279,0.271475</position>
+                    <nodeID>"2734(USERADDED)"</nodeID>
+                    <position>91.3631,-112.279,0.271475</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5062,8 +5387,8 @@
                   <Frame>
                     <name>"CS4"</name>
                     <displayName>"SCSYS_L_FOREARM_MTB_ACC_1B9"</displayName>
-                    <nodeID>"1638(USERADDED)"</nodeID>
-                    <position>135.048,-68.4935,-46.1032</position>
+                    <nodeID>"2735(USERADDED)"</nodeID>
+                    <position>135.048,-69.4935,-46.1032</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5072,10 +5397,335 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="84">
+                  <Frame>
                     <name>"CS5"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_0"</displayName>
+                    <nodeID>"2736(USERADDED)"</nodeID>
+                    <position>77.0741,-94.3336,-43.6166</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0700692,-0.997493,0.00988788,-0.139731,0,0.990189,-0.987707,-0.0707635,-0.139381</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS6"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_1"</displayName>
+                    <nodeID>"2737(USERADDED)"</nodeID>
+                    <position>78.3248,-79.1593,-53.5882</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0405346,-0.999095,0.012864,-0.302491,0,0.953152,-0.95229,-0.0425269,-0.302217</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS7"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_2"</displayName>
+                    <nodeID>"2738(USERADDED)"</nodeID>
+                    <position>75.8726,-62.1139,-45.0517</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0137658,-0.999903,0.00224104,-0.160683,0,0.987006,-0.98691,-0.013947,-0.160667</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS8"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_3"</displayName>
+                    <nodeID>"2739(USERADDED)"</nodeID>
+                    <position>138.042,-94.4363,-43.6892</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0597153,-0.99818,0.00843745,-0.139905,0,-0.990165,0.988363,-0.0603085,-0.13965</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS9"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_4"</displayName>
+                    <nodeID>"2740(USERADDED)"</nodeID>
+                    <position>135.268,-111.099,-50.9159</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0955775,-0.99506,0.0268408,-0.270369,0,-0.962757,0.958001,-0.0992748,-0.269034</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS10"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_5"</displayName>
+                    <nodeID>"2741(USERADDED)"</nodeID>
+                    <position>125.1,-112.554,-65.9191</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0802531,-0.98898,0.124413,-0.840337,0,-0.542064,0.53609,-0.148051,-0.831077</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS11"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_6"</displayName>
+                    <nodeID>"2742(USERADDED)"</nodeID>
+                    <position>136.699,-79.1839,-53.5812</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0357256,-0.999298,0.0112586,-0.300569,0,-0.95376,0.953091,-0.0374576,-0.300358</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS12"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_7"</displayName>
+                    <nodeID>"2743(USERADDED)"</nodeID>
+                    <position>139.093,-62.1571,-44.9814</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0138813,-0.999901,0.00222003,-0.157923,0,-0.987451,0.987354,-0.0140577,-0.157908</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS13"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_8"</displayName>
+                    <nodeID>"2744(USERADDED)"</nodeID>
+                    <position>116.937,-63.2935,-72.1538</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.00172191,-0.99996,0.00880593,-0.981413,0,-0.191905,0.191897,-0.0089727,-0.981374</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS14"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_9"</displayName>
+                    <nodeID>"2745(USERADDED)"</nodeID>
+                    <position>126.106,-79.5779,-68.3708</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0194398,-0.999313,0.031568,-0.851497,0,-0.524359,0.523998,-0.0370735,-0.850912</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS15"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_10"</displayName>
+                    <nodeID>"2746(USERADDED)"</nodeID>
+                    <position>116.937,-96.1205,-70.8681</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.01322,-0.9977,0.0664798,-0.980796,0,-0.195038,0.194589,-0.0677815,-0.97854</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS16"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_11"</displayName>
+                    <nodeID>"2747(USERADDED)"</nodeID>
+                    <position>98.1078,-96.1172,-70.8633</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0135071,-0.997643,0.0672762,-0.980435,0,0.196842,-0.196378,-0.0686187,-0.978124</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS17"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_12"</displayName>
+                    <nodeID>"2748(USERADDED)"</nodeID>
+                    <position>88.9354,-79.5735,-68.3726</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0204053,-0.999244,0.0330813,-0.851112,0,0.524985,-0.524588,-0.0388683,-0.850468</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS18"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_13"</displayName>
+                    <nodeID>"2749(USERADDED)"</nodeID>
+                    <position>98.1032,-63.2939,-72.161</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.00170916,-0.99996,0.00878474,-0.981594,0,0.190979,-0.190971,-0.00894947,-0.981555</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS19"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_14"</displayName>
+                    <nodeID>"2750(USERADDED)"</nodeID>
+                    <position>89.9911,-112.528,-65.8197</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0843957,-0.988349,0.12666,-0.832184,0,0.5545,-0.548039,-0.152201,-0.822489</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS20"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_15"</displayName>
+                    <nodeID>"2751(USERADDED)"</nodeID>
+                    <position>80.0067,-111.003,-50.6791</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.108947,-0.993607,0.0295885,-0.262093,0,0.965043,-0.958873,-0.112893,-0.260418</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS21"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_16"</displayName>
+                    <nodeID>"2752(USERADDED)"</nodeID>
+                    <position>76.6642,-94.0338,-15.663</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0734209,-0.997248,-0.0102534,0.13831,0,0.990389,-0.987664,-0.0741334,0.137929</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS22"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_17"</displayName>
+                    <nodeID>"2753(USERADDED)"</nodeID>
+                    <position>79.4264,-112.376,-10.5437</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.106522,-0.993867,-0.0296885,0.268476,0,0.963286,-0.957379,-0.110582,0.266829</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS23"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_19"</displayName>
+                    <nodeID>"2754(USERADDED)"</nodeID>
+                    <position>138.445,-94.2426,-15.6635</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0623527,-0.998016,-0.00870999,0.138346,0,-0.990384,0.988419,-0.0629582,0.138071</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS24"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_22"</displayName>
+                    <nodeID>"2755(USERADDED)"</nodeID>
+                    <position>135.874,-112.544,-10.3045</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0910149,-0.995501,-0.0263635,0.278225,0,-0.960516,0.956194,-0.0947562,0.276973</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS25"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_24"</displayName>
+                    <nodeID>"2756(USERADDED)"</nodeID>
+                    <position>116.868,-132.667,4.45562</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0547605,-0.973792,-0.22075,0.970583,0,-0.240768,0.234458,-0.227441,0.945146</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS26"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_25"</displayName>
+                    <nodeID>"2757(USERADDED)"</nodeID>
+                    <position>125.375,-115.602,4.26664</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>-0.0811022,-0.989008,-0.123634,0.83615,0,-0.548501,0.542472,-0.147862,0.826959</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS27"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_28"</displayName>
+                    <nodeID>"2758(USERADDED)"</nodeID>
+                    <position>89.7388,-115.558,4.15649</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0858742,-0.988243,-0.126493,0.827355,0,0.561679,-0.555076,-0.152888,0.817628</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS28"</name>
+                    <displayName>"SCSYS_L_FOREARM_SKIN_29"</displayName>
+                    <nodeID>"2759(USERADDED)"</nodeID>
+                    <position>98.1974,-132.653,4.39933</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>0.0582271,-0.973491,-0.221191,0.967054,0,0.254571,-0.247823,-0.228726,0.941418</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame>
+                    <name>"CS29"</name>
+                    <displayName>"SCSYS_L_FOREARM_DH_FRAME"</displayName>
+                    <nodeID>"2763(USERADDED)"</nodeID>
+                    <position>109.398,-158.56,-25.7811</position>
+                    <positionOrigin>"WORLD"</positionOrigin>
+                    <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+                    <positionUnits>"mm"</positionUnits>
+                    <orientation>1,0,0,0,-1,0,0,0,-1</orientation>
+                    <orientationType>"3x3 Transform"</orientationType>
+                    <orientationUnits>"rad"</orientationUnits>
+                    <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+                  </Frame>
+                  <Frame ref="84">
+                    <name>"CS30"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/75:-:60/151/82::60/151/82(AUTOGEN)"</nodeID>
+                    <nodeID>"60/151/75:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
                     <position>109.391,-52.06,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
@@ -5086,10 +5736,10 @@
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
                   <Frame ref="85">
-                    <name>"CS6"</name>
+                    <name>"CS31"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/82:-:60/151/87::60/151/82(AUTOGEN)"</nodeID>
-                    <position>109.398,-157.56,5.30835</position>
+                    <nodeID>"60/151/87:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
+                    <position>109.398,-158.56,-27.9311</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5118,7 +5768,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87::CG(AUTOGEN)"</nodeID>
-                    <position>108.22,-157.669,-23.7328</position>
+                    <position>108.22,-158.669,-23.7328</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5131,7 +5781,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87::CS1(AUTOGEN)"</nodeID>
-                    <position>109.391,256.3,-25.7811</position>
+                    <position>109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5143,8 +5793,8 @@
                   <Frame ref="86">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/82:-:60/151/87::60/151/87(AUTOGEN)"</nodeID>
-                    <position>109.398,-157.56,5.30835</position>
+                    <nodeID>"60/151/87:-:60/151/98::60/151/87(AUTOGEN)"</nodeID>
+                    <position>109.398,-158.56,-27.9311</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5157,7 +5807,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/93::60/151/87(AUTOGEN)"</nodeID>
-                    <position>89.8981,-157.56,-25.4811</position>
+                    <position>89.8981,-158.56,-25.4811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5186,7 +5836,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/93::CG(AUTOGEN)"</nodeID>
-                    <position>95.5285,-225.986,-20.3563</position>
+                    <position>95.5285,-226.986,-20.3563</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5199,7 +5849,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/93::CS1(AUTOGEN)"</nodeID>
-                    <position>109.391,256.3,-25.7811</position>
+                    <position>109.391,255.3,-25.7811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5212,7 +5862,7 @@
                     <name>"CS2"</name>
                     <displayName>"SCSYS_L_HAND_DH_FRAME"</displayName>
                     <nodeID>"1091(USERADDED)"</nodeID>
-                    <position>84.3413,-216.794,-27.176</position>
+                    <position>84.3413,-217.794,-27.176</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5225,7 +5875,7 @@
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/93::60/151/93(AUTOGEN)"</nodeID>
-                    <position>89.8981,-157.56,-25.4811</position>
+                    <position>89.8981,-158.56,-25.4811</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -5270,7 +5920,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM"</name>
-                <nodeID>"60/151/75:-:60/151/82"</nodeID>
+                <nodeID>"60/151/75:-:60/151/98"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -5299,7 +5949,7 @@
               </SimpleJoint>
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_FOREARM--SIM_SEA_2-5_L_WRIST_PITCH"</name>
-                <nodeID>"60/151/82:-:60/151/87"</nodeID>
+                <nodeID>"60/151/87:-:60/151/98"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
