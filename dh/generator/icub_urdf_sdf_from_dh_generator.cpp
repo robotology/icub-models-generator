@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
     //Generating model for black iCub
     //                          robot_name     directory    head   legs   feet    Paris02  gazeboSim
     bool simple_meshes = false;
-    boost::shared_ptr<urdf::ModelInterface> model;
+    urdf::ModelInterfaceSharedPtr  model;
     bool ok = generate_iCub_urdf_model(opt.find("YARP_ROBOT_NAME").asString(),
                                        version_head , version_legs , version_feet,
                                        isiCubParis02, false, simple_meshes ,

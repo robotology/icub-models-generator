@@ -25,9 +25,6 @@
 #include <urdf_parser/urdf_parser.h>
 
 #include <tinyxml.h>
-
-#include <boost/function.hpp>
-
 #include <yarp/os/Property.h>
 #include <yarp/os/Os.h>
 
@@ -122,7 +119,7 @@ bool generate_iCub_urdf_model(std::string iCub_name,
                                double mass_epsilon,
                                double inertia_epsilon,
                                bool noFTsimulation,
-                               boost::shared_ptr<urdf::ModelInterface> urdf_file,
+                               urdf::ModelInterfaceSharedPtr  urdf_file,
                                std::string outputfile );
 
 bool generate_iCub_sdf_model(std::string iCub_name,
@@ -136,7 +133,7 @@ bool generate_iCub_sdf_model(std::string iCub_name,
                                double mass_epsilon,
                                double inertia_epsilon,
                                bool noFTsimulation,
-                               boost::shared_ptr<urdf::ModelInterface> urdf_file);
+                               urdf::ModelInterfaceSharedPtr  urdf_file);
 
 /**
  * Generate iCub URDF and SDF models, starting from UPMC meshes and kinematics/dynamics information from iDyn
