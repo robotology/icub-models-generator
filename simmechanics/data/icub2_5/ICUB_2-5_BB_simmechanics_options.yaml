@@ -497,7 +497,7 @@ forceTorqueSensors:
 sensors:
   - linkName: head
     frameName: SCSYS_HEAD_MTX_IMU
-    sensorName: "imu"
+    sensorName: "imu_frame"
     exportFrameInURDF: Yes
     sensorType: "imu"
     updateRate: "100"
@@ -518,6 +518,7 @@ reverseRotationAxis:
   r_elbow
   neck_roll
   r_knee
+  r_wrist_prosup
   
 assignedMasses:
   chest: 7.6380
