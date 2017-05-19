@@ -27,6 +27,6 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `iCubGenova02`    | simmechanics | v2.5   with backpack  | 
 | `iCubGenova03`    | dh | v2 with legs v1 and feet v2.5   | 
 | `iCubLisboa01`    | dh           | v1 with head v2       |
-| `iCubNancy01`     | dh           | v2.5 with arms v2     |
+| `iCubNancy01`     | dh           | v2.5 with arms v1 and head v2|
 | `iCubParis01`     | dh           | v1 with feet v2.5     | 
 | `iCubParis02`     | dh           | v2 with feet v2.5     | 
