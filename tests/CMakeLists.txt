@@ -9,7 +9,7 @@ target_link_libraries(icub-model-test ${iDynTree_LIBRARIES} ${YARP_LIBRARIES})
 
 macro(add_icub_model_test yarpRobotName)
     add_test(NAME ${yarpRobotName}ConsistencyCheck
-             COMMAND icub-model-test --model ${CMAKE_SOURCE_DIR}/generated/robots/${yarpRobotName}/model.urdf)
+             COMMAND icub-model-test --model ${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/${yarpRobotName}/model.urdf)
 endmacro()
 
 # Model generated from DH
