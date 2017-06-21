@@ -20,16 +20,29 @@ def get_triangle_centers_from_urdf(urdfilename, linkName, skinFrameName, triangl
     kinDyn.loadRobotModel(mdlLoader.model());
 
     # The results is returned by this function already in the frame used by the skin
-    centers = {};
+    centersAndNormals = {};
+    centersAndNormals['centers'] = {};
+    centersAndNormals['normals'] = {};
 
     for triangleNumber in trianglesNumbersList:
         # Get center in link frame
         triangleFrameName = linkName+"_skin_"+str(triangleNumber);
         skinFrame_H_triangleFrameName = kinDyn.getRelativeTransform(skinFrameName,triangleFrameName);
         triangleCenter_wrt_skinFrame = skinFrame_H_triangleFrameName.getPosition();
-        centers[triangleNumber] = triangleCenter_wrt_skinFrame.toNumPy();
+        skinFrame_R_triangleFrame = skinFrame_H_triangleFrameName.getRotation().toNumPy();
+        centersAndNormals['centers'][triangleNumber] = triangleCenter_wrt_skinFrame.toNumPy();
+        centersAndNormals['normals'][triangleNumber] = skinFrame_R_triangleFrame[:, 2];
 
-    return centers;
+    return centersAndNormals;
+
+def truncate(f, n):
+    '''Truncates/pads a float f to n decimal places without rounding'''
+    s = '{}'.format(f);
+    if 'e' in s or 'E' in s:
+        return '{0:.{1}f}'.format(f, n);
+    i, p, d = s.partition('.')
+    return '.'.join([i, (d+'0'*n)[:n]]);
+
 
 # export the 3d points to a skinManager "positions" compatible file
 def exportSkinManagerPositionTxtFile(taxels,posx,posy,posz,normx,normy,normz,name,filename,taxel_per_triangle,center_taxel):
@@ -64,11 +77,15 @@ def exportSkinManagerPositionTxtFile(taxels,posx,posy,posz,normx,normy,normz,nam
     for taxelIdx in taxels:
         taxel = taxels[taxelIdx];
         if( taxel["type"] == "dummy" ):
-            out_file.write("0.0 0.0 0.0 0.0 0.0 0.0 \n");
+            out_file.write("0.0000\t0.0000\t0.0000\t0.0000\t0.0000\t0.0000\n");
         elif( taxel["type"] == "thermal" or taxel["type"] == "tactile"):
             taxelIndex = taxel["index"]
-            out_file.write(str(posx[taxelIndex]) + " " +  str(posy[taxelIndex]) + " " +  str(posz[taxelIndex]) + \
-                           " " + str(normx[taxelIndex]) + " " +  str(normy[taxelIndex]) + " " + str(normz[taxelIndex]) + "\n");
+            # out_file.write(str(posx[taxelIndex]) + " " +  str(posy[taxelIndex]) + " " +  str(posz[taxelIndex]) + \
+            #                " " + str(normx[taxelIndex]) + " " +  str(normy[taxelIndex]) + " " + str(normz[taxelIndex]) + "\n");
+
+            out_file.write(str(truncate(posx[taxelIndex], 4)) + "\t" + str(truncate(posy[taxelIndex], 4)) + "\t" + str(truncate(posz[taxelIndex], 4)) + \
+                           "\t" + str(truncate(normx[taxelIndex], 4)) + "\t" + str(truncate(normy[taxelIndex], 4)) + "\t" + str(truncate(normz[taxelIndex], 4)) + "\n");
+
         else:
             assert(false)
     out_file.write("\n")
@@ -180,7 +197,7 @@ class interpolation_result(object):
 #       unknownZ = Zspline(unknownPointsU,unknownPointsV,grid=False);
 
 
-def interpolate_using_griddata(trainingPointsU,trainingPointsV,valuesX,valuesY,valuesZ,unknownPointsU,unknownPointsV,taxels,centers,taxel_offset):
+def interpolate_using_griddata(trainingPointsU,trainingPointsV,valuesX,valuesY,valuesZ,unknownPointsU,unknownPointsV,taxels,centersAndNormals,taxel_offset):
     ret = interpolation_result();
 
     trainingPoints = np.stack([np.array(trainingPointsU),np.array(trainingPointsV)],1);
@@ -189,20 +206,24 @@ def interpolate_using_griddata(trainingPointsU,trainingPointsV,valuesX,valuesY,v
     ret.unknownX = scipy.interpolate.griddata(np.array(trainingPoints), np.array(valuesX), np.array(unknownPoints), method="cubic");
     ret.unknownY = scipy.interpolate.griddata(np.array(trainingPoints), np.array(valuesY), np.array(unknownPoints), method="cubic");
     ret.unknownZ = scipy.interpolate.griddata(np.array(trainingPoints), np.array(valuesZ), np.array(unknownPoints), method="cubic");
+    ret.normX = np.zeros(ret.unknownX.shape);
+    ret.normY = np.zeros(ret.unknownY.shape);
+    ret.normZ = np.zeros(ret.unknownZ.shape);
 
     # the taxel outside the 2D convex hull of the triangle center, use the triangle center
     # TODO use an interpolation method
     for taxelIndex in taxels:
         taxel = taxels[taxelIndex]
         if( np.isnan(ret.unknownX[taxelIndex-taxel_offset]) and not(taxel["type"] is "dummy") ):
-            ret.unknownX[taxelIndex-taxel_offset] = centers[taxel["triangleNumber"]][0]
-            ret.unknownY[taxelIndex-taxel_offset] = centers[taxel["triangleNumber"]][1]
-            ret.unknownZ[taxelIndex-taxel_offset] = centers[taxel["triangleNumber"]][2]
+            ret.unknownX[taxelIndex-taxel_offset] = centersAndNormals['centers'][taxel["triangleNumber"]][0]
+            ret.unknownY[taxelIndex-taxel_offset] = centersAndNormals['centers'][taxel["triangleNumber"]][1]
+            ret.unknownZ[taxelIndex-taxel_offset] = centersAndNormals['centers'][taxel["triangleNumber"]][2]
 
-        # normals TODO compute normals, for now just put empty normals
-        ret.normX = [0.0]*len(ret.unknownX)
-        ret.normY = [0.0]*len(ret.unknownX)
-        ret.normZ = [0.0]*len(ret.unknownX)
+        # normals TODO compute normals, for now just put the normal of the center of the triangle
+        if( not(taxel["type"] is "dummy") ):
+            ret.normX[taxelIndex-taxel_offset] = centersAndNormals['normals'][taxel["triangleNumber"]][0]
+            ret.normY[taxelIndex-taxel_offset] = centersAndNormals['normals'][taxel["triangleNumber"]][1]
+            ret.normZ[taxelIndex-taxel_offset] = centersAndNormals['normals'][taxel["triangleNumber"]][2]
 
     return ret;
 
@@ -338,7 +359,7 @@ def generate_3d_positions(args):
     completePart.taxels = taxel_list_to_taxel_dict(taxelsList);
 
     # Get triangle centers from CAD (passing through the URDF)
-    centers = get_triangle_centers_from_urdf(args.urdf[0],args.link[0],args.skin_frame[0],completePart.trianglesNumbersList);
+    centersAndNormals = get_triangle_centers_from_urdf(args.urdf[0],args.link[0],args.skin_frame[0],completePart.trianglesNumbersList);
 
     # Build interpolation cluster (for now depending on indipendent_patches switch)
     interpolationClusters = [];
@@ -370,9 +391,9 @@ def generate_3d_positions(args):
         for triangleNumber in cluster.triangles:
             trainingPointsU.append(cluster.triangles[triangleNumber]["u"]);
             trainingPointsV.append(cluster.triangles[triangleNumber]["v"]);
-            valuesX.append(centers[triangleNumber][0])
-            valuesY.append(centers[triangleNumber][1]);
-            valuesZ.append(centers[triangleNumber][2]);
+            valuesX.append(centersAndNormals['centers'][triangleNumber][0])
+            valuesY.append(centersAndNormals['centers'][triangleNumber][1]);
+            valuesZ.append(centersAndNormals['centers'][triangleNumber][2]);
 
         for taxelId in cluster.taxels:
             taxel = cluster.taxels[taxelId];
@@ -384,7 +405,7 @@ def generate_3d_positions(args):
         assert(len(trainingPointsU) == len(valuesY))
         assert(len(trainingPointsU) == len(valuesZ))
 
-        ret = interpolate_using_griddata(trainingPointsU,trainingPointsV,valuesX,valuesY,valuesZ,unknownPointsU,unknownPointsV,cluster.taxels,centers,cluster.taxel_offset);
+        ret = interpolate_using_griddata(trainingPointsU,trainingPointsV,valuesX,valuesY,valuesZ,unknownPointsU,unknownPointsV,cluster.taxels,centersAndNormals,cluster.taxel_offset);
 
         # Plot results
         if( args.plot ):
@@ -403,7 +424,7 @@ def generate_3d_positions(args):
 
 
     # Export results
-    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownX,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
+    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownZ,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
 
 def main():
     parser = argparse.ArgumentParser(description='Generate 3D positions for iCub skin taxels, from centers extracted from CAD and iCubSkinGui 2D configuration files.')

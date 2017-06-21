@@ -333,6 +333,7 @@ bool addGazeboSurfaceFrictionInformationToCollisionSDF(sdf::ElementPtr collision
     AddElementAndSetValue(bounce,"restitution_coefficient","double","0.000000");
     AddElementAndSetValue(bounce,"threshold","double","100000.000000");
 
+    return true;
 }
 
 
@@ -537,6 +538,8 @@ bool substituteCollisionWithBoxInSDF(sdf::SDFPtr icub_sdf,
             }
         }
     }
+
+    return true;
 }
 
 bool generate_model_config_file(std::string robot_name, std::string gazebo_robot_model_directory)
@@ -569,7 +572,7 @@ bool generate_iCub_urdf_model(std::string iCub_name,
                                double mass_epsilon,
                                double inertia_epsilon,
                                bool noFTsimulation,
-                               boost::shared_ptr<urdf::ModelInterface> urdf_file,
+                               urdf::ModelInterfaceSharedPtr  urdf_file,
                                std::string outputfilename
                              )
 {
@@ -614,7 +617,7 @@ bool generate_iCub_urdf_model(std::string iCub_name,
         return false;
     }
 
-    boost::shared_ptr<urdf::ModelInterface> urdf_idyn(new urdf::ModelInterface);
+    urdf::ModelInterfaceSharedPtr  urdf_idyn(new urdf::ModelInterface);
 
     //std::cout << "iCub KDL::Tree: " << std::endl;
     //std::cout << icub_kdl << std::endl;
@@ -628,7 +631,7 @@ bool generate_iCub_urdf_model(std::string iCub_name,
     //////////////////////////////////////////////////////////////////
     //// Getting meshes and limits from urdf paris files
     //////////////////////////////////////////////////////////////////
-    boost::shared_ptr<urdf::ModelInterface> urdf_paris;
+    urdf::ModelInterfaceSharedPtr  urdf_paris;
 
     std::string filename_urdf_paris = paris_directory+paris_subdirectory+"/icub.xml";
 
@@ -716,7 +719,7 @@ bool generate_iCub_sdf_model(std::string iCub_name,
                                double mass_epsilon,
                                double inertia_epsilon,
                                bool noFTsimulation,
-                               boost::shared_ptr<urdf::ModelInterface> urdf_idyn,
+                               urdf::ModelInterfaceSharedPtr  urdf_idyn,
                                std::string outputfilename
                             )
 {
@@ -770,9 +773,6 @@ bool generate_iCub_sdf_model(std::string iCub_name,
     //std::string gazebo_conversion_command = "gzsdf print " + filename_urdf_gazebo_conversion + " > " + gazebo_sdf_filename;
     //std::cout << "Running command: " << gazebo_conversion_command << std::endl;
 
-    sdf::URDF2SDF urdf_converter;
-    TiXmlDocument sdf_xml = urdf_converter.InitModelString(urdf_for_gazebo_conversion_string);
-
     //system(gazebo_conversion_command.c_str());
     //if( !system(gazebo_conversion_command.c_str()) ) { std::cerr << "Error in urdf - sdf conversion" << std::endl; return false; }
 
@@ -780,8 +780,7 @@ bool generate_iCub_sdf_model(std::string iCub_name,
     sdf::SDFPtr icub_sdf(new sdf::SDF());
     sdf::init(icub_sdf);
 
-    //if( ! sdf::readFile(gazebo_sdf_filename,icub_sdf) ) { std::cerr << "Problem in reading SDF file" << std::endl; return false; }
-    if( ! sdf::readDoc(&sdf_xml,icub_sdf,"custom sdf xml") ) { std::cerr << "Problem in loading SDF file" << std::endl; return false; }
+    if( ! sdf::readString(urdf_for_gazebo_conversion_string,icub_sdf) ) { std::cerr << "Problem in reading SDF file" << std::endl; return false; }
 
     if( ! icub_sdf->Root()->HasElement("model") ) { std::cerr << "Problem in parsing SDF dom" << std::endl; return false; }
 
@@ -867,7 +866,7 @@ bool generate_iCub_model(std::string iCub_name,
                          bool noFTsimulation)
 {
     bool ok = true;
-    boost::shared_ptr<urdf::ModelInterface> urdf_file;
+    urdf::ModelInterfaceSharedPtr  urdf_file;
     ok = ok && generate_iCub_urdf_model(iCub_name,head_version,legs_version,feet_version,is_iCubParis02,is_icubGazeboSim,simple_meshes,data_directory,mass_epsilon,inertia_epsilon,noFTsimulation,urdf_file,root_directory+"/icub.urdf");
     ok = ok && generate_iCub_sdf_model(iCub_name,head_version,legs_version,feet_version,is_iCubParis02,is_icubGazeboSim,simple_meshes,data_directory,mass_epsilon,inertia_epsilon,noFTsimulation,urdf_file);
     return true;
@@ -895,4 +894,6 @@ bool generate_gazebo_database(const std::vector<std::string> & robot_names, cons
 
     database_file << "</models>\n</database>\n" << std::endl;
     database_file.close();
+
+    return true;
 }
