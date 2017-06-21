@@ -46,6 +46,11 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova02
                            YAML "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml"
                            CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
 
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova04
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml"
+                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv")
+
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubDarmstadt01
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
                            YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
