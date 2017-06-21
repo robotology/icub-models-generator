@@ -182,7 +182,9 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     double l_sole_height = root_H_l_sole.getPosition().getVal(2);
     double r_sole_height = root_H_r_sole.getPosition().getVal(2);
 
-    if( !checkDoubleAreEqual(l_sole_height,r_sole_height,1e-5) )
+    // Errors up to tenth of millimeter are ok
+    double tol = 1e-4;
+    if( !checkDoubleAreEqual(l_sole_height,r_sole_height,tol) )
     {
         std::cerr << "icub-model-test error: l_sole_height is " << l_sole_height << ", while r_sole_height is " << r_sole_height << " (diff : " << std::fabs(l_sole_height-r_sole_height) <<  " )"  << std::endl;
         return false;
@@ -192,7 +194,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     double l_sole_x = root_H_l_sole.getPosition().getVal(0);
     double r_sole_x = root_H_r_sole.getPosition().getVal(0);
 
-    if( !checkDoubleAreEqual(l_sole_x,r_sole_x,1e-5) )
+    if( !checkDoubleAreEqual(l_sole_x,r_sole_x,tol) )
     {
         std::cerr << "icub-model-test error: l_sole_x is " << l_sole_x << ", while r_sole_x is " << r_sole_x << " (diff : " << std::fabs(l_sole_x-r_sole_x) <<  " )"  << std::endl;
         return false;
@@ -202,7 +204,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     double l_sole_y = root_H_l_sole.getPosition().getVal(1);
     double r_sole_y = root_H_r_sole.getPosition().getVal(1);
 
-    if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,1e-5) )
+    if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,tol) )
     {
         std::cerr << "icub-model-test error: l_sole_y is " << l_sole_y << ", while r_sole_y is " << r_sole_y << " while they should be simmetric (diff : " << std::fabs(l_sole_y+r_sole_y) <<  " )"  << std::endl;
         return false;
@@ -319,37 +321,51 @@ int main(int argc, char ** argv)
 
     comp.setRobotState(qj,dqj,grav);
 
+    bool testOutcome = true;
+
     // Check axis
     if( !checkAxisDirections(comp) )
     {
-        return EXIT_FAILURE;
+        testOutcome = false;
     }
 
     // Check if base_link exist, and check that is a frame attached to root_link and if its
     // transform is the idyn
     if( !checkBaseLink(comp) )
     {
-        return EXIT_FAILURE;
+        testOutcome = false;
     }
 
+    // TODO when KinDynComputations supports com computations
+    // Check com location in the root link (it should be 0 in the axis perpendicular to the simmetry plane)
+    //if( !checkCOMIsSimmetric(comp) )
+    //{
+    //    testOutcome = false;
+    //}
 
     // Check if l_sole/r_sole have the same distance from the root_link
     if( !checkSolesAreParallel(comp) )
     {
-        return EXIT_FAILURE;
+        testOutcome = false;
     }
 
     // Now some test that test the sensors
     iDynTree::ModelLoader mdlLoader;
     mdlLoader.loadModelFromFile(modelPath);
 
-
     if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
     {
-        return EXIT_FAILURE;
+        testOutcome = false;
     }
 
-    std::cerr << "Check for model " << modelPath << " concluded correctly!" << std::endl;
-
-    return EXIT_SUCCESS;
+    if( testOutcome )
+    {
+        std::cerr << "Checks for model " << modelPath << " concluded correctly." << std::endl;
+        return EXIT_SUCCESS;
+    }
+    else
+    {
+        std::cerr << "Some checks for model " << modelPath << " failed." << std::endl;
+        return EXIT_FAILURE;
+    }
 }

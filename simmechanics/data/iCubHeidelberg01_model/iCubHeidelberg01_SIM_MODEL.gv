@@ -1,0 +1,89 @@
+digraph G {
+node [shape=box];
+"root_link" [label="root_link"];
+"l_hip_1" [label="l_hip_1"];
+"l_hip_2" [label="l_hip_2"];
+"l_hip_3" [label="l_hip_3"];
+"l_upper_leg" [label="l_upper_leg"];
+"l_lower_leg" [label="l_lower_leg"];
+"l_ankle_1" [label="l_ankle_1"];
+"l_ankle_2" [label="l_ankle_2"];
+"l_foot" [label="l_foot"];
+"l_sole" [label="l_sole"];
+"r_hip_1" [label="r_hip_1"];
+"r_hip_2" [label="r_hip_2"];
+"r_hip_3" [label="r_hip_3"];
+"r_upper_leg" [label="r_upper_leg"];
+"r_lower_leg" [label="r_lower_leg"];
+"r_ankle_1" [label="r_ankle_1"];
+"r_ankle_2" [label="r_ankle_2"];
+"r_foot" [label="r_foot"];
+"r_sole" [label="r_sole"];
+"torso_1" [label="torso_1"];
+"torso_2" [label="torso_2"];
+"chest" [label="chest"];
+"WEIGHT-1KG" [label="WEIGHT-1KG"];
+"WEIGHT-1KG-1" [label="WEIGHT-1KG-1"];
+"WEIGHT-1KG-2" [label="WEIGHT-1KG-2"];
+"WEIGHT-1KG-3" [label="WEIGHT-1KG-3"];
+"WEIGHT-1KG-4" [label="WEIGHT-1KG-4"];
+"WEIGHT-1KG-5" [label="WEIGHT-1KG-5"];
+"imu_frame" [label="imu_frame"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"root_link" -> "l_hip_pitch" [label="xyz: 0.0064515 -0.0111 -0.119913 \nrpy: 1.57752 -5.55112e-17 1.5708"]
+"l_hip_pitch" -> "l_hip_1"
+"l_hip_1" -> "l_hip_roll" [label="xyz: -0.059 -8.59964e-07 0.0263622 \nrpy: 0 -0 0"]
+"l_hip_roll" -> "l_hip_2"
+"l_hip_2" -> "l_leg_ft_sensor" [label="xyz: 0 -0.0743001 -0.0255046 \nrpy: 8.26124e-15 1.56408 -1.5708"]
+"l_leg_ft_sensor" -> "l_hip_3"
+"l_hip_3" -> "l_hip_yaw" [label="xyz: 0.000121 0 0.017999 \nrpy: -1.56408 -5.55112e-17 1.5708"]
+"l_hip_yaw" -> "l_upper_leg"
+"l_upper_leg" -> "l_knee" [label="xyz: -0.017957 -0.145625 0 \nrpy: 0 -0 0"]
+"l_knee" -> "l_lower_leg"
+"l_lower_leg" -> "l_ankle_pitch" [label="xyz: -0.021343 -0.200984 0.00294927 \nrpy: 2.408e-05 -0 0"]
+"l_ankle_pitch" -> "l_ankle_1"
+"l_ankle_1" -> "l_ankle_roll" [label="xyz: 0.0355 -1.63985e-05 -0.0475118 \nrpy: 0 -0 0"]
+"l_ankle_roll" -> "l_ankle_2"
+"l_ankle_2" -> "l_foot_ft_sensor" [label="xyz: 0 -0.0603003 0.0480625 \nrpy: 0 1.56405 -1.5708"]
+"l_foot_ft_sensor" -> "l_foot"
+"l_foot" -> "l_sole_fixed_joint" [label="xyz: 9.72e-05 0 0.014399 \nrpy: 3.14159 0.00674386 0"]
+"l_sole_fixed_joint" -> "l_sole"
+"root_link" -> "r_hip_pitch" [label="xyz: 0.0064515 0.0111 -0.119913 \nrpy: 1.5708 5.55112e-17 -1.5708"]
+"r_hip_pitch" -> "r_hip_1"
+"r_hip_1" -> "r_hip_roll" [label="xyz: -0.059 0 -0.0263622 \nrpy: 0 -0 0"]
+"r_hip_roll" -> "r_hip_2"
+"r_hip_2" -> "r_leg_ft_sensor" [label="xyz: 0 -0.0743 0.0255047 \nrpy: 1.57081 -1.5708 -1.13367e-05"]
+"r_leg_ft_sensor" -> "r_hip_3"
+"r_hip_3" -> "r_hip_yaw" [label="xyz: 0 0 0.018 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"r_hip_yaw" -> "r_upper_leg"
+"r_upper_leg" -> "r_knee" [label="xyz: -0.017957 -0.145625 0 \nrpy: 0 -0 0"]
+"r_knee" -> "r_lower_leg"
+"r_lower_leg" -> "r_ankle_pitch" [label="xyz: -0.021343 -0.201 0 \nrpy: -2.40789e-05 0 0"]
+"r_ankle_pitch" -> "r_ankle_1"
+"r_ankle_1" -> "r_ankle_roll" [label="xyz: 0.0355 0 0.0445625 \nrpy: 0 -0 0"]
+"r_ankle_roll" -> "r_ankle_2"
+"r_ankle_2" -> "r_foot_ft_sensor" [label="xyz: 0 -0.0603008 -0.0480625 \nrpy: 3.14159 -1.5708 -1.5708"]
+"r_foot_ft_sensor" -> "r_foot"
+"r_foot" -> "r_sole_fixed_joint" [label="xyz: 0 0 0.0144 \nrpy: 3.14159 0 0"]
+"r_sole_fixed_joint" -> "r_sole"
+"root_link" -> "torso_pitch" [label="xyz: 0 0.0394 0 \nrpy: 1.5708 5.55112e-17 -1.5708"]
+"torso_pitch" -> "torso_1"
+"torso_1" -> "torso_roll" [label="xyz: 0.0394 0.032 -0.0587919 \nrpy: 0 -0 0"]
+"torso_roll" -> "torso_2"
+"torso_2" -> "torso_yaw" [label="xyz: 0 0.0515 0.0642919 \nrpy: 0 -0 0"]
+"torso_yaw" -> "chest"
+"chest" -> "chest_weight_1" [label="xyz: 0.13225 0.0955 0 \nrpy: 1.5708 5.55112e-17 -1.5708"]
+"chest_weight_1" -> "WEIGHT-1KG"
+"chest" -> "chest_weight_2" [label="xyz: 0.15075 0.0955 0 \nrpy: 1.5708 5.55112e-17 -1.5708"]
+"chest_weight_2" -> "WEIGHT-1KG-1"
+"chest" -> "chest_weight_3" [label="xyz: 0 0.20675 0 \nrpy: 1.5708 -0 0"]
+"chest_weight_3" -> "WEIGHT-1KG-2"
+"chest" -> "chest_weight_4" [label="xyz: 0 0.22525 0 \nrpy: 1.5708 -0 0"]
+"chest_weight_4" -> "WEIGHT-1KG-3"
+"chest" -> "chest_weight_5" [label="xyz: -0.13225 0.0955 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"chest_weight_5" -> "WEIGHT-1KG-4"
+"chest" -> "chest_weight_6" [label="xyz: -0.15075 0.0955 0 \nrpy: 1.5708 -5.55112e-17 1.5708"]
+"chest_weight_6" -> "WEIGHT-1KG-5"
+"chest" -> "imu_frame_fixed_joint" [label="xyz: -0.017 0.1005 -0.0381 \nrpy: -3.14159 -0 0"]
+"imu_frame_fixed_joint" -> "imu_frame"
+}
