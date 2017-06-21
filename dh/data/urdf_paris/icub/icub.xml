@@ -3,13 +3,13 @@
 	<link name="root_link">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_root_link.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_root_link.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_root_link.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_root_link.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -21,13 +21,13 @@
 	<link name="l_hip_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_hip_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_hip_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_hip_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_hip_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -39,13 +39,13 @@
 	<link name="l_hip_2">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_hip_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_hip_2.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_hip_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_hip_2.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -57,13 +57,13 @@
 	<link name="l_upper_leg">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_thigh.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_thigh.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_thigh.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_thigh.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -75,13 +75,13 @@
 	<link name="l_lower_leg">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_shank.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_shank.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_shank.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_shank.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -93,13 +93,13 @@
 	<link name="l_ankle_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_ankle_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_ankle_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_ankle_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_ankle_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -111,13 +111,13 @@
 	<link name="l_foot">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_foot.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_foot.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_foot.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_foot.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -129,13 +129,13 @@
 	<link name="torso_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_lap_belt_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_lap_belt_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_lap_belt_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_lap_belt_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -154,13 +154,13 @@
 	<link name="chest">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_chest.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_chest.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_chest.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_chest.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -172,13 +172,13 @@
 	<link name="r_shoulder_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_shoulder_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_shoulder_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_shoulder_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_shoulder_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -190,13 +190,13 @@
 	<link name="r_shoulder_2">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_shoulder_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_shoulder_2.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_shoulder_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_shoulder_2.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -208,13 +208,13 @@
 	<link name="r_upper_arm">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_arm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_arm.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_arm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_arm.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -233,13 +233,13 @@
 	<link name="r_forearm">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_forearm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_forearm.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_forearm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_forearm.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -258,13 +258,13 @@
 	<link name="r_hand">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_hand.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_hand.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_hand.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_hand.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -276,13 +276,13 @@
 	<link name="l_shoulder_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_shoulder_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_shoulder_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_shoulder_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_shoulder_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -294,13 +294,13 @@
 	<link name="l_shoulder_2">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_shoulder_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_shoulder_2.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_shoulder_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_shoulder_2.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -312,13 +312,13 @@
 	<link name="l_upper_arm">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_arm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_arm.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_arm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_arm.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -337,13 +337,13 @@
 	<link name="l_forearm">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_forearm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_forearm.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_forearm.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_forearm.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -362,13 +362,13 @@
 	<link name="l_hand">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_l_hand.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_l_hand.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_l_hand.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_l_hand.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -380,13 +380,13 @@
 	<link name="neck_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_neck_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_neck_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_neck_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_neck_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -398,13 +398,13 @@
 	<link name="neck_2">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_neck_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_neck_2.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_neck_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_neck_2.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -416,13 +416,13 @@
 	<link name="head">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_head.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_head.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_head.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_head.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -434,13 +434,13 @@
 	<link name="r_hip_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_hip_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_hip_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_hip_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_hip_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -452,13 +452,13 @@
 	<link name="r_hip_2">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_hip_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_hip_2.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_hip_2.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_hip_2.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -470,13 +470,13 @@
 	<link name="r_upper_leg">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_thigh.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_thigh.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_thigh.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_thigh.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -488,13 +488,13 @@
 	<link name="r_lower_leg">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_shank.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_shank.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_shank.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_shank.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -506,13 +506,13 @@
 	<link name="r_ankle_1">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_ankle_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_ankle_1.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_ankle_1.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_ankle_1.dae"/>
 			</geometry>
 		</collision>
 		<inertial>
@@ -524,13 +524,13 @@
 	<link name="r_foot">
 		<visual>
 			<geometry>
-				<mesh filename="meshes/visual/icub_r_foot.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/visual/icub_r_foot.dae"/>
 			</geometry>
 			<material name="material.metal"/>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="meshes/collision/icub_simple_collision_r_foot.dae"/>
+				<mesh filename="package://iCub/meshes/upmc/collision/icub_simple_collision_r_foot.dae"/>
 			</geometry>
 		</collision>
 		<inertial>

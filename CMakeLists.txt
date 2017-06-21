@@ -14,6 +14,8 @@ endif()
 option(ICUB_MODEL_GENERATE_DH "Generate models using the model generation pipeline from Denativ Hartenberg models" ON)
 option(ICUB_MODEL_GENERATE_SIMMECHANICS "Generate models using the model generation pipeline from simmechanics" ON)
 
+set(BUILD_PREFIX "iCub")
+
 if( ICUB_MODEL_GENERATE_DH )
   add_subdirectory(dh)
 endif()
@@ -31,6 +33,16 @@ endif()
 if(TARGET generate-models-simmechanics)
   add_dependencies(generate-models generate-models-simmechanics)
 endif()
+
+# Logic to copy the generated models to icub-models
+# We need to have the location of a YARP source dir
+set(ICUB_MODELS_SOURCE_DIR "" CACHE STRING "Location of the icub-models repository source code")
+
+add_custom_target(copy-models-to-icub-models)
+add_dependencies(copy-models-to-icub-models generate-models)
+add_custom_command(TARGET copy-models-to-icub-models
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub"
+                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub")
 
 include( CTest )
 enable_testing()
