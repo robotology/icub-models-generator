@@ -306,7 +306,7 @@ sensors:
     sensorBlobs: 
     - |
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>package://iCub/conf/inertial.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/inertial.ini</yarpConfigurationFile>
         </plugin>
   - sensorName: "default"
     exportFrameInURDF: No
@@ -675,41 +675,41 @@ XMLBlobs:
   - | 
         <gazebo>
         <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>package://iCub/conf/MTB/gazebo_icub_left_leg_mtb.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_left_leg_mtb.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>package://iCub/conf/MTB/gazebo_icub_right_leg_mtb.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_right_leg_mtb.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>package://iCub/conf/MTB/gazebo_icub_left_arm_mtb.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_left_arm_mtb.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>package://iCub/conf/MTB/gazebo_icub_right_arm_mtb.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_right_arm_mtb.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>package://iCub/conf/MTB/gazebo_icub_torso_mtb.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_torso_mtb.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="controlboard_head" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_head.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="controlboard_left_arm" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
         </plugin>
         <plugin name="controlboard_right_arm" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
         </plugin>
         <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>package://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
         </plugin>
         <plugin name="apply_external_wrench" filename="libgazebo_yarp_externalwrench.so" >
-             <robotNamefromConfigFile>package://iCub/conf/gazebo_icub_robotname.ini</robotNamefromConfigFile>
+             <robotNamefromConfigFile>model://iCub/conf/gazebo_icub_robotname.ini</robotNamefromConfigFile>
         </plugin>
         </gazebo>
