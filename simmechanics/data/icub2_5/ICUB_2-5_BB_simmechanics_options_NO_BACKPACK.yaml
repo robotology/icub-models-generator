@@ -257,6 +257,9 @@ exportedFrames:
   - frameName:  SCSYS_R_FOREARM_DH_FRAME
     frameReferenceLink: r_forearm
     exportedFrameName: r_forearm_dh_frame
+  - frameName: SCSYS_HEAD_MTX_IMU
+    frameReferenceLink: head
+    exportedFrameName: imu_frame
 
 
 linkFrames: 
@@ -297,25 +300,14 @@ forceTorqueSensors:
     directionChildToParent: Yes
 
 sensors:
-  - linkName: head
-    frameName: SCSYS_HEAD_MTX_IMU
-    sensorName: "imu_frame"
-    exportFrameInURDF: Yes
-    sensorType: "imu"
-    updateRate: "100"
-    sensorBlobs: 
-    - |
-        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/inertial.ini</yarpConfigurationFile>
-        </plugin>
-  - sensorName: "default"
+  - sensorName: default
     exportFrameInURDF: No
     sensorType: "accelerometer"
     updateRate: "100"
     sensorBlobs: 
     - |
         <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so" />
-  - sensorName: "default"
+  - sensorName: default
     exportFrameInURDF: No
     sensorType: "gyroscope"
     updateRate: "100"
@@ -323,6 +315,11 @@ sensors:
     linkName: head
     sensorName: head_imu_acc_1x1
     sensorType: "accelerometer"
+    sensorBlobs: 
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
   - frameName: SCSYS_ROOT_LINK_EMS_ACC_EB5
     linkName: root_link
     sensorName: root_link_ems_acc_eb5
@@ -692,15 +689,15 @@ XMLBlobs:
         <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
             <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
         </plugin>
-        <plugin name="controlboard_head" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head.ini</yarpConfigurationFile>
+        <plugin name="controlboard_head_without_eyes" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
         </plugin>
-        <plugin name="controlboard_left_arm" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm.ini</yarpConfigurationFile>
+        <plugin name="controlboard_left_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
         </plugin>
-        <plugin name="controlboard_right_arm" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm.ini</yarpConfigurationFile>
+        <plugin name="controlboard_right_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.698</initialConfiguration>
         </plugin>
         <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
