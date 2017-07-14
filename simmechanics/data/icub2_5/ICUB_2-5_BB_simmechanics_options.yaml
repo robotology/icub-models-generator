@@ -646,10 +646,6 @@ XMLBlobs:
           <disableFixedJointLumping>true</disableFixedJointLumping>
         </gazebo>
   - |
-        <gazebo reference="r_arm_ft_sensor">
-          <disableFixedJointLumping>true</disableFixedJointLumping>
-        </gazebo>
-  - |
         <gazebo reference="l_arm_ft_sensor">
           <disableFixedJointLumping>true</disableFixedJointLumping>
         </gazebo>
