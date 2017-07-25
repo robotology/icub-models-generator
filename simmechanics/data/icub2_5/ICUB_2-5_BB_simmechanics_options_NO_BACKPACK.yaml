@@ -1,3 +1,6 @@
+# Robot name
+robotName: iCub
+
 # Meshes options 
 scale: "0.001 0.001 0.001"
 forcelowercase: Yes
