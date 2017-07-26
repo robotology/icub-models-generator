@@ -75,8 +75,8 @@ add_custom_target(generate-models-simmechanics
 # Copy the meshes in the meshes/simmechanics directory
 add_custom_command(TARGET generate-models-simmechanics
                    POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes/simmechanics"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/simmechanics" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes/simmechanics"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
                    COMMENT "Copying Simmechanics meshes")
 
 
