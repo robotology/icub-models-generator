@@ -41,6 +41,7 @@ set(ICUB_MODELS_SOURCE_DIR "" CACHE STRING "Location of the icub-models reposito
 add_custom_target(copy-models-to-icub-models)
 add_dependencies(copy-models-to-icub-models generate-models)
 add_custom_command(TARGET copy-models-to-icub-models
+                   POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub"
                    COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub")
 
