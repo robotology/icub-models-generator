@@ -62,12 +62,6 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova01
                            CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
                            NO_BACKPACK)
 
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova05
-                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
-                           YAML "icub2_5/ICUB_2-5_BB_simmechanics_options_NO_BACKPACK.yaml"
-                           CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
-                           NO_BACKPACK)
-
 add_custom_target(generate-models-simmechanics
                   ALL
                   DEPENDS ${model-simmechanics-generated-models})
