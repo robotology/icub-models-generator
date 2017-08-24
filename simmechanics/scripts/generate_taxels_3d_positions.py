@@ -45,7 +45,7 @@ def truncate(f, n):
 
 
 # export the 3d points to a skinManager "positions" compatible file
-def exportSkinManagerPositionTxtFile(taxels,posx,posy,posz,normx,normy,normz,name,filename,taxel_per_triangle,center_taxel):
+def exportSkinManagerPositionTxtFile(taxels,posx,posy,posz,normx,normy,normz,name,frame,filename,taxel_per_triangle,center_taxel):
     assert(len(taxels) == len(posx))
     assert(len(taxels) == len(posy))
     assert(len(taxels) == len(posz))
@@ -54,6 +54,7 @@ def exportSkinManagerPositionTxtFile(taxels,posx,posy,posz,normx,normy,normz,nam
     assert(len(taxels) == len(normz))
     out_file = open(filename,"w");
     out_file.write("name    " + name + "\n");
+    out_file.write("frame    " + frame + "\n");
     out_file.write("spatial_sampling     taxel\n");
     # the convention relative to taxel2repr is that dummy taxels are
     # mapped to -1, temperature taxel are mapped -2 and tacticle taxels
@@ -424,7 +425,7 @@ def generate_3d_positions(args):
 
 
     # Export results
-    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownZ,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
+    exportSkinManagerPositionTxtFile(completePart.taxels,completePartUnknownX,completePartUnknownY,completePartUnknownZ,completePartNormX,completePartNormY,completePartNormZ,args.link[0],args.skin_frame[0],args.skinManager_conf_file[0],taxel_per_triangle,center_taxel);
 
 def main():
     parser = argparse.ArgumentParser(description='Generate 3D positions for iCub skin taxels, from centers extracted from CAD and iCubSkinGui 2D configuration files.')
