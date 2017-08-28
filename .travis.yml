@@ -3,26 +3,46 @@ dist: trusty
 language: cpp
 cache: ccache
 
+env:
+  global:
+    - URDF_PARSER_PY_REPOSITORY_URL="https://github.com/ros/urdf_parser_py.git"
+    - SIMMECHANICS_TO_URDF_REPOSITORY_URL="https://github.com/robotology/simmechanics-to-urdf.git"
+    - CODYCO_SUPERBUILD_REPOSITORY_URL="https://github.com/robotology/codyco-superbuild.git"
+    - DEPLOYMENT_REPOSITORY_TOCKEN="github.com/robotology-playground/icub-models.git"
+    - TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT="master"
+    - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology-playground/icub-model-generator.git"
+    - BOT_USER_NAME="LOC2Bot"
+
 before_script:
+  # Save the url of the repository
+  - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
   # Start in the parent directory of icub-model-generator
   - cd ..
   - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
   # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
   # let's install both debian packages and pip packages to be sure
   - sudo pip install lxml numpy pyyaml catkin_pkg
-  # install urdf_parser_py
-  - git clone https://github.com/ros/urdf_parser_py
-  - cd urdf_parser_py 
+  # install urdf_parser_py and save the last commit SHA1 hash
+  - git clone $URDF_PARSER_PY_REPOSITORY_URL
+  - cd urdf_parser_py
+  - export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
-  # install simmechanics-to-urdf
-  - git clone https://github.com/robotology/simmechanics-to-urdf
+  # install simmechanics-to-urdf and save the last commit SHA1 hash
+  - git clone $SIMMECHANICS_TO_URDF_REPOSITORY_URL
   - cd simmechanics-to-urdf
+  - export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
-  # use superbuild for getting icub-model-generator C++ dependencies
-  - git clone https://github.com/robotology/codyco-superbuild
+  # copy output folders and add the environment variable
+  - git clone https://$DEPLOYMENT_REPOSITORY_TOCKEN
+  - cd icub-models
+  - export ICUB_MODELS_SOURCE_DIR=`pwd`
+  - cd ../
+  # use superbuild for getting icub-model-generator C++ dependencies and save the last commit SHA1 hash
+  - git clone $CODYCO_SUPERBUILD_REPOSITORY_URL
   - cd codyco-superbuild
+  - export CODYCO_SUPERBUILD_COMMIT=`git rev-parse HEAD`
   # install dependencies using the codyco-superbuild script
   - chmod +x ./.ci/travis-deps.sh
   - sh .ci/travis-deps.sh
@@ -43,11 +63,25 @@ before_script:
   - cd icub-model-generator
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -D ICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
 
 script:
   - sudo cmake --build .
   - ctest --output-on-failure
+  - sudo cmake --build . --target copy-models-to-icub-models
+
+after_success:
+# IF the build was triggered by a valid `repository url` on a valid `branch`, THEN commit the new models to the `deployment` repository
+  - if [[ $TRAVIS_BRANCH == $TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT && $CURRENT_REPOSITORY_URL == $TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT ]]; then
+      cd $ICUB_MODELS_SOURCE_DIR;
+      git remote rm origin;
+      git remote add origin https://$BOT_USER_NAME:$BOT_TOCKEN@$DEPLOYMENT_REPOSITORY_TOCKEN;
+      git add --all;
+      git commit -a -m "Travis build:$TRAVIS_BUILD_NUMBER" -m "icub-model-generator commit:$TRAVIS_COMMIT"
+      -m "urdf_parser_py commit:$URDF_PARSER_PY_COMMIT" -m "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT"
+      -m "codyco-superbuild commit:$CODYCO_SUPERBUILD_COMMIT";
+      git push --set-upstream --quiet origin master;
+    fi
 
 notifications:
   email:
