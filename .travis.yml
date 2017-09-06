@@ -8,7 +8,7 @@ env:
     - URDF_PARSER_PY_REPOSITORY_URL="https://github.com/ros/urdf_parser_py.git"
     - SIMMECHANICS_TO_URDF_REPOSITORY_URL="https://github.com/robotology/simmechanics-to-urdf.git"
     - CODYCO_SUPERBUILD_REPOSITORY_URL="https://github.com/robotology/codyco-superbuild.git"
-    - DEPLOYMENT_REPOSITORY_TOCKEN="github.com/robotology-playground/icub-models.git"
+    - DEPLOYMENT_REPOSITORY_TOKEN="github.com/robotology-playground/icub-models.git"
     - TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT="master"
     - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology-playground/icub-model-generator.git"
     - BOT_USER_NAME="LOC2Bot"
@@ -35,7 +35,7 @@ before_script:
   - sudo python setup.py install
   - cd ../
   # copy output folders and add the environment variable
-  - git clone https://$DEPLOYMENT_REPOSITORY_TOCKEN
+  - git clone https://$DEPLOYMENT_REPOSITORY_TOKEN
   - cd icub-models
   - export ICUB_MODELS_SOURCE_DIR=`pwd`
   - cd ../
@@ -75,7 +75,7 @@ after_success:
   - if [[ $TRAVIS_BRANCH == $TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT && $CURRENT_REPOSITORY_URL == $TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT ]]; then
       cd $ICUB_MODELS_SOURCE_DIR;
       git remote rm origin;
-      git remote add origin https://$BOT_USER_NAME:$BOT_TOCKEN@$DEPLOYMENT_REPOSITORY_TOCKEN;
+      git remote add origin https://$BOT_USER_NAME:$BOT_TOKEN@$DEPLOYMENT_REPOSITORY_TOKEN;
       git add --all;
       git commit -a -m "Travis build:$TRAVIS_BUILD_NUMBER" -m "icub-model-generator commit:$TRAVIS_COMMIT"
       -m "urdf_parser_py commit:$URDF_PARSER_PY_COMMIT" -m "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT"
