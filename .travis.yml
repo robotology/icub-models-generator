@@ -14,8 +14,9 @@ env:
     - BOT_USER_NAME="LOC2Bot"
 
 before_script:
-  # Save the url of the repository
+  # Save the url of the repository and the user-name of the committ author
   - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
+  - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
   # Start in the parent directory of icub-model-generator
   - cd ..
   - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
@@ -77,9 +78,9 @@ after_success:
       git remote rm origin;
       git remote add origin https://$BOT_USER_NAME:$BOT_TOKEN@$DEPLOYMENT_REPOSITORY_TOKEN;
       git add --all;
-      git commit -a -m "Travis build:$TRAVIS_BUILD_NUMBER" -m "icub-model-generator commit:$TRAVIS_COMMIT"
+      git commit -a -m "Automatic build. Travis build:$TRAVIS_BUILD_NUMBER" -m "icub-model-generator commit:$TRAVIS_COMMIT"
       -m "urdf_parser_py commit:$URDF_PARSER_PY_COMMIT" -m "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT"
-      -m "codyco-superbuild commit:$CODYCO_SUPERBUILD_COMMIT";
+      -m "codyco-superbuild commit:$CODYCO_SUPERBUILD_COMMIT" --author "$COMMIT_AUTHOR";
       git push --set-upstream --quiet origin master;
     fi
 
