@@ -754,13 +754,15 @@ reverseRotationAxis:
 
 
 assignedMasses:
-  chest: 5.6380
+  chest: @CHEST_ASSIGNED_MASS@
   l_upper_leg: 1.8084
   l_lower_leg: 1.4724
   l_ankle_1  : 0.6798
   r_upper_leg: 1.8035
   r_lower_leg: 1.4720
   r_ankle_1  : 0.6803
+
+@GAZEBO_ASSIGNED_INERTIAS@
 
 XMLBlobs:
   - |
