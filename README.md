@@ -23,7 +23,6 @@ or location across different models**. The only frames (that are represented in 
 
 Both generation pipelines are still in `a work in progress` state, and several issues need to be properly solved, e.g.:
 * [Meshes are not properly handled #28](https://github.com/robotology-playground/icub-model-generator/issues/28)
-* [Gazebo SDF Models are not generated #25](https://github.com/robotology-playground/icub-model-generator/issues/25)
 * [Hands and eyes are not generated #29](https://github.com/robotology-playground/icub-model-generator/issues/29)
 
 ## Generated models 
@@ -31,6 +30,7 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `YARP_ROBOT_NAME` | Pipeline     | Notes                 |
 |:-----------------:|:------------:|:---------------------:|
 | `iCubDarmstadt01` | simmechanics | v2.5 without backpack |
+| `iCubGazeboV2_5`  | simmechanics | v2.5 with backpack, and inertias of some links modified to run smoothly in Gazebo | 
 | `iCubGenova01`    | simmechanics | v2.5 without backpack | 
 | `iCubGenova02`    | simmechanics | v2.5   with backpack  | 
 | `iCubGenova03`    | dh | v2 with legs v1 and feet v2.5   | 
