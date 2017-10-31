@@ -73,7 +73,7 @@ script:
 
 after_success:
 # IF the build was triggered by a valid `repository url` on a valid `branch`, THEN commit the new models to the `deployment` repository
-  - if [[ $TRAVIS_BRANCH == $TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT && $CURRENT_REPOSITORY_URL == $TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT ]]; then
+  - if [[ $TRAVIS_BRANCH == $TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT && $CURRENT_REPOSITORY_URL == $TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT && $TRAVIS_EVENT_TYPE == push ]]; then
       cd $ICUB_MODELS_SOURCE_DIR;
       git remote rm origin;
       git remote add origin https://$BOT_USER_NAME:$BOT_TOKEN@$DEPLOYMENT_REPOSITORY_TOKEN;
