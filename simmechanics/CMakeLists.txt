@@ -117,7 +117,7 @@ macro(generate_icub_simmechanics)
         # instead of just copyng, we also modify the com on the fly
         add_custom_command(OUTPUT "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf"
                            MAIN_DEPENDENCY "${GIVTWO_YARP_ROBOT_NAME}.urdf"
-                           COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/adjust_com_for_model_without_backpack.py
+                           COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/adjust_com_for_model_without_backpack.py
                                     --input_urdf  "${GIVTWO_YARP_ROBOT_NAME}.urdf"
                                     --output_urdf "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
     else()
