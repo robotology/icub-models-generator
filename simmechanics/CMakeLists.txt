@@ -137,6 +137,12 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5
                            CSV "icub2_5/ICUB_2-5_BB_joint_parameters.csv"
                            INCREASE_INERTIA_FOR_GAZEBO)
 
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5+
+                          SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
+                          YAML_TEMPLATE "icub2_5/ICUB_2-5_plus_BB_simmechanics_options.yaml.in"
+                          CSV "icub2_5/ICUB_2-5_plus_BB_joint_parameters.csv"
+                          INCREASE_INERTIA_FOR_GAZEBO)
+
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova02
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
@@ -169,8 +175,3 @@ add_custom_command(TARGET generate-models-simmechanics
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
                    COMMENT "Copying Simmechanics meshes")
-
-
-
-
-
