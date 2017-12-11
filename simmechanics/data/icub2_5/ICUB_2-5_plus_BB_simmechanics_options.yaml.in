@@ -389,7 +389,9 @@ exportedFrames:
   - frameName: SCSYS_R_LOWER_LEG_SKIN_21
     frameReferenceLink: r_lower_leg
     exportedFrameName: r_lower_leg_skin_21
-
+  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
+    frameReferenceLink: root_link
+    exportedFrameName: root_link_imu_frame
 
 
 linkFrames:
@@ -764,6 +766,16 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
+  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
+    linkName: root_link
+    sensorName: root_link_xsens_imu
+    sensorType: "imu"
+    updateRate: "400"
+    sensorBlobs:
+    - |
+        <plugin name="xsens_imu_plugin" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
 
 
 # Workaround options
@@ -1045,20 +1057,3 @@ XMLBlobs:
         <gazebo reference="neck_yaw">
            <implicitSpringDamper>1</implicitSpringDamper>
         </gazebo>
-
-exportedFrames:
-  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
-    frameReferenceLink: root_link
-    exportedFrameName: root_link_imu_frame
-
-sensors:
-- frameName: SCSYS_ROOT_LINK_XSENS_IMU
-  linkName: root_link
-  sensorName: root_link_xsens_imu
-  sensorType: "imu"
-  updateRate: "400"
-  sensorBlobs:
-  - |
-      <plugin name="xsens_imu_plugin" filename="libgazebo_yarp_imu.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
-      </plugin>
