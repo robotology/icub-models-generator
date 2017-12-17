@@ -19,7 +19,7 @@ before_script:
   - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
   # Start in the parent directory of icub-model-generator
   - cd ..
-  - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools python-catkin-pkg
+  - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
   # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
   # let's install both debian packages and pip packages to be sure
   - sudo pip install lxml numpy pyyaml catkin_pkg
@@ -51,7 +51,7 @@ before_script:
   - cd build
   - export CMAKE_PREFIX_PATH=`pwd`/install
   # using the YCM_EP_MAINTAINER_MODE variable to enable the subproject-dependees target
-  - cmake -DCODYCO_TRAVIS_CI:BOOL=ON  -DYCM_EP_MAINTAINER_MODE:BOOL=ON -DNON_INTERACTIVE_BUILD:BOOL=TRUE -D-DCODYCO_USES_KDL:BOOL=ON ..
+  - cmake -DCODYCO_TRAVIS_CI:BOOL=ON  -DYCM_EP_MAINTAINER_MODE:BOOL=ON -DNON_INTERACTIVE_BUILD:BOOL=TRUE -DCODYCO_USES_KDL:BOOL=ON ..
   - cmake --build .
   - pwd
   - cd ../..
