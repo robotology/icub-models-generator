@@ -51,7 +51,7 @@ before_script:
   - cd build
   - export CMAKE_PREFIX_PATH=`pwd`/install
   # using the YCM_EP_MAINTAINER_MODE variable to enable the subproject-dependees target
-  - cmake -DCODYCO_TRAVIS_CI:BOOL=ON  -DYCM_EP_MAINTAINER_MODE:BOOL=ON -DNON_INTERACTIVE_BUILD:BOOL=TRUE  ..
+  - cmake -DCODYCO_TRAVIS_CI:BOOL=ON  -DYCM_EP_MAINTAINER_MODE:BOOL=ON -DNON_INTERACTIVE_BUILD:BOOL=TRUE -DCODYCO_USES_KDL:BOOL=ON ..
   - cmake --build .
   - pwd
   - cd ../..
