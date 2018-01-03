@@ -4,7 +4,7 @@ robotName: iCub
 # Meshes options
 scale: "0.001 0.001 0.001"
 forcelowercase: Yes
-filenameformatchangeext: "package://iCub/meshes/simmechanics/%s-binary.stl"
+@MESH_FOLDER
 
 # Rename options (map Creo names to URDF names)
 rename:
@@ -389,7 +389,7 @@ exportedFrames:
   - frameName: SCSYS_R_LOWER_LEG_SKIN_21
     frameReferenceLink: r_lower_leg
     exportedFrameName: r_lower_leg_skin_21
-
+@XSENS_IMU_FRAME
 
 
 linkFrames:
@@ -764,23 +764,11 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
+@XSENS_IMU_SENSOR
 
 
 # Workaround options
-reverseRotationAxis:
-  l_shoulder_roll
-  l_elbow
-  l_hip_yaw
-  l_knee
-  l_ankle_pitch
-  r_hip_pitch
-  r_ankle_roll
-  r_shoulder_pitch
-  r_shoulder_yaw
-  r_elbow
-  r_wrist_prosup
-  torso_pitch
-  neck_roll
+@REVERSE_ROTATION_AXIS
 
 
 assignedMasses:
