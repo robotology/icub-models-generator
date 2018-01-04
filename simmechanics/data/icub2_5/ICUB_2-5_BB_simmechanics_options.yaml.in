@@ -8,7 +8,7 @@ originRPY: [0.0,0.0,3.14]
 # Meshes options
 scale: "0.001 0.001 0.001"
 forcelowercase: Yes
-@MESH_FOLDER
+@MESH_FOLDER@
 
 # Rename options (map Creo names to URDF names)
 rename:
@@ -393,7 +393,7 @@ exportedFrames:
   - frameName: SCSYS_R_LOWER_LEG_SKIN_21
     frameReferenceLink: r_lower_leg
     exportedFrameName: r_lower_leg_skin_21
-@XSENS_IMU_FRAME
+@XSENS_IMU_FRAME@
 
 
 linkFrames:
@@ -768,11 +768,11 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
-@XSENS_IMU_SENSOR
+@XSENS_IMU_SENSOR@
 
 
 # Workaround options
-@REVERSE_ROTATION_AXIS
+@REVERSE_ROTATION_AXIS@
 
 
 assignedMasses:
