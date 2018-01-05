@@ -97,7 +97,7 @@ macro(generate_icub_simmechanics)
     # If we are generating the icub2.5+ model we need to add the xsens IMU, change the mesh folder
     # and change the rotation axis list that need to be reversed.
     if(GIVTWO_ICUB_PLUS)
-      set(MESH_FOLDER "filenameformatchangeext: \"package://iCub/meshes/simmechanics/2-5_plus/%s-binary.stl\"")
+      set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/2-5_plus/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-50,20")
       set(CUSTOM_EPSILON "epsilon: 2e-7")
       set(XSENS_IMU_FRAME
@@ -109,8 +109,8 @@ macro(generate_icub_simmechanics)
 "  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
     linkName: root_link
     exportFrameInURDF: No
-    sensorName: root_link_xsens_imu
-    sensorType: \"imu\"
+    sensorName: root_link_imu_acc
+    sensorType: \"accelerometer\"
     updateRate: \"400\"
     sensorBlobs:
     - |
@@ -135,7 +135,7 @@ macro(generate_icub_simmechanics)
   neck_roll
 ")
     else()
-      set(MESH_FOLDER "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
+      set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-35,35")
       set(CUSTOM_EPSILON "")
       set(XSENS_IMU_FRAME "")
