@@ -140,12 +140,12 @@ macro(generate_icub_simmechanics)
     geometricShape:
       shape: box
       size: 0.16 0.072 0.001
-      origin: \"0.0419152 0.00499780 0.00120804 3.14159264324 0.261799192098 0.0\"
+      origin: \"0.0417858 0.00499780 0.000725075 3.14159264324 0.261799192098 0.0\"
   - linkName: l_foot
     geometricShape:
       shape: box
       size: 0.16 0.072 0.001
-      origin: \"0.0419152 -0.00499780 0.00120804 3.14159264324 0.261799192098 0.0\"
+      origin: \"0.0417858 -0.00499780 0.000725075 3.14159264324 0.261799192098 0.0\"
 ")
     else()
       set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
