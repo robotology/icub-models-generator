@@ -115,7 +115,7 @@ macro(generate_icub_simmechanics)
     sensorBlobs:
     - |
         <plugin name=\"root_link_xsens_imu_plugin\" filename=\"libgazebo_yarp_imu.so\">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
         </plugin>
 ")
       set(REVERSE_ROTATION_AXIS
