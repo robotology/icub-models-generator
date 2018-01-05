@@ -99,6 +99,7 @@ macro(generate_icub_simmechanics)
     if(GIVTWO_ICUB_PLUS)
       set(MESH_FOLDER "filenameformatchangeext: \"package://iCub/meshes/simmechanics/2-5_plus/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-50,20")
+      set(CUSTOM_EPSILON "epsilon: 2e-7")
       set(XSENS_IMU_FRAME
 "  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
     frameReferenceLink: root_link
@@ -136,6 +137,7 @@ macro(generate_icub_simmechanics)
     else()
       set(MESH_FOLDER "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-35,35")
+      set(CUSTOM_EPSILON "")
       set(XSENS_IMU_FRAME "")
       set(XSENS_IMU_SENSOR "")
       set(REVERSE_ROTATION_AXIS

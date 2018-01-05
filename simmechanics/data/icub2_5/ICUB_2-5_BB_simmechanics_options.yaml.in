@@ -10,6 +10,9 @@ scale: "0.001 0.001 0.001"
 forcelowercase: Yes
 @MESH_FOLDER@
 
+# Custom epsilon for testing whether a number is close to zero
+@CUSTOM_EPSILON@
+
 # Rename options (map Creo names to URDF names)
 rename:
  RootPart: base_link
