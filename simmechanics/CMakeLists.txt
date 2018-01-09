@@ -134,6 +134,19 @@ macro(generate_icub_simmechanics)
   torso_pitch
   neck_roll
 ")
+      set(ASSIGNED_COLLISION_GEOMETRIES
+"assignedCollisionGeometry:
+  - linkName: r_foot
+    geometricShape:
+      shape: box
+      size: 0.16 0.072 0.001
+      origin: \"0.0417858 0.00499780 0.000725075 3.14159264324 0.261799192098 0.0\"
+  - linkName: l_foot
+    geometricShape:
+      shape: box
+      size: 0.16 0.072 0.001
+      origin: \"0.0417858 -0.00499780 0.000725075 3.14159264324 0.261799192098 0.0\"
+")
     else()
       set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-35,35")
@@ -155,6 +168,19 @@ macro(generate_icub_simmechanics)
   r_wrist_prosup
   torso_pitch
   neck_roll
+")
+      set(ASSIGNED_COLLISION_GEOMETRIES
+"assignedCollisionGeometry:
+  - linkName: r_foot
+    geometricShape:
+      shape: box
+      size: 0.16 0.072 0.001
+      origin: \"0.03 0.005 0.014 0.0 0.0 0.0\"
+  - linkName: l_foot
+    geometricShape:
+      shape: box
+      size: 0.16 0.072 0.001
+      origin: \"0.03 -0.005 0.014 0.0 0.0 0.0\"
 ")
     endif()
 

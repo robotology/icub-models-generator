@@ -777,6 +777,7 @@ sensors:
 # Workaround options
 @REVERSE_ROTATION_AXIS@
 
+@ASSIGNED_COLLISION_GEOMETRIES@
 
 assignedMasses:
   chest: @CHEST_ASSIGNED_MASS@
