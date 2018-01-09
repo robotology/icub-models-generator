@@ -90,8 +90,12 @@ macro(generate_icub_simmechanics)
     yy: 0.01
     zz: 0.01
 ")
+      set(LOWERBODY_JOINT_DAMPING 1.0)
+      set(UPPERBODY_JOINT_DAMPING 1.0)
     else()
       set(GAZEBO_ASSIGNED_INERTIAS "")
+      set(LOWERBODY_JOINT_DAMPING 0.223)
+      set(UPPERBODY_JOINT_DAMPING 0.06)
     endif()
 
     # If we are generating the icub2.5+ model we need to add the xsens IMU, change the mesh folder
