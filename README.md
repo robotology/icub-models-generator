@@ -6,6 +6,11 @@ are available at https://github.com/robotology-playground/icub-models .
 
 **Note: this repository is meant to streamline the process of producing iCub URDF/SDF models by iCub mantainers. It is not meant to be used directly by users of iCub. For offical info on the kinematic parameters of the iCub, please see [the documentation in iCub's wiki](http://wiki.icub.org/wiki/ICubForwardKinematics).**
 
+## Dependencies
+- [orocos_kdl](http://www.orocos.org/kdl)
+
+Required only if you wish to generate DH models (`ICUB_MODEL_GENERATE_DH = ON`). Make sure you have compiled iDynTree with the option `IDYNTREE_USES_KDL = ON`.
+
 ## Usage 
 To generate the models, please ensure that you have all the necessary dependencies. 
 To update the content of a local `icub-models` repository, set in the `ICUB_MODELS_SOURCE_DIR`
