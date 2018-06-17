@@ -8,9 +8,9 @@ env:
     - URDF_PARSER_PY_REPOSITORY_URL="https://github.com/ros/urdf_parser_py.git"
     - SIMMECHANICS_TO_URDF_REPOSITORY_URL="https://github.com/robotology/simmechanics-to-urdf.git"
     - CODYCO_SUPERBUILD_REPOSITORY_URL="https://github.com/robotology/codyco-superbuild.git"
-    - DEPLOYMENT_REPOSITORY_TOKEN="github.com/robotology-playground/icub-models.git"
+    - DEPLOYMENT_REPOSITORY_TOKEN="github.com/robotology/icub-models.git"
     - TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT="master"
-    - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology-playground/icub-model-generator.git"
+    - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology/icub-model-generator.git"
     - BOT_USER_NAME="LOC2Bot"
 
 before_script:
