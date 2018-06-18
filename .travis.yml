@@ -86,7 +86,7 @@ before_script:
   - mkdir build
   - cd build
   - cmake ..
-  - cmake --build . --target install
+  - sudo cmake --build . --target install
   - cd ../../..
   ## console_bridge
   - git clone https://github.com/ros/console_bridge
@@ -119,7 +119,7 @@ before_script:
   - mkdir build
   - cd build
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
-  - cmake --build . --target install
+  - sudo cmake --build . --target install
   - cd ../..
   # Install sdformat
   - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
