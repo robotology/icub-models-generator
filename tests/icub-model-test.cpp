@@ -280,6 +280,54 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
     return true;
 }
 
+bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
+                                      const iDynTree::Rotation& expected,
+                                      const std::string& sensorName)
+{
+    // Depending on the icub model, the sensor could be absent
+    if (!comp.model().isFrameNameUsed(sensorName))
+    {
+        return true;
+    }
+
+    iDynTree::Rotation actual = comp.getRelativeTransform("root_link", sensorName).getRotation();
+
+    if (!checkMatrixAreEqual(expected, actual, 1e-3))
+    {
+        std::cerr << "icub-model-test : transform between root_link and " << sensorName << " is not the expected one, test failed." << std::endl;
+        std::cerr << "icub-model-test : Expected transform : " << expected.toString() << std::endl;
+        std::cerr << "icub-model-test : Actual transform : " << actual.toString() << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+
+/**
+ * Check that the F/T sensor have the correct orientation.
+ *
+ * See https://github.com/robotology/icub-model-generator/issues/92
+ */
+bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
+{
+    // The rotation of all the F/T sensors in the iCub robot when in zero position are the same
+    iDynTree::Rotation rootLink_R_sensorFrameExpected =
+        iDynTree::Rotation(-1.0,  0.0,  0.0,
+                            0.0,  1.0,  0.0,
+                            0.0,  0.0, -1.0);
+
+
+    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft_sensor");
+    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor");
+    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor");
+    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor");
+    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor");
+    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor");
+
+    return ok;
+}
+
 int main(int argc, char ** argv)
 {
     yarp::os::Property prop;
@@ -343,11 +391,16 @@ int main(int argc, char ** argv)
     iDynTree::ModelLoader mdlLoader;
     mdlLoader.loadModelFromFile(modelPath);
 
-
     if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
     {
         return EXIT_FAILURE;
     }
+
+    if (!checkFTSensorsAreCorrectlyOriented(comp))
+    {
+        return EXIT_FAILURE;
+    }
+
 
     std::cerr << "Check for model " << modelPath << " concluded correctly!" << std::endl;
 
