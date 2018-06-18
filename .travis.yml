@@ -19,7 +19,7 @@ addons:
       - libace-dev
       - libboost-dev
       - libeigen3-dev
-      - libgsl-dev
+      - libgsl0-dev
       - libtinyxml-dev
 
 env:
