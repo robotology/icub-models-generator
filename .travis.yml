@@ -123,6 +123,14 @@ before_script:
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
   - sudo cmake --build . --target install
   - cd ../..
+  # ycm 
+  - git clone https://github.com/robotology/ycm.git
+  - cd ycm
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../..
   # Install sdformat
   - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
   - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
