@@ -257,7 +257,7 @@ bool addGazeboSurfaceFrictionInformationToCollisionSDF(sdf::ElementPtr collision
 {
         /*
         From iCub hand modified urdf,
-        commit https://github.com/robotology-playground/icub-gazebo/commit/7cd9ee3059fef2344f9029bffa3a8b2b8895c059
+        commit https://github.com/robotology/icub-gazebo/commit/7cd9ee3059fef2344f9029bffa3a8b2b8895c059
 
         <collision name='l_foot_collision'>
                 <!-- <pose>3.95315e-11 4.452e-07 -5.14839e-06 8.98039e-06 -1.36732e-05 -1.01971e-06</pose> -->

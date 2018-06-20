@@ -3,17 +3,39 @@ dist: trusty
 language: cpp
 cache: ccache
 
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-5.0
+    packages:
+      # gcc
+      - gcc-5
+      - g++-5
+      # build tools
+      - cmake3
+      # libraries
+      - libace-dev
+      - libboost-dev
+      - libgsl0-dev
+      - libtinyxml-dev
+
 env:
   global:
     - URDF_PARSER_PY_REPOSITORY_URL="https://github.com/ros/urdf_parser_py.git"
     - SIMMECHANICS_TO_URDF_REPOSITORY_URL="https://github.com/robotology/simmechanics-to-urdf.git"
-    - CODYCO_SUPERBUILD_REPOSITORY_URL="https://github.com/robotology/codyco-superbuild.git"
-    - DEPLOYMENT_REPOSITORY_TOKEN="github.com/robotology-playground/icub-models.git"
+    - DEPLOYMENT_REPOSITORY_TOKEN="github.com/robotology/icub-models.git"
     - TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT="master"
-    - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology-playground/icub-model-generator.git"
+    - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology/icub-model-generator.git"
     - BOT_USER_NAME="LOC2Bot"
 
 before_script:
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi 
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libeigen3-dev; fi
+  # Force gcc-5
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then if [ "$CC" == "gcc" ]; then export CC=gcc-5; export CXX=g++-5; fi; fi
   # Save the url of the repository and the user-name of the committ author
   - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
   - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
@@ -40,20 +62,74 @@ before_script:
   - cd icub-models
   - export ICUB_MODELS_SOURCE_DIR=`pwd`
   - cd ../
-  # use superbuild for getting icub-model-generator C++ dependencies and save the last commit SHA1 hash
-  - git clone $CODYCO_SUPERBUILD_REPOSITORY_URL
-  - cd codyco-superbuild
-  - export CODYCO_SUPERBUILD_COMMIT=`git rev-parse HEAD`
-  # install dependencies using the codyco-superbuild script
-  - chmod +x ./.ci/travis-deps.sh
-  - sh .ci/travis-deps.sh
+  # get C++ dependencies and save their last commit SHA1 hash
+  ## yarp
+  - git clone https://github.com/robotology/yarp.git
+  - cd yarp
+  - git checkout v2.3.72.1
+  - export YARP_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
-  - export CMAKE_PREFIX_PATH=`pwd`/install
-  # using the YCM_EP_MAINTAINER_MODE variable to enable the subproject-dependees target
-  - cmake -DCODYCO_TRAVIS_CI:BOOL=ON  -DYCM_EP_MAINTAINER_MODE:BOOL=ON -DNON_INTERACTIVE_BUILD:BOOL=TRUE -DCODYCO_USES_KDL:BOOL=ON ..
-  - cmake --build .
-  - pwd
+  - cmake -DCREATE_LIB_MATH:BOOL=ON ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  ## icub-main
+  - git clone https://github.com/robotology/icub-main.git
+  - cd icub-main
+  - export ICUB_MAIN_COMMIT=`git rev-parse HEAD`
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  ## orocos_kdl
+  - git clone https://github.com/orocos/orocos_kinematics_dynamics
+  - cd orocos_kinematics_dynamics/orocos_kdl
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../../..
+  ## console_bridge
+  - git clone https://github.com/ros/console_bridge
+  - cd console_bridge
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  # urdfdom_headers
+  - git clone https://github.com/ros/urdfdom_headers
+  - cd urdfdom_headers
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  # urdfdom
+  - git clone https://github.com/ros/urdfdom
+  - cd urdfdom
+  - mkdir build
+  - cd build
+  - cmake  ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  ## idyntree
+  - git clone https://github.com/robotology/idyntree.git
+  - cd idyntree
+  - export IDYNTREE_COMMIT=`git rev-parse HEAD`
+  - mkdir build
+  - cd build
+  - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
+  - sudo cmake --build . --target install
+  - cd ../..
+  # ycm 
+  - git clone https://github.com/robotology/ycm.git
+  - cd ycm
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
   - cd ../..
   # Install sdformat
   - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
@@ -80,7 +156,7 @@ after_success:
       git add --all;
       git commit -a -m "Automatic build. Travis build:$TRAVIS_BUILD_NUMBER" -m "icub-model-generator commit:$TRAVIS_COMMIT"
       -m "urdf_parser_py commit:$URDF_PARSER_PY_COMMIT" -m "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT"
-      -m "codyco-superbuild commit:$CODYCO_SUPERBUILD_COMMIT" --author "$COMMIT_AUTHOR";
+      -m "yarp commit:$YARP_COMMIT" -m "icub-main commit:$ICUB_MAIN_COMMIT" -m "idyntree commit:$IDYNTREE_COMMIT" --author "$COMMIT_AUTHOR";
       git push --set-upstream --quiet origin master;
     fi
 
