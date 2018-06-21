@@ -9,7 +9,7 @@
 
   <createdFrom>"Pro/E Wildfire Creo 3.0 - 2017020"</createdFrom>
 
-  <createdOn>"09/05/17||16:18:48"</createdOn>
+  <createdOn>"06/18/18||13:31:20"</createdOn>
 
   <createdBy>"iCub"</createdBy>
 
@@ -36,7 +36,7 @@
             <name>"CG"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart::CG(AUTOGEN)"</nodeID>
-            <position>0.0295924,-121.068,-48.736</position>
+            <position>0.0301487,-121.068,-48.7374</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -62,7 +62,7 @@
             <name>"CS2"</name>
             <displayName>""</displayName>
             <nodeID>"59/RootPart:-:ICUB_2-5_BB_SIM_MODEL/RootPart::ICUB_2-5_BB_SIM_MODEL/RootPart(AUTOGEN)"</nodeID>
-            <position>0.00926918,-291.893,-44.3016</position>
+            <position>0.0102543,-291.893,-44.3041</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -75,7 +75,7 @@
             <name>"CS3"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart:-:RootGround::ICUB_2-5_BB_SIM_MODEL/RootPart(AUTOGEN)"</nodeID>
-            <position>0.0295924,-121.068,-48.736</position>
+            <position>0.0301487,-121.068,-48.7374</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -119,35 +119,6 @@
         </primitives>
       </SimpleJoint>
       <SimpleJoint>
-        <name>"SIM_SEA_2-5_LAP_BELT_2--SIM_SEA_2-5_CHEST_BB"</name>
-        <nodeID>"59:59/125:-:60:60/132"</nodeID>
-        <status>""</status>
-        <base>
-          <JointSide>
-            <name>""</name>
-            <connection>
-              <Frame ref="41"></Frame>
-            </connection>
-          </JointSide>
-        </base>
-        <follower>
-          <JointSide>
-            <name>""</name>
-            <connection>
-              <Frame ref="42"></Frame>
-            </connection>
-          </JointSide>
-        </follower>
-        <primitives>
-          <Primitive>
-            <name>"revolute"</name>
-            <nodeID>""</nodeID>
-            <referenceFrame>"WORLD"</referenceFrame>
-            <axis>0,-1,0</axis>
-          </Primitive>
-        </primitives>
-      </SimpleJoint>
-      <SimpleJoint>
         <name>"SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_NECK_1"</name>
         <nodeID>"60:60/132:-:61:61/59"</nodeID>
         <status>""</status>
@@ -155,7 +126,7 @@
           <JointSide>
             <name>""</name>
             <connection>
-              <Frame ref="59"></Frame>
+              <Frame ref="21"></Frame>
             </connection>
           </JointSide>
         </base>
@@ -163,7 +134,7 @@
           <JointSide>
             <name>""</name>
             <connection>
-              <Frame ref="60"></Frame>
+              <Frame ref="22"></Frame>
             </connection>
           </JointSide>
         </follower>
@@ -173,6 +144,35 @@
             <nodeID>""</nodeID>
             <referenceFrame>"WORLD"</referenceFrame>
             <axis>-1,0,0</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+      <SimpleJoint>
+        <name>"SIM_SEA_2-5_LAP_BELT_2--SIM_SEA_2-5_CHEST_BB"</name>
+        <nodeID>"59:59/125:-:60:60/132"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="55"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="56"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"revolute"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>0,-1,0</axis>
           </Primitive>
         </primitives>
       </SimpleJoint>
@@ -216,7 +216,7 @@
             <name>"CS1"</name>
             <displayName>""</displayName>
             <nodeID>"ICUB_2-5_BB_SIM_MODEL/RootPart:-:RootGround::RootGround(AUTOGEN)"</nodeID>
-            <position>0.0295924,-121.068,-48.736</position>
+            <position>0.0301487,-121.068,-48.7374</position>
             <positionOrigin>"WORLD"</positionOrigin>
             <positionReferenceFrame>"WORLD"</positionReferenceFrame>
             <positionUnits>"mm"</positionUnits>
@@ -338,7 +338,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="19">
+              <Frame ref="37">
                 <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/120:59/120/99:-:59/126::59/126(AUTOGEN)"</nodeID>
@@ -351,7 +351,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="37">
+              <Frame ref="87">
                 <name>"CS8"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/119:59/119/7819:-:59/126::59/126(AUTOGEN)"</nodeID>
@@ -364,7 +364,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="43">
+              <Frame ref="91">
                 <name>"CS9"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/124:-:59/126::59/126(AUTOGEN)"</nodeID>
@@ -397,7 +397,7 @@
                 <name>"CG"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/RootPart::CG(AUTOGEN)"</nodeID>
-                <position>0.00926918,-291.893,-44.3016</position>
+                <position>0.0102543,-291.893,-44.3041</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -436,7 +436,7 @@
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/RootPart:-:ICUB_2-5_BB_SIM_MODEL/RootPart::59/RootPart(AUTOGEN)"</nodeID>
-                <position>0.00926918,-291.893,-44.3016</position>
+                <position>0.0102543,-291.893,-44.3041</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -487,7 +487,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="39">
+              <Frame ref="89">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/124:-:59/125::59/124(AUTOGEN)"</nodeID>
@@ -500,7 +500,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="44">
+              <Frame ref="92">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"59/124:-:59/126::59/124(AUTOGEN)"</nodeID>
@@ -555,11 +555,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="40">
+              <Frame ref="55">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
-                <nodeID>"59/124:-:59/125::59/125(AUTOGEN)"</nodeID>
-                <position>-1.90735e-007,0,-93.7446</position>
+                <nodeID>"59:59/125:-:60:60/132::59/125(AUTOGEN)"</nodeID>
+                <position>-1.90735e-007,50,-30.9025</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -568,11 +568,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="41">
+              <Frame ref="90">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
-                <nodeID>"59:59/125:-:60:60/132::59/125(AUTOGEN)"</nodeID>
-                <position>-1.90735e-007,50,-30.9025</position>
+                <nodeID>"59/124:-:59/125::59/125(AUTOGEN)"</nodeID>
+                <position>-1.90735e-007,0,-93.7446</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -623,7 +623,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="19"></Frame>
+                  <Frame ref="37"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -631,7 +631,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="20"></Frame>
+                  <Frame ref="38"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -652,7 +652,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="37"></Frame>
+                  <Frame ref="87"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -660,7 +660,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="38"></Frame>
+                  <Frame ref="88"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -681,7 +681,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="39"></Frame>
+                  <Frame ref="89"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -689,7 +689,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="40"></Frame>
+                  <Frame ref="90"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -710,7 +710,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="43"></Frame>
+                  <Frame ref="91"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -718,7 +718,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="44"></Frame>
+                  <Frame ref="92"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -804,7 +804,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="35">
+                  <Frame ref="85">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7819:-:59/119/7829::59/119/7819(AUTOGEN)"</nodeID>
@@ -817,7 +817,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="38">
+                  <Frame ref="88">
                     <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119:59/119/7819:-:59/126::59/119/7819(AUTOGEN)"</nodeID>
@@ -940,7 +940,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="33">
+                  <Frame ref="83">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7823:-:59/119/7829::59/119/7829(AUTOGEN)"</nodeID>
@@ -953,7 +953,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="36">
+                  <Frame ref="86">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7819:-:59/119/7829::59/119/7829(AUTOGEN)"</nodeID>
@@ -1021,7 +1021,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="31">
+                  <Frame ref="27">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7823:-:59/119/7830::59/119/7823(AUTOGEN)"</nodeID>
@@ -1034,7 +1034,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="34">
+                  <Frame ref="84">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7823:-:59/119/7829::59/119/7823(AUTOGEN)"</nodeID>
@@ -1271,7 +1271,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="29">
+                  <Frame ref="25">
                     <name>"CS16"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7824:-:59/119/7830::59/119/7830(AUTOGEN)"</nodeID>
@@ -1284,7 +1284,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="32">
+                  <Frame ref="28">
                     <name>"CS17"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7823:-:59/119/7830::59/119/7830(AUTOGEN)"</nodeID>
@@ -1937,11 +1937,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="27">
+                  <Frame ref="26">
                     <name>"CS48"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7824:-:59/119/7825::59/119/7824(AUTOGEN)"</nodeID>
-                    <position>-43.6,-586.938,-43.709</position>
+                    <nodeID>"59/119/7824:-:59/119/7830::59/119/7824(AUTOGEN)"</nodeID>
+                    <position>-56.5149,-386.438,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -1950,11 +1950,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="30">
+                  <Frame ref="29">
                     <name>"CS49"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7824:-:59/119/7830::59/119/7824(AUTOGEN)"</nodeID>
-                    <position>-56.5149,-386.438,-43.709</position>
+                    <nodeID>"59/119/7824:-:59/119/7825::59/119/7824(AUTOGEN)"</nodeID>
+                    <position>-43.6,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2018,11 +2018,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="25">
+                  <Frame ref="30">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7825:-:59/119/7827::59/119/7825(AUTOGEN)"</nodeID>
-                    <position>-70.1,-586.938,-81.709</position>
+                    <nodeID>"59/119/7824:-:59/119/7825::59/119/7825(AUTOGEN)"</nodeID>
+                    <position>-43.6,-586.938,-43.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2031,11 +2031,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="28">
+                  <Frame ref="31">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7824:-:59/119/7825::59/119/7825(AUTOGEN)"</nodeID>
-                    <position>-43.6,-586.938,-43.709</position>
+                    <nodeID>"59/119/7825:-:59/119/7827::59/119/7825(AUTOGEN)"</nodeID>
+                    <position>-70.1,-586.938,-81.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2099,11 +2099,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="23">
+                  <Frame ref="32">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7827:-:59/119/7828::59/119/7827(AUTOGEN)"</nodeID>
-                    <position>-70.1,-639.438,-47.209</position>
+                    <nodeID>"59/119/7825:-:59/119/7827::59/119/7827(AUTOGEN)"</nodeID>
+                    <position>-70.1,-586.938,-81.709</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2112,11 +2112,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="26">
+                  <Frame ref="33">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
-                    <nodeID>"59/119/7825:-:59/119/7827::59/119/7827(AUTOGEN)"</nodeID>
-                    <position>-70.1,-586.938,-81.709</position>
+                    <nodeID>"59/119/7827:-:59/119/7828::59/119/7827(AUTOGEN)"</nodeID>
+                    <position>-70.1,-639.438,-47.209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2219,7 +2219,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="24">
+                  <Frame ref="34">
                     <name>"CS6"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/119/7827:-:59/119/7828::59/119/7828(AUTOGEN)"</nodeID>
@@ -2267,37 +2267,8 @@
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_FOOT--SIM_SEA_2-5_R_SOLE"</name>
-                <nodeID>"59/119/7827:-:59/119/7828"</nodeID>
-                <status>""</status>
-                <base>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="23"></Frame>
-                    </connection>
-                  </JointSide>
-                </base>
-                <follower>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="24"></Frame>
-                    </connection>
-                  </JointSide>
-                </follower>
-                <primitives>
-                  <Primitive>
-                    <name>"weld"</name>
-                    <nodeID>""</nodeID>
-                    <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>0.57735,0.57735,0.57735</axis>
-                  </Primitive>
-                </primitives>
-              </SimpleJoint>
-              <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_ANKLE--SIM_SEA_2-5_R_FOOT"</name>
-                <nodeID>"59/119/7825:-:59/119/7827"</nodeID>
+                <name>"SIM_SEA_2-5_R_THIGH--SIM_SEA_2-5_R_SHANK"</name>
+                <nodeID>"59/119/7824:-:59/119/7830"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2320,13 +2291,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>0,0,1</axis>
+                    <axis>-1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_SHANK--SIM_SEA_2-5_R_ANKLE"</name>
-                <nodeID>"59/119/7824:-:59/119/7825"</nodeID>
+                <name>"SIM_SEA_2-5_R_UPPER_THIGH--SIM_SEA_2-5_R_THIGH"</name>
+                <nodeID>"59/119/7823:-:59/119/7830"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2349,13 +2320,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>1,0,0</axis>
+                    <axis>0,-1,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_THIGH--SIM_SEA_2-5_R_SHANK"</name>
-                <nodeID>"59/119/7824:-:59/119/7830"</nodeID>
+                <name>"SIM_SEA_2-5_R_SHANK--SIM_SEA_2-5_R_ANKLE"</name>
+                <nodeID>"59/119/7824:-:59/119/7825"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2378,13 +2349,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>-1,0,0</axis>
+                    <axis>1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_UPPER_THIGH--SIM_SEA_2-5_R_THIGH"</name>
-                <nodeID>"59/119/7823:-:59/119/7830"</nodeID>
+                <name>"SIM_SEA_2-5_R_ANKLE--SIM_SEA_2-5_R_FOOT"</name>
+                <nodeID>"59/119/7825:-:59/119/7827"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2407,13 +2378,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>0,-1,0</axis>
+                    <axis>0,0,1</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_HIP_2--SIM_SEA_2-5_R_UPPER_THIGH"</name>
-                <nodeID>"59/119/7823:-:59/119/7829"</nodeID>
+                <name>"SIM_SEA_2-5_R_FOOT--SIM_SEA_2-5_R_SOLE"</name>
+                <nodeID>"59/119/7827:-:59/119/7828"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -2441,14 +2412,14 @@
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_R_HIP_1--SIM_SEA_2-5_R_HIP_2"</name>
-                <nodeID>"59/119/7819:-:59/119/7829"</nodeID>
+                <name>"SIM_SEA_2-5_R_HIP_2--SIM_SEA_2-5_R_UPPER_THIGH"</name>
+                <nodeID>"59/119/7823:-:59/119/7829"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="35"></Frame>
+                      <Frame ref="83"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -2456,7 +2427,36 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="36"></Frame>
+                      <Frame ref="84"></Frame>
+                    </connection>
+                  </JointSide>
+                </follower>
+                <primitives>
+                  <Primitive>
+                    <name>"weld"</name>
+                    <nodeID>""</nodeID>
+                    <referenceFrame>"WORLD"</referenceFrame>
+                    <axis>0.57735,0.57735,0.57735</axis>
+                  </Primitive>
+                </primitives>
+              </SimpleJoint>
+              <SimpleJoint>
+                <name>"SIM_SEA_2-5_R_HIP_1--SIM_SEA_2-5_R_HIP_2"</name>
+                <nodeID>"59/119/7819:-:59/119/7829"</nodeID>
+                <status>""</status>
+                <base>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="85"></Frame>
+                    </connection>
+                  </JointSide>
+                </base>
+                <follower>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="86"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -2545,11 +2545,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="17">
+                  <Frame ref="35">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/100:-:59/120/99::59/120/99(AUTOGEN)"</nodeID>
-                    <position>70.1,-151.913,-68.0353</position>
+                    <position>70.1,-151.913,-68.0351</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2558,7 +2558,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="20">
+                  <Frame ref="38">
                     <name>"CS5"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120:59/120/99:-:59/126::59/120/99(AUTOGEN)"</nodeID>
@@ -2591,7 +2591,7 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/RootPart::CG(AUTOGEN)"</nodeID>
-                    <position>70.6827,-392.479,-38.8408</position>
+                    <position>70.6856,-392.479,-38.848</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2659,7 +2659,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/100::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.02957e-011,-2.02902e-011,-1.90691e-007</position>
+                    <position>-8.83647e-012,-2.01799e-011,-1.90676e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2681,11 +2681,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="18">
+                  <Frame ref="36">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/100:-:59/120/99::59/120/100(AUTOGEN)"</nodeID>
-                    <position>70.1,-151.913,-68.0353</position>
+                    <position>70.1,-151.913,-68.0351</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2694,7 +2694,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="21">
+                  <Frame ref="39">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/100:-:59/120/101::59/120/100(AUTOGEN)"</nodeID>
@@ -2727,11 +2727,11 @@
                     <name>"CG"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/101::CG(AUTOGEN)"</nodeID>
-                    <position>70.2229,-234.931,-43.4267</position>
+                    <position>70.3823,-234.931,-43.832</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>0,0,1,0,1,0,-1,0,0</orientation>
+                    <orientation>1,0,0,0,1,0,0,0,1</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
@@ -2740,11 +2740,11 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/101::CS1(AUTOGEN)"</nodeID>
-                    <position>26.391,0,-113.809</position>
+                    <position>-1.01012e-011,-1.96302e-011,-1.90679e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>0,0,1,0,1,0,-1,0,0</orientation>
+                    <orientation>1,0,0,0,1,0,0,0,1</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
@@ -2757,12 +2757,12 @@
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
-                    <orientation>-1,0,0,0,0,-1,0,-1,0</orientation>
+                    <orientation>0,0,1,-1,0,0,0,-1,0</orientation>
                     <orientationType>"3x3 Transform"</orientationType>
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="22">
+                  <Frame ref="40">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/100:-:59/120/101::59/120/101(AUTOGEN)"</nodeID>
@@ -2775,7 +2775,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="45">
+                  <Frame ref="41">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/101:-:59/120/102::59/120/101(AUTOGEN)"</nodeID>
@@ -2821,7 +2821,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/102::CS1(AUTOGEN)"</nodeID>
-                    <position>-5.58063e-012,0.2,-1.90677e-007</position>
+                    <position>-1.00101e-011,0.2,-1.90679e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3012,7 +3012,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="46">
+                  <Frame ref="42">
                     <name>"CS16"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/101:-:59/120/102::59/120/102(AUTOGEN)"</nodeID>
@@ -3025,7 +3025,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="47">
+                  <Frame ref="43">
                     <name>"CS17"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/102:-:59/120/103::59/120/102(AUTOGEN)"</nodeID>
@@ -3071,7 +3071,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/103::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90756e-007,0.2,-1.90693e-007</position>
+                    <position>-1.90758e-007,0.2,-1.90683e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3184,7 +3184,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="48">
+                  <Frame ref="44">
                     <name>"CS10"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/102:-:59/120/103::59/120/103(AUTOGEN)"</nodeID>
@@ -3197,7 +3197,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="49">
+                  <Frame ref="45">
                     <name>"CS11"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/103:-:59/120/104::59/120/103(AUTOGEN)"</nodeID>
@@ -3243,7 +3243,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/104::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90775e-007,0.2,-1.90695e-007</position>
+                    <position>-1.90778e-007,0.2,-1.90685e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3265,7 +3265,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="50">
+                  <Frame ref="46">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/103:-:59/120/104::59/120/104(AUTOGEN)"</nodeID>
@@ -3278,7 +3278,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="51">
+                  <Frame ref="47">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/104:-:59/120/105::59/120/104(AUTOGEN)"</nodeID>
@@ -3324,7 +3324,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/105::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90763e-007,0.2,-3.81414e-007</position>
+                    <position>-1.90776e-007,0.2,-3.8142e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3346,7 +3346,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="52">
+                  <Frame ref="48">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/104:-:59/120/105::59/120/105(AUTOGEN)"</nodeID>
@@ -3359,7 +3359,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="53">
+                  <Frame ref="49">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/105:-:59/120/106::59/120/105(AUTOGEN)"</nodeID>
@@ -3405,7 +3405,7 @@
                     <name>"CS1"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/106::CS1(AUTOGEN)"</nodeID>
-                    <position>-1.90751e-007,2.86085e-007,-3.81423e-007</position>
+                    <position>-1.90764e-007,2.86079e-007,-3.8143e-007</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3466,7 +3466,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="54">
+                  <Frame ref="50">
                     <name>"CS6"</name>
                     <displayName>""</displayName>
                     <nodeID>"59/120/105:-:59/120/106::59/120/106(AUTOGEN)"</nodeID>
@@ -3521,7 +3521,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="17"></Frame>
+                      <Frame ref="35"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -3529,7 +3529,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="18"></Frame>
+                      <Frame ref="36"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -3550,7 +3550,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="21"></Frame>
+                      <Frame ref="39"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -3558,7 +3558,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="22"></Frame>
+                      <Frame ref="40"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -3574,6 +3574,64 @@
               <SimpleJoint>
                 <name>"SIM_SEA_2-5_L_UPPER_THIGH--SIM_SEA_2-5_L_THIGH"</name>
                 <nodeID>"59/120/101:-:59/120/102"</nodeID>
+                <status>""</status>
+                <base>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="41"></Frame>
+                    </connection>
+                  </JointSide>
+                </base>
+                <follower>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="42"></Frame>
+                    </connection>
+                  </JointSide>
+                </follower>
+                <primitives>
+                  <Primitive>
+                    <name>"revolute"</name>
+                    <nodeID>""</nodeID>
+                    <referenceFrame>"WORLD"</referenceFrame>
+                    <axis>0,-1,0</axis>
+                  </Primitive>
+                </primitives>
+              </SimpleJoint>
+              <SimpleJoint>
+                <name>"SIM_SEA_2-5_L_THIGH--SIM_SEA_2-5_L_SHANK"</name>
+                <nodeID>"59/120/102:-:59/120/103"</nodeID>
+                <status>""</status>
+                <base>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="43"></Frame>
+                    </connection>
+                  </JointSide>
+                </base>
+                <follower>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="44"></Frame>
+                    </connection>
+                  </JointSide>
+                </follower>
+                <primitives>
+                  <Primitive>
+                    <name>"revolute"</name>
+                    <nodeID>""</nodeID>
+                    <referenceFrame>"WORLD"</referenceFrame>
+                    <axis>1,0,0</axis>
+                  </Primitive>
+                </primitives>
+              </SimpleJoint>
+              <SimpleJoint>
+                <name>"SIM_SEA_2-5_L_SHANK--SIM_SEA_2-5_L_ANKLE"</name>
+                <nodeID>"59/120/103:-:59/120/104"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -3596,13 +3654,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>0,-1,0</axis>
+                    <axis>-1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_THIGH--SIM_SEA_2-5_L_SHANK"</name>
-                <nodeID>"59/120/102:-:59/120/103"</nodeID>
+                <name>"SIM_SEA_2-5_L_ANKLE--SIM_SEA_2-5_L_FOOT"</name>
+                <nodeID>"59/120/104:-:59/120/105"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -3625,13 +3683,13 @@
                     <name>"revolute"</name>
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>1,0,0</axis>
+                    <axis>0,0,1</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_SHANK--SIM_SEA_2-5_L_ANKLE"</name>
-                <nodeID>"59/120/103:-:59/120/104"</nodeID>
+                <name>"SIM_SEA_2-5_L_FOOT--SIM_SEA_2-5_L_SOLE"</name>
+                <nodeID>"59/120/105:-:59/120/106"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
@@ -3646,64 +3704,6 @@
                     <name>""</name>
                     <connection>
                       <Frame ref="50"></Frame>
-                    </connection>
-                  </JointSide>
-                </follower>
-                <primitives>
-                  <Primitive>
-                    <name>"revolute"</name>
-                    <nodeID>""</nodeID>
-                    <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>-1,0,0</axis>
-                  </Primitive>
-                </primitives>
-              </SimpleJoint>
-              <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_ANKLE--SIM_SEA_2-5_L_FOOT"</name>
-                <nodeID>"59/120/104:-:59/120/105"</nodeID>
-                <status>""</status>
-                <base>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="51"></Frame>
-                    </connection>
-                  </JointSide>
-                </base>
-                <follower>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="52"></Frame>
-                    </connection>
-                  </JointSide>
-                </follower>
-                <primitives>
-                  <Primitive>
-                    <name>"revolute"</name>
-                    <nodeID>""</nodeID>
-                    <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>0,0,1</axis>
-                  </Primitive>
-                </primitives>
-              </SimpleJoint>
-              <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_FOOT--SIM_SEA_2-5_L_SOLE"</name>
-                <nodeID>"59/120/105:-:59/120/106"</nodeID>
-                <status>""</status>
-                <base>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="53"></Frame>
-                    </connection>
-                  </JointSide>
-                </base>
-                <follower>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="54"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -3939,11 +3939,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="42">
+              <Frame ref="21">
                 <name>"CS15"</name>
                 <displayName>""</displayName>
-                <nodeID>"59:59/125:-:60:60/132::60/132(AUTOGEN)"</nodeID>
-                <position>-1.90735e-007,50,-30.9025</position>
+                <nodeID>"60:60/132:-:61:61/59::60/132(AUTOGEN)"</nodeID>
+                <position>-14.3,222.797,-25.5907</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -3952,7 +3952,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="55">
+              <Frame ref="51">
                 <name>"CS16"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/94::60/132(AUTOGEN)"</nodeID>
@@ -3965,7 +3965,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="57">
+              <Frame ref="53">
                 <name>"CS17"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/71::60/132(AUTOGEN)"</nodeID>
@@ -3978,11 +3978,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="59">
+              <Frame ref="56">
                 <name>"CS18"</name>
                 <displayName>""</displayName>
-                <nodeID>"60:60/132:-:61:61/59::60/132(AUTOGEN)"</nodeID>
-                <position>-14.3,222.797,-25.5907</position>
+                <nodeID>"59:59/125:-:60:60/132::60/132(AUTOGEN)"</nodeID>
+                <position>-1.90735e-007,50,-30.9025</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -4088,7 +4088,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="56">
+              <Frame ref="52">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/94::60/94(AUTOGEN)"</nodeID>
@@ -4101,7 +4101,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="61">
+              <Frame ref="57">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/94:-:60/95::60/94(AUTOGEN)"</nodeID>
@@ -4156,7 +4156,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="62">
+              <Frame ref="58">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/94:-:60/95::60/95(AUTOGEN)"</nodeID>
@@ -4169,7 +4169,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="63">
+              <Frame ref="59">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/95::60/95(AUTOGEN)"</nodeID>
@@ -4237,7 +4237,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="64">
+              <Frame ref="60">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/95::60/125(AUTOGEN)"</nodeID>
@@ -4250,7 +4250,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="65">
+              <Frame ref="61">
                 <name>"CS4"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/133::60/125(AUTOGEN)"</nodeID>
@@ -4357,7 +4357,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="66">
+              <Frame ref="62">
                 <name>"CS6"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/125:-:60/133::60/133(AUTOGEN)"</nodeID>
@@ -4370,7 +4370,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="67">
+              <Frame ref="63">
                 <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/133:-:60/150:60/150/98::60/133(AUTOGEN)"</nodeID>
@@ -4425,7 +4425,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="58">
+              <Frame ref="54">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/132:-:60/71::60/71(AUTOGEN)"</nodeID>
@@ -4438,7 +4438,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="75">
+              <Frame ref="71">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/103:-:60/71::60/71(AUTOGEN)"</nodeID>
@@ -4493,7 +4493,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="76">
+              <Frame ref="72">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/103:-:60/71::60/103(AUTOGEN)"</nodeID>
@@ -4506,7 +4506,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="77">
+              <Frame ref="73">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/103:-:60/108::60/103(AUTOGEN)"</nodeID>
@@ -4574,7 +4574,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="78">
+              <Frame ref="74">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/103:-:60/108::60/108(AUTOGEN)"</nodeID>
@@ -4587,7 +4587,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="79">
+              <Frame ref="75">
                 <name>"CS4"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/108:-:60/140::60/108(AUTOGEN)"</nodeID>
@@ -4694,7 +4694,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="80">
+              <Frame ref="76">
                 <name>"CS6"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/108:-:60/140::60/140(AUTOGEN)"</nodeID>
@@ -4707,7 +4707,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="81">
+              <Frame ref="77">
                 <name>"CS7"</name>
                 <displayName>""</displayName>
                 <nodeID>"60/140:-:60/151:60/151/75::60/140(AUTOGEN)"</nodeID>
@@ -4762,7 +4762,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="55"></Frame>
+                  <Frame ref="51"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -4770,7 +4770,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="56"></Frame>
+                  <Frame ref="52"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -4786,6 +4786,35 @@
           <SimpleJoint>
             <name>"SIM_SEA_2-5_CHEST_BB--SIM_SEA_2-5_L_SHOULDER_1"</name>
             <nodeID>"60/132:-:60/71"</nodeID>
+            <status>""</status>
+            <base>
+              <JointSide>
+                <name>""</name>
+                <connection>
+                  <Frame ref="53"></Frame>
+                </connection>
+              </JointSide>
+            </base>
+            <follower>
+              <JointSide>
+                <name>""</name>
+                <connection>
+                  <Frame ref="54"></Frame>
+                </connection>
+              </JointSide>
+            </follower>
+            <primitives>
+              <Primitive>
+                <name>"revolute"</name>
+                <nodeID>""</nodeID>
+                <referenceFrame>"WORLD"</referenceFrame>
+                <axis>0.965926,0,0.258819</axis>
+              </Primitive>
+            </primitives>
+          </SimpleJoint>
+          <SimpleJoint>
+            <name>"SIM_SEA_2-5_R_SHOULDER_1--SIM_SEA_2-5_R_SHOULDER_2"</name>
+            <nodeID>"60/94:-:60/95"</nodeID>
             <status>""</status>
             <base>
               <JointSide>
@@ -4808,13 +4837,42 @@
                 <name>"revolute"</name>
                 <nodeID>""</nodeID>
                 <referenceFrame>"WORLD"</referenceFrame>
-                <axis>0.965926,0,0.258819</axis>
+                <axis>-0.258819,0,-0.965926</axis>
               </Primitive>
             </primitives>
           </SimpleJoint>
           <SimpleJoint>
-            <name>"SIM_SEA_2-5_R_SHOULDER_1--SIM_SEA_2-5_R_SHOULDER_2"</name>
-            <nodeID>"60/94:-:60/95"</nodeID>
+            <name>"SIM_SEA_2-5_R_SHOULDER_2--SIM_SEA_2-5_R_UPPER_ARM"</name>
+            <nodeID>"60/125:-:60/95"</nodeID>
+            <status>""</status>
+            <base>
+              <JointSide>
+                <name>""</name>
+                <connection>
+                  <Frame ref="59"></Frame>
+                </connection>
+              </JointSide>
+            </base>
+            <follower>
+              <JointSide>
+                <name>""</name>
+                <connection>
+                  <Frame ref="60"></Frame>
+                </connection>
+              </JointSide>
+            </follower>
+            <primitives>
+              <Primitive>
+                <name>"revolute"</name>
+                <nodeID>""</nodeID>
+                <referenceFrame>"WORLD"</referenceFrame>
+                <axis>0,-1,0</axis>
+              </Primitive>
+            </primitives>
+          </SimpleJoint>
+          <SimpleJoint>
+            <name>"SIM_SEA_2-5_R_UPPER_ARM--SIM_SEA_2-5_R_ELBOW"</name>
+            <nodeID>"60/125:-:60/133"</nodeID>
             <status>""</status>
             <base>
               <JointSide>
@@ -4834,16 +4892,16 @@
             </follower>
             <primitives>
               <Primitive>
-                <name>"revolute"</name>
+                <name>"weld"</name>
                 <nodeID>""</nodeID>
                 <referenceFrame>"WORLD"</referenceFrame>
-                <axis>-0.258819,0,-0.965926</axis>
+                <axis>0.57735,0.57735,0.57735</axis>
               </Primitive>
             </primitives>
           </SimpleJoint>
           <SimpleJoint>
-            <name>"SIM_SEA_2-5_R_SHOULDER_2--SIM_SEA_2-5_R_UPPER_ARM"</name>
-            <nodeID>"60/125:-:60/95"</nodeID>
+            <name>"SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_ELBOW_PROSUP"</name>
+            <nodeID>"60/133:-:60/150:60/150/98"</nodeID>
             <status>""</status>
             <base>
               <JointSide>
@@ -4866,64 +4924,6 @@
                 <name>"revolute"</name>
                 <nodeID>""</nodeID>
                 <referenceFrame>"WORLD"</referenceFrame>
-                <axis>0,-1,0</axis>
-              </Primitive>
-            </primitives>
-          </SimpleJoint>
-          <SimpleJoint>
-            <name>"SIM_SEA_2-5_R_UPPER_ARM--SIM_SEA_2-5_R_ELBOW"</name>
-            <nodeID>"60/125:-:60/133"</nodeID>
-            <status>""</status>
-            <base>
-              <JointSide>
-                <name>""</name>
-                <connection>
-                  <Frame ref="65"></Frame>
-                </connection>
-              </JointSide>
-            </base>
-            <follower>
-              <JointSide>
-                <name>""</name>
-                <connection>
-                  <Frame ref="66"></Frame>
-                </connection>
-              </JointSide>
-            </follower>
-            <primitives>
-              <Primitive>
-                <name>"weld"</name>
-                <nodeID>""</nodeID>
-                <referenceFrame>"WORLD"</referenceFrame>
-                <axis>0.57735,0.57735,0.57735</axis>
-              </Primitive>
-            </primitives>
-          </SimpleJoint>
-          <SimpleJoint>
-            <name>"SIM_SEA_2-5_R_ELBOW--SIM_SEA_2-5_R_ELBOW_PROSUP"</name>
-            <nodeID>"60/133:-:60/150:60/150/98"</nodeID>
-            <status>""</status>
-            <base>
-              <JointSide>
-                <name>""</name>
-                <connection>
-                  <Frame ref="67"></Frame>
-                </connection>
-              </JointSide>
-            </base>
-            <follower>
-              <JointSide>
-                <name>""</name>
-                <connection>
-                  <Frame ref="68"></Frame>
-                </connection>
-              </JointSide>
-            </follower>
-            <primitives>
-              <Primitive>
-                <name>"revolute"</name>
-                <nodeID>""</nodeID>
-                <referenceFrame>"WORLD"</referenceFrame>
                 <axis>1,0,0</axis>
               </Primitive>
             </primitives>
@@ -4936,7 +4936,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="75"></Frame>
+                  <Frame ref="71"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -4944,7 +4944,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="76"></Frame>
+                  <Frame ref="72"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -4965,7 +4965,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="77"></Frame>
+                  <Frame ref="73"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -4973,7 +4973,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="78"></Frame>
+                  <Frame ref="74"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -4994,7 +4994,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="79"></Frame>
+                  <Frame ref="75"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -5002,7 +5002,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="80"></Frame>
+                  <Frame ref="76"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -5023,7 +5023,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="81"></Frame>
+                  <Frame ref="77"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -5031,7 +5031,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="82"></Frame>
+                  <Frame ref="78"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -5104,7 +5104,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="68">
+                  <Frame ref="64">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/133:-:60/150:60/150/98::60/150/98(AUTOGEN)"</nodeID>
@@ -5117,7 +5117,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="69">
+                  <Frame ref="65">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/112:-:60/150/98::60/150/98(AUTOGEN)"</nodeID>
@@ -5591,7 +5591,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="70">
+                  <Frame ref="66">
                     <name>"CS30"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/112:-:60/150/98::60/150/112(AUTOGEN)"</nodeID>
@@ -5604,7 +5604,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="71">
+                  <Frame ref="67">
                     <name>"CS31"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/112::60/150/112(AUTOGEN)"</nodeID>
@@ -5659,7 +5659,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="72">
+                  <Frame ref="68">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/112::60/150/105(AUTOGEN)"</nodeID>
@@ -5672,7 +5672,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="73">
+                  <Frame ref="69">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/108::60/150/105(AUTOGEN)"</nodeID>
@@ -5740,7 +5740,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="74">
+                  <Frame ref="70">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/150/105:-:60/150/108::60/150/108(AUTOGEN)"</nodeID>
@@ -5795,7 +5795,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="69"></Frame>
+                      <Frame ref="65"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -5803,7 +5803,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="70"></Frame>
+                      <Frame ref="66"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -5824,7 +5824,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="71"></Frame>
+                      <Frame ref="67"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -5832,7 +5832,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="72"></Frame>
+                      <Frame ref="68"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -5853,7 +5853,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="73"></Frame>
+                      <Frame ref="69"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -5861,7 +5861,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="74"></Frame>
+                      <Frame ref="70"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -5937,7 +5937,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="82">
+                  <Frame ref="78">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/140:-:60/151:60/151/75::60/151/75(AUTOGEN)"</nodeID>
@@ -5950,7 +5950,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="83">
+                  <Frame ref="79">
                     <name>"CS4"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/75:-:60/151/98::60/151/75(AUTOGEN)"</nodeID>
@@ -6424,7 +6424,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="84">
+                  <Frame ref="80">
                     <name>"CS30"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/75:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
@@ -6437,7 +6437,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="85">
+                  <Frame ref="81">
                     <name>"CS31"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/98::60/151/98(AUTOGEN)"</nodeID>
@@ -6492,11 +6492,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="86">
+                  <Frame ref="17">
                     <name>"CS2"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/87:-:60/151/98::60/151/87(AUTOGEN)"</nodeID>
-                    <position>109.398,-158.56,-27.9302</position>
+                    <nodeID>"60/151/87:-:60/151/93::60/151/87(AUTOGEN)"</nodeID>
+                    <position>89.8981,-158.56,-25.4802</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -6505,11 +6505,11 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="87">
+                  <Frame ref="82">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
-                    <nodeID>"60/151/87:-:60/151/93::60/151/87(AUTOGEN)"</nodeID>
-                    <position>89.8981,-158.56,-25.4802</position>
+                    <nodeID>"60/151/87:-:60/151/98::60/151/87(AUTOGEN)"</nodeID>
+                    <position>109.398,-158.56,-27.9302</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -6573,7 +6573,7 @@
                     <orientationUnits>"rad"</orientationUnits>
                     <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
                   </Frame>
-                  <Frame ref="88">
+                  <Frame ref="18">
                     <name>"CS3"</name>
                     <displayName>""</displayName>
                     <nodeID>"60/151/87:-:60/151/93::60/151/93(AUTOGEN)"</nodeID>
@@ -6621,14 +6621,14 @@
                 </primitives>
               </SimpleJoint>
               <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM"</name>
-                <nodeID>"60/151/75:-:60/151/98"</nodeID>
+                <name>"SIM_SEA_2-5_L_WRIST_PITCH--SIM_SEA_2-5_L_HAND"</name>
+                <nodeID>"60/151/87:-:60/151/93"</nodeID>
                 <status>""</status>
                 <base>
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="83"></Frame>
+                      <Frame ref="17"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -6636,7 +6636,36 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="84"></Frame>
+                      <Frame ref="18"></Frame>
+                    </connection>
+                  </JointSide>
+                </follower>
+                <primitives>
+                  <Primitive>
+                    <name>"revolute"</name>
+                    <nodeID>""</nodeID>
+                    <referenceFrame>"WORLD"</referenceFrame>
+                    <axis>1,0,0</axis>
+                  </Primitive>
+                </primitives>
+              </SimpleJoint>
+              <SimpleJoint>
+                <name>"SIM_SEA_2-5_L_ELBOW_PROSUP--SIM_SEA_2-5_L_FOREARM"</name>
+                <nodeID>"60/151/75:-:60/151/98"</nodeID>
+                <status>""</status>
+                <base>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="79"></Frame>
+                    </connection>
+                  </JointSide>
+                </base>
+                <follower>
+                  <JointSide>
+                    <name>""</name>
+                    <connection>
+                      <Frame ref="80"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -6657,7 +6686,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="85"></Frame>
+                      <Frame ref="81"></Frame>
                     </connection>
                   </JointSide>
                 </base>
@@ -6665,7 +6694,7 @@
                   <JointSide>
                     <name>""</name>
                     <connection>
-                      <Frame ref="86"></Frame>
+                      <Frame ref="82"></Frame>
                     </connection>
                   </JointSide>
                 </follower>
@@ -6675,35 +6704,6 @@
                     <nodeID>""</nodeID>
                     <referenceFrame>"WORLD"</referenceFrame>
                     <axis>0,0,-1</axis>
-                  </Primitive>
-                </primitives>
-              </SimpleJoint>
-              <SimpleJoint>
-                <name>"SIM_SEA_2-5_L_WRIST_PITCH--SIM_SEA_2-5_L_HAND"</name>
-                <nodeID>"60/151/87:-:60/151/93"</nodeID>
-                <status>""</status>
-                <base>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="87"></Frame>
-                    </connection>
-                  </JointSide>
-                </base>
-                <follower>
-                  <JointSide>
-                    <name>""</name>
-                    <connection>
-                      <Frame ref="88"></Frame>
-                    </connection>
-                  </JointSide>
-                </follower>
-                <primitives>
-                  <Primitive>
-                    <name>"revolute"</name>
-                    <nodeID>""</nodeID>
-                    <referenceFrame>"WORLD"</referenceFrame>
-                    <axis>1,0,0</axis>
                   </Primitive>
                 </primitives>
               </SimpleJoint>
@@ -6774,11 +6774,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="60">
+              <Frame ref="19">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
-                <nodeID>"60:60/132:-:61:61/59::61/59(AUTOGEN)"</nodeID>
-                <position>-14.3,222.797,-25.5907</position>
+                <nodeID>"61/59:-:61/60::61/59(AUTOGEN)"</nodeID>
+                <position>-1.90735e-007,232.297,-4.79073</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -6787,11 +6787,11 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="89">
+              <Frame ref="22">
                 <name>"CS4"</name>
                 <displayName>""</displayName>
-                <nodeID>"61/59:-:61/60::61/59(AUTOGEN)"</nodeID>
-                <position>-1.90735e-007,232.297,-4.79073</position>
+                <nodeID>"60:60/132:-:61:61/59::61/59(AUTOGEN)"</nodeID>
+                <position>-14.3,222.797,-25.5907</position>
                 <positionOrigin>"WORLD"</positionOrigin>
                 <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                 <positionUnits>"mm"</positionUnits>
@@ -6897,7 +6897,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="90">
+              <Frame ref="20">
                 <name>"CS2"</name>
                 <displayName>""</displayName>
                 <nodeID>"61/59:-:61/60::61/60(AUTOGEN)"</nodeID>
@@ -6910,7 +6910,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="91">
+              <Frame ref="23">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"61/60:-:61/6480::61/60(AUTOGEN)"</nodeID>
@@ -6978,7 +6978,7 @@
                 <orientationUnits>"rad"</orientationUnits>
                 <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
               </Frame>
-              <Frame ref="92">
+              <Frame ref="24">
                 <name>"CS3"</name>
                 <displayName>""</displayName>
                 <nodeID>"61/60:-:61/6480::61/6480(AUTOGEN)"</nodeID>
@@ -7033,7 +7033,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="89"></Frame>
+                  <Frame ref="19"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -7041,7 +7041,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="90"></Frame>
+                  <Frame ref="20"></Frame>
                 </connection>
               </JointSide>
             </follower>
@@ -7062,7 +7062,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="91"></Frame>
+                  <Frame ref="23"></Frame>
                 </connection>
               </JointSide>
             </base>
@@ -7070,7 +7070,7 @@
               <JointSide>
                 <name>""</name>
                 <connection>
-                  <Frame ref="92"></Frame>
+                  <Frame ref="24"></Frame>
                 </connection>
               </JointSide>
             </follower>
