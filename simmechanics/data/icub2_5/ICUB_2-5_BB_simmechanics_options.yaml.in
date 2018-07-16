@@ -396,6 +396,156 @@ exportedFrames:
   - frameName: SCSYS_R_LOWER_LEG_SKIN_21
     frameReferenceLink: r_lower_leg
     exportedFrameName: r_lower_leg_skin_21
+  - frameName: SCSYS_R_FOOT_SKIN_9
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_9
+  - frameName: SCSYS_R_FOOT_SKIN_8
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_8
+  - frameName: SCSYS_R_FOOT_SKIN_10
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_10
+  - frameName: SCSYS_R_FOOT_SKIN_11
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_11
+  - frameName: SCSYS_R_FOOT_SKIN_12
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_12
+  - frameName: SCSYS_R_FOOT_SKIN_13
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_13
+  - frameName: SCSYS_R_FOOT_SKIN_1
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_1
+  - frameName: SCSYS_R_FOOT_SKIN_2
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_2
+  - frameName: SCSYS_R_FOOT_SKIN_3
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_3
+  - frameName: SCSYS_R_FOOT_SKIN_4
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_4
+  - frameName: SCSYS_R_FOOT_SKIN_0
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_0
+  - frameName: SCSYS_R_FOOT_SKIN_15
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_15
+  - frameName: SCSYS_R_FOOT_SKIN_14
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_14
+  - frameName: SCSYS_R_FOOT_SKIN_21
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_21
+  - frameName: SCSYS_R_FOOT_SKIN_26
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_26
+  - frameName: SCSYS_R_FOOT_SKIN_27
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_27
+  - frameName: SCSYS_R_FOOT_SKIN_28
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_28
+  - frameName: SCSYS_R_FOOT_SKIN_17
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_17
+  - frameName: SCSYS_R_FOOT_SKIN_18
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_18
+  - frameName: SCSYS_R_FOOT_SKIN_19
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_19
+  - frameName: SCSYS_R_FOOT_SKIN_20
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_20
+  - frameName: SCSYS_R_FOOT_SKIN_29
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_29
+  - frameName: SCSYS_R_FOOT_SKIN_24
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_24
+  - frameName: SCSYS_R_FOOT_SKIN_25
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_25
+  - frameName: SCSYS_R_FOOT_SKIN_22
+    frameReferenceLink: r_sole
+    exportedFrameName: r_sole_skin_22
+  - frameName: SCSYS_L_FOOT_SKIN_9
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_9
+  - frameName: SCSYS_L_FOOT_SKIN_10
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_10
+  - frameName: SCSYS_L_FOOT_SKIN_11
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_11
+  - frameName: SCSYS_L_FOOT_SKIN_12
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_12
+  - frameName: SCSYS_L_FOOT_SKIN_13
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_13
+  - frameName: SCSYS_L_FOOT_SKIN_8
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_8
+  - frameName: SCSYS_L_FOOT_SKIN_1
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_1
+  - frameName: SCSYS_L_FOOT_SKIN_0
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_0
+  - frameName: SCSYS_L_FOOT_SKIN_15
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_15
+  - frameName: SCSYS_L_FOOT_SKIN_14
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_14
+  - frameName: SCSYS_L_FOOT_SKIN_2
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_2
+  - frameName: SCSYS_L_FOOT_SKIN_3
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_3
+  - frameName: SCSYS_L_FOOT_SKIN_4
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_4
+  - frameName: SCSYS_L_FOOT_SKIN_21
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_21
+  - frameName: SCSYS_L_FOOT_SKIN_26
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_26
+  - frameName: SCSYS_L_FOOT_SKIN_27
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_27
+  - frameName: SCSYS_L_FOOT_SKIN_28
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_28
+  - frameName: SCSYS_L_FOOT_SKIN_17
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_17
+  - frameName: SCSYS_L_FOOT_SKIN_18
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_18
+  - frameName: SCSYS_L_FOOT_SKIN_19
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_19
+  - frameName: SCSYS_L_FOOT_SKIN_20
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_20
+  - frameName: SCSYS_L_FOOT_SKIN_29
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_29
+  - frameName: SCSYS_L_FOOT_SKIN_24
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_24
+  - frameName: SCSYS_L_FOOT_SKIN_25
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_25
+  - frameName: SCSYS_L_FOOT_SKIN_22
+    frameReferenceLink: l_sole
+    exportedFrameName: l_sole_skin_22
 @XSENS_IMU_FRAME@
 
 
