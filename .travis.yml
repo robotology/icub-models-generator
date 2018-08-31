@@ -115,8 +115,8 @@ before_script:
   - cd ../..
   ## idyntree
   - git clone https://github.com/robotology/idyntree.git
-  - git checkout devel
   - cd idyntree
+  - git checkout devel
   - export IDYNTREE_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
