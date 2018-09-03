@@ -36,8 +36,9 @@ add_library(urdf_from_dh_utils STATIC urdf_utils.h
                                       urdf_sdf_from_dh_utils.h
                                       urdf_sdf_from_dh_utils.cpp)
 
+target_link_libraries(urdf_from_dh_utils PUBLIC ${SDFormat_LIBRARIES} ${iDynTree_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES} ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${iDynTree_LIBRARIES} ${TinyXML_LIBRARIES})
 add_executable(icub_urdf_sdf_from_dh_generator icub_urdf_sdf_from_dh_generator.cpp)
+target_link_libraries(icub_urdf_sdf_from_dh_generator urdf_from_dh_utils)
 
-target_link_libraries(icub_urdf_sdf_from_dh_generator urdf_from_dh_utils ${SDFormat_LIBRARIES} ${iDynTree_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES} ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${iDynTree_LIBRARIES} ${TinyXML_LIBRARIES})
 
 install(TARGETS icub_urdf_sdf_from_dh_generator DESTINATION bin)
