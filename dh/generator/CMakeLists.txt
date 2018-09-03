@@ -11,11 +11,16 @@ find_package(Eigen3 REQUIRED)
 find_package(TinyXML REQUIRED)
 
 find_package(SDFormat REQUIRED)
-find_package(iDynTree 0.3.5 REQUIRED)
+find_package(iDynTree 0.11 REQUIRED)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${ICUB_LINK_FLAGS}")
-# Add Gazebo CXX flags, to support sdformat 3 reckless dependency on C++11
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SDFormat_CXX_FLAGS}")
+# Note: SDFormat_CXX_FLAGS contains explictly the --std=c++11 flag 
+# if used with iDynTree >= 0.11, that uses C++14 in its header, this 
+# flag will create compilation errors. As the compilation units will 
+# be compiled as C++14 as they are linking to iDynTree, we can safely 
+# remove comment out this line
+# See https://github.com/robotology/icub-model-generator/issues/105
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SDFormat_CXX_FLAGS}")
 
 # add YARP include directories
 include_directories(${urdfdom_INCLUDE_DIR}
