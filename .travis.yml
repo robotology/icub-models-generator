@@ -121,7 +121,6 @@ before_script:
   - mkdir build
   - cd build
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
-  - make VERBOSE=1 
   - sudo cmake --build . --target install
   - cd ../..
   # ycm 
@@ -144,6 +143,7 @@ before_script:
   - cmake -D ICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
 
 script:
+  - make VERBOSE=1 . 
   - sudo cmake --build .
   - ctest --output-on-failure
   - sudo cmake --build . --target copy-models-to-icub-models
