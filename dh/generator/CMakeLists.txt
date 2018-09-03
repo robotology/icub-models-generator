@@ -2,7 +2,7 @@
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 find_package(YCM REQUIRED)
-find_package(YARP REQUIRED)
+find_package(YARP 3.0 REQUIRED COMPONENTS OS dev sig math gsl)
 find_package(ICUB REQUIRED)
 
 find_package(urdfdom REQUIRED)
