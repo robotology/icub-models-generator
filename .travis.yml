@@ -121,6 +121,7 @@ before_script:
   - mkdir build
   - cd build
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
+  - make VERBOSE=1 
   - sudo cmake --build . --target install
   - cd ../..
   # ycm 
