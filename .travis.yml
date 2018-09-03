@@ -66,7 +66,6 @@ before_script:
   ## yarp
   - git clone https://github.com/robotology/yarp.git
   - cd yarp
-  - git checkout v2.3.72.1
   - export YARP_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -117,6 +116,7 @@ before_script:
   ## idyntree
   - git clone https://github.com/robotology/idyntree.git
   - cd idyntree
+  - git checkout devel
   - export IDYNTREE_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -143,6 +143,7 @@ before_script:
   - cmake -D ICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
 
 script:
+  - make VERBOSE=1 
   - sudo cmake --build .
   - ctest --output-on-failure
   - sudo cmake --build . --target copy-models-to-icub-models

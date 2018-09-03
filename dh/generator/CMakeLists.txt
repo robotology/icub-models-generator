@@ -2,7 +2,7 @@
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 find_package(YCM REQUIRED)
-find_package(YARP REQUIRED)
+find_package(YARP 3.0 REQUIRED COMPONENTS OS dev sig math gsl)
 find_package(ICUB REQUIRED)
 
 find_package(urdfdom REQUIRED)
@@ -36,8 +36,9 @@ add_library(urdf_from_dh_utils STATIC urdf_utils.h
                                       urdf_sdf_from_dh_utils.h
                                       urdf_sdf_from_dh_utils.cpp)
 
+target_link_libraries(urdf_from_dh_utils PUBLIC ${SDFormat_LIBRARIES} ${iDynTree_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES} ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${iDynTree_LIBRARIES} ${TinyXML_LIBRARIES})
 add_executable(icub_urdf_sdf_from_dh_generator icub_urdf_sdf_from_dh_generator.cpp)
+target_link_libraries(icub_urdf_sdf_from_dh_generator urdf_from_dh_utils)
 
-target_link_libraries(icub_urdf_sdf_from_dh_generator urdf_from_dh_utils ${SDFormat_LIBRARIES} ${iDynTree_LIBRARIES} ${YARP_LIBRARIES} ${ICUB_LIBRARIES} ${kdl_codyco_LIBRARIES} ${orocos_kdl_LIBRARIES} ${urdfdom_LIBRARIES} ${iDynTree_LIBRARIES} ${TinyXML_LIBRARIES})
 
 install(TARGETS icub_urdf_sdf_from_dh_generator DESTINATION bin)
