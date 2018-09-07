@@ -316,14 +316,21 @@ bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
         iDynTree::Rotation(-1.0,  0.0,  0.0,
                             0.0,  1.0,  0.0,
                             0.0,  0.0, -1.0);
+    // The rotation of the foot F/T sensors in the iCub 2.5+ is different
+    iDynTree::Rotation rootLink_R_foot_sensorFrameExpected_plus =
+        iDynTree::Rotation(-0.965926, 0.0,  0.258819,
+                            0.0,      1.0,  0.0,
+                           -0.258819, 0.0, -0.965926);
 
+    bool isPlusModel = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_plus, "l_foot_ft_sensor")
+                       && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_plus, "r_foot_ft_sensor");
 
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft_sensor");
     ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor");
     ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor");
     ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor");
+    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isPlusModel);
+    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isPlusModel);
 
     return ok;
 }
