@@ -39,6 +39,7 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `iCubGazeboV2_5_plus`| simmechanics | v2.5+ with backpack, joint damping, and inertias of some links modified to run smoothly in Gazebo |
 | `iCubGenova01`       | simmechanics | v2.5 without backpack           |
 | `iCubGenova02`       | simmechanics | v2.5   with backpack            |
+| `iCubGenova02_plus`  | simmechanics | v2.5+   with backpack           |
 | `iCubGenova03`       | dh           | v2 with legs v1 and feet v2.5   |
 | `iCubGenova04`       | simmechanics | v2.5   with backpack            |
 | `iCubGenova04_plus`  | simmechanics | v2.5+   with backpack           |
