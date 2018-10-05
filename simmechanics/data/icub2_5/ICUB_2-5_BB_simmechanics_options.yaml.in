@@ -546,6 +546,18 @@ exportedFrames:
   - frameName: SCSYS_L_FOOT_SKIN_22
     frameReferenceLink: l_foot
     exportedFrameName: l_sole_skin_22
+  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    frameReferenceLink: r_hip_2
+    exportedFrameName: r_upper_leg_ft_imu_3B11_frame
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    frameReferenceLink: r_ankle_2
+    exportedFrameName: r_foot_ft_imu_3B14_frame
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    frameReferenceLink: l_hip_2
+    exportedFrameName: l_upper_leg_ft_imu_3B12_frame
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    frameReferenceLink: l_ankle_2
+    exportedFrameName: l_foot_ft_imu_3B13_frame
 @XSENS_IMU_FRAME@
 
 
@@ -921,6 +933,42 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
+  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    linkName: r_hip_2
+    sensorName: r_upper_leg_ft_imu_3B11
+    sensorType: "imu"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ft_imu_3B11" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_ft_imu_3B11.ini</yarpConfigurationFile>
+        </plugin>
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    linkName: r_ankle_2
+    sensorName: r_foot_ft_imu_3B14
+    sensorType: "imu"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ft_imu_3B14" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_ft_imu_3B14.ini</yarpConfigurationFile>
+        </plugin>
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    linkName: l_hip_2
+    sensorName: l_upper_leg_ft_imu_3B12
+    sensorType: "imu"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ft_imu_3B12" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_ft_imu_3B12.ini</yarpConfigurationFile>
+        </plugin>
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    linkName: l_ankle_2
+    sensorName: l_foot_ft_imu_3B13
+    sensorType: "imu"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ft_imu_3B13" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_ft_imu_3B13.ini</yarpConfigurationFile>
+        </plugin>
 @XSENS_IMU_SENSOR@
 
 
