@@ -546,6 +546,18 @@ exportedFrames:
   - frameName: SCSYS_L_FOOT_SKIN_22
     frameReferenceLink: l_foot
     exportedFrameName: l_sole_skin_22
+  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    frameReferenceLink: r_hip_2
+    exportedFrameName: r_upper_leg_ft_imu_3B11_frame
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    frameReferenceLink: r_ankle_2
+    exportedFrameName: r_foot_ft_imu_3B14_frame
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    frameReferenceLink: l_hip_2
+    exportedFrameName: l_upper_leg_ft_imu_3B12_frame
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    frameReferenceLink: l_ankle_2
+    exportedFrameName: l_foot_ft_imu_3B13_frame
 @XSENS_IMU_FRAME@
 
 
@@ -921,6 +933,26 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
+  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    exportFrameInURDF: Yes
+    linkName: r_hip_2
+    sensorName: r_upper_leg_ft_imu_3B11
+    sensorType: "imu"
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    exportFrameInURDF: Yes
+    linkName: r_ankle_2
+    sensorName: r_foot_ft_imu_3B14
+    sensorType: "imu"
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    exportFrameInURDF: Yes
+    linkName: l_hip_2
+    sensorName: l_upper_leg_ft_imu_3B12
+    sensorType: "imu"
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    exportFrameInURDF: Yes
+    linkName: l_ankle_2
+    sensorName: l_foot_ft_imu_3B13
+    sensorType: "imu"
 @XSENS_IMU_SENSOR@
 
 
