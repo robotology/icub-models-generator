@@ -546,6 +546,7 @@ exportedFrames:
   - frameName: SCSYS_L_FOOT_SKIN_22
     frameReferenceLink: l_foot
     exportedFrameName: l_sole_skin_22
+@XSENS_IMU_FRAME@    
 
 linkFrames:
   - linkName: root_link
