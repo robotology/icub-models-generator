@@ -175,46 +175,46 @@ macro(generate_icub_simmechanics)
       set(CUSTOM_EPSILON "")
       set(XSENS_IMU_FRAME "")
       set(FT_IMU_SENSORS
-"    - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
-      linkName: r_hip_2
-      sensorName: r_upper_leg_ft_acc_3b11
-      sensorType: "accelerometer"
-      sensorBlobs: ""
-    - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
-      linkName: r_hip_2
-      sensorName: r_upper_leg_ft_gyro_3b11
-      sensorType: "gyroscope"
-      sensorBlobs: ""
-    - frameName: SCSYS_R_FOOT_FT-IMU_3B14
-      linkName: r_ankle_2
-      sensorName: r_foot_ft_acc_3b14
-      sensorType: "accelerometer"
-      sensorBlobs: ""
-    - frameName: SCSYS_R_FOOT_FT-IMU_3B14
-      linkName: r_ankle_2
-      sensorName: r_foot_ft_gyro_3b14
-      sensorType: "gyroscope"
-      sensorBlobs: ""
-    - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
-      linkName: l_hip_2
-      sensorName: l_upper_leg_ft_acc_3b12
-      sensorType: "accelerometer"
-      sensorBlobs: ""
-    - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
-      linkName: l_hip_2
-      sensorName: l_upper_leg_ft_gyro_3b12
-      sensorType: "gyroscope"
-      sensorBlobs: ""
-    - frameName: SCSYS_L_FOOT_FT-IMU_3B13
-      linkName: l_ankle_2
-      sensorName: l_foot_ft_acc_3b13
-      sensorType: "accelerometer"
-      sensorBlobs: ""
-    - frameName: SCSYS_L_FOOT_FT-IMU_3B13
-      linkName: l_ankle_2
-      sensorName: l_foot_ft_gyro_3b13
-      sensorType: "gyroscope"
-      sensorBlobs: ""
+"  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    linkName: r_hip_2
+    sensorName: r_upper_leg_ft_acc_3b11
+    sensorType: \"accelerometer\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_R_UPPER_LEG_FT-IMU_3B11
+    linkName: r_hip_2
+    sensorName: r_upper_leg_ft_gyro_3b11
+    sensorType: \"gyroscope\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    linkName: r_ankle_2
+    sensorName: r_foot_ft_acc_3b14
+    sensorType: \"accelerometer\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_R_FOOT_FT-IMU_3B14
+    linkName: r_ankle_2
+    sensorName: r_foot_ft_gyro_3b14
+    sensorType: \"gyroscope\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    linkName: l_hip_2
+    sensorName: l_upper_leg_ft_acc_3b12
+    sensorType: \"accelerometer\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_L_UPPER_LEG_FT-IMU_3B12
+    linkName: l_hip_2
+    sensorName: l_upper_leg_ft_gyro_3b12
+    sensorType: \"gyroscope\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    linkName: l_ankle_2
+    sensorName: l_foot_ft_acc_3b13
+    sensorType: \"accelerometer\"
+    sensorBlobs: \"\"
+  - frameName: SCSYS_L_FOOT_FT-IMU_3B13
+    linkName: l_ankle_2
+    sensorName: l_foot_ft_gyro_3b13
+    sensorType: \"gyroscope\"
+    sensorBlobs: \"\"
 ")
       set(XSENS_IMU_SENSOR "")
       set(REVERSE_ROTATION_AXIS
