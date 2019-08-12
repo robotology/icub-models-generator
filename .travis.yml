@@ -31,13 +31,13 @@ env:
     - BOT_USER_NAME="LOC2Bot"
 
 # For all dependencies, we use fixed releases to avoid regression due to
-# changes in the dependencies. In particular, we use the latest released 
-# version as of 16 Septembter 2019, except for some dependencies that use 
+# changes in the dependencies. In particular, we use the latest released
+# version as of 16 Septembter 2019, except for some dependencies that use
 # specific commits, more details are provided in inline comments
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi 
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libeigen3-dev; fi
   # Force gcc-5
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then if [ "$CC" == "gcc" ]; then export CC=gcc-5; export CXX=g++-5; fi; fi
@@ -54,7 +54,7 @@ before_script:
   - git clone $URDF_PARSER_PY_REPOSITORY_URL
   - cd urdf_parser_py
   # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
-  - git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3 
+  - git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3
   - export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
@@ -102,8 +102,8 @@ before_script:
   ## console_bridge
   - git clone https://github.com/ros/console_bridge
   - cd console_bridge
-  # Go the commit of the 7th Septmber 2018 for 
-  # console_bridge, urdfdom_headers and urdfdom, see 
+  # Go the commit of the 7th Septmber 2018 for
+  # console_bridge, urdfdom_headers and urdfdom, see
   # https://travis-ci.org/robotology/icub-model-generator/builds/425819092?utm_source=github_status&utm_medium=notification
   - git checkout ad25f7307da76be2857545e7e5c2a20727eee542
   - mkdir build
@@ -139,7 +139,7 @@ before_script:
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
   - sudo cmake --build . --target install
   - cd ../..
-  # ycm 
+  # ycm
   - git clone https://github.com/robotology/ycm.git
   - cd ycm
   - mkdir build
@@ -159,7 +159,7 @@ before_script:
   - cmake -D ICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
 
 script:
-  - make VERBOSE=1 
+  - make VERBOSE=1
   - sudo cmake --build .
   - ctest --output-on-failure
   - sudo cmake --build . --target copy-models-to-icub-models
