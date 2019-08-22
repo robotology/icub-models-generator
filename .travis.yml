@@ -8,8 +8,8 @@ addons:
   apt:
     packages:
       # build tools
-      - build-essentials
-      - cmake3
+      - build-essential
+      - cmake
       # libraries
       - libace-dev
       - libboost-dev
