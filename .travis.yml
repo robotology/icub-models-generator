@@ -1,23 +1,19 @@
 sudo: required
-dist: trusty
+dist: bionic
 language: cpp
 cache: ccache
 
 
 addons:
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-5.0
     packages:
-      # gcc
-      - gcc-5
-      - g++-5
       # build tools
+      - build-essentials
       - cmake3
       # libraries
       - libace-dev
       - libboost-dev
+      - libeigen3-dev
       - libgsl0-dev
       - libtinyxml-dev
 
@@ -31,11 +27,7 @@ env:
     - BOT_USER_NAME="LOC2Bot"
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi 
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libeigen3-dev; fi
-  # Force gcc-5
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then if [ "$CC" == "gcc" ]; then export CC=gcc-5; export CXX=g++-5; fi; fi
   # Save the url of the repository and the user-name of the committ author
   - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
   - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
@@ -48,6 +40,8 @@ before_script:
   # install urdf_parser_py and save the last commit SHA1 hash
   - git clone $URDF_PARSER_PY_REPOSITORY_URL
   - cd urdf_parser_py
+  # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
+  - git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3 
   - export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
@@ -132,10 +126,10 @@ before_script:
   - sudo cmake --build . --target install
   - cd ../..
   # Install sdformat
-  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
+  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu bionic main" > /etc/apt/sources.list.d/gazebo-latest.list'
   - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
   - sudo apt-get update
-  - sudo apt-get install --assume-yes --force-yes libsdformat4-dev
+  - sudo apt-get install --assume-yes --force-yes libsdformat6-dev
   # Prepare icub-model-generator build
   - cd icub-model-generator
   - mkdir build
