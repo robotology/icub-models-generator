@@ -5,6 +5,7 @@ find_package(YCM REQUIRED)
 find_package(YARP 3.0 REQUIRED COMPONENTS OS dev sig math gsl)
 find_package(ICUB REQUIRED)
 
+find_package(console_bridge REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(orocos_kdl REQUIRED)
 find_package(Eigen3 REQUIRED)
