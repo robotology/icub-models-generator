@@ -30,7 +30,7 @@ before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
   # Save the url of the repository and the user-name of the committ author
   - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
-  - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
+  - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>')"
   # Start in the parent directory of icub-model-generator
   - cd ..
   - sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
