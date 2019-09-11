@@ -16,6 +16,10 @@ addons:
       - libeigen3-dev
       - libgsl0-dev
       - libtinyxml-dev
+      - liborocos-kdl
+      - libconsole-bridge-dev
+      - liburdfdom-headers-dev
+      - liburdfdom-dev 
 
 env:
   global:
@@ -73,38 +77,6 @@ before_script:
   - mkdir build
   - cd build
   - cmake ..
-  - sudo cmake --build . --target install
-  - cd ../..
-  ## orocos_kdl
-  - git clone https://github.com/orocos/orocos_kinematics_dynamics
-  - cd orocos_kinematics_dynamics/orocos_kdl
-  - mkdir build
-  - cd build
-  - cmake ..
-  - sudo cmake --build . --target install
-  - cd ../../..
-  ## console_bridge
-  - git clone https://github.com/ros/console_bridge
-  - cd console_bridge
-  - mkdir build
-  - cd build
-  - cmake ..
-  - sudo cmake --build . --target install
-  - cd ../..
-  # urdfdom_headers
-  - git clone https://github.com/ros/urdfdom_headers
-  - cd urdfdom_headers
-  - mkdir build
-  - cd build
-  - cmake ..
-  - sudo cmake --build . --target install
-  - cd ../..
-  # urdfdom
-  - git clone https://github.com/ros/urdfdom
-  - cd urdfdom
-  - mkdir build
-  - cd build
-  - cmake  ..
   - sudo cmake --build . --target install
   - cd ../..
   ## idyntree
