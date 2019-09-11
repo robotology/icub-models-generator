@@ -16,7 +16,7 @@ addons:
       - libeigen3-dev
       - libgsl0-dev
       - libtinyxml-dev
-      - liborocos-kdl
+      - liborocos-kdl-dev
       - libconsole-bridge-dev
       - liburdfdom-headers-dev
       - liburdfdom-dev 
