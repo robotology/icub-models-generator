@@ -48,6 +48,8 @@ before_script:
   # install urdf_parser_py and save the last commit SHA1 hash
   - git clone $URDF_PARSER_PY_REPOSITORY_URL
   - cd urdf_parser_py
+  # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
+  - git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3 
   - export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
