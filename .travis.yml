@@ -118,7 +118,8 @@ before_script:
   ## idyntree
   - git clone https://github.com/robotology/idyntree.git
   - cd idyntree
-  - git checkout devel
+  # commit taken from https://github.com/robotology/icub-models/commit/b69b989af389831fc82b9740deb73c148590da74
+  - git checkout 6f98701123e66b8fbb274e8e0ae657d7688f7501
   - export IDYNTREE_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
