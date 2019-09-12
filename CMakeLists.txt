@@ -48,3 +48,4 @@ add_custom_command(TARGET copy-models-to-icub-models
 include( CTest )
 enable_testing()
 add_subdirectory(tests)
+
