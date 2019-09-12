@@ -86,6 +86,7 @@ before_script:
   ## console_bridge
   - git clone https://github.com/ros/console_bridge
   - cd console_bridge
+  - git checkout 0.4.2 
   - mkdir build
   - cd build
   - cmake ..
