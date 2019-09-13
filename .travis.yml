@@ -86,6 +86,9 @@ before_script:
   ## orocos_kdl
   - git clone https://github.com/orocos/orocos_kinematics_dynamics
   - cd orocos_kinematics_dynamics/orocos_kdl
+  # Go the commit of the 7th Septmber 2018, see 
+  # https://travis-ci.org/robotology/icub-model-generator/builds/425819092?utm_source=github_status&utm_medium=notification
+  - git checkout f51621f6571e5ad9512ea12741bece39b4ce919b
   - mkdir build
   - cd build
   - cmake ..
