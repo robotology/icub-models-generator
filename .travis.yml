@@ -86,7 +86,8 @@ before_script:
   ## orocos_kdl
   - git clone https://github.com/orocos/orocos_kinematics_dynamics
   - cd orocos_kinematics_dynamics/orocos_kdl
-  # Go the commit of the 7th Septmber 2018, see 
+  # Go the commit of the 7th Septmber 2018 for 
+  # orocos_kdl, console_bridge, urdfdom_headers and urdfdom, see 
   # https://travis-ci.org/robotology/icub-model-generator/builds/425819092?utm_source=github_status&utm_medium=notification
   - git checkout f51621f6571e5ad9512ea12741bece39b4ce919b
   - mkdir build
@@ -97,6 +98,7 @@ before_script:
   ## console_bridge
   - git clone https://github.com/ros/console_bridge
   - cd console_bridge
+  - git checkout ad25f7307da76be2857545e7e5c2a20727eee542
   - mkdir build
   - cd build
   - cmake ..
@@ -105,6 +107,7 @@ before_script:
   # urdfdom_headers
   - git clone https://github.com/ros/urdfdom_headers
   - cd urdfdom_headers
+  - git checkout e7e0972a4617b8a5df7a274ea3ba3b92e3895a35
   - mkdir build
   - cd build
   - cmake ..
@@ -113,6 +116,7 @@ before_script:
   # urdfdom
   - git clone https://github.com/ros/urdfdom
   - cd urdfdom
+  - git checkout 06f5f9bc34f09b530d9f3743cb0516934625da54
   - mkdir build
   - cd build
   - cmake  ..
