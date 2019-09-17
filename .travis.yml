@@ -30,6 +30,11 @@ env:
     - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology/icub-model-generator.git"
     - BOT_USER_NAME="LOC2Bot"
 
+# For all dependencies, we use fixed releases to avoid regression due to
+# changes in the dependencies. In particular, we use the latest released 
+# version as of 16 Septembter 2019, except for some dependencies that use 
+# specific commits, more details are provided in inline comments
+
 before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi 
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
@@ -48,6 +53,8 @@ before_script:
   # install urdf_parser_py and save the last commit SHA1 hash
   - git clone $URDF_PARSER_PY_REPOSITORY_URL
   - cd urdf_parser_py
+  # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
+  - git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3 
   - export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
   - sudo python setup.py install
   - cd ../
@@ -66,6 +73,7 @@ before_script:
   ## yarp
   - git clone https://github.com/robotology/yarp.git
   - cd yarp
+  - git checkout v3.2.0
   - export YARP_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -75,6 +83,7 @@ before_script:
   ## icub-main
   - git clone https://github.com/robotology/icub-main.git
   - cd icub-main
+  - git checkout v1.13.0
   - export ICUB_MAIN_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -84,6 +93,7 @@ before_script:
   ## orocos_kdl
   - git clone https://github.com/orocos/orocos_kinematics_dynamics
   - cd orocos_kinematics_dynamics/orocos_kdl
+  - git checkout v1.4.0
   - mkdir build
   - cd build
   - cmake ..
@@ -92,6 +102,10 @@ before_script:
   ## console_bridge
   - git clone https://github.com/ros/console_bridge
   - cd console_bridge
+  # Go the commit of the 7th Septmber 2018 for 
+  # console_bridge, urdfdom_headers and urdfdom, see 
+  # https://travis-ci.org/robotology/icub-model-generator/builds/425819092?utm_source=github_status&utm_medium=notification
+  - git checkout ad25f7307da76be2857545e7e5c2a20727eee542
   - mkdir build
   - cd build
   - cmake ..
@@ -100,6 +114,7 @@ before_script:
   # urdfdom_headers
   - git clone https://github.com/ros/urdfdom_headers
   - cd urdfdom_headers
+  - git checkout e7e0972a4617b8a5df7a274ea3ba3b92e3895a35
   - mkdir build
   - cd build
   - cmake ..
@@ -108,6 +123,7 @@ before_script:
   # urdfdom
   - git clone https://github.com/ros/urdfdom
   - cd urdfdom
+  - git checkout 06f5f9bc34f09b530d9f3743cb0516934625da54
   - mkdir build
   - cd build
   - cmake  ..
@@ -116,7 +132,7 @@ before_script:
   ## idyntree
   - git clone https://github.com/robotology/idyntree.git
   - cd idyntree
-  - git checkout devel
+  - git checkout v0.11.1
   - export IDYNTREE_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
