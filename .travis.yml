@@ -30,6 +30,11 @@ env:
     - TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT="https://github.com/robotology/icub-model-generator.git"
     - BOT_USER_NAME="LOC2Bot"
 
+# For all dependencies, we use fixed releases to avoid regression due to
+# changes in the dependencies. In particular, we use the latest released 
+# version as of 16 Septembter 2019, except for some dependencies that use 
+# specific commits, more details are provided in inline comments
+
 before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi 
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi 
