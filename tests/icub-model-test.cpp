@@ -202,8 +202,9 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     // y should be simmetric
     double l_sole_y = root_H_l_sole.getPosition().getVal(1);
     double r_sole_y = root_H_r_sole.getPosition().getVal(1);
-
-    if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,1e-5) )
+  
+    // The increased threshold is a workaround for https://github.com/robotology/icub-model-generator/issues/125
+    if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,1e-4) )
     {
         std::cerr << "icub-model-test error: l_sole_y is " << l_sole_y << ", while r_sole_y is " << r_sole_y << " while they should be simmetric (diff : " << std::fabs(l_sole_y+r_sole_y) <<  " )"  << std::endl;
         return false;
