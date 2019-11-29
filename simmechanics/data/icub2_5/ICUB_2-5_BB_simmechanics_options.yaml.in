@@ -546,8 +546,7 @@ exportedFrames:
   - frameName: SCSYS_L_FOOT_SKIN_22
     frameReferenceLink: l_foot
     exportedFrameName: l_sole_skin_22
-@XSENS_IMU_FRAME@
-
+@XSENS_IMU_FRAME@    
 
 linkFrames:
   - linkName: root_link
@@ -921,6 +920,7 @@ sensors:
     linkName: l_foot
     sensorName: l_foot_mtb_acc_10b13
     sensorType: "accelerometer"
+@FT_IMU_SENSORS@
 @XSENS_IMU_SENSOR@
 
 
