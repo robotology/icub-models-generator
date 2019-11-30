@@ -142,6 +142,8 @@ before_script:
   # ycm
   - git clone https://github.com/robotology/ycm.git
   - cd ycm
+  # ycm v0.10.4 is the latest release compatible with CMake 3.5 currently used in
+  # travis CI that still uses Ubuntu 14.04
   - git checkout v0.10.4
   - mkdir build
   - cd build
