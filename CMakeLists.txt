@@ -44,7 +44,7 @@ add_dependencies(copy-models-to-icub-models generate-models)
 add_custom_command(TARGET copy-models-to-icub-models
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${ICUB_BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub"
-                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub")
+                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/components"
                    COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/components")
 include( CTest )

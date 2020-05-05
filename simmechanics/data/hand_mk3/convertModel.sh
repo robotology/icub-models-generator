@@ -1,0 +1,2 @@
+simmechanics_to_urdf SIM_LEFT_HAND_Mk3.xml --yaml simmechanics2urdf_configfile.yaml --csv-joints simmechanics2urdf_joints_configfile.csv --output xml --outputfile left_hand_mk3.urdf
+gz sdf -p left_hand_mk3.urdf > left_hand_mk3.sdf
