@@ -1,0 +1,35 @@
+# Robot name
+robotName: iCub
+
+# Model base origin
+originXYZ: [0.0,0.0,0.80]
+originRPY: [0.0,0.0,0.0]
+# Meshes options
+scale: "0.001 0.001 0.001"
+
+forcelowercase: Yes
+
+rename:
+    SIM_ICUB3_CHEST: chest
+    SIM_ICUB3_L_SHOULDER_1: l_shoulder_1
+    SIM_ICUB3_CHEST--SIM_ICUB3_L_SHOULDER_1: l_shoulder_pitch
+    SIM_ICUB3_L_SHOULDER_2: l_shoulder_2
+    SIM_ICUB3_L_SHOULDER_1--SIM_ICUB3_L_SHOULDER_2: l_shoulder_roll
+    SIM_ICUB3_L_SHOULDER_3: l_shoulder_3
+    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_shoulder_yaw
+    SIM_ICUB3_L_UPPERARM: l_upper_arm
+    SIM_ICUB3_L_SHOULDER_3--SIM_ICUB3_L_UPPERARM: l_arm_ft_sensor
+    SIM_ICUB3_R_SHOULDER_1: r_shoulder_1
+    SIM_ICUB3_CHEST--SIM_ICUB3_R_SHOULDER_1: r_shoulder_pitch
+    SIM_ICUB3_R_SHOULDER_2: r_shoulder_2
+    SIM_ICUB3_R_SHOULDER_1--SIM_ICUB3_R_SHOULDER_2: r_shoulder_roll
+    SIM_ICUB3_R_SHOULDER_3: r_shoulder_3
+    SIM_ICUB3_R_SHOULDER_2--SIM_ICUB3_R_SHOULDER_3: r_shoulder_yaw
+    SIM_ICUB3_R_UPPERARM: r_upper_arm
+    SIM_ICUB3_R_SHOULDER_3--SIM_ICUB3_R_UPPERARM: r_arm_ft_sensor
+    SIM_ICUB3_TORSO_2: torso_2
+    SIM_ICUB3_CHEST--SIM_ICUB3_TORSO_2: torso_yaw \
+    SIM_ICUB3_TORSO_1: torso_1
+    SIM_ICUB3_TORSO_2--SIM_ICUB3_TORSO_1:  torso_roll
+    SIM_ICUB3_ROOT_LINK: root_link
+    SIM_ICUB3_TORSO_1--SIM_ICUB3_ROOT_LINK: torso_pitch
