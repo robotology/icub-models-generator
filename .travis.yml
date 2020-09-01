@@ -1,7 +1,6 @@
 sudo: required
 dist: focal
 language: cpp
-cache: ccache
 
 
 addons:
