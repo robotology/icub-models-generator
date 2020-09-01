@@ -28,7 +28,7 @@ rename:
     SIM_ICUB3_R_UPPERARM: r_upper_arm
     SIM_ICUB3_R_SHOULDER_3--SIM_ICUB3_R_UPPERARM: r_arm_ft_sensor
     SIM_ICUB3_TORSO_2: torso_2
-    SIM_ICUB3_CHEST--SIM_ICUB3_TORSO_2: torso_yaw \
+    SIM_ICUB3_CHEST--SIM_ICUB3_TORSO_2: torso_yaw
     SIM_ICUB3_TORSO_1: torso_1
     SIM_ICUB3_TORSO_2--SIM_ICUB3_TORSO_1:  torso_roll
     SIM_ICUB3_ROOT_LINK: root_link
