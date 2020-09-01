@@ -35,7 +35,6 @@ env:
 # specific commits, more details are provided in inline comments
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libeigen3-dev; fi
   # Force gcc-5
