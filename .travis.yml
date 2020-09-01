@@ -148,10 +148,10 @@ before_script:
   - sudo cmake --build . --target install
   - cd ../..
   # Install sdformat
-  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
-  - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+  - wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
   - sudo apt-get update
-  - sudo apt-get install --assume-yes --force-yes libsdformat4-dev
+  - sudo apt-get install --assume-yes --force-yes libsdformat6-dev
   # Prepare icub-model-generator build
   - cd icub-model-generator
   - mkdir build
