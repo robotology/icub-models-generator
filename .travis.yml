@@ -1,20 +1,18 @@
 sudo: required
-dist: trusty
+dist: focal
 language: cpp
-cache: ccache
 
 
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-5.0
     packages:
       # gcc
-      - gcc-5
-      - g++-5
+      - gcc
+      - g++
       # build tools
-      - cmake3
+      - cmake
       # libraries
       - libace-dev
       - libboost-dev
@@ -36,11 +34,8 @@ env:
 # specific commits, more details are provided in inline comments
 
 before_script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:nschloe/eigen-backports -y; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get update; fi
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libeigen3-dev; fi
-  # Force gcc-5
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then if [ "$CC" == "gcc" ]; then export CC=gcc-5; export CXX=g++-5; fi; fi
   # Save the url of the repository and the user-name of the committ author
   - export CURRENT_REPOSITORY_URL=`git remote get-url origin`
   - COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
@@ -70,10 +65,19 @@ before_script:
   - export ICUB_MODELS_SOURCE_DIR=`pwd`
   - cd ../
   # get C++ dependencies and save their last commit SHA1 hash
+  # ycm
+  - git clone https://github.com/robotology/ycm.git
+  - cd ycm
+  - git checkout v0.11.3
+  - mkdir build
+  - cd build
+  - cmake ..
+  - sudo cmake --build . --target install
+  - cd ../..
   ## yarp
   - git clone https://github.com/robotology/yarp.git
   - cd yarp
-  - git checkout v3.2.0
+  - git checkout v3.4.0
   - export YARP_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -83,7 +87,7 @@ before_script:
   ## icub-main
   - git clone https://github.com/robotology/icub-main.git
   - cd icub-main
-  - git checkout v1.13.0
+  - git checkout v1.17.0
   - export ICUB_MAIN_COMMIT=`git rev-parse HEAD`
   - mkdir build
   - cd build
@@ -139,22 +143,11 @@ before_script:
   - cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
   - sudo cmake --build . --target install
   - cd ../..
-  # ycm
-  - git clone https://github.com/robotology/ycm.git
-  - cd ycm
-  # ycm v0.10.4 is the latest release compatible with CMake 3.5 currently used in
-  # travis CI that still uses Ubuntu 14.04
-  - git checkout v0.10.4
-  - mkdir build
-  - cd build
-  - cmake ..
-  - sudo cmake --build . --target install
-  - cd ../..
   # Install sdformat
-  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu trusty main" > /etc/apt/sources.list.d/gazebo-latest.list'
-  - wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+  - sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+  - wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
   - sudo apt-get update
-  - sudo apt-get install --assume-yes --force-yes libsdformat4-dev
+  - sudo apt-get install --assume-yes --force-yes libsdformat6-dev
   # Prepare icub-model-generator build
   - cd icub-model-generator
   - mkdir build
