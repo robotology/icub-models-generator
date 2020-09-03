@@ -316,6 +316,10 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova01
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            NO_BACKPACK)
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova09
+                           SIMMECHANICS_XML "icub3/ICUB3_UPPERBODY_SIM_MODEL.xml"
+                           YAML_TEMPLATE "icub3/ICUB_3_upperbody_options.yaml"
+                           CSV_TEMPLATE "icub3/ICUB_3_joint_upperbody_parameters.csv")
 
 add_custom_target(generate-models-simmechanics
                   ALL
@@ -326,4 +330,6 @@ add_custom_command(TARGET generate-models-simmechanics
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
                    COMMENT "Copying Simmechanics meshes")
