@@ -3,7 +3,16 @@
 
 # Import yarp & iDynTree python bindings 
 import yarp
-import iDynTree
+
+# See https://github.com/robotology/idyntree/pull/733#issuecomment-689508234
+import pkg_resources
+
+try:
+    pkg_resources.get_distribution('iDynTree')
+except pkg_resources.DistributionNotFound:
+    from idyntree import iDynTree
+else:
+    import iDynTree
 
 # Import argparse & numpy & scipy
 import argparse
