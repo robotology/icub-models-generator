@@ -10,7 +10,7 @@ import pkg_resources
 try:
     pkg_resources.get_distribution('iDynTree')
 except pkg_resources.DistributionNotFound:
-    from idyntree import iDynTree
+    import idyntree.bindings as iDynTree
 else:
     import iDynTree
 
