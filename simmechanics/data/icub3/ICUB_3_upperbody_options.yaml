@@ -50,7 +50,7 @@ forceTorqueSensors:
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
             <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
           </plugin>
-
+# TODO: fix different mapping of torso joints in controlboard
 XMLBlobs:
     - |
             <link name="base_link" />
@@ -72,4 +72,10 @@ XMLBlobs:
             <preserveFixedJoint>true</preserveFixedJoint>
             <!-- For compatibility with SDFormat < 4.4 -->
             <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
+              <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+            </plugin>
             </gazebo>
