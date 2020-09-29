@@ -944,7 +944,7 @@ XMLBlobs:
   - |
         <link name="base_link" />
   - |
-        <joint name="base_fixed_joint" type="fixed">
+        <joint name="base_link_fixed_joint" type="fixed">
           <origin xyz="0 0 0" rpy="0 -0 0" />
           <axis xyz="0 0 0" />
           <parent link="root_link" />
