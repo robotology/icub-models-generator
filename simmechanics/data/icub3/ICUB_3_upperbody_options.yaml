@@ -30,9 +30,9 @@ rename:
     SIM_ICUB3_TORSO_2: torso_2
     SIM_ICUB3_TORSO_2--SIM_ICUB3_CHEST: torso_yaw
     SIM_ICUB3_TORSO_1: torso_1
-    SIM_ICUB3_TORSO_1--SIM_ICUB3_TORSO_2:  torso_roll
+    SIM_ICUB3_TORSO_1--SIM_ICUB3_TORSO_2:  torso_pitch
     SIM_ICUB3_ROOT_LINK: root_link
-    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_TORSO_1: torso_pitch
+    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_TORSO_1: torso_roll
 
 # Sensors options
 forceTorqueSensors:
