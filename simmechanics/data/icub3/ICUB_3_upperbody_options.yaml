@@ -7,6 +7,8 @@ originRPY: [0.0,0.0,0.0]
 # Meshes options
 scale: "0.001 0.001 0.001"
 
+epsilon: 2e-4
+
 forcelowercase: Yes
 
 rename:
@@ -33,6 +35,36 @@ rename:
     SIM_ICUB3_TORSO_1--SIM_ICUB3_TORSO_2:  torso_pitch
     SIM_ICUB3_ROOT_LINK: root_link
     SIM_ICUB3_ROOT_LINK--SIM_ICUB3_TORSO_1: torso_roll
+
+# Frames options
+exportAllUseradded: No
+
+linkFrames:
+  - linkName: root_link
+    frameName: CSYS_ROOT
+  - linkName: chest
+    frameName: CSYS_CHEST
+  - linkName: l_shoulder_1
+    frameName: CSYS_L_SHOULDER_1
+  - linkName: l_shoulder_2
+    frameName: CSYS_L_SHOULDER_2
+  - linkName: l_shoulder_3
+    frameName: CSYS_L_SHOULDER_3
+  - linkName: l_upper_arm
+    frameName: CSYS_L_UPPERARM
+  - linkName: r_shoulder_1
+    frameName: CSYS_R_SHOULDER_1
+  - linkName: r_shoulder_2
+    frameName: CSYS_R_SHOULDER_2
+  - linkName: r_shoulder_3
+    frameName: CSYS_R_SHOULDER_3
+  - linkName: r_upper_arm
+    frameName: CSYS_R_UPPERARM
+  - linkName: torso_1
+    frameName: CSYS_TORSO_1
+  - linkName: torso_2
+    frameName: CSYS_TORSO_2
+
 
 # Sensors options
 forceTorqueSensors:
