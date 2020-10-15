@@ -650,7 +650,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 4.763582e+01 -4.350000e+01 -9.311466e+02
     endloop
   endfacet
-  facet normal 1.235097e-14 -9.114821e-01 -4.113397e-01
+  facet normal 1.226863e-14 -9.114821e-01 -4.113397e-01
     outer loop
       vertex 6.375020e+01 -5.231589e+01 -9.116116e+02
       vertex 4.763582e+01 -4.350000e+01 -9.311466e+02
@@ -671,7 +671,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 6.374134e+01 -4.350000e+01 -9.311466e+02
     endloop
   endfacet
-  facet normal 6.708768e-15 -9.280753e-01 -3.723926e-01
+  facet normal 6.783310e-15 -9.280753e-01 -3.723926e-01
     outer loop
       vertex 7.688907e+01 -5.231610e+01 -9.091752e+02
       vertex 6.374134e+01 -4.350000e+01 -9.311466e+02
@@ -1007,7 +1007,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 4.763582e+01 -1.941548e+01 -9.176466e+02
     endloop
   endfacet
-  facet normal -2.688142e-15 9.399323e-01 3.413609e-01
+  facet normal -2.774857e-15 9.399323e-01 3.413609e-01
     outer loop
       vertex 6.431041e+01 -2.636250e+01 -8.985181e+02
       vertex 6.374134e+01 -1.941548e+01 -9.176466e+02
@@ -1273,7 +1273,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 9.185000e+01 7.927436e+01 -9.176466e+02
     endloop
   endfacet
-  facet normal -4.793137e-15 9.440048e-01 3.299317e-01
+  facet normal -4.899651e-15 9.440048e-01 3.299317e-01
     outer loop
       vertex 9.025737e+01 -2.675000e+01 -8.966610e+02
       vertex 9.185000e+01 -1.941548e+01 -9.176466e+02
@@ -1504,7 +1504,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 5.036303e+01 9.445095e+01 -8.999466e+02
     endloop
   endfacet
-  facet normal 8.262033e-16 9.842634e-01 -1.767075e-01
+  facet normal 8.069893e-16 9.842634e-01 -1.767075e-01
     outer loop
       vertex 6.392094e+01 1.145242e+01 -9.424466e+02
       vertex 6.374134e+01 1.348114e+01 -9.311466e+02
@@ -2057,7 +2057,7 @@ solid SIM_ICUB3_R_ANKLE_2
       vertex 4.763582e+01 9.572267e+01 -9.176466e+02
     endloop
   endfacet
-  facet normal -9.892077e-01 -4.489848e-15 1.465202e-01
+  facet normal -9.892077e-01 -4.450463e-15 1.465202e-01
     outer loop
       vertex 5.085000e+01 9.750000e+01 -8.959466e+02
       vertex 4.763582e+01 1.121710e+02 -9.176466e+02
