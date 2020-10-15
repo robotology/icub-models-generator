@@ -41,29 +41,29 @@ exportAllUseradded: No
 
 linkFrames:
   - linkName: root_link
-    frameName: CSYS_ROOT
+    frameName: SCSYS_ROOT
   - linkName: chest
-    frameName: CSYS_CHEST
+    frameName: SCSYS_CHEST
   - linkName: l_shoulder_1
-    frameName: CSYS_L_SHOULDER_1
+    frameName: SCSYS_L_SHOULDER_1
   - linkName: l_shoulder_2
-    frameName: CSYS_L_SHOULDER_2
+    frameName: SCSYS_L_SHOULDER_2
   - linkName: l_shoulder_3
-    frameName: CSYS_L_SHOULDER_3
+    frameName: SCSYS_L_SHOULDER_3
   - linkName: l_upper_arm
-    frameName: CSYS_L_UPPERARM
+    frameName: SCSYS_L_UPPERARM
   - linkName: r_shoulder_1
-    frameName: CSYS_R_SHOULDER_1
+    frameName: SCSYS_R_SHOULDER_1
   - linkName: r_shoulder_2
-    frameName: CSYS_R_SHOULDER_2
+    frameName: SCSYS_R_SHOULDER_2
   - linkName: r_shoulder_3
-    frameName: CSYS_R_SHOULDER_3
+    frameName: SCSYS_R_SHOULDER_3
   - linkName: r_upper_arm
-    frameName: CSYS_R_UPPERARM
+    frameName: SCSYS_R_UPPERARM
   - linkName: torso_1
-    frameName: CSYS_TORSO_1
+    frameName: SCSYS_TORSO_1
   - linkName: torso_2
-    frameName: CSYS_TORSO_2
+    frameName: SCSYS_TORSO_2
 
 
 # Sensors options
@@ -110,4 +110,40 @@ XMLBlobs:
             <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
               <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
             </plugin>
+            </gazebo>
+    - |
+            <gazebo reference="torso_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="torso_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="torso_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
             </gazebo>
