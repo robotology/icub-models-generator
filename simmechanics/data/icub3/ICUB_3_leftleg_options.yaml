@@ -31,6 +31,12 @@ rename:
     SIM_ICUB3_L_ANKLE_1--SIM_ICUB3_L_ANKLE_2: l_ankle_roll
     SIM_ICUB3_L_ANKLE_2--SIM_ICUB3_L_FOOT_FRONT: l_foot_ft_sensor
 
+forceTorqueSensors:
+    - jointName: l_foot_ft_sensor
+    directionChildToParent: Yes
+    - jointName: l_leg_ft_sensor
+    directionChildToParent: Yes
+
 # Frames options
 exportAllUseradded: No
 
@@ -71,7 +77,7 @@ forceTorqueSensors:
         <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
           <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
         </plugin>
-# TODO: fix different mapping of torso joints in controlboard
+
 XMLBlobs:
     - |
             <gazebo reference="l_leg_ft_sensor">
@@ -105,4 +111,29 @@ XMLBlobs:
             <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
             <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
             </plugin>
+            </gazebo>
+
+    - |
+            <gazebo reference="l_hip_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_hip_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_hip_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_knee">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_ankle_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_ankle_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
             </gazebo>
