@@ -6,7 +6,7 @@ originXYZ: [0.0,0.0,0.80]
 originRPY: [0.0,0.0,0.0]
 # Meshes options
 scale: "0.001 0.001 0.001"
-
+filenameformatchangeext: "package://iCub/meshes/simmechanics/%s.stl"
 epsilon: 2e-4
 
 forcelowercase: Yes
