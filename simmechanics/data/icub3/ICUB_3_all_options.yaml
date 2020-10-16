@@ -1,0 +1,501 @@
+# Robot name
+robotName: iCub
+
+# Model base origin
+originXYZ: [0.0,0.0,0.80]
+originRPY: [0.0,0.0,0.0]
+# Meshes options
+scale: "0.001 0.001 0.001"
+
+epsilon: 2e-4
+
+forcelowercase: Yes
+
+rename:
+    # upperbody
+    SIM_ICUB3_CHEST: chest
+    SIM_ICUB3_L_SHOULDER_1: l_shoulder_1
+    SIM_ICUB3_CHEST--SIM_ICUB3_L_SHOULDER_1: l_shoulder_pitch
+    SIM_ICUB3_L_SHOULDER_2: l_shoulder_2
+    SIM_ICUB3_L_SHOULDER_1--SIM_ICUB3_L_SHOULDER_2: l_shoulder_roll
+    SIM_ICUB3_L_SHOULDER_3: l_shoulder_3
+    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_shoulder_yaw
+    SIM_ICUB3_L_UPPERARM: l_upper_arm
+    SIM_ICUB3_L_SHOULDER_3--SIM_ICUB3_L_UPPERARM: l_arm_ft_sensor
+    SIM_ICUB3_R_SHOULDER_1: r_shoulder_1
+    SIM_ICUB3_CHEST--SIM_ICUB3_R_SHOULDER_1: r_shoulder_pitch
+    SIM_ICUB3_R_SHOULDER_2: r_shoulder_2
+    SIM_ICUB3_R_SHOULDER_1--SIM_ICUB3_R_SHOULDER_2: r_shoulder_roll
+    SIM_ICUB3_R_SHOULDER_3: r_shoulder_3
+    SIM_ICUB3_R_SHOULDER_2--SIM_ICUB3_R_SHOULDER_3: r_shoulder_yaw
+    SIM_ICUB3_R_UPPERARM: r_upper_arm
+    SIM_ICUB3_R_SHOULDER_3--SIM_ICUB3_R_UPPERARM: r_arm_ft_sensor
+    SIM_ICUB3_TORSO_2: torso_2
+    SIM_ICUB3_TORSO_2--SIM_ICUB3_CHEST: torso_yaw
+    SIM_ICUB3_TORSO_1: torso_1
+    SIM_ICUB3_TORSO_1--SIM_ICUB3_TORSO_2:  torso_pitch
+    SIM_ICUB3_ROOT_LINK: root_link
+    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_TORSO_1: torso_roll
+    # left leg
+    SIM_ICUB3_L_HIP_1: l_hip_1
+    SIM_ICUB3_L_HIP_2: l_hip_2
+    SIM_ICUB3_L_HIP_3: l_hip_3
+    SIM_ICUB3_L_UPPER_LEG: l_upper_leg
+    SIM_ICUB3_L_LOWER_LEG: l_lower_leg
+    SIM_ICUB3_L_ANKLE_1: l_ankle_1
+    SIM_ICUB3_L_ANKLE_2: l_ankle_2
+    SIM_ICUB3_L_FOOT_FRONT: l_foot_front
+    SIM_ICUB3_L_FOOT_REAR: l_foot_rear
+    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_L_HIP_1: l_hip_pitch
+    SIM_ICUB3_L_HIP_1--SIM_ICUB3_L_HIP_2: l_hip_roll
+    SIM_ICUB3_L_HIP_2--SIM_ICUB3_L_HIP_3: l_leg_ft_sensor
+    SIM_ICUB3_L_HIP_3--SIM_ICUB3_L_UPPER_LEG: l_hip_yaw
+    SIM_ICUB3_L_UPPER_LEG--SIM_ICUB3_L_LOWER_LEG: l_knee
+    SIM_ICUB3_L_LOWER_LEG--SIM_ICUB3_L_ANKLE_1: l_ankle_pitch
+    SIM_ICUB3_L_ANKLE_1--SIM_ICUB3_L_ANKLE_2: l_ankle_roll
+    SIM_ICUB3_L_ANKLE_2--SIM_ICUB3_L_FOOT_FRONT: l_foot_ft_sensor
+    # right leg
+    SIM_ICUB3_R_HIP_1: r_hip_1
+    SIM_ICUB3_R_HIP_2: r_hip_2
+    SIM_ICUB3_R_HIP_3: r_hip_3
+    SIM_ICUB3_R_UPPER_LEG: r_upper_leg
+    SIM_ICUB3_R_LOWER_LEG: r_lower_leg
+    SIM_ICUB3_R_ANKLE_1: r_ankle_1
+    SIM_ICUB3_R_ANKLE_2: r_ankle_2
+    SIM_ICUB3_R_FOOT_FRONT: r_foot_front
+    SIM_ICUB3_R_FOOT_REAR: r_foot_rear
+    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_R_HIP_1: r_hip_pitch
+    SIM_ICUB3_R_HIP_1--SIM_ICUB3_R_HIP_2: r_hip_roll
+    SIM_ICUB3_R_HIP_2--SIM_ICUB3_R_HIP_3: r_leg_ft_sensor
+    SIM_ICUB3_R_HIP_3--SIM_ICUB3_R_UPPER_LEG: r_hip_yaw
+    SIM_ICUB3_R_UPPER_LEG--SIM_ICUB3_R_LOWER_LEG: r_knee
+    SIM_ICUB3_R_LOWER_LEG--SIM_ICUB3_R_ANKLE_1: r_ankle_pitch
+    SIM_ICUB3_R_ANKLE_1--SIM_ICUB3_R_ANKLE_2: r_ankle_roll
+    SIM_ICUB3_R_ANKLE_2--SIM_ICUB3_R_FOOT_FRONT: r_foot_ft_sensor
+    # head
+    SIM_ICUB3_NECK_1: neck_1
+    SIM_ICUB3_NECK_2: neck_2
+    SIM_ICUB3_NECK_3: neck_3
+    SIM_ICUB3_HEAD: head
+    SIM_ICUB3_NECK_1--SIM_ICUB3_NECK_2: neck_pitch
+    SIM_ICUB3_NECK_2--SIM_ICUB3_NECK_3: neck_roll
+    SIM_ICUB3_NECK_3--SIM_ICUB3_HEAD: neck_yaw
+
+# Sensors options
+forceTorqueSensors:
+  - jointName: l_leg_ft_sensor
+    directionChildToParent: Yes
+  - jointName: r_leg_ft_sensor
+    directionChildToParent: Yes
+  - jointName: l_foot_ft_sensor
+    directionChildToParent: Yes
+  - jointName: r_foot_ft_sensor
+    directionChildToParent: Yes
+
+# Frames options
+exportAllUseradded: No
+
+linkFrames:
+  # upperbody
+  - linkName: root_link
+    frameName: SCSYS_ROOT
+  - linkName: chest
+    frameName: SCSYS_CHEST
+  - linkName: l_shoulder_1
+    frameName: SCSYS_L_SHOULDER_1
+  - linkName: l_shoulder_2
+    frameName: SCSYS_L_SHOULDER_2
+  - linkName: l_shoulder_3
+    frameName: SCSYS_L_SHOULDER_3
+  - linkName: l_upper_arm
+    frameName: SCSYS_L_UPPERARM
+  - linkName: r_shoulder_1
+    frameName: SCSYS_R_SHOULDER_1
+  - linkName: r_shoulder_2
+    frameName: SCSYS_R_SHOULDER_2
+  - linkName: r_shoulder_3
+    frameName: SCSYS_R_SHOULDER_3
+  - linkName: r_upper_arm
+    frameName: SCSYS_R_UPPERARM
+  - linkName: torso_1
+    frameName: SCSYS_TORSO_1
+  - linkName: torso_2
+    frameName: SCSYS_TORSO_2
+  # left leg
+  - linkName: l_hip_1
+    frameName: SCSYS_L_HIP_1
+  - linkName: l_hip_2
+    frameName: SCSYS_L_HIP_2
+  - linkName: l_hip_3
+    frameName: SCSYS_L_HIP_3
+  - linkName: l_upper_leg
+    frameName: SCSYS_L_UPPER_LEG
+  - linkName: l_lower_leg
+    frameName: SCSYS_L_LOWER_LEG
+  - linkName: l_ankle_1
+    frameName: SCSYS_L_ANKLE_1
+  - linkName: l_ankle_2
+    frameName: SCSYS_L_ANKLE_2
+  - linkName: l_foot_front
+    frameName: SCSYS_L_FOOT_FRONT
+  - linkName: l_foot_rear
+    frameName: SCSYS_L_FOOT_REAR
+  # right leg
+  - linkName: r_hip_1
+    frameName: SCSYS_R_HIP_1
+  - linkName: r_hip_2
+    frameName: SCSYS_R_HIP_2
+  - linkName: r_hip_3
+    frameName: SCSYS_R_HIP_3
+  - linkName: r_upper_leg
+    frameName: SCSYS_R_UPPER_LEG
+  - linkName: r_lower_leg
+    frameName: SCSYS_R_LOWER_LEG
+  - linkName: r_ankle_1
+    frameName: SCSYS_R_ANKLE_1
+  - linkName: r_ankle_2
+    frameName: SCSYS_R_ANKLE_2
+  - linkName: r_foot_front
+    frameName: SCSYS_R_FOOT_FRONT
+  - linkName: r_foot_rear
+    frameName: SCSYS_R_FOOT_REAR
+  # head
+  - linkName: neck_1
+    frameName: SCSYS_NECK_1
+  - linkName: neck_2
+    frameName: SCSYS_NECK_2
+  - linkName: neck_3
+    frameName: SCSYS_NECK_3
+  - linkName: head
+    frameName: SCSYS_HEAD
+
+# Sensors options
+forceTorqueSensors:
+    # upperbody
+    - jointName: l_arm_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
+          </plugin>
+    - jointName: r_arm_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
+          </plugin>
+    # left leg
+    - jointName: l_leg_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+          </plugin>
+    - jointName: l_foot_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
+          </plugin>
+    # right leg
+    - jointName: r_leg_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+          </plugin>
+    - jointName: r_foot_ft_sensor
+      directionChildToParent: Yes
+      sensorBlobs:
+      - |
+          <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
+          </plugin>
+
+sensors:
+  - sensorName: default
+    exportFrameInURDF: No
+    sensorType: "accelerometer"
+    updateRate: "100"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so" />
+  - sensorName: default
+    exportFrameInURDF: No
+    sensorType: "gyroscope"
+    updateRate: "100"
+  #- frameName: SCSYS_HEAD_MTX_IMU
+  #  linkName: head
+  #  sensorName: head_imu_acc_1x1
+  #  sensorType: "accelerometer"
+  #  sensorBlobs:
+  #  - |
+  #      <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+  #          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+  #      </plugin>
+
+assignedMasses:
+  # It fixes the right/left asymmetry for the legs
+  r_hip_1: 2.48546
+  r_hip_2: 1.8834
+  r_hip_3: 2.29352
+  r_upper_leg: 2.24396
+  r_lower_leg: 4.59072
+  r_ankle_1: 1.80595
+  r_ankle_2: 1.06976
+  r_foot_rear: 0.728095
+  r_foot_front: 0.723938
+  # It fixes the wrong mass exported after shrinkwrap
+  head: 1.955
+assignedInertias:
+  # It fixes the wrong inertias exported after shrinkwrap
+  - linkName: r_hip_1
+    xx: 0.00285629
+    yy: 0.00230094
+    zz: 0.00246343
+  - linkName: r_hip_2
+    xx: 0.00530457
+    yy: 0.00316497
+    zz: 0.00322503
+  - linkName: r_hip_3
+    xx: 0.00410859
+    yy: 0.00385326
+    zz: 0.00385557
+  - linkName: r_upper_leg
+    xx: 0.00476284
+    yy: 0.00479384
+    zz: 0.00194527
+  - linkName: r_lower_leg
+    xx: 0.0331663
+    yy: 0.0309756
+    zz: 0.00525251
+  - linkName: r_ankle_1
+    xx: 0.00329109
+    yy: 0.00097845
+    zz: 0.00298837
+  - linkName: r_ankle_2
+    xx: 0.00510275
+    yy: 0.000995114
+    zz: 0.00458166
+  - linkName: r_foot_rear
+    xx: 0.000769193
+    yy: 0.000565835
+    zz: 0.00132907
+  - linkName: r_foot_front
+    xx: 0.000770637
+    yy: 0.000568064
+    zz: 0.001333
+  - linkName: head
+    xx: 7.5908054e-03
+    yy: 5.6755473e-03
+    zz: 7.1266850e-03
+reverseRotationAxis:
+    r_knee
+XMLBlobs:
+    # upperbody
+    - |
+            <link name="base_link" />
+    - |
+            <joint name="base_link_fixed_joint" type="fixed">
+              <origin xyz="0 0 0" rpy="0 -0 0" />
+              <axis xyz="0 0 0" />
+              <parent link="root_link" />
+              <child link="base_link" />
+            </joint>
+    - |
+            <gazebo reference="r_arm_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="l_arm_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
+              <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+    - |
+            <gazebo reference="torso_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="torso_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="torso_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_shoulder_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_shoulder_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    # left leg
+    - |
+            <gazebo reference="l_leg_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="l_foot_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="l_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+
+    - |
+            <gazebo reference="l_hip_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_hip_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_hip_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_knee">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_ankle_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="l_ankle_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    # right leg
+    - |
+            <gazebo reference="r_leg_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+    - |
+            <gazebo reference="r_hip_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_hip_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_hip_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_knee">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_ankle_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_ankle_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+            
+    # head
+    - |
+            <gazebo>
+            <plugin name="controlboard_head_without_eyes" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+    - |
+            <gazebo reference="neck_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="neck_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="neck_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+

@@ -1,0 +1,4 @@
+joint_name,lower_limit,upper_limit,damping,friction,velocity_limit,effort_limit
+neck_pitch,-30,22,0.06,0,120,
+neck_roll,-20,20,0.06,0,120,
+neck_yaw,-45,45,0.06,0,120,

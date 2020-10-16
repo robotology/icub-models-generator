@@ -1,0 +1,87 @@
+# Robot name
+robotName: iCub
+
+# Model base origin
+originXYZ: [0.0,0.0,0.80]
+originRPY: [0.0,0.0,0.0]
+# Meshes options
+scale: "0.001 0.001 0.001"
+
+epsilon: 2e-4
+
+forcelowercase: Yes
+
+rename:
+  SIM_ICUB3_NECK_1: neck_1
+  SIM_ICUB3_NECK_2: neck_2
+  SIM_ICUB3_NECK_3: neck_3
+  SIM_ICUB3_HEAD: head
+  SIM_ICUB3_NECK_1--SIM_ICUB3_NECK_2: neck_pitch
+  SIM_ICUB3_NECK_2--SIM_ICUB3_NECK_3: neck_roll
+  SIM_ICUB3_NECK_3--SIM_ICUB3_HEAD: neck_yaw
+
+# Frames options
+exportAllUseradded: No
+
+linkFrames:
+  - linkName: neck_1
+    frameName: SCSYS_NECK_1
+  - linkName: neck_2
+    frameName: SCSYS_NECK_2
+  - linkName: neck_3
+    frameName: SCSYS_NECK_3
+  - linkName: head
+    frameName: SCSYS_HEAD
+
+
+# Sensors options
+forceTorqueSensors:
+  - jointName: l_leg_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+        </plugin>
+  - jointName: l_foot_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
+        </plugin>
+# TODO: fix different mapping of torso joints in controlboard
+XMLBlobs:
+    - |
+            <gazebo reference="l_leg_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="l_foot_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="l_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>

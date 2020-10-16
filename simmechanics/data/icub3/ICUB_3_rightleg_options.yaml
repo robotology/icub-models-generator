@@ -1,0 +1,196 @@
+# Robot name
+robotName: iCub
+
+# Model base origin
+originXYZ: [0.0,0.0,0.80]
+originRPY: [0.0,0.0,0.0]
+# Meshes options
+scale: "0.001 0.001 0.001"
+
+epsilon: 2e-4
+
+forcelowercase: Yes
+
+rename:
+    SIM_ICUB3_R_HIP_1: r_hip_1
+    SIM_ICUB3_R_HIP_2: r_hip_2
+    SIM_ICUB3_R_HIP_3: r_hip_3
+    SIM_ICUB3_R_UPPER_LEG: r_upper_leg
+    SIM_ICUB3_R_LOWER_LEG: r_lower_leg
+    SIM_ICUB3_R_ANKLE_1: r_ankle_1
+    SIM_ICUB3_R_ANKLE_2: r_ankle_2
+    SIM_ICUB3_R_FOOT_FRONT: r_foot_front
+    SIM_ICUB3_R_FOOT_REAR: r_foot_rear
+    # TODO see once assembled with the root.  missing  ROOT_LINK
+    SIM_ICUB3_ROOT_LINK--SIM_ICUB3_R_HIP_1: r_hip_pitch
+    SIM_ICUB3_R_HIP_1--SIM_ICUB3_R_HIP_2: r_hip_roll
+    SIM_ICUB3_R_HIP_2--SIM_ICUB3_R_HIP_3: r_leg_ft_sensor
+    SIM_ICUB3_R_HIP_3--SIM_ICUB3_R_UPPER_LEG: r_hip_yaw
+    SIM_ICUB3_R_UPPER_LEG--SIM_ICUB3_R_LOWER_LEG: r_knee
+    SIM_ICUB3_R_LOWER_LEG--SIM_ICUB3_R_ANKLE_1: r_ankle_pitch
+    SIM_ICUB3_R_ANKLE_1--SIM_ICUB3_R_ANKLE_2: r_ankle_roll
+    SIM_ICUB3_R_ANKLE_2--SIM_ICUB3_R_FOOT_FRONT: r_foot_ft_sensor
+
+# Sensors options
+forceTorqueSensors:
+
+  - jointName: r_leg_ft_sensor
+    directionChildToParent: Yes
+  - jointName: r_foot_ft_sensor
+    directionChildToParent: Yes
+
+# Frames options
+exportAllUseradded: No
+
+linkFrames:
+  - linkName: r_hip_1
+    frameName: SCSYS_R_HIP_1
+  - linkName: r_hip_2
+    frameName: SCSYS_R_HIP_2
+  - linkName: r_hip_3
+    frameName: SCSYS_R_HIP_3
+  - linkName: r_upper_leg
+    frameName: SCSYS_R_UPPER_LEG
+  - linkName: r_lower_leg
+    frameName: SCSYS_R_LOWER_LEG
+  - linkName: r_ankle_1
+    frameName: SCSYS_R_ANKLE_1
+  - linkName: r_ankle_2
+    frameName: SCSYS_R_ANKLE_2
+  - linkName: r_foot_front
+    frameName: SCSYS_R_FOOT_FRONT
+  - linkName: r_foot_rear
+    frameName: SCSYS_R_FOOT_REAR
+
+
+# Sensors options
+forceTorqueSensors:
+  - jointName: r_leg_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+        </plugin>
+  - jointName: r_foot_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
+        </plugin>
+
+
+assignedMasses:
+# It fixes the right/left asymmetry for the legs
+  r_hip_1: 2.48546
+  r_hip_2: 1.8834
+  r_hip_3: 2.29352
+  r_upper_leg: 2.24396
+  r_lower_leg: 4.59072
+  r_ankle_1: 1.80595
+  r_ankle_2: 1.06976
+  r_foot_rear: 0.728095
+  r_foot_front: 0.723938
+
+assignedInertias:
+  # It fixes the wrong inertias exported after shrinkwrap
+  - linkName: r_hip_1
+    xx: 0.00285629
+    yy: 0.00230094
+    zz: 0.00246343
+  - linkName: r_hip_2
+    xx: 0.00530457
+    yy: 0.00316497
+    zz: 0.00322503
+  - linkName: r_hip_3
+    xx: 0.00410859
+    yy: 0.00385326
+    zz: 0.00385557
+  - linkName: r_upper_leg
+    xx: 0.00476284
+    yy: 0.00479384
+    zz: 0.00194527
+  - linkName: r_lower_leg
+    xx: 0.0331663
+    yy: 0.0309756
+    zz: 0.00525251
+  - linkName: r_ankle_1
+    xx: 0.00329109
+    yy: 0.00097845
+    zz: 0.00298837
+  - linkName: r_ankle_2
+    xx: 0.00510275
+    yy: 0.000995114
+    zz: 0.00458166
+  - linkName: r_foot_rear
+    xx: 0.000769193
+    yy: 0.000565835
+    zz: 0.00132907
+  - linkName: r_foot_front
+    xx: 0.000770637
+    yy: 0.000568064
+    zz: 0.001333
+
+reverseRotationAxis:
+  r_knee
+
+XMLBlobs:
+    - |
+            <gazebo reference="r_leg_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+
+    - |
+            <gazebo reference="r_hip_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_hip_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_hip_yaw">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_knee">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_ankle_pitch">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
+    - |
+            <gazebo reference="r_ankle_roll">
+                <implicitSpringDamper>1</implicitSpringDamper>
+            </gazebo>
