@@ -36,6 +36,7 @@ rename:
     SIM_ICUB3_TORSO_1--SIM_ICUB3_TORSO_2:  torso_pitch
     SIM_ICUB3_ROOT_LINK: root_link
     SIM_ICUB3_ROOT_LINK--SIM_ICUB3_TORSO_1: torso_roll
+    SIM_ICUB3_CHEST--SIM_ICUB3_NECK_1: neck_fixed_joint
     # left leg
     SIM_ICUB3_L_HIP_1: l_hip_1
     SIM_ICUB3_L_HIP_2: l_hip_2
