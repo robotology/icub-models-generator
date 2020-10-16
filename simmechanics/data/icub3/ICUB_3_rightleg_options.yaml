@@ -29,14 +29,17 @@ rename:
     SIM_ICUB3_R_UPPER_LEG--SIM_ICUB3_R_LOWER_LEG: r_knee
     SIM_ICUB3_R_LOWER_LEG--SIM_ICUB3_R_ANKLE_1: r_ankle_pitch
     SIM_ICUB3_R_ANKLE_1--SIM_ICUB3_R_ANKLE_2: r_ankle_roll
-    SIM_ICUB3_R_ANKLE_2--SIM_ICUB3_R_FOOT_FRONT: r_foot_ft_sensor
+    SIM_ICUB3_R_ANKLE_2--SIM_ICUB3_R_FOOT_FRONT: r_foot_front_ft_sensor
+    SIM_ICUB3_R_ANKLE_2--SIM_ICUB3_R_FOOT_REAR: r_foot_rear_ft_sensor
 
 # Sensors options
 forceTorqueSensors:
 
   - jointName: r_leg_ft_sensor
     directionChildToParent: Yes
-  - jointName: r_foot_ft_sensor
+  - jointName: r_foot_front_ft_sensor
+    directionChildToParent: Yes
+  - jointName: r_foot_rear_ft_sensor
     directionChildToParent: Yes
 
 # Frames options
@@ -63,6 +66,12 @@ linkFrames:
     frameName: SCSYS_R_FOOT_REAR
 
 
+exportedFrames:
+  - frameName: SCSYS_R_SOLE
+    frameReferenceLink: r_foot_rear
+    exportedFrameName: r_sole
+
+
 # Sensors options
 forceTorqueSensors:
   - jointName: r_leg_ft_sensor
@@ -72,14 +81,20 @@ forceTorqueSensors:
         <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
           <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
         </plugin>
-  - jointName: r_foot_ft_sensor
+  - jointName: r_foot_front_ft_sensor
     directionChildToParent: Yes
     sensorBlobs:
     - |
-        <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
+        <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_front_ft.ini</yarpConfigurationFile>
         </plugin>
-
+  - jointName: r_foot_rear_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_rear_ft.ini</yarpConfigurationFile>
+        </plugin>
 
 assignedMasses:
 # It fixes the right/left asymmetry for the legs
@@ -143,13 +158,34 @@ XMLBlobs:
             <disableFixedJointLumping>true</disableFixedJointLumping>
             </gazebo>
     - |
-            <gazebo reference="r_foot_ft_sensor">
+            <gazebo reference="r_foot_front_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_rear_ft_sensor">
             <preserveFixedJoint>true</preserveFixedJoint>
             <!-- For compatibility with SDFormat < 4.4 -->
             <disableFixedJointLumping>true</disableFixedJointLumping>
             </gazebo>
     - |
             <gazebo reference="r_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo reference="r_foot_rear">
               <collision> <surface> <bounce>
                 <restitution_coefficient>0</restitution_coefficient>
                 <threshold>100000</threshold>

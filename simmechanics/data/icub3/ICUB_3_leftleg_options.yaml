@@ -29,12 +29,15 @@ rename:
     SIM_ICUB3_L_UPPER_LEG--SIM_ICUB3_L_LOWER_LEG: l_knee
     SIM_ICUB3_L_LOWER_LEG--SIM_ICUB3_L_ANKLE_1: l_ankle_pitch
     SIM_ICUB3_L_ANKLE_1--SIM_ICUB3_L_ANKLE_2: l_ankle_roll
-    SIM_ICUB3_L_ANKLE_2--SIM_ICUB3_L_FOOT_FRONT: l_foot_ft_sensor
+    SIM_ICUB3_L_ANKLE_2--SIM_ICUB3_L_FOOT_FRONT: l_foot_front_ft_sensor
+    SIM_ICUB3_L_ANKLE_2--SIM_ICUB3_L_FOOT_REAR: l_foot_rear_ft_sensor
 
 forceTorqueSensors:
-    - jointName: l_foot_ft_sensor
+  - jointName: l_foot_front_ft_sensor
     directionChildToParent: Yes
-    - jointName: l_leg_ft_sensor
+  - jointName: l_foot_rear_ft_sensor
+    directionChildToParent: Yes
+  - jointName: l_leg_ft_sensor
     directionChildToParent: Yes
 
 # Frames options
@@ -60,6 +63,11 @@ linkFrames:
   - linkName: l_foot_rear
     frameName: SCSYS_L_FOOT_REAR
 
+exportedFrames:
+  - frameName: SCSYS_L_SOLE
+    frameReferenceLink: l_foot_rear
+    exportedFrameName: l_sole
+
 
 # Sensors options
 forceTorqueSensors:
@@ -70,12 +78,19 @@ forceTorqueSensors:
         <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
           <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
         </plugin>
-  - jointName: l_foot_ft_sensor
+  - jointName: l_foot_front_ft_sensor
     directionChildToParent: Yes
     sensorBlobs:
     - |
-        <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
+        <plugin name="left_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_front_ft.ini</yarpConfigurationFile>
+        </plugin>
+  - jointName: l_foot_rear_ft_sensor
+    directionChildToParent: Yes
+    sensorBlobs:
+    - |
+        <plugin name="left_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_rear_ft.ini</yarpConfigurationFile>
         </plugin>
 
 XMLBlobs:
@@ -86,13 +101,35 @@ XMLBlobs:
             <disableFixedJointLumping>true</disableFixedJointLumping>
             </gazebo>
     - |
-            <gazebo reference="l_foot_ft_sensor">
+            <gazebo reference="l_foot_front_ft_sensor">
             <preserveFixedJoint>true</preserveFixedJoint>
             <!-- For compatibility with SDFormat < 4.4 -->
             <disableFixedJointLumping>true</disableFixedJointLumping>
             </gazebo>
     - |
+            <gazebo reference="l_foot_rear_ft_sensor">
+            <preserveFixedJoint>true</preserveFixedJoint>
+            <!-- For compatibility with SDFormat < 4.4 -->
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+            </gazebo>
+        
+    - |
             <gazebo reference="l_foot_front">
+              <collision> <surface> <bounce>
+                <restitution_coefficient>0</restitution_coefficient>
+                <threshold>100000</threshold>
+              </bounce> </surface> </collision>
+              <maxContacts>4</maxContacts>
+              <kp>18000000</kp>
+              <kd>100</kd>
+              <maxVel>100</maxVel>
+              <minDepth>0.0001</minDepth>
+              <mu1>1</mu1>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+            </gazebo>
+    - |
+            <gazebo reference="l_foot_rear">
               <collision> <surface> <bounce>
                 <restitution_coefficient>0</restitution_coefficient>
                 <threshold>100000</threshold>
