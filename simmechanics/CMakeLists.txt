@@ -282,9 +282,9 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            INCREASE_INERTIA_FOR_GAZEBO)
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubV3
-                           SIMMECHANICS_XML "icub3/ICUB3_UPPERBODY_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_upperbody_options.yaml"
-                           CSV_TEMPLATE "icub3/ICUB_3_joint_upperbody_parameters.csv")
+                           SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
+                           YAML_TEMPLATE "icub3/ICUB_3_all_options.yaml"
+                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv")
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus
                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
@@ -321,9 +321,9 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova01
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            NO_BACKPACK)
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova09
-                           SIMMECHANICS_XML "icub3/ICUB3_UPPERBODY_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_upperbody_options.yaml"
-                           CSV_TEMPLATE "icub3/ICUB_3_joint_upperbody_parameters.csv")
+                           SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
+                           YAML_TEMPLATE "icub3/ICUB_3_all_options.yaml"
+                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv")
 
 add_custom_target(generate-models-simmechanics
                   ALL
