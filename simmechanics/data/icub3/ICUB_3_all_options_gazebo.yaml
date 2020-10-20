@@ -359,10 +359,55 @@ assignedInertias:
     xx: 7.5908054e-03
     yy: 5.6755473e-03
     zz: 7.1266850e-03
-  - linkName: l_upper_arm
-    xx: 0.00382639
-    yy: 0.00368146
-    zz: 0.00167002
+  # This is due to https://github.com/robotology/icub-models/issues/33
+  - linkName: r_shoulder_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_shoulder_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_shoulder_3
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_elbow_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_wrist_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_hand
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_3
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_elbow_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_wrist_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_hand
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
 reverseRotationAxis:
     r_knee
     r_elbow

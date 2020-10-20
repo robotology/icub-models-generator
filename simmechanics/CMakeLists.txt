@@ -281,9 +281,9 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            INCREASE_INERTIA_FOR_GAZEBO)
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubV3
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_all_options.yaml"
+                           YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml"
                            CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv")
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus

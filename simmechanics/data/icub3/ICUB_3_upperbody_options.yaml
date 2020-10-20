@@ -19,17 +19,17 @@ rename:
     SIM_ICUB3_L_SHOULDER_2: l_shoulder_2
     SIM_ICUB3_L_SHOULDER_1--SIM_ICUB3_L_SHOULDER_2: l_shoulder_roll
     SIM_ICUB3_L_SHOULDER_3: l_shoulder_3
-    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_shoulder_yaw
+    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_arm_ft_sensorx
     SIM_ICUB3_L_UPPERARM: l_upper_arm
-    SIM_ICUB3_L_SHOULDER_3--SIM_ICUB3_L_UPPERARM: l_arm_ft_sensor
+    SIM_ICUB3_L_SHOULDER_3--SIM_ICUB3_L_UPPERARM:  l_arm_ft_sensor
     SIM_ICUB3_R_SHOULDER_1: r_shoulder_1
     SIM_ICUB3_CHEST--SIM_ICUB3_R_SHOULDER_1: r_shoulder_pitch
     SIM_ICUB3_R_SHOULDER_2: r_shoulder_2
     SIM_ICUB3_R_SHOULDER_1--SIM_ICUB3_R_SHOULDER_2: r_shoulder_roll
     SIM_ICUB3_R_SHOULDER_3: r_shoulder_3
-    SIM_ICUB3_R_SHOULDER_2--SIM_ICUB3_R_SHOULDER_3: r_shoulder_yaw
+    SIM_ICUB3_R_SHOULDER_2--SIM_ICUB3_R_SHOULDER_3: r_arm_ft_sensor
     SIM_ICUB3_R_UPPERARM: r_upper_arm
-    SIM_ICUB3_R_SHOULDER_3--SIM_ICUB3_R_UPPERARM: r_arm_ft_sensor
+    SIM_ICUB3_R_SHOULDER_3--SIM_ICUB3_R_UPPERARM: r_shoulder_yaw 
     SIM_ICUB3_TORSO_2: torso_2
     SIM_ICUB3_TORSO_2--SIM_ICUB3_CHEST: torso_yaw
     SIM_ICUB3_TORSO_1: torso_1
@@ -83,7 +83,56 @@ forceTorqueSensors:
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
             <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
           </plugin>
-# TODO: fix different mapping of torso joints in controlboard
+assignedInertias:
+  # This is due to https://github.com/robotology/icub-models/issues/33
+  - linkName: r_shoulder_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_shoulder_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_shoulder_3
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_elbow_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_wrist_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_hand
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_shoulder_3
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_elbow_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_wrist_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_hand
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
 XMLBlobs:
     - |
             <link name="base_link" />
@@ -110,6 +159,18 @@ XMLBlobs:
             <gazebo>
             <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
               <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_right_arm_no_forearm" filename="libgazebo_yarp_controlboard.so">
+              <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_no_forearm.ini</yarpConfigurationFile>
+            </plugin>
+            </gazebo>
+    - |
+            <gazebo>
+            <plugin name="controlboard_left_arm_no_forearm" filename="libgazebo_yarp_controlboard.so">
+              <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_no_forearm.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
     - |
