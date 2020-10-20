@@ -83,56 +83,7 @@ forceTorqueSensors:
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
             <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
           </plugin>
-assignedInertias:
-  # This is due to https://github.com/robotology/icub-models/issues/33
-  - linkName: r_shoulder_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: r_shoulder_2
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: r_shoulder_3
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: r_elbow_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: r_wrist_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: r_hand
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_shoulder_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_shoulder_2
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_shoulder_3
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_elbow_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_wrist_1
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
-  - linkName: l_hand
-    xx: 0.01
-    yy: 0.01
-    zz: 0.01
+
 XMLBlobs:
     - |
             <link name="base_link" />
