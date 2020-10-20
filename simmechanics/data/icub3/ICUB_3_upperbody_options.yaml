@@ -19,7 +19,7 @@ rename:
     SIM_ICUB3_L_SHOULDER_2: l_shoulder_2
     SIM_ICUB3_L_SHOULDER_1--SIM_ICUB3_L_SHOULDER_2: l_shoulder_roll
     SIM_ICUB3_L_SHOULDER_3: l_shoulder_3
-    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_arm_ft_sensorx
+    SIM_ICUB3_L_SHOULDER_2--SIM_ICUB3_L_SHOULDER_3: l_arm_ft_sensor
     SIM_ICUB3_L_UPPERARM: l_upper_arm
     SIM_ICUB3_L_SHOULDER_3--SIM_ICUB3_L_UPPERARM:  l_arm_ft_sensor
     SIM_ICUB3_R_SHOULDER_1: r_shoulder_1
