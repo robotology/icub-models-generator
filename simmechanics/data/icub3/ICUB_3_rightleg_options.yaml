@@ -80,21 +80,21 @@ forceTorqueSensors:
     sensorBlobs:
     - |
         <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
         </plugin>
   - jointName: r_foot_front_ft_sensor
     directionChildToParent: Yes
     sensorBlobs:
     - |
         <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_front_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_foot_front_ft.ini</yarpConfigurationFile>
         </plugin>
   - jointName: r_foot_rear_ft_sensor
     directionChildToParent: Yes
     sensorBlobs:
     - |
         <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_rear_ft.ini</yarpConfigurationFile>
+          <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_foot_rear_ft.ini</yarpConfigurationFile>
         </plugin>
 
 assignedMasses:
@@ -203,7 +203,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_right_leg.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
 

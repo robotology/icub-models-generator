@@ -228,14 +228,14 @@ forceTorqueSensors:
       sensorBlobs:
       - |
           <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
           </plugin>
     - jointName: r_arm_ft_sensor
       directionChildToParent: Yes
       sensorBlobs:
       - |
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
           </plugin>
     # left leg
     - jointName: l_leg_ft_sensor
@@ -243,21 +243,21 @@ forceTorqueSensors:
       sensorBlobs:
       - |
           <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
           </plugin>
     - jointName: l_foot_front_ft_sensor
       directionChildToParent: Yes
       sensorBlobs:
       - |
           <plugin name="left_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_front_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_foot_front_ft.ini</yarpConfigurationFile>
           </plugin>
     - jointName: l_foot_rear_ft_sensor
       directionChildToParent: Yes
       sensorBlobs:
       - |
           <plugin name="left_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_rear_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_foot_rear_ft.ini</yarpConfigurationFile>
           </plugin>
     # right leg
     - jointName: r_leg_ft_sensor
@@ -265,21 +265,21 @@ forceTorqueSensors:
       sensorBlobs:
       - |
           <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
           </plugin>
     - jointName: r_foot_front_ft_sensor
       directionChildToParent: Yes
       sensorBlobs:
       - |
           <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_front_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_foot_front_ft.ini</yarpConfigurationFile>
           </plugin>
     - jointName: r_foot_rear_ft_sensor
       directionChildToParent: Yes
       sensorBlobs:
       - |
           <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-            <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_rear_ft.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_foot_rear_ft.ini</yarpConfigurationFile>
           </plugin>
 
 sensors:
@@ -301,7 +301,7 @@ sensors:
   #  sensorBlobs:
   #  - |
   #      <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-  #          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+  #          <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_inertial.ini</yarpConfigurationFile>
   #      </plugin>
 
 assignedMasses:
@@ -439,7 +439,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
-              <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
+              <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_torso.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
     - |
@@ -531,7 +531,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_left_leg.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
 
@@ -611,7 +611,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_right_leg.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
     - |
@@ -643,7 +643,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_head_without_eyes" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
     - |
@@ -663,7 +663,7 @@ XMLBlobs:
     - | 
             <gazebo>
             <plugin name="controlboard_left_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_left_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.0</initialConfiguration>
             </plugin>
             </gazebo>
@@ -699,7 +699,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_right_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_right_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
             <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.0</initialConfiguration>
             </plugin>
             </gazebo>
