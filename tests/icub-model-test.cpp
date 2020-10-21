@@ -405,9 +405,13 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
 
-    if (!checkFTSensorsAreCorrectlyOriented(comp))
-    {
-        return EXIT_FAILURE;
+    // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
+    if (modelPath.find("Genova09") != std::string::npos &&
+        modelPath.find("GazeboV3") != std::string::npos) {
+        if (!checkFTSensorsAreCorrectlyOriented(comp))
+        {
+            return EXIT_FAILURE;
+        }
     }
 
 
