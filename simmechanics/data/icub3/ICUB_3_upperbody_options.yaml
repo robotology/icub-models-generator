@@ -83,7 +83,8 @@ forceTorqueSensors:
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
             <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
           </plugin>
-
+reverseRotationAxis:
+  torso_yaw
 XMLBlobs:
     - |
             <link name="base_link" />
