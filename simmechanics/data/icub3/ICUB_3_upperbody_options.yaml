@@ -85,6 +85,7 @@ forceTorqueSensors:
           </plugin>
 reverseRotationAxis:
   torso_yaw
+  torso_pitch
 XMLBlobs:
     - |
             <link name="base_link" />

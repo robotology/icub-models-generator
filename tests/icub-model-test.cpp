@@ -377,9 +377,13 @@ int main(int argc, char ** argv)
     comp.setRobotState(qj,dqj,grav);
 
     // Check axis
-    if( !checkAxisDirections(comp) )
-    {
-        return EXIT_FAILURE;
+    // The root frame in iCub3 has been defined differently, then we have to disable for now the check
+    if (modelPath.find("Genova09") != std::string::npos &&
+        modelPath.find("GazeboV3") != std::string::npos) {
+        if( !checkAxisDirections(comp) )
+        {
+            return EXIT_FAILURE;
+        }
     }
 
     // Check if base_link exist, and check that is a frame attached to root_link and if its
