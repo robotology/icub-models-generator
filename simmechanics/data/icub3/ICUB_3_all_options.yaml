@@ -364,6 +364,7 @@ assignedInertias:
     yy: 0.00368146
     zz: 0.00167002
 reverseRotationAxis:
+    r_hip_roll
     r_knee
     r_elbow
     l_shoulder_pitch
