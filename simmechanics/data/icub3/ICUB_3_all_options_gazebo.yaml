@@ -414,6 +414,7 @@ reverseRotationAxis:
     l_shoulder_pitch
     l_shoulder_roll
     torso_yaw
+    torso_pitch
 XMLBlobs:
     # upperbody
     - |
