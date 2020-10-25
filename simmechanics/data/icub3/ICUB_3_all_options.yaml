@@ -364,13 +364,17 @@ assignedInertias:
     yy: 0.00368146
     zz: 0.00167002
 reverseRotationAxis:
+    r_hip_yaw
     r_hip_roll
     r_knee
+    r_ankle_roll
+    l_ankle_pitch
     r_elbow
     l_shoulder_pitch
     l_shoulder_roll
     torso_yaw
     torso_pitch
+    torso_roll
 XMLBlobs:
     # upperbody
     - |
