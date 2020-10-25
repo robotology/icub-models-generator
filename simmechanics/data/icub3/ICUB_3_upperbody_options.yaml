@@ -86,6 +86,7 @@ forceTorqueSensors:
 reverseRotationAxis:
   torso_yaw
   torso_pitch
+  torso_roll
 XMLBlobs:
     - |
             <link name="base_link" />
