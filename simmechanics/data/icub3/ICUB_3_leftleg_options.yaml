@@ -94,6 +94,9 @@ forceTorqueSensors:
           <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_foot_rear_ft.ini</yarpConfigurationFile>
         </plugin>
 
+reverseRotationAxis:
+    l_ankle_pitch
+
 XMLBlobs:
     - |
             <gazebo reference="l_leg_ft_sensor">
