@@ -367,6 +367,7 @@ reverseRotationAxis:
     r_hip_yaw
     r_hip_roll
     r_knee
+    r_ankle_roll
     l_ankle_pitch
     r_elbow
     l_shoulder_pitch
