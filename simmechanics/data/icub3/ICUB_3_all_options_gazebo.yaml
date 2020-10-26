@@ -2,7 +2,7 @@
 robotName: iCub
 
 # Model base origin
-originXYZ: [0.0,0.0,0.80]
+originXYZ: [0.0,0.0,0.64]
 originRPY: [0.0,0.0,0.0]
 # Meshes options
 scale: "0.001 0.001 0.001"
