@@ -357,9 +357,8 @@ int main(int argc, char ** argv)
     std::string modelPath = prop.find("model").asString().c_str();
 
     // Open the model
-    iDynTree::KinDynComputations comp;
-
-    bool modelLoaded = comp.loadRobotModelFromFile(modelPath);
+    iDynTree::ModelLoader mdlLoader;
+    bool modelLoaded = mdlLoader.loadModelFromFile(modelPath);
 
     if( !modelLoaded )
     {
@@ -367,6 +366,10 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
 
+    iDynTree::KinDynComputations comp;
+    comp.loadRobotModel(mdlLoader);
+
+  
     iDynTree::Vector3 grav;
     grav.zero();
     iDynTree::JointPosDoubleArray qj(comp.getRobotModel());
