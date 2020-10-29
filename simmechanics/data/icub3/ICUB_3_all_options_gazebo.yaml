@@ -408,6 +408,38 @@ assignedInertias:
     xx: 0.01
     yy: 0.01
     zz: 0.01
+  - linkName: l_ankle_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_ankle_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_foot_front
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_foot_rear
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_ankle_1
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_ankle_2
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_foot_front
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: r_foot_rear
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
 reverseRotationAxis:
     r_hip_yaw
     r_hip_roll
