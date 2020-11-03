@@ -11,12 +11,12 @@ on:
 env:
   URDF_PARSER_PY_REPOSITORY_URL: "https://github.com/ros/urdf_parser_py.git"
   SIMMECHANICS_TO_URDF_REPOSITORY_URL: "https://github.com/robotology/simmechanics-to-urdf.git"
-  DEPLOYMENT_REPOSITORY_TOKEN: "github.com/robotology/icub-models.git"
+  DEPLOYMENT_REPOSITORY: "robotology/icub-models"
   TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT: "refs/heads/test-gha-deploy"
   TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT: "https://github.com/robotology/icub-model-generator.git"
   BOT_USER_NAME: "LOC2Bot"
   ICUB_MODELS_BRANCH: "test-gha-deploy-devel"
-
+  ICUB_MODELS_SOURCE_DIR: ${{ env.github_workspace }}/icub-models
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -60,7 +60,7 @@ jobs:
         sudo python setup.py install
         cd ../
         # copy output folders and add the environment variable
-        git clone -b $ICUB_MODELS_BRANCH https://$DEPLOYMENT_REPOSITORY_TOKEN
+        git clone -b $ICUB_MODELS_BRANCH https://github.com/$DEPLOYMENT_REPOSITORY_TOKEN
         cd icub-models
         export ICUB_MODELS_SOURCE_DIR=`pwd`
         cd ../
@@ -168,9 +168,20 @@ jobs:
         echo "icub-main commit:$ICUB_MAIN_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
-    - name: Deploy models
+    - name: Commit Models
       if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       run: |
         cat ${GITHUB_WORKSPACE}/deploy_commit_message
         export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
         cat $COMMIT_AUTHOR
+        cd $ICUB_MODELS_SOURCE_DIR
+        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message --author "$COMMIT_AUTHOR"
+
+    - name: Push Models
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
+        repository: ${{ env.DEPLOYMENT_REPOSITORY }}
+        branch: ${{ env.ICUB_MODELS_BRANCH }}
+        token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
+
