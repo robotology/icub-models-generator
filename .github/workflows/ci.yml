@@ -34,7 +34,12 @@ jobs:
     - name: Environment Variables
       shell: bash
       run: env
-      
+  
+    - name: Deploy models (before)
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      run: |
+        echo "Working!"
+
     # For all dependencies, we use fixed releases to avoid regression due to
     # changes in the dependencies. In particular, we use the latest released
     # version as of 16 Septembter 2019, except for some dependencies that use
@@ -175,7 +180,7 @@ jobs:
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
     - name: Deploy models
-      if: github.event_name == 'push'
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       run: |
         cat ${GITHUB_WORKSPACE}/deploy_commit_message
         export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
