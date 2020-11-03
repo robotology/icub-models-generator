@@ -24,29 +24,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
    
-    - name: ref
-      run: echo "${{ github.ref }}"
-    - name: event_name
-      run: echo ${{ github.event_name }}
-    - name: env_TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT 
-      run: echo "${{ env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT  }}"
-    - name: print_check
-      run: echo ${{ startsWith(github.ref,env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) }}
-    - name: print_check2
-      run: echo ${{ endsWith(github.ref,env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) }}
-    - name: print_github ${{ toJSON(github.ref) }}
-      run: echo "hello"
-    - name: print_github ${{ toJSON(env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) }}
-      run: echo "hello2"
     # Print environment variables to simplify development and debugging
     - name: Environment Variables
       shell: bash
       run: env
-  
-    - name: Deploy models (before)
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
-      run: |
-        echo "Working!"
 
     # For all dependencies, we use fixed releases to avoid regression due to
     # changes in the dependencies. In particular, we use the latest released
