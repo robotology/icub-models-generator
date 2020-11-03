@@ -169,20 +169,19 @@ jobs:
         echo "icub-main commit:$ICUB_MAIN_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
-    - name: Commit Models
+    - name: Commit models
       if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       run: |
-        cat ${GITHUB_WORKSPACE}/deploy_commit_message
-        export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
-        cat $COMMIT_AUTHOR
+        export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $GITHUB_SHA)"
         cd $ICUB_MODELS_SOURCE_DIR
         git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message --author "$COMMIT_AUTHOR"
 
-    - name: Push Models
+    - name: Push models
       uses: ad-m/github-push-action@v0.6.0
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       with:
         directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
         branch: ${{ env.ICUB_MODELS_BRANCH }}
-        token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
+        github_token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
 
