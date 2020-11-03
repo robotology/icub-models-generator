@@ -36,7 +36,7 @@ jobs:
       run: env
   
     - name: Deploy models (before)
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      if: ${{ github.event_name == 'push' }}
       run: |
         echo "Working!"
 
