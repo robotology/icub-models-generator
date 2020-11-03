@@ -169,7 +169,7 @@ jobs:
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
     - name: Deploy models
-      if: github.event_name == 'push' && env.GITHUB_REF == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT 
+      if: github.event_name == 'push'
       run: |
         cat ${GITHUB_WORKSPACE}/deploy_commit_message
         export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $TRAVIS_COMMIT)"
