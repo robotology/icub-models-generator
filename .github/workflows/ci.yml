@@ -36,7 +36,7 @@ jobs:
     - name: Generate models
       run: |
         sudo apt-get update
-        sudo apt-get install libeigen3-dev 
+        sudo apt-get install libeigen3-dev libace-dev libboost-dev libgsl0-dev libtinyxml-dev libxml2-dev
         # Save the url of the repository and the user-name of the committ author
         export CURRENT_REPOSITORY_URL=`git remote get-url origin`
         # Start in the parent directory of icub-model-generator
