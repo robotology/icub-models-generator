@@ -32,10 +32,10 @@ jobs:
       run: echo "${{ env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT  }}"
     - name: print_check
       run: echo ${{ github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
-    - name: print_github
-      run: echo ${{ toJSON(github) }}
-    - name: print_env
-      run: echo ${{ toJSON(env) }}
+    - name: print_github ${{ toJSON(github) }}
+      run: echo "hello"
+    - name: print_github ${{ toJSON(env) }}
+      run: echo "hello2"
     # Print environment variables to simplify development and debugging
     - name: Environment Variables
       shell: bash
