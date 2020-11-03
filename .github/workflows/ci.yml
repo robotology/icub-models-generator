@@ -34,7 +34,6 @@ jobs:
     # version as of 16 Septembter 2019, except for some dependencies that use
     # specific commits, more details are provided in inline comments
     - name: Generate models
-      if: ${{ github.event_name == 'not-a-real-event-name' }}
       run: |
         sudo apt-get update
         sudo apt-get install libeigen3-dev libace-dev libboost-dev libgsl0-dev libtinyxml-dev libxml2-dev
