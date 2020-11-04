@@ -61,9 +61,8 @@ jobs:
         sudo python setup.py install
         cd ../
         # copy output folders and add the environment variable
-        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git
-        cd icub-models
-        export ICUB_MODELS_SOURCE_DIR=`pwd`
+        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
+        cd  ${ICUB_MODELS_SOURCE_DIR}
         cd ../
         # get C++ dependencies and save their last commit SHA1 hash
         # ycm
