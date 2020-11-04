@@ -169,8 +169,13 @@ jobs:
     - name: Commit models
       if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       run: |
-        export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $GITHUB_SHA)"
-        echo "Commit author is $COMMIT_AUTHOR"
+        # See https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
+        export GIT_COMMITTER_NAME="$(git --no-pager show -s --format='%cn' $GITHUB_SHA)"
+        export GIT_AUTHOR_NAME="$(git --no-pager show -s --format='%an' $GITHUB_SHA)"
+        export GIT_COMMITTER_EMAIL="$(git --no-pager show -s --format='%ce' $GITHUB_SHA)"
+        export GIT_AUTHOR_EMAIL="$(git --no-pager show -s --format='%ae' $GITHUB_SHA)"
+        echo "Commit committer is $GIT_COMMITTER_NAME (email: $GIT_COMMITTER_EMAIL)"
+        echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
         cd $ICUB_MODELS_SOURCE_DIR
         git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message --author "$COMMIT_AUTHOR"
 
