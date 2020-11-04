@@ -41,6 +41,7 @@ jobs:
         # Save the url of the repository and the user-name of the committ author
         export CURRENT_REPOSITORY_URL=`git remote get-url origin`
         # Start in the parent directory of icub-model-generator
+        pwd
         cd ..
         sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
         # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
