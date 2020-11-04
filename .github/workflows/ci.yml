@@ -177,7 +177,7 @@ jobs:
         echo "Commit committer is $GIT_COMMITTER_NAME (email: $GIT_COMMITTER_EMAIL)"
         echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
         cd $ICUB_MODELS_SOURCE_DIR
-        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message --author "$COMMIT_AUTHOR"
+        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message
 
     - name: Push models
       uses: ad-m/github-push-action@v0.6.0
