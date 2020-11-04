@@ -170,6 +170,7 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
       run: |
         export COMMIT_AUTHOR="$(git --no-pager show -s --format='%an <%ae>' $GITHUB_SHA)"
+        echo "Commit author is $COMMIT_AUTHOR"
         cd $ICUB_MODELS_SOURCE_DIR
         git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message --author "$COMMIT_AUTHOR"
 
