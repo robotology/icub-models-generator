@@ -41,8 +41,7 @@ jobs:
         # Save the url of the repository and the user-name of the committ author
         export CURRENT_REPOSITORY_URL=`git remote get-url origin`
         # Start in the parent directory of icub-model-generator
-        pwd
-        cd ..
+        cd ${GITHUB_WORKSPACE}
         sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
         # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
         # let's install both debian packages and pip packages to be sure 
@@ -54,17 +53,16 @@ jobs:
         git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3
         export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
         sudo python setup.py install
-        cd ../
+        cd ${GITHUB_WORKSPACE}
         # install simmechanics-to-urdf and save the last commit SHA1 hash
         git clone $SIMMECHANICS_TO_URDF_REPOSITORY_URL
         cd simmechanics-to-urdf
         export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
         sudo python setup.py install
-        cd ../
+        cd ${GITHUB_WORKSPACE}
         # copy output folders and add the environment variable
         git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
-        cd  ${ICUB_MODELS_SOURCE_DIR}
-        cd ../
+        cd ${GITHUB_WORKSPACE}
         # get C++ dependencies and save their last commit SHA1 hash
         # ycm
         git clone https://github.com/robotology/ycm.git
@@ -74,7 +72,7 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         ## yarp
         git clone https://github.com/robotology/yarp.git
         cd yarp
@@ -84,7 +82,7 @@ jobs:
         cd build
         cmake -DCREATE_LIB_MATH:BOOL=ON ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         ## icub-main
         git clone https://github.com/robotology/icub-main.git
         cd icub-main
@@ -94,7 +92,7 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         ## orocos_kdl
         git clone https://github.com/orocos/orocos_kinematics_dynamics
         cd orocos_kinematics_dynamics/orocos_kdl
@@ -103,7 +101,7 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
-        cd ../../..
+        cd ${GITHUB_WORKSPACE}
         ## console_bridge
         git clone https://github.com/ros/console_bridge
         cd console_bridge
@@ -115,7 +113,7 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         # urdfdom_headers
         git clone https://github.com/ros/urdfdom_headers
         cd urdfdom_headers
@@ -124,7 +122,7 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         # urdfdom
         git clone https://github.com/ros/urdfdom
         cd urdfdom
@@ -133,7 +131,7 @@ jobs:
         cd build
         cmake  ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         ## idyntree
         git clone https://github.com/robotology/idyntree.git
         cd idyntree
@@ -143,14 +141,13 @@ jobs:
         cd build
         cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
         sudo cmake --build . --target install
-        cd ../..
+        cd ${GITHUB_WORKSPACE}
         # Install sdformat
         sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
         wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install --assume-yes --force-yes libsdformat6-dev
         # Prepare icub-model-generator build
-        cd icub-model-generator
         mkdir build
         cd build
         cmake -D ICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
