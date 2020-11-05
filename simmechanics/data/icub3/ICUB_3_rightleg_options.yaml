@@ -106,6 +106,7 @@ assignedMasses:
   r_lower_leg: 4.59072
   r_ankle_1: 1.80595
   r_ankle_2: 1.06976
+  r_foot_rear: 0.18484137
 
 assignedInertias:
   # It fixes the wrong inertias exported after shrinkwrap
