@@ -3,7 +3,7 @@ find_package(PythonInterp REQUIRED)
 # Generate URDF models for
 # v2.5 robots using the simmechanics-to-urdf script
 macro(generate_icub_simmechanics)
-    set(options NO_BACKPACK BOGUS INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS)
+    set(options NO_BACKPACK BOGUS INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS ICUB_2_6)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
     set(multiValueArgs)
     cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -234,6 +234,15 @@ macro(generate_icub_simmechanics)
   neck_roll
 ")
     endif()
+    # The ICUB_2_6 option is used to modify the iCub 2.5.5 model to 
+    # add some details of the iCub 2.6 until a proper iCub 2.6 model 
+    # is produced
+    set(RFE_ADDITIONAL_TRANSFORMATION "")
+    if(GIVTWO_ICUB_2_6)
+      set(RFE_ADDITIONAL_TRANSFORMATION
+         "additionalTransformation: [0.0323779, -0.0139537, 0.072, -3.14159265358979, 0, -1.5707963267949]")
+         
+    endif()
 
     set(GENERATED_YAML_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_ROBOT_NAME}.yaml)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_YAML_TEMPLATE}
@@ -281,6 +290,13 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            INCREASE_INERTIA_FOR_GAZEBO)
+
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_6
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
+                           CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
+                           INCREASE_INERTIA_FOR_GAZEBO ICUB_2_6)
+
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml"
