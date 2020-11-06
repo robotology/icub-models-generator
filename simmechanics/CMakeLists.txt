@@ -3,7 +3,7 @@ find_package(PythonInterp REQUIRED)
 # Generate URDF models for
 # v2.5 robots using the simmechanics-to-urdf script
 macro(generate_icub_simmechanics)
-    set(options NO_BACKPACK BOGUS INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS ICUB_2_6)
+    set(options NO_BACKPACK BOGUS INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS ICUB_2_6 ICUB_3_COLLISION_GEOM_MOD)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
     set(multiValueArgs)
     cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -128,6 +128,34 @@ macro(generate_icub_simmechanics)
       set(ASSIGNED_COLLISION_GEOMETRIES "")
     endif()
 
+    if (GIVTWO_ICUB_3_COLLISION_GEOM_MOD)
+      set(ASSIGNED_COLLISION_GEOMETRIES
+"assignedCollisionGeometry:
+  - linkName: r_foot_front
+    geometricShape:
+      shape: box
+      size: 0.117 0.100 0.006
+      origin: \"0.0 0.0 0.003 0.0 0.0 0.0\"
+  - linkName: r_foot_rear
+    geometricShape:
+      shape: box
+      size: 0.117 0.100 0.006
+      origin: \"0.0 0.0 0.003 0.0 0.0 0.0\"
+  - linkName: l_foot_front
+    geometricShape:
+      shape: box
+      size: 0.117 0.100 0.006
+      origin: \"0.0 0.0 0.003 0.0 0.0 0.0\"
+  - linkName: l_foot_rear
+    geometricShape:
+      shape: box
+      size: 0.117 0.100 0.006
+      origin: \"0.0 0.0 0.003 0.0 0.0 0.0\"
+")
+    else()
+      set(ASSIGNED_COLLISION_GEOMETRIES "")
+    endif()
+
     # If we are generating the icub2.5+ model we need to add the xsens IMU, change the mesh folder
     # and change the rotation axis list that need to be reversed.
     if(GIVTWO_ICUB_PLUS)
@@ -234,14 +262,14 @@ macro(generate_icub_simmechanics)
   neck_roll
 ")
     endif()
-    # The ICUB_2_6 option is used to modify the iCub 2.5.5 model to 
-    # add some details of the iCub 2.6 until a proper iCub 2.6 model 
+    # The ICUB_2_6 option is used to modify the iCub 2.5.5 model to
+    # add some details of the iCub 2.6 until a proper iCub 2.6 model
     # is produced
     set(RFE_ADDITIONAL_TRANSFORMATION "")
     if(GIVTWO_ICUB_2_6)
       set(RFE_ADDITIONAL_TRANSFORMATION
          "additionalTransformation: [0.0323779, -0.0139537, 0.072, -3.14159265358979, 0, -1.5707963267949]")
-         
+
     endif()
 
     set(GENERATED_YAML_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_ROBOT_NAME}.yaml)
@@ -300,7 +328,8 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_6
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml"
-                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv")
+                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv"
+                           ICUB_3_COLLISION_GEOM_MOD)
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus
                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"

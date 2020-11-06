@@ -304,6 +304,8 @@ sensors:
   #          <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_inertial.ini</yarpConfigurationFile>
   #      </plugin>
 
+@ASSIGNED_COLLISION_GEOMETRIES@
+
 assignedMasses:
   # It fixes the right/left asymmetry for the legs
   r_hip_1: 2.48546
