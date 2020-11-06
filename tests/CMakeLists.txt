@@ -24,6 +24,7 @@ endif()
 # Model generated with simmechanics
 if( ICUB_MODEL_GENERATE_SIMMECHANICS )
     add_icub_model_test(iCubGazeboV2_5)
+    add_icub_model_test(iCubGazeboV2_6)
     add_icub_model_test(iCubGazeboV2_5_plus)
     add_icub_model_test(iCubGazeboV3)
     add_icub_model_test(iCubGenova01)
