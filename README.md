@@ -37,6 +37,7 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `iCubDarmstadt01`    | simmechanics | v2.5 without backpack           |
 | `iCubGazeboV2_5`     | simmechanics | v2.5 with backpack, joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGazeboV2_5_plus`| simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack, joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
+| `iCubGazeboV2_6`     | simmechanics | v2.6 with  joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGazeboV2_7`     | simmechanics | v2.7 with  joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGenova01`       | simmechanics | v2.5 without backpack           |
 | `iCubGenova02`       | simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack           |
