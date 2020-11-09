@@ -327,7 +327,7 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_6
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml"
+                           YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml.in"
                            CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv"
                            ICUB_3_COLLISION_GEOM_MOD)
 
