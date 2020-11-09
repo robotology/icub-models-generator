@@ -3,7 +3,13 @@ find_package(PythonInterp REQUIRED)
 # Generate URDF models for
 # v2.5 robots using the simmechanics-to-urdf script
 macro(generate_icub_simmechanics)
-    set(options NO_BACKPACK BOGUS INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS ICUB_2_6 ICUB_3_COLLISION_GEOM_MOD)
+    set(options NO_BACKPACK
+                BOGUS 
+                INCREASE_INERTIA_FOR_GAZEBO
+                ICUB_PLUS 
+                ICUB_2_6 
+                ICUB_2_7 
+                ICUB_3_COLLISION_GEOM_MOD)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
     set(multiValueArgs)
     cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -266,10 +272,37 @@ macro(generate_icub_simmechanics)
     # add some details of the iCub 2.6 until a proper iCub 2.6 model
     # is produced
     set(RFE_ADDITIONAL_TRANSFORMATION "")
-    if(GIVTWO_ICUB_2_6)
+    if(GIVTWO_ICUB_2_6 OR GIVTWO_ICUB_2_7)
       set(RFE_ADDITIONAL_TRANSFORMATION
          "additionalTransformation: [0.0323779, -0.0139537, 0.072, -3.14159265358979, 0, -1.5707963267949]")
 
+    endif()
+    # The ICUB_2_7 option is used to modify the iCub 2.5.5 model to 
+    # add some details of the iCub 2.7 until a proper iCub 2.7 model 
+    # is produced
+    set(ADDITIONAL_XML_BLOBS "")
+    if(GIVTWO_ICUB_2_7)
+      set(ADDITIONAL_XML_BLOBS
+"  - |
+         <link name=\"root_link_imu_frame\"/>
+
+  - |
+         <joint name=\"root_link_imu_frame_fixed_joint\" type=\"fixed\">
+           <origin xyz=\"0.08515499999999998 -0.011000000000000022 -0.11230899999999999\" rpy=\"-2.0943952105869323 0 -1.5707963267948963\"/>
+           <parent link=\"root_link\"/>
+           <child link=\"root_link_imu_frame\"/>
+         </joint>
+  - |
+         <gazebo reference=\"root_link\">
+           <sensor name=\"root_link_imu_acc\" type=\"imu\">
+             <always_on>1</always_on>
+             <update_rate>400</update_rate>
+             <pose>0.08515499999999998 -0.011000000000000022 -0.11230899999999999 -2.0943952105869323 -3.885780586188048e-16 -1.5707963267948963</pose>
+             <plugin name=\"root_link_xsens_imu_plugin\" filename=\"libgazebo_yarp_imu.so\">
+               <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
+             </plugin>
+            </sensor>
+          </gazebo>")
     endif()
 
     set(GENERATED_YAML_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_ROBOT_NAME}.yaml)
@@ -324,6 +357,12 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_6
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            INCREASE_INERTIA_FOR_GAZEBO ICUB_2_6)
+
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_7
+                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
+                           YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
+                           CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
+                           INCREASE_INERTIA_FOR_GAZEBO ICUB_2_7)
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
