@@ -2,7 +2,7 @@
 #include <iDynTree/Core/Axis.h>
 #include <iDynTree/KinDynComputations.h>
 #include <iDynTree/Model/JointState.h>
-#include <iDynTree/Model/Indeces.h>
+#include <iDynTree/Model/Indices.h>
 #include <iDynTree/Model/Model.h>
 #include <iDynTree/Model/RevoluteJoint.h>
 
