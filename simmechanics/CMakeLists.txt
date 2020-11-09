@@ -284,13 +284,13 @@ macro(generate_icub_simmechanics)
     if(GIVTWO_ICUB_2_7)
       set(ADDITIONAL_XML_BLOBS
 "  - |
-         <link name="root_link_imu_frame"/>
+         <link name=\"root_link_imu_frame\"/>
 
   - |
-         <joint name="root_link_imu_frame_fixed_joint" type="fixed">
-           <origin xyz="0.08515499999999998 -0.011000000000000022 -0.11230899999999999" rpy="-2.0943952105869323 0 -1.5707963267948963"/>
-           <parent link="root_link"/>
-           <child link="root_link_imu_frame"/>
+         <joint name=\"root_link_imu_frame_fixed_joint\" type=\"fixed\">
+           <origin xyz=\"0.08515499999999998 -0.011000000000000022 -0.11230899999999999\" rpy=\"-2.0943952105869323 0 -1.5707963267948963\"/>
+           <parent link=\"root_link\"/>
+           <child link=\"root_link_imu_frame\"/>
          </joint>
   - |
          <gazebo reference=\"root_link\">
