@@ -24,8 +24,7 @@ for inertial in link_chest.getiterator('inertial'):
 if( origin_chest.get('xyz') != '0.000188619190735 0.073091 -0.047238'):
     print("Warning: unexpected com for the chest ",origin_chest.get('xyz'));
     
-# origin_chest.set('xyz','0.000188619190735 0.023091 -0.013238');
-origin_chest.set('xyz','100.0 200.0 3.000');
+origin_chest.set('xyz','0.000188619190735 0.023091 -0.013238');
 
 # Save to file (see http://stackoverflow.com/questions/12517451/python-automatically-creating-directories-with-file-output)
 if not os.path.exists(os.path.dirname(args.output_urdf)):
