@@ -16,7 +16,7 @@ env:
   TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT: "https://github.com/robotology/icub-model-generator.git"
   BOT_USER_NAME: "LOC2Bot"
   ICUB_MODELS_BRANCH: "test-gha-deploy-devel"
-  ICUB_MODELS_SOURCE_DIR: "~/icub-models"
+  ICUB_MODELS_SOURCE_DIR: "/home/runner/work/icub-model-generator/icub-model-generator/icub-models"
 
 jobs:
   build:
