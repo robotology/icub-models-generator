@@ -2,11 +2,11 @@
 robotName: iCub
 
 # Model base origin
-originXYZ: [0.0,0.0,0.63]
+originXYZ: [0.0,0.0,100.63]
 originRPY: [0.0,0.0,3.14]
 
 # Meshes options
-scale: "0.001 0.001 0.001"
+scale: "1.0 1.0 1.0"
 forcelowercase: Yes
 @MESH_FILE_FORMAT@
 
