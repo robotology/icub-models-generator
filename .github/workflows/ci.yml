@@ -162,7 +162,7 @@ jobs:
         echo "icub-main commit:$ICUB_MAIN_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
-    - name: Check generated model diff
+    - name: Print generated models differences
       run: |
         cd $ICUB_MODELS_SOURCE_DIR
         git diff
@@ -178,9 +178,8 @@ jobs:
         echo "Commit committer is $GIT_COMMITTER_NAME (email: $GIT_COMMITTER_EMAIL)"
         echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
         cd $ICUB_MODELS_SOURCE_DIR
-        pwd
-        git status
-        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message
+        # See https://stackoverflow.com/a/32507305
+        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message || echo "No changse in the icub-models branch, so no commit was done."
 
     - name: Push models
       uses: ad-m/github-push-action@v0.6.0
