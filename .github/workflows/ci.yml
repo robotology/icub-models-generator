@@ -189,4 +189,3 @@ jobs:
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
         branch: ${{ env.ICUB_MODELS_BRANCH }}
         github_token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
-
