@@ -155,9 +155,8 @@ jobs:
         env
         # Build and run
         make VERBOSE=1
-        sudo cmake --build .
         ctest --output-on-failure
-        sudo cmake --build . --target copy-models-to-icub-models
+        cmake --build . --target copy-models-to-icub-models
         # Generate commit message 
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "icub-model-generator commit:$GITHUB_SHA" >> ${GITHUB_WORKSPACE}/deploy_commit_message
@@ -165,6 +164,11 @@ jobs:
         echo "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "icub-main commit:$ICUB_MAIN_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+
+    - name: Check generated model diff
+      run: |
+        cd $ICUB_MODELS_SOURCE_DIR
+        git diff
 
     - name: Commit models
       if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
