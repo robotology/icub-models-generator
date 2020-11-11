@@ -1,0 +1,192 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  # Execute a "nightly" build at 2 AM UTC 
+  - cron:  '0 2 * * *'
+
+env:
+  URDF_PARSER_PY_REPOSITORY_URL: "https://github.com/ros/urdf_parser_py.git"
+  SIMMECHANICS_TO_URDF_REPOSITORY_URL: "https://github.com/robotology/simmechanics-to-urdf.git"
+  DEPLOYMENT_REPOSITORY: "robotology/icub-models"
+  TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT: "refs/heads/master"
+  TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT: "https://github.com/robotology/icub-model-generator.git"
+  BOT_USER_NAME: "LOC2Bot"
+  ICUB_MODELS_BRANCH: "devel"
+  ICUB_MODELS_SOURCE_DIR: "/home/runner/work/icub-model-generator/icub-model-generator/icub-models"
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+   
+    # Print environment variables to simplify development and debugging
+    - name: Environment Variables
+      shell: bash
+      run: env
+
+    # For all dependencies, we use fixed releases to avoid regression due to
+    # changes in the dependencies. In particular, we use the latest released
+    # version as of 16 Septembter 2019, except for some dependencies that use
+    # specific commits, more details are provided in inline comments
+    - name: Generate models
+      run: |
+        sudo apt-get update
+        sudo apt-get install libeigen3-dev libace-dev libboost-dev libgsl0-dev libtinyxml-dev libxml2-dev
+        # Save the url of the repository and the user-name of the committ author
+        export CURRENT_REPOSITORY_URL=`git remote get-url origin`
+        # Start in the parent directory of icub-model-generator
+        cd ${GITHUB_WORKSPACE}
+        sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
+        # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
+        # let's install both debian packages and pip packages to be sure 
+        sudo pip install lxml numpy pyyaml catkin_pkg
+        # install urdf_parser_py and save the last commit SHA1 hash
+        git clone $URDF_PARSER_PY_REPOSITORY_URL
+        cd urdf_parser_py
+        # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
+        git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3
+        export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
+        sudo python setup.py install
+        cd ${GITHUB_WORKSPACE}
+        # install simmechanics-to-urdf and save the last commit SHA1 hash
+        git clone $SIMMECHANICS_TO_URDF_REPOSITORY_URL
+        cd simmechanics-to-urdf
+        export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
+        sudo python setup.py install
+        cd ${GITHUB_WORKSPACE}
+        # get C++ dependencies and save their last commit SHA1 hash
+        # ycm
+        git clone https://github.com/robotology/ycm.git
+        cd ycm
+        git checkout v0.11.3
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## yarp
+        git clone https://github.com/robotology/yarp.git
+        cd yarp
+        git checkout v3.4.0
+        export YARP_COMMIT=`git rev-parse HEAD`
+        mkdir build
+        cd build
+        cmake -DCREATE_LIB_MATH:BOOL=ON ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## icub-main
+        git clone https://github.com/robotology/icub-main.git
+        cd icub-main
+        git checkout v1.17.0
+        export ICUB_MAIN_COMMIT=`git rev-parse HEAD`
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## orocos_kdl
+        git clone https://github.com/orocos/orocos_kinematics_dynamics
+        cd orocos_kinematics_dynamics/orocos_kdl
+        git checkout v1.4.0
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## console_bridge
+        git clone https://github.com/ros/console_bridge
+        cd console_bridge
+        # Go the commit of the 7th Septmber 2018 for
+        # console_bridge, urdfdom_headers and urdfdom, see
+        # https://travis-ci.org/robotology/icub-model-generator/builds/425819092?utm_source=github_status&utm_medium=notification
+        git checkout ad25f7307da76be2857545e7e5c2a20727eee542
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        # urdfdom_headers
+        git clone https://github.com/ros/urdfdom_headers
+        cd urdfdom_headers
+        git checkout e7e0972a4617b8a5df7a274ea3ba3b92e3895a35
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        # urdfdom
+        git clone https://github.com/ros/urdfdom
+        cd urdfdom
+        git checkout 06f5f9bc34f09b530d9f3743cb0516934625da54
+        mkdir build
+        cd build
+        cmake  ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## idyntree
+        git clone https://github.com/robotology/idyntree.git
+        cd idyntree
+        git checkout v0.11.1
+        export IDYNTREE_COMMIT=`git rev-parse HEAD`
+        mkdir build
+        cd build
+        cmake -DIDYNTREE_USES_KDL:BOOL=ON ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        # Install sdformat
+        sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+        wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+        sudo apt-get update
+        sudo apt-get install --assume-yes --force-yes libsdformat6-dev
+        # Prepare icub-model-generator build
+        mkdir build
+        cd build
+        cmake -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
+        # Build and run
+        make VERBOSE=1
+        ctest --output-on-failure
+        # Clone icub-models repo
+        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
+        cmake --build . --target copy-models-to-icub-models
+        # Generate commit message 
+        echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        echo "icub-model-generator commit:$GITHUB_SHA" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        echo "urdf_parser_py commit:$URDF_PARSER_PY_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        echo "simmechanics-to-urdf commit:$SIMMECHANICS_TO_URDF_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        echo "icub-main commit:$ICUB_MAIN_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        echo "idyntree commit:$IDYNTREE_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+
+    - name: Print generated models differences
+      run: |
+        cd $ICUB_MODELS_SOURCE_DIR
+        git diff
+
+    - name: Commit models
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      run: |
+        # See https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
+        export GIT_COMMITTER_NAME="$(git --no-pager show -s --format='%cn' $GITHUB_SHA)"
+        export GIT_AUTHOR_NAME="$(git --no-pager show -s --format='%an' $GITHUB_SHA)"
+        export GIT_COMMITTER_EMAIL="$(git --no-pager show -s --format='%ce' $GITHUB_SHA)"
+        export GIT_AUTHOR_EMAIL="$(git --no-pager show -s --format='%ae' $GITHUB_SHA)"
+        echo "Commit committer is $GIT_COMMITTER_NAME (email: $GIT_COMMITTER_EMAIL)"
+        echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
+        cd $ICUB_MODELS_SOURCE_DIR
+        # See https://stackoverflow.com/a/32507305
+        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message || echo "No changes in the icub-models branch, so no commit was done."
+
+    - name: Push models
+      uses: ad-m/github-push-action@v0.6.0
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      with:
+        directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
+        repository: ${{ env.DEPLOYMENT_REPOSITORY }}
+        branch: ${{ env.ICUB_MODELS_BRANCH }}
+        github_token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
+
