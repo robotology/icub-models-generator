@@ -60,9 +60,6 @@ jobs:
         export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
         sudo python setup.py install
         cd ${GITHUB_WORKSPACE}
-        # copy output folders and add the environment variable
-        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
-        cd ${GITHUB_WORKSPACE}
         # get C++ dependencies and save their last commit SHA1 hash
         # ycm
         git clone https://github.com/robotology/ycm.git
@@ -151,11 +148,11 @@ jobs:
         mkdir build
         cd build
         cmake -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
-        # Print env to check if all env variables are still valid 
-        env
         # Build and run
         make VERBOSE=1
         ctest --output-on-failure
+        # Clone icub-models repo
+        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
         cmake --build . --target copy-models-to-icub-models
         # Generate commit message 
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
