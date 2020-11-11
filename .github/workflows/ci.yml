@@ -179,7 +179,7 @@ jobs:
         echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
         cd $ICUB_MODELS_SOURCE_DIR
         # See https://stackoverflow.com/a/32507305
-        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message || echo "No changse in the icub-models branch, so no commit was done."
+        git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message || echo "No changes in the icub-models branch, so no commit was done."
 
     - name: Push models
       uses: ad-m/github-push-action@v0.6.0
