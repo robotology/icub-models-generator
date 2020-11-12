@@ -53,6 +53,7 @@ foreach(headflag "headV1;headV2")
     foreach(armsflag "armsV1;armsV2")
         foreach(legsflag "legsV1;legsV2")
             foreach(feetflag "feetV1;feetV2")
+                message(STATUS "icub-model-generator-dh: generating model: iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}")
                 generate_icub_dh(YARP_ROBOT_NAME iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}
                                  PARTS_VERSIONS --${headflag} --${armsflag} --${legsflag} --${feetflag})
             endforeach()
@@ -60,6 +61,7 @@ foreach(headflag "headV1;headV2")
     endforeach()
 endforeach()
 
+message(STATUS "icub-model-generator-dh: generated models: ${model-dh-generated-models}")
 
 add_custom_target(generate-models-dh
                   ALL
