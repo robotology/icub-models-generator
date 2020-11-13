@@ -49,10 +49,14 @@ generate_icub_dh(YARP_ROBOT_NAME iCubLisboa01
 # Not a real commit that is meant to be merged to master, just a way to quickly generate all
 # possible combinations of dh-generated models, so we can remove the generator that depends on
 # iDynTree 1 and other deprecated software, and just copy the required configuration
-foreach(headflag "headV1;headV2")
-    foreach(armsflag "armsV1;armsV2")
-        foreach(legsflag "legsV1;legsV2")
-            foreach(feetflag "feetV1;feetV2")
+set(headoptions haadV1 headV2)
+set(legsoptions armsV1 armsV2)
+set(armsoptions legsV1 legsV2)
+set(feetoptions feetV1 feetV2)
+foreach(headflag headoptions)
+    foreach(armsflag legsoptions)
+        foreach(legsflag armsoptions)
+            foreach(feetflag feetoptions)
                 message(STATUS "icub-model-generator-dh: generating model: iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}")
                 generate_icub_dh(YARP_ROBOT_NAME iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}
                                  PARTS_VERSIONS --${headflag} --${armsflag} --${legsflag} --${feetflag})
