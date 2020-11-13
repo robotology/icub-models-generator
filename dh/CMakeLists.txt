@@ -50,12 +50,12 @@ generate_icub_dh(YARP_ROBOT_NAME iCubLisboa01
 # possible combinations of dh-generated models, so we can remove the generator that depends on
 # iDynTree 1 and other deprecated software, and just copy the required configuration
 set(headoptions headV1 headV2)
-set(legsoptions armsV1 armsV2)
-set(armsoptions legsV1 legsV2)
+set(armsoptions armsV1 armsV2)
+set(legsoptions legsV1 legsV2)
 set(feetoptions feetV1 feetV2)
 foreach(headflag headoptions)
-    foreach(armsflag legsoptions)
-        foreach(legsflag armsoptions)
+    foreach(armsflag armsoptions)
+        foreach(legsflag legsoptions)
             foreach(feetflag feetoptions)
                 message(STATUS "icub-model-generator-dh: generating model: iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}")
                 generate_icub_dh(YARP_ROBOT_NAME iCubModelLegacy-${headflag}-${armsflag}-${legsflag}-${feetflag}
