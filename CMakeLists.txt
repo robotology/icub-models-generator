@@ -13,6 +13,7 @@ endif()
 
 option(ICUB_MODEL_GENERATE_DH "Generate models using the model generation pipeline from Denativ Hartenberg models" ON)
 option(ICUB_MODEL_GENERATE_SIMMECHANICS "Generate models using the model generation pipeline from simmechanics" ON)
+option(BUILD_TESTING "Run tests for the generated models" ON)
 
 set(BUILD_PREFIX "iCub")
 
@@ -45,6 +46,9 @@ add_custom_command(TARGET copy-models-to-icub-models
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub"
                    COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub")
 
-include( CTest )
-enable_testing()
-add_subdirectory(tests)
+
+if (BUILD_TESTING)
+  include( CTest )
+  enable_testing()
+  add_subdirectory(tests)
+endif()
