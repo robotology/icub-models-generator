@@ -37,6 +37,7 @@ jobs:
     - name: Generate models
       run: |
         sudo apt-get update
+        sudo apt-get install libeigen3-dev libace-dev libtinyxml-dev libxml2-dev
         # Save the url of the repository and the user-name of the committ author
         export CURRENT_REPOSITORY_URL=`git remote get-url origin`
         # Start in the parent directory of icub-model-generator
@@ -58,6 +59,36 @@ jobs:
         cd simmechanics-to-urdf
         export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
         sudo python setup.py install
+        cd ${GITHUB_WORKSPACE}
+        # get C++ dependencies and save their last commit SHA1 hash
+        # ycm
+        git clone https://github.com/robotology/ycm.git
+        cd ycm
+        git checkout v0.12.0
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## yarp
+        git clone https://github.com/robotology/yarp.git
+        cd yarp
+        git checkout v3.4.0
+        export YARP_COMMIT=`git rev-parse HEAD`
+        mkdir build
+        cd build
+        cmake -DCREATE_LIB_MATH:BOOL=OFF -DYARP_COMPILE_EXECUTABLES:BOOL=OFF ..
+        sudo cmake --build . --target install
+        cd ${GITHUB_WORKSPACE}
+        ## idyntree
+        git clone https://github.com/robotology/idyntree.git
+        cd idyntree
+        git checkout v1.2.0
+        export IDYNTREE_COMMIT=`git rev-parse HEAD`
+        mkdir build
+        cd build
+        cmake ..
+        sudo cmake --build . --target install
         cd ${GITHUB_WORKSPACE}
         # Prepare icub-model-generator build
         mkdir build
