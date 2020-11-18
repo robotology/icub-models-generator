@@ -232,6 +232,12 @@ exportedFrames:
   - frameName: SCSYS_HEAD_IMU
     frameReferenceLink: head
     exportedFrameName: imu_frame
+  - frameName: SCSYS_CHEST_DEPTH
+    frameReferenceLink: chest
+    exportedFrameName: chest_depth_frame
+  - frameName: SCSYS_CHEST_RGB
+    frameReferenceLink: chest
+    exportedFrameName: chest_rgb_frame
   - frameName: SCSYS_L_SOLE
     frameReferenceLink: l_foot_rear
     exportedFrameName: l_sole
@@ -321,6 +327,36 @@ sensors:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
+  - sensorName: default
+    exportFrameInURDF: No
+    sensorType: "depth"
+    updateRate: "30"
+  - sensorName: default
+    exportFrameInURDF: No
+    sensorType: "camera"
+    updateRate: "30"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_camera" filename="libgazebo_yarp_camera.so" />
+  - frameName: SCSYS_CHEST_DEPTH
+    linkName: chest
+    sensorName: realsense_chest_depth
+    sensorType: "depth"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_depthCamera" filename="libgazebo_yarp_depthCamera.so">
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_depth_camera.ini</yarpConfigurationFile>
+        </plugin>
+
+    - frameName: SCSYS_CHEST_RGB
+    linkName: chest
+    sensorName: realsense_chest_rgb
+    sensorType: "camera"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_camera" filename="libgazebo_yarp_camera.so">
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_rgb_camera.ini</yarpConfigurationFile>
         </plugin>
 
 @ASSIGNED_COLLISION_GEOMETRIES@
