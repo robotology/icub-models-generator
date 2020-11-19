@@ -13,6 +13,9 @@ macro(generate_icub_simmechanics)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
     set(multiValueArgs)
     cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    
+    # Fallback if no assigned collision geometry is requested
+    set(ASSIGNED_COLLISION_GEOMETRIES "")
 
     # Generate the YAML file from the CMake configuration
     if(GIVTWO_NO_BACKPACK)
@@ -131,7 +134,6 @@ macro(generate_icub_simmechanics)
       set(GAZEBO_ASSIGNED_INERTIAS "")
       set(LOWERBODY_JOINT_DAMPING 0.223)
       set(UPPERBODY_JOINT_DAMPING 0.06)
-      set(ASSIGNED_COLLISION_GEOMETRIES "")
     endif()
 
     if (GIVTWO_ICUB_3_COLLISION_GEOM_MOD)
@@ -158,8 +160,6 @@ macro(generate_icub_simmechanics)
       size: 0.117 0.100 0.006
       origin: \"0.0 0.0 0.003 0.0 0.0 0.0\"
 ")
-    else()
-      set(ASSIGNED_COLLISION_GEOMETRIES "")
     endif()
 
     # If we are generating the icub2.5+ model we need to add the xsens IMU, change the mesh folder
