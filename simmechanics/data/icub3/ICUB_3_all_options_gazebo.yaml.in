@@ -374,7 +374,7 @@ assignedMasses:
   l_foot_rear: 0.18460842
   l_foot_front: 0.18507432
   # It fixes the wrong mass exported after shrinkwrap
-  head: 1.955
+  # head: 1.955 NOT NEEDED WITH THE HEAD 2.7
 assignedInertias:
   # It fixes the wrong inertias exported after shrinkwrap
   - linkName: r_hip_1
