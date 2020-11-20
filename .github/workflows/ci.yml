@@ -134,5 +134,5 @@ jobs:
         directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
         branch: ${{ env.ICUB_MODELS_BRANCH }}
-        github_token: ${{ secrets.BOT_TRIGGER_ROBOTOLOGY_DOCUMENTATION }}
+        github_token: ${{ secrets.ICUB_MODELS_GENERATOR_TOKEN }}
 
