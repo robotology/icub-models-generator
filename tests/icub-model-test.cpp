@@ -354,12 +354,14 @@ int main(int argc, char ** argv)
         return EXIT_FAILURE;
     }
 
-    std::string modelPath = prop.find("model").asString().c_str();
+    const std::string modelPath = prop.find("model").asString().c_str();
+
+    iDynTree::ModelLoader mdlLoader;
+    mdlLoader.loadModelFromFile(modelPath);
 
     // Open the model
     iDynTree::KinDynComputations comp;
-
-    bool modelLoaded = comp.loadRobotModelFromFile(modelPath);
+    const bool modelLoaded = comp.loadRobotModel(mdlLoader.model());
 
     if( !modelLoaded )
     {
@@ -401,9 +403,6 @@ int main(int argc, char ** argv)
     }
 
     // Now some test that test the sensors
-    iDynTree::ModelLoader mdlLoader;
-    mdlLoader.loadModelFromFile(modelPath);
-
     if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
     {
         return EXIT_FAILURE;
