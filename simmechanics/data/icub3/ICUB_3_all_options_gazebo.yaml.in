@@ -102,21 +102,6 @@ rename:
     SIM_ICUB3_R_FOREARM--SIM_ICUB3_R_WRIST_1: r_wrist_pitch
     SIM_ICUB3_R_WRIST_1--SIM_ICUB3_R_HAND: r_wrist_yaw
 
-# Sensors options
-forceTorqueSensors:
-  - jointName: l_leg_ft_sensor
-    directionChildToParent: Yes
-  - jointName: r_leg_ft_sensor
-    directionChildToParent: Yes
-  - jointName: l_foot_front_ft_sensor
-    directionChildToParent: Yes
-  - jointName: l_foot_rear_ft_sensor
-    directionChildToParent: Yes
-  - jointName: r_foot_front_ft_sensor
-    directionChildToParent: Yes
-  - jointName: r_foot_rear_ft_sensor
-    directionChildToParent: Yes
-
 # Frames options
 exportAllUseradded: No
 
@@ -124,8 +109,6 @@ linkFrames:
   # upperbody
   - linkName: root_link
     frameName: SCSYS_ROOT
-  - linkName: l_shoulder_2
-    frameName: SCSYS_L_SHOULDER_2_FT
   - linkName: chest
     frameName: SCSYS_CHEST
   - linkName: l_shoulder_1
@@ -136,8 +119,6 @@ linkFrames:
     frameName: SCSYS_L_SHOULDER_3
   - linkName: l_upper_arm
     frameName: SCSYS_L_UPPERARM
-  - linkName: r_shoulder_2
-    frameName: SCSYS_R_SHOULDER_2_FT
   - linkName: r_shoulder_1
     frameName: SCSYS_R_SHOULDER_1
   - linkName: r_shoulder_2
@@ -151,12 +132,6 @@ linkFrames:
   - linkName: torso_2
     frameName: SCSYS_TORSO_2
   # left leg
-  - linkName: l_hip_2
-    frameName: SCSYS_L_HIP_2_FT
-  - linkName: l_ankle_2
-    frameName: SCSYS_L_ANKLE_2_FT_FRONT
-  - linkName: l_ankle_2
-    frameName: SCSYS_L_ANKLE_2_FT_REAR
   - linkName: l_hip_1
     frameName: SCSYS_L_HIP_1
   - linkName: l_hip_2
@@ -176,12 +151,6 @@ linkFrames:
   - linkName: l_foot_rear
     frameName: SCSYS_L_FOOT_REAR
   # right leg
-  - linkName: r_hip_2
-    frameName: SCSYS_R_HIP_2_FT
-  - linkName: r_ankle_2
-    frameName: SCSYS_R_ANKLE_2_FT_FRONT
-  - linkName: r_ankle_2
-    frameName: SCSYS_R_ANKLE_2_FT_REAR
   - linkName: r_hip_1
     frameName: SCSYS_R_HIP_1
   - linkName: r_hip_2
@@ -250,6 +219,8 @@ forceTorqueSensors:
     # upperbody
     - jointName: l_arm_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_L_SHOULDER_2_FT
       sensorBlobs:
       - |
           <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -257,6 +228,8 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_arm_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_R_SHOULDER_2_FT
       sensorBlobs:
       - |
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -265,6 +238,8 @@ forceTorqueSensors:
     # left leg
     - jointName: l_leg_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_L_HIP_2_FT
       sensorBlobs:
       - |
           <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -272,6 +247,8 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_front_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_L_ANKLE_2_FT_FRONT
       sensorBlobs:
       - |
           <plugin name="left_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -279,6 +256,8 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_rear_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_L_ANKLE_2_FT_REAR
       sensorBlobs:
       - |
           <plugin name="left_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -287,6 +266,8 @@ forceTorqueSensors:
     # right leg
     - jointName: r_leg_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_R_HIP_2_FT
       sensorBlobs:
       - |
           <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -294,6 +275,8 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_front_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_R_ANKLE_2_FT_FRONT
       sensorBlobs:
       - |
           <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -301,6 +284,8 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_rear_ft_sensor
       directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_R_ANKLE_2_FT_REAR
       sensorBlobs:
       - |
           <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -349,7 +334,7 @@ sensors:
             <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_depth_camera.ini</yarpConfigurationFile>
         </plugin>
 
-    - frameName: SCSYS_CHEST_RGB
+  - frameName: SCSYS_CHEST_RGB
     linkName: chest
     sensorName: realsense_chest_rgb
     sensorType: "camera"
