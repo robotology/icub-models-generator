@@ -346,6 +346,7 @@ sensors:
 
 @ASSIGNED_COLLISION_GEOMETRIES@
 
+
 assignedMasses:
   # It fixes the right/left asymmetry for the legs
   r_hip_1: 2.48546
@@ -483,6 +484,18 @@ assignedInertias:
     xx: 0.01
     yy: 0.01
     zz: 0.01
+
+mirroredInertia:
+- mirroredLink: l_upper_arm
+  originalLink: r_upper_arm
+  simmetryReferenceLink: root_link
+  symmetryPlane: xz
+
+- mirroredLink: r_lower_leg
+  originalLink: l_lower_leg
+  simmetryReferenceLink: root_link
+  symmetryPlane: xz
+
 reverseRotationAxis:
     r_hip_yaw
     r_hip_roll
