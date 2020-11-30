@@ -87,6 +87,13 @@ reverseRotationAxis:
   torso_yaw
   torso_pitch
   torso_roll
+  r_elbow
+  l_shoulder_yaw
+  l_shoulder_pitch
+  l_shoulder_roll
+  l_wrist_prosup
+  l_wrist_pitch
+  l_wrist_yaw
 XMLBlobs:
     - |
             <link name="base_link" />
