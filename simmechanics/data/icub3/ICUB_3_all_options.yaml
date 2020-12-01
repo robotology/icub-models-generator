@@ -336,7 +336,8 @@ sensors:
     sensorBlobs:
     - |
         <camera name="intel_realsense_depth_camera">
-          <horizontal_fov>1.02259</horizontal_fov>
+          <pose>0 0 0 -1.57079 -1.57079 3.14159</pose>
+          <horizontal_fov>1.57079</horizontal_fov>
           <distortion>
             <k1>0</k1>
             <k2>0</k2>
@@ -351,7 +352,7 @@ sensors:
             <format>R8G8B8</format>
           </image>
           <clip>
-            <near>0.02</near>
+            <near>0.175</near>
             <far>3000</far>
           </clip>
         </camera>
@@ -369,7 +370,8 @@ sensors:
     sensorBlobs:
     - |
         <camera name="intel_realsense_rgb_camera">
-          <horizontal_fov>1.02259</horizontal_fov>
+          <pose>0 0 0 -1.57079 -1.57079 3.14159</pose>
+          <horizontal_fov>1.2217</horizontal_fov>
           <distortion>
             <k1>0</k1>
             <k2>0</k2>
