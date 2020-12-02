@@ -335,6 +335,30 @@ sensors:
     sensorType: "depth"
     sensorBlobs:
     - |
+        <camera name="intel_realsense_depth_camera">
+          <pose>0 0 0 -1.57079 -1.57079 3.14159</pose>
+          <horizontal_fov>1.57079</horizontal_fov>
+          <distortion>
+            <k1>0</k1>
+            <k2>0</k2>
+            <k3>0</k3>
+            <p1>0</p1>
+            <p2>0</p2>
+            <center>319.5 239.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.175</near>
+            <far>3000</far>
+          </clip>
+        </camera>
+    - | 
+        <visualize>false</visualize>
+    - | 
         <plugin name="iCub_yarp_gazebo_plugin_depthCamera" filename="libgazebo_yarp_depthCamera.so">
             <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_depth_camera.ini</yarpConfigurationFile>
         </plugin>
@@ -345,6 +369,30 @@ sensors:
     sensorType: "camera"
     sensorBlobs:
     - |
+        <camera name="intel_realsense_rgb_camera">
+          <pose>0 0 0 -1.57079 -1.57079 3.14159</pose>
+          <horizontal_fov>1.2217</horizontal_fov>
+          <distortion>
+            <k1>0</k1>
+            <k2>0</k2>
+            <k3>0</k3>
+            <p1>0</p1>
+            <p2>0</p2>
+            <center>319.5 239.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>3000</far>
+          </clip>
+        </camera>
+    - | 
+        <visualize>false</visualize>
+    - |   
         <plugin name="iCub_yarp_gazebo_plugin_camera" filename="libgazebo_yarp_camera.so">
             <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_rgb_camera.ini</yarpConfigurationFile>
         </plugin>
@@ -655,7 +703,7 @@ XMLBlobs:
     - |
             <gazebo>
             <plugin name="controlboard_head_without_eyes" filename="libgazebo_yarp_controlboard.so">
-            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_head_without_eyes_V2_7.ini</yarpConfigurationFile>
             </plugin>
             </gazebo>
     - |
