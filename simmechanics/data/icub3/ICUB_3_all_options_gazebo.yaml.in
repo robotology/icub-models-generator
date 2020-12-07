@@ -391,6 +391,19 @@ sensors:
         <plugin name="iCub_yarp_gazebo_plugin_camera" filename="libgazebo_yarp_camera.so">
             <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_rgb_camera.ini</yarpConfigurationFile>
         </plugin>
+  # According to https://github.com/IntelRealSense/realsense-ros/issues/927 in the realsense
+  # the imu measurements are referred to the depth frame.
+  - frameName: SCSYS_CHEST_DEPTH
+    linkName: chest
+    sensorName: chest_imu_acc_1x1
+    sensorType: "accelerometer"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_chest_inertial.ini</yarpConfigurationFile>
+        </plugin>
+
+
 
 @ASSIGNED_COLLISION_GEOMETRIES@
 
