@@ -39,10 +39,12 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `iCubGazeboV2_5_plus`| simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack, joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGazeboV2_6`     | simmechanics | v2.6 with  joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGazeboV2_7`     | simmechanics | v2.7 with  joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
+| `iCubGazeboV3`       | simmechanics | v3 with  joint damping, and inertias of some links modified to run smoothly in Gazebo Classic (ODE). |
 | `iCubGenova01`       | simmechanics | v2.5 without backpack           |
 | `iCubGenova02`       | simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack           |
 | `iCubGenova03`       | dh           | v2 with legs v1 and feet v2.5   |
 | `iCubGenova04`       | simmechanics | v2.5   with backpack            |
+| `iCubGenova09`       | simmechanics | v3                              |
 | `iCubGenova04_plus`  | simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack           |
 | `iCubLisboa01`       | dh           | v1 with head v2                 |
 | `iCubNancy01`        | dh           | v2.5 with arms v1 and head v2   |
