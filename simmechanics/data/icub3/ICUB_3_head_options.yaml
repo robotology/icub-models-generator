@@ -50,6 +50,8 @@ forceTorqueSensors:
         <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
           <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
         </plugin>
+reverseRotationAxis:
+    neck_yaw        
 # TODO: fix different mapping of torso joints in controlboard
 XMLBlobs:
     - |
