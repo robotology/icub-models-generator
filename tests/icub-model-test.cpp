@@ -202,7 +202,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     // y should be simmetric
     double l_sole_y = root_H_l_sole.getPosition().getVal(1);
     double r_sole_y = root_H_r_sole.getPosition().getVal(1);
-  
+
     // The increased threshold is a workaround for https://github.com/robotology/icub-model-generator/issues/125
     if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,1e-4) )
     {
@@ -218,7 +218,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
 
 
 
-bool checkAxisDirections(iDynTree::KinDynComputations & comp)
+bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
 {
     // Check axis for the first thing
     // see https://github.com/robotology/codyco-superbuild/issues/55#issuecomment-227872325 and
@@ -245,6 +245,100 @@ bool checkAxisDirections(iDynTree::KinDynComputations & comp)
 
         if( !getAxisOk )
         {
+            return false;
+        }
+
+        if( !checkVectorAreEqual(axisInRootLink.getDirection(),expectedDirection,1e-5) )
+        {
+            std::cerr << "icub-model-test error:" << axisToCheck << " got direction of " << axisInRootLink.getDirection().toString()
+                  << " instead of expected " << expectedDirection.toString() << std::endl;
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+
+bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
+{
+
+    std::vector<std::string> axisNames;
+    std::vector<iDynTree::Direction> expectedDirectionInRootLink;
+    axisNames.push_back("torso_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("l_hip_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_hip_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_hip_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("r_hip_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
+    axisNames.push_back("r_knee");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_ankle_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("r_ankle_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("l_hip_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("l_hip_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,1));
+    axisNames.push_back("l_knee");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("l_ankle_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("l_ankle_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("torso_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("torso_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
+    axisNames.push_back("l_shoulder_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.250563,0.935113,0.250563));
+    axisNames.push_back("r_shoulder_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.250563,0.935113,-0.250563));
+    axisNames.push_back("neck_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("neck_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("neck_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1.62555e-21,-1.1e-15,1));
+    axisNames.push_back("r_shoulder_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,-0.271447,-0.0520081));
+    axisNames.push_back("r_shoulder_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
+    axisNames.push_back("r_elbow");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,-0.960459,0.0788901));
+    axisNames.push_back("r_wrist_prosup");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
+    axisNames.push_back("r_wrist_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,0.271447,0.0520081));
+    axisNames.push_back("r_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,0.960459,-0.0788901));
+    axisNames.push_back("l_shoulder_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,-0.271447,0.0520081));
+    axisNames.push_back("l_shoulder_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
+    axisNames.push_back("l_elbow");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,-0.960459,-0.0788901));
+    axisNames.push_back("l_wrist_prosup");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
+    axisNames.push_back("l_wrist_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,0.271447,-0.0520081));
+    axisNames.push_back("l_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,0.960459,0.0788901));
+
+    for(int i=0; i < axisNames.size(); i++)
+    {
+        std::string axisToCheck = axisNames[i];
+        iDynTree::Axis axisInRootLink;
+        iDynTree::Direction expectedDirection = expectedDirectionInRootLink[i];
+        bool getAxisOk = getAxisInRootLink(comp,axisToCheck,axisInRootLink);
+
+        if( !getAxisOk ) {
             return false;
         }
 
@@ -311,7 +405,7 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
  *
  * See https://github.com/robotology/icub-model-generator/issues/92
  */
-bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
+bool checkFTSensorsAreCorrectlyOrientedV2(iDynTree::KinDynComputations & comp)
 {
     // The rotation of all the F/T sensors in the iCub robot when in zero position are the same
     iDynTree::Rotation rootLink_R_sensorFrameExpected =
@@ -328,12 +422,39 @@ bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
                        && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_plus, "r_foot_ft_sensor");
 
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor");
-    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isPlusModel);
-    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isPlusModel);
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor") && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isPlusModel) && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isPlusModel) && ok;
 
+    return ok;
+}
+
+bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
+{
+
+    iDynTree::Rotation rootLink_R_sensorFrameLeftArmExpected =
+        iDynTree::Rotation(-0.267012, -0.961047, 0.0713662,
+                           -0.960459, 0.271447, 0.0619303,
+                           -0.0788901, -0.0520081, -0.995526);
+    iDynTree::Rotation rootLink_R_sensorFrameRightArmExpected =
+        iDynTree::Rotation(-0.267012, 0.961047, 0.0713662,
+                            0.960459, 0.271447, -0.0619303,
+                           -0.0788901, 0.0520081, -0.995526);
+
+    iDynTree::Rotation rootLink_R_sensorFrameExpectedFoot =
+        iDynTree::Rotation(-0.5, 0.866025, 0,
+                           -0.866025, -0.5, 0,
+                            0, 0, 1);
+
+    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
+    // l_leg_ft_sensor and r_leg_ft_sensor frames seems to be wrong(see https://github.com/robotology/icub-models/issues/71)
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_front_ft_sensor") && ok;
     return ok;
 }
 
@@ -379,10 +500,15 @@ int main(int argc, char ** argv)
     comp.setRobotState(qj,dqj,grav);
 
     // Check axis
-    // The root frame in iCub3 has been defined differently, then we have to disable for now the check
-    if (modelPath.find("Genova09") != std::string::npos &&
+    if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
-        if( !checkAxisDirections(comp) )
+        if( !checkAxisDirectionsV3(comp) )
+        {
+            return EXIT_FAILURE;
+        }
+    }
+    else {
+        if( !checkAxisDirectionsV2(comp) )
         {
             return EXIT_FAILURE;
         }
@@ -409,13 +535,21 @@ int main(int argc, char ** argv)
     }
 
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
-    if (modelPath.find("Genova09") != std::string::npos &&
+    if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
-        if (!checkFTSensorsAreCorrectlyOriented(comp))
+        if (!checkFTSensorsAreCorrectlyOrientedV3(comp))
         {
             return EXIT_FAILURE;
         }
     }
+    else
+    {
+        if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
+        {
+            return EXIT_FAILURE;
+        }
+    }
+
 
 
     std::cerr << "Check for model " << modelPath << " concluded correctly!" << std::endl;
