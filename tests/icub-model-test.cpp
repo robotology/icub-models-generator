@@ -405,7 +405,7 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
  *
  * See https://github.com/robotology/icub-model-generator/issues/92
  */
-bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
+bool checkFTSensorsAreCorrectlyOrientedV2(iDynTree::KinDynComputations & comp)
 {
     // The rotation of all the F/T sensors in the iCub robot when in zero position are the same
     iDynTree::Rotation rootLink_R_sensorFrameExpected =
@@ -422,12 +422,39 @@ bool checkFTSensorsAreCorrectlyOriented(iDynTree::KinDynComputations & comp)
                        && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_plus, "r_foot_ft_sensor");
 
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor");
-    ok = ok && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor");
-    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isPlusModel);
-    ok = ok && (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isPlusModel);
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor") && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isPlusModel) && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isPlusModel) && ok;
 
+    return ok;
+}
+
+bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
+{
+
+    iDynTree::Rotation rootLink_R_sensorFrameLeftArmExpected =
+        iDynTree::Rotation(-0.267012, -0.961047, 0.0713662,
+                           -0.960459, 0.271447, 0.0619303,
+                           -0.0788901, -0.0520081, -0.995526);
+    iDynTree::Rotation rootLink_R_sensorFrameRightArmExpected =
+        iDynTree::Rotation(-0.267012, 0.961047, 0.0713662,
+                            0.960459, 0.271447, -0.0619303,
+                           -0.0788901, 0.0520081, -0.995526);
+
+    iDynTree::Rotation rootLink_R_sensorFrameExpectedFoot =
+        iDynTree::Rotation(-0.5, 0.866025, 0,
+                           -0.866025, -0.5, 0,
+                            0, 0, 1);
+
+    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
+    // l_leg_ft_sensor and r_leg_ft_sensor frames seems to be wrong(see https://github.com/robotology/icub-models/issues/71)
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_front_ft_sensor") && ok;
     return ok;
 }
 
@@ -508,13 +535,21 @@ int main(int argc, char ** argv)
     }
 
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
-    if (modelPath.find("Genova09") != std::string::npos &&
+    if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
-        if (!checkFTSensorsAreCorrectlyOriented(comp))
+        if (!checkFTSensorsAreCorrectlyOrientedV3(comp))
         {
             return EXIT_FAILURE;
         }
     }
+    else
+    {
+        if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
+        {
+            return EXIT_FAILURE;
+        }
+    }
+
 
 
     std::cerr << "Check for model " << modelPath << " concluded correctly!" << std::endl;
