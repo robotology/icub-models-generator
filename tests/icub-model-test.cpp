@@ -202,7 +202,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
     // y should be simmetric
     double l_sole_y = root_H_l_sole.getPosition().getVal(1);
     double r_sole_y = root_H_r_sole.getPosition().getVal(1);
-  
+
     // The increased threshold is a workaround for https://github.com/robotology/icub-model-generator/issues/125
     if( !checkDoubleAreEqual(l_sole_y,-r_sole_y,1e-4) )
     {
@@ -218,7 +218,7 @@ bool checkSolesAreParallel(iDynTree::KinDynComputations & comp)
 
 
 
-bool checkAxisDirections(iDynTree::KinDynComputations & comp)
+bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
 {
     // Check axis for the first thing
     // see https://github.com/robotology/codyco-superbuild/issues/55#issuecomment-227872325 and
@@ -245,6 +245,100 @@ bool checkAxisDirections(iDynTree::KinDynComputations & comp)
 
         if( !getAxisOk )
         {
+            return false;
+        }
+
+        if( !checkVectorAreEqual(axisInRootLink.getDirection(),expectedDirection,1e-5) )
+        {
+            std::cerr << "icub-model-test error:" << axisToCheck << " got direction of " << axisInRootLink.getDirection().toString()
+                  << " instead of expected " << expectedDirection.toString() << std::endl;
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+
+bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
+{
+
+    std::vector<std::string> axisNames;
+    std::vector<iDynTree::Direction> expectedDirectionInRootLink;
+    axisNames.push_back("torso_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("l_hip_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_hip_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_hip_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("r_hip_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
+    axisNames.push_back("r_knee");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("r_ankle_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("r_ankle_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
+    axisNames.push_back("l_hip_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("l_hip_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,1));
+    axisNames.push_back("l_knee");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("l_ankle_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("l_ankle_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("torso_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
+    axisNames.push_back("torso_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
+    axisNames.push_back("l_shoulder_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.250563,0.935113,0.250563));
+    axisNames.push_back("r_shoulder_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.250563,0.935113,-0.250563));
+    axisNames.push_back("neck_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
+    axisNames.push_back("neck_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
+    axisNames.push_back("neck_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1.62555e-21,-1.1e-15,1));
+    axisNames.push_back("r_shoulder_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,-0.271447,-0.0520081));
+    axisNames.push_back("r_shoulder_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
+    axisNames.push_back("r_elbow");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,-0.960459,0.0788901));
+    axisNames.push_back("r_wrist_prosup");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
+    axisNames.push_back("r_wrist_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,0.271447,0.0520081));
+    axisNames.push_back("r_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,0.960459,-0.0788901));
+    axisNames.push_back("l_shoulder_roll");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,-0.271447,0.0520081));
+    axisNames.push_back("l_shoulder_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
+    axisNames.push_back("l_elbow");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,-0.960459,-0.0788901));
+    axisNames.push_back("l_wrist_prosup");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
+    axisNames.push_back("l_wrist_pitch");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,0.271447,-0.0520081));
+    axisNames.push_back("l_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,0.960459,0.0788901));
+
+    for(int i=0; i < axisNames.size(); i++)
+    {
+        std::string axisToCheck = axisNames[i];
+        iDynTree::Axis axisInRootLink;
+        iDynTree::Direction expectedDirection = expectedDirectionInRootLink[i];
+        bool getAxisOk = getAxisInRootLink(comp,axisToCheck,axisInRootLink);
+
+        if( !getAxisOk ) {
             return false;
         }
 
@@ -379,10 +473,15 @@ int main(int argc, char ** argv)
     comp.setRobotState(qj,dqj,grav);
 
     // Check axis
-    // The root frame in iCub3 has been defined differently, then we have to disable for now the check
-    if (modelPath.find("Genova09") != std::string::npos &&
+    if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
-        if( !checkAxisDirections(comp) )
+        if( !checkAxisDirectionsV3(comp) )
+        {
+            return EXIT_FAILURE;
+        }
+    }
+    else {
+        if( !checkAxisDirectionsV2(comp) )
         {
             return EXIT_FAILURE;
         }
