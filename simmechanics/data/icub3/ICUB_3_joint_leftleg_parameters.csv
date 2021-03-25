@@ -1,7 +1,0 @@
-joint_name,lower_limit,upper_limit,damping,friction,velocity_limit,effort_limit
-l_hip_pitch,-45,115,0.06,0,120,
-l_hip_roll,-10,115,0.06,0,120,
-l_hip_yaw,-80,80,0.06,0,120,
-l_knee,-70,5,0.06,0,120,
-l_ankle_pitch,-45,45,0.06,0,120,
-l_ankle_roll,-25,25,0.06,0,120,
