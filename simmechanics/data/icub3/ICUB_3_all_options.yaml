@@ -743,4 +743,59 @@ XMLBlobs:
             <gazebo reference="r_wrist_yaw">
               <implicitSpringDamper>1</implicitSpringDamper>
             </gazebo>
+    - |
+            <gazebo reference="r_upper_arm">
+              <selfCollide>true</selfCollide>
+              <collision>
+                <origin xyz="0.030743125543818514 0.141531075879301 0.06954757274337188" rpy="-0.0715644603308 0.0619699233851 -1.84623504024"/>
+                <geometry>
+                  <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://iCub/meshes/simmechanics/sim_icub3_r_upperarm_prt.stl</uri>
+                  </mesh>
+                </geometry>
+                <surface>
+                  <contact>
+                    <collide_without_contact>true</collide_without_contact>
+                    <ode/>
+                  </contact>
+                  <friction>
+                    <ode/>
+                  </friction>
+                </surface>
+              </collision>
+              <sensor name='r_upper_arm_collision_sensor' type='contact'>
+                <contact>
+                  <collision>collision_right</collision>
+                </contact>
+              </sensor>
+            </gazebo>
+    - |
+            <gazebo reference="l_upper_arm">
+              <selfCollide>true</selfCollide>
+              <collision>
+                <origin xyz="0.030743149468679197 -0.14153106591133113 0.06954758245258447" rpy="-0.0715644949881 -0.0619699884186 -1.29535744982"/>
+                <geometry>
+                  <mesh>
+                    <scale>0.001 0.001 0.001</scale>
+                    <uri>model://iCub/meshes/simmechanics/sim_icub3_l_upperarm_prt.stl</uri>
+                  </mesh>
+                </geometry>
+                <surface>
+                  <contact>
+                    <collide_without_contact>true</collide_without_contact>
+                    <ode/>
+                  </contact>
+                  <friction>
+                    <ode/>
+                  </friction>
+                </surface>
+              </collision>
+              <sensor name='l_upper_arm_collision_sensor' type='contact'>
+                <contact>
+                  <collision>collision_left</collision>
+                </contact>
+              </sensor>
+            </gazebo>
+
 
