@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<PhysicalModelingXMLFile>
+
+  <formatVersion>"1.0.4"</formatVersion>
+
+  <internalVersion>1</internalVersion>
+
+  <createdUsing>"Simscape Multibody Link Version 4.8"</createdUsing>
+
+  <createdFrom>"Pro/E Wildfire Creo 7.0 - 2020454"</createdFrom>
+
+  <createdOn>"02/25/21||13:15:04"</createdOn>
+
+  <createdBy>"MSavoldi"</createdBy>
+
+  <name>"SIM_L_WRIST"</name>
+
+  <SimscapeMultibody>
+    <name>"SIM_L_WRIST"</name>
+    <nodeID>"SIM_L_WRIST"</nodeID>
+    <bodies>
+      <Body>
+        <name>"SIM_I_WRIST_FOREARM"</name>
+        <nodeID>"59"</nodeID>
+        <status>""</status>
+        <mass>0.847834</mass>
+        <massUnits>"kg"</massUnits>
+        <inertia>0.000642193,-5.50228e-005,8.43781e-006,-5.50228e-005,0.000791101,6.75903e-007,8.43781e-006,6.75903e-007,0.000848022</inertia>
+        <inertiaUnits>"kg*m^2"</inertiaUnits>
+        <volume>205013</volume>
+        <volumeUnits>"mm^3"</volumeUnits>
+        <surfaceArea>152121</surfaceArea>
+        <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
+        <frames>
+          <Frame>
+            <name>"CG"</name>
+            <displayName>""</displayName>
+            <nodeID>"59::CG(AUTOGEN)"</nodeID>
+            <position>80.013,6.92386,-0.122126</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame>
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"59::CS1(AUTOGEN)"</nodeID>
+            <position>0,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="2">
+            <name>"CS2"</name>
+            <displayName>""</displayName>
+            <nodeID>"59:-:SIM_L_WRIST/RootPart::59(AUTOGEN)"</nodeID>
+            <position>80.013,6.92386,-0.122126</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="7">
+            <name>"CS3"</name>
+            <displayName>""</displayName>
+            <nodeID>"59:-:63::59(AUTOGEN)"</nodeID>
+            <position>228.9,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frames>
+        <geometryFileName>"SIM_I_WRIST_FOREARM_prt.stl"</geometryFileName>
+      </Body>
+      <Body>
+        <name>"RootPart"</name>
+        <nodeID>"SIM_L_WRIST/RootPart"</nodeID>
+        <status>""</status>
+        <mass>0</mass>
+        <massUnits>"kg"</massUnits>
+        <inertia>0,0,0,0,0,0,0,0,0</inertia>
+        <inertiaUnits>"kg*m^2"</inertiaUnits>
+        <volume>0</volume>
+        <volumeUnits>"mm^3"</volumeUnits>
+        <surfaceArea>0</surfaceArea>
+        <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
+        <frames>
+          <Frame>
+            <name>"CG"</name>
+            <displayName>""</displayName>
+            <nodeID>"SIM_L_WRIST/RootPart::CG(AUTOGEN)"</nodeID>
+            <position>41.1937,3.80651,0.203922</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame>
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"SIM_L_WRIST/RootPart::CS1(AUTOGEN)"</nodeID>
+            <position>0,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="1">
+            <name>"CS2"</name>
+            <displayName>""</displayName>
+            <nodeID>"59:-:SIM_L_WRIST/RootPart::SIM_L_WRIST/RootPart(AUTOGEN)"</nodeID>
+            <position>80.013,6.92386,-0.122126</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="10">
+            <name>"CS3"</name>
+            <displayName>""</displayName>
+            <nodeID>"RootGround:-:SIM_L_WRIST/RootPart::SIM_L_WRIST/RootPart(AUTOGEN)"</nodeID>
+            <position>41.1937,3.80651,0.203922</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frames>
+        <geometryFileName>""</geometryFileName>
+      </Body>
+      <Body>
+        <name>"SIM_I_WRIST_LEVERAGE"</name>
+        <nodeID>"63"</nodeID>
+        <status>""</status>
+        <mass>0.0424441</mass>
+        <massUnits>"kg"</massUnits>
+        <inertia>1.35051e-005,-6.05726e-007,-1.32907e-006,-6.05726e-007,1.47037e-005,-5.46701e-007,-1.32907e-006,-5.46701e-007,1.67511e-005</inertia>
+        <inertiaUnits>"kg*m^2"</inertiaUnits>
+        <volume>13154</volume>
+        <volumeUnits>"mm^3"</volumeUnits>
+        <surfaceArea>13713</surfaceArea>
+        <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
+        <frames>
+          <Frame>
+            <name>"CG"</name>
+            <displayName>""</displayName>
+            <nodeID>"63::CG(AUTOGEN)"</nodeID>
+            <position>11.0387,-0.276848,-0.854</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame>
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"63::CS1(AUTOGEN)"</nodeID>
+            <position>0,4.65361e-016,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="3">
+            <name>"CS2"</name>
+            <displayName>""</displayName>
+            <nodeID>"63:-:66::63(AUTOGEN)"</nodeID>
+            <position>-10.45,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="8">
+            <name>"CS3"</name>
+            <displayName>""</displayName>
+            <nodeID>"59:-:63::63(AUTOGEN)"</nodeID>
+            <position>228.9,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frames>
+        <geometryFileName>"SIM_I_WRIST_LEVERAGE_prt.stl"</geometryFileName>
+      </Body>
+      <Body>
+        <name>"SIM_L_WRIST_PLATFORM"</name>
+        <nodeID>"66"</nodeID>
+        <status>""</status>
+        <mass>0.00610347</mass>
+        <massUnits>"kg"</massUnits>
+        <inertia>5.81273e-007,2.0761e-009,-3.6146e-009,2.0761e-009,3.03231e-007,1.01098e-009,-3.6146e-009,1.01098e-009,4.5994e-007</inertia>
+        <inertiaUnits>"kg*m^2"</inertiaUnits>
+        <volume>2285.94</volume>
+        <volumeUnits>"mm^3"</volumeUnits>
+        <surfaceArea>2224.52</surfaceArea>
+        <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
+        <frames>
+          <Frame>
+            <name>"CG"</name>
+            <displayName>""</displayName>
+            <nodeID>"66::CG(AUTOGEN)"</nodeID>
+            <position>-14.9592,-0.121333,-2.4069</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,-2.50816e-005,7.42947e-006,2.50816e-005,1,-6.23491e-006,-7.42931e-006,6.2351e-006,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame>
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"66::CS1(AUTOGEN)"</nodeID>
+            <position>-3.57536e-009,-0.000262102,7.7638e-005</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,-2.50816e-005,7.42947e-006,2.50816e-005,1,-6.23491e-006,-7.42931e-006,6.2351e-006,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="4">
+            <name>"CS2"</name>
+            <displayName>""</displayName>
+            <nodeID>"63:-:66::66(AUTOGEN)"</nodeID>
+            <position>-10.45,0,0</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="5">
+            <name>"CS3"</name>
+            <displayName>""</displayName>
+            <nodeID>"66:-:67::66(AUTOGEN)"</nodeID>
+            <position>-10.45,0,1.92379e-011</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frames>
+        <geometryFileName>"SIM_L_WRIST_PLATFORM_prt.stl"</geometryFileName>
+      </Body>
+      <Body>
+        <name>"SIM_L_WRIST_HAND"</name>
+        <nodeID>"67"</nodeID>
+        <status>""</status>
+        <mass>0.247727</mass>
+        <massUnits>"kg"</massUnits>
+        <inertia>0.000180927,-5.62305e-005,-1.397e-005,-5.62305e-005,0.000326195,-6.04989e-006,-1.397e-005,-6.04989e-006,0.000486092</inertia>
+        <inertiaUnits>"kg*m^2"</inertiaUnits>
+        <volume>95907.1</volume>
+        <volumeUnits>"mm^3"</volumeUnits>
+        <surfaceArea>113156</surfaceArea>
+        <surfaceAreaUnits>"mm^2"</surfaceAreaUnits>
+        <frames>
+          <Frame>
+            <name>"CG"</name>
+            <displayName>""</displayName>
+            <nodeID>"67::CG(AUTOGEN)"</nodeID>
+            <position>-85.1136,-6.06609,1.56539</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>-1,4.63225e-011,-5.02293e-012,4.63225e-011,1,0,5.02293e-012,0,-1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame>
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"67::CS1(AUTOGEN)"</nodeID>
+            <position>-99.45,4.12269e-009,6</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>-1,4.63225e-011,-5.02293e-012,4.63225e-011,1,0,5.02293e-012,0,-1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+          <Frame ref="6">
+            <name>"CS2"</name>
+            <displayName>""</displayName>
+            <nodeID>"66:-:67::67(AUTOGEN)"</nodeID>
+            <position>-10.45,0,1.92379e-011</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frames>
+        <geometryFileName>"SIM_L_WRIST_HAND_prt.stl"</geometryFileName>
+      </Body>
+    </bodies>
+    <joints>
+      <SimpleJoint>
+        <name>"RootPart--SIM_I_WRIST_FOREARM"</name>
+        <nodeID>"59:-:SIM_L_WRIST/RootPart"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="1"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="2"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"weld"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>0.57735,0.57735,0.57735</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+      <SimpleJoint>
+        <name>"SIM_I_WRIST_LEVERAGE--SIM_L_WRIST_PLATFORM"</name>
+        <nodeID>"63:-:66"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="3"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="4"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"revolute"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>0,-1,0</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+      <SimpleJoint>
+        <name>"SIM_L_WRIST_PLATFORM--SIM_L_WRIST_HAND"</name>
+        <nodeID>"66:-:67"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="5"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="6"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"revolute"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>0,0,-1</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+      <SimpleJoint>
+        <name>"SIM_I_WRIST_FOREARM--SIM_I_WRIST_LEVERAGE"</name>
+        <nodeID>"59:-:63"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="7"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="8"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"revolute"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>-1,0,0</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+      <SimpleJoint>
+        <name>"RootGround--RootPart"</name>
+        <nodeID>"RootGround:-:SIM_L_WRIST/RootPart"</nodeID>
+        <status>""</status>
+        <base>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="9"></Frame>
+            </connection>
+          </JointSide>
+        </base>
+        <follower>
+          <JointSide>
+            <name>""</name>
+            <connection>
+              <Frame ref="10"></Frame>
+            </connection>
+          </JointSide>
+        </follower>
+        <primitives>
+          <Primitive>
+            <name>"weld"</name>
+            <nodeID>""</nodeID>
+            <referenceFrame>"WORLD"</referenceFrame>
+            <axis>0.57735,0.57735,0.57735</axis>
+          </Primitive>
+        </primitives>
+      </SimpleJoint>
+    </joints>
+    <grounds>
+      <Ground>
+        <name>"RootGround"</name>
+        <nodeID>"RootGround"</nodeID>
+        <status>""</status>
+        <frame>
+          <Frame ref="9">
+            <name>"CS1"</name>
+            <displayName>""</displayName>
+            <nodeID>"RootGround:-:SIM_L_WRIST/RootPart::RootGround(AUTOGEN)"</nodeID>
+            <position>41.1937,3.80651,0.203922</position>
+            <positionOrigin>"WORLD"</positionOrigin>
+            <positionReferenceFrame>"WORLD"</positionReferenceFrame>
+            <positionUnits>"mm"</positionUnits>
+            <orientation>1,0,0,0,1,0,0,0,1</orientation>
+            <orientationType>"3x3 Transform"</orientationType>
+            <orientationUnits>"rad"</orientationUnits>
+            <orientationReferenceFrame>"WORLD"</orientationReferenceFrame>
+          </Frame>
+        </frame>
+      </Ground>
+    </grounds>
+    <subsystems></subsystems>
+    <connectionPorts></connectionPorts>
+    <id>0</id>
+  </SimscapeMultibody>
+
+</PhysicalModelingXMLFile>

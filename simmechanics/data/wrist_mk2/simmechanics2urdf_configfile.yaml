@@ -1,0 +1,38 @@
+# Meshes options 
+scale: "0.001 0.001 0.001"
+forcelowercase: Yes
+filenameformatchangeext: "package://components/meshes/simmechanics/%s.stl"
+stringToRemoveFromMeshFileName: ""
+
+# Rename options (map Creo names to URDF names)
+rename:
+ SIM_L_WRIST_FOREARM--SIM_L_WRIST_LEVERAGE: l_wrist_yaw_joint
+ SIM_L_WRIST_LEVERAGE--SIM_L_WRIST_PLATFORM: l_wrist_pitch_joint
+ SIM_L_WRIST_PLATFORM--SIM_L_WRIST_HAND: l_wrist_roll_joint 
+ SIM_L_WRIST_FOREARM: l_forearm
+ SIM_L_WRIST_LEVERAGE: l_leverage 
+ SIM_L_WRIST_PLATFORM: l_platform 
+
+reverseRotationAxis:
+ l_wrist_yaw_joint
+
+assignedInertias: 
+  - linkName: l_forearm
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_leverage
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_platform
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01 
+
+XMLBlobs:
+  - 
+    <gazebo>
+    </gazebo>
+
+  
