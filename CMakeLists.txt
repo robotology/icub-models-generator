@@ -16,7 +16,6 @@ option(ICUB_MODEL_GENERATE_SIMMECHANICS "Generate models using the model generat
 option(BUILD_TESTING "Run tests for the generated models" ON)
 
 set(BUILD_PREFIX "iCub")
-set(COMPONENTS_BUILD_PREFIX "iCub_components")
 
 if( ICUB_MODEL_GENERATE_DH )
   add_subdirectory(dh)
@@ -45,9 +44,8 @@ add_dependencies(copy-models-to-icub-models generate-models)
 add_custom_command(TARGET copy-models-to-icub-models
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub"
-                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}" "${ICUB_MODELS_SOURCE_DIR}/iCub_components"
-                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub_components")
+                   COMMENT "Copying generated files to ${ICUB_MODELS_SOURCE_DIR}/iCub")
+
 
 if (BUILD_TESTING)
   include( CTest )

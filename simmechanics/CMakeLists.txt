@@ -345,59 +345,7 @@ macro(generate_icub_simmechanics)
     list(APPEND model-simmechanics-generated-models "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/${GIVTWO_YARP_ROBOT_NAME}/model.urdf")
 endmacro()
 
-macro(generate_components_simmechanics)
-    set(options INCREASE_INERTIA_FOR_GAZEBO)
-    set(oneValueArgs YARP_COMPONENT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
-    set(multiValueArgs)
-    cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-    #simmechanics_to_urdf SIM_LEFT_HAND_Mk3.xml --yaml simmechanics2urdf_configfile.yaml --csv-joints simmechanics2urdf_joints_configfile.csv --output xml --outputfile left_hand_mk3.urdf
-    #gz sdf -p left_hand_mk3.urdf > left_hand_mk3.sdf
-    set(GENERATED_YAML_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_COMPONENT_NAME}.yaml)
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_YAML_TEMPLATE} ${GENERATED_YAML_LOCATION} @ONLY)    
-    set(GENERATED_CSV_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_COMPONENT_NAME}.csv)
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_CSV_TEMPLATE} ${GENERATED_CSV_LOCATION} @ONLY)
-
-    add_custom_command(OUTPUT ${GIVTWO_YARP_COMPONENT_NAME}.urdf
-                       COMMAND simmechanics_to_urdf
-                       ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}
-                            --output xml
-                            --yaml ${GENERATED_YAML_LOCATION}
-                            --csv-joints ${GENERATED_CSV_LOCATION}
-                            --outputfile ${GIVTWO_YARP_COMPONENT_NAME}.urdf
-                       MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_SIMMECHANICS_XML}"
-                       #DEPENDS  "${GENERATED_YAML_LOCATION}"
-                       #         "${GENERATED_CSV_LOCATION}"
-                       )
-
-    add_custom_command(OUTPUT "${GENERATED_YAML_LOCATION}"
-                       COMMAND ${CMAKE_COMMAND} -E 
-                               copy "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_YAML_TEMPLATE}" "${GENERATED_YAML_LOCATION}")
-
-	add_custom_command(OUTPUT "${GENERATED_CSV_LOCATION}"
-                       COMMAND ${CMAKE_COMMAND} -E 
-                               copy "${CMAKE_CURRENT_SOURCE_DIR}/data/${GIVTWO_CSV_TEMPLATE}" "${GENERATED_CSV_LOCATION}")
-
-    add_custom_command(OUTPUT "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/parts/${GIVTWO_YARP_COMPONENT_NAME}/model.urdf"
-                       MAIN_DEPENDENCY "${GIVTWO_YARP_COMPONENT_NAME}.urdf"
-                       COMMAND ${CMAKE_COMMAND} -E
-                               copy "${GIVTWO_YARP_COMPONENT_NAME}.urdf" "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/parts/${GIVTWO_YARP_COMPONENT_NAME}/model.urdf")
-
-    list(APPEND model-simmechanics-generated-models "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/parts/${GIVTWO_YARP_COMPONENT_NAME}/model.urdf")
-endmacro()
-
 set(model-simmechanics-generated-models "")
-
-generate_components_simmechanics(YARP_COMPONENT_NAME left_wrist_mk2
-                                 SIMMECHANICS_XML "wrist_mk2/SIM_L_WRIST.xml"
-                                 YAML_TEMPLATE "wrist_mk2/simmechanics2urdf_configfile.yaml"
-                                 CSV_TEMPLATE "wrist_mk2/simmechanics2urdf_joints_configfile.csv")
-
-generate_components_simmechanics(YARP_COMPONENT_NAME left_hand_mk3
-                                 SIMMECHANICS_XML "hand_mk3/SIM_LEFT_HAND_Mk3.xml"
-                                 YAML_TEMPLATE "hand_mk3/simmechanics2urdf_configfile.yaml"
-                                 CSV_TEMPLATE "hand_mk3/simmechanics2urdf_joints_configfile.csv")
-
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
@@ -421,6 +369,11 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml.in"
                            CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv"
                            ICUB_3_COLLISION_GEOM_MOD)
+                           
+generate_icub_simmechanics(YARP_ROBOT_NAME left_hand_mk3
+                           SIMMECHANICS_XML "left_hand_mk3/SIM_LEFT_HAND_Mk3.xml"
+                           YAML_TEMPLATE "left_hand_mk3/simmechanics2urdf_configfile.yaml"
+                           CSV_TEMPLATE "left_hand_mk3/simmechanics2urdf_joints_configfile.csv")
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus
                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
@@ -477,8 +430,6 @@ add_custom_command(TARGET generate-models-simmechanics
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_icub3"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/hand_mk3/meshes" "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/meshes"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/hand_mk3/conf" "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/conf"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/wrist_mk2/meshes" "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/meshes"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/wrist_mk2/conf" "${CMAKE_BINARY_DIR}/${COMPONENTS_BUILD_PREFIX}/conf"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/left_hand_mk3/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/left_hand_mk3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_left_hand_mk3"
                    COMMENT "Copying Simmechanics meshes")
