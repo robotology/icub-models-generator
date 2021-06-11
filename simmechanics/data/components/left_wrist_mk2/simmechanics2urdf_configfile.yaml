@@ -33,6 +33,11 @@ assignedInertias:
 XMLBlobs:
   - 
     <gazebo>
+    <plugin name='controlboard_wrist' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCub/conf_left_wrist_mk2/left_wrist.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='world_interface' filename='libgazebo_yarp_worldinterface.so'>
+      <yarpConfigurationFile>model://iCub/conf_left_wrist_mk2/worldInterface.ini</yarpConfigurationFile>
+    </plugin>
     </gazebo>
-
   

@@ -93,13 +93,13 @@ XMLBlobs:
   - 
     <gazebo>
     <plugin name='controlboard_left_hand_phys' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubHandMK3_model/conf/left_hand_phys.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/left_hand_phys.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='controlboard_left_hand' filename='libgazebo_yarp_controlboard.so'>
-      <yarpConfigurationFile>model://iCubHandMK3_model/conf/left_hand.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/left_hand.ini</yarpConfigurationFile>
     </plugin>
     <plugin name='world_interface' filename='libgazebo_yarp_worldinterface.so'>
-      <yarpConfigurationFile>model://iCubHandMK3_model/conf/worldInterface.ini</yarpConfigurationFile>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/worldInterface.ini</yarpConfigurationFile>
     </plugin>
     </gazebo>
 
