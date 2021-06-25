@@ -437,6 +437,8 @@ add_custom_command(TARGET generate-models-simmechanics
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_icub3"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_left_wrist_mk2"
+                   COMMAND ${CMAKE_COMMAND} -E copy           "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/model.config" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/left_wrist_mk2/."
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_hand_mk3/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_hand_mk3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_left_hand_mk3"
+                   COMMAND ${CMAKE_COMMAND} -E copy           "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_hand_mk3/model.config" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/left_hand_mk3/."
                    COMMENT "Copying Simmechanics meshes")
