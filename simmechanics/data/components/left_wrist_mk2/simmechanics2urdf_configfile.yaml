@@ -6,8 +6,8 @@ stringToRemoveFromMeshFileName: ""
 
 # Rename options (map Creo names to URDF names)
 rename:
- SIM_L_WRIST_FOREARM--SIM_L_WRIST_LEVERAGE: l_wrist_yaw_joint
- SIM_L_WRIST_LEVERAGE--SIM_L_WRIST_PLATFORM: l_wrist_pitch_joint
+ SIM_I_WRIST_FOREARM--SIM_I_WRIST_LEVERAGE: l_wrist_yaw_joint
+ SIM_I_WRIST_LEVERAGE--SIM_L_WRIST_PLATFORM: l_wrist_pitch_joint
  SIM_L_WRIST_PLATFORM--SIM_L_WRIST_HAND: l_wrist_roll_joint 
  SIM_L_WRIST_FOREARM: l_forearm
  SIM_L_WRIST_LEVERAGE: l_leverage 

@@ -371,7 +371,7 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            ICUB_3_COLLISION_GEOM_MOD)
                            
 generate_icub_simmechanics(YARP_ROBOT_NAME left_hand_mk3
-                           SIMMECHANICS_XML "components/left_hand_mk3/SIM_LEFT_HAND_Mk3.xml"
+                           SIMMECHANICS_XML "components/left_hand_mk3/SIM_LEFT_HAND.xml"
                            YAML_TEMPLATE "components/left_hand_mk3/simmechanics2urdf_configfile.yaml"
                            CSV_TEMPLATE "components/left_hand_mk3/simmechanics2urdf_joints_configfile.csv")
                            
