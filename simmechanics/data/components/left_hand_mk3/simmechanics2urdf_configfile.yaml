@@ -1,0 +1,104 @@
+# Meshes options 
+scale: "0.001 0.001 0.001"
+forcelowercase: Yes
+filenameformatchangeext: "package://iCub/meshes/simmechanics/%s.stl"
+stringToRemoveFromMeshFileName: ""
+
+# Rename options (map Creo names to URDF names)
+rename:
+ SIM_L_HAND_PALM_NAKED--SIM_L_HAND_PALM_ADDUCTION: l_hand_metacarpus_joint
+ SIM_L_HAND_PALM_ADDUCTION--SIM_L_HAND_METACARPUS_THUMB: l_hand_thumb_rotation_joint
+ SIM_L_HAND_METACARPUS_THUMB--SIM_L_HAND_PROXIMAL_THUMB: l_hand_thumb_proximal_joint
+ SIM_L_HAND_PROXIMAL_THUMB--SIM_L_HAND_DISTAL_THUMB: l_hand_thumb_distal_joint
+ SIM_L_HAND_PALM_NAKED--SIM_L_HAND_METACARPUS_INDEX: l_hand_index_adduction_joint
+ SIM_L_HAND_METACARPUS_INDEX--SIM_L_HAND_PROX_INDEX_FINGER: l_hand_index_proximal_joint
+ SIM_L_HAND_PROX_INDEX_FINGER--SIM_L_HAND_DISTAL_INDEX_FINGER: l_hand_index_distal_joint
+ SIM_L_HAND_PALM_NAKED--SIM_L_HAND_PROX_MEDIUM_FINGER: l_hand_medium_proximal_joint
+ SIM_L_HAND_PROX_MEDIUM_FINGER--SIM_L_HAND_DISTAL_MEDIUM_FINGER: l_hand_medium_distal_joint
+ SIM_L_HAND_PALM_NAKED--SIM_L_HAND_PROX_LITTLE_FINGER: l_hand_pinky_proximal_joint
+ SIM_L_HAND_PROX_LITTLE_FINGER--SIM_L_HAND_DISTAL_LITTLE_FINGER: l_hand_pinky_distal_joint
+ SIM_L_HAND_PALM_NAKED: l_hand_palm_link
+ SIM_L_HAND_PALM_ADDUCTION: l_hand_metacarpus_link
+ SIM_L_HAND_METACARPUS_THUMB: l_hand_thumb_proximal_link
+ SIM_L_HAND_PROXIMAL_THUMB: l_hand_thumb_medial_link
+ SIM_L_HAND_DISTAL_THUMB: l_hand_thumb_fingertip_link
+ SIM_L_HAND_METACARPUS_INDEX: l_hand_index_proximal_link
+ SIM_L_HAND_PROX_INDEX_FINGER: l_hand_index_medial_link
+ SIM_L_HAND_DISTAL_INDEX_FINGER: l_hand_index_fingertip_link
+ SIM_L_HAND_PROX_MEDIUM_FINGER: l_hand_medium_medial_link
+ SIM_L_HAND_DISTAL_MEDIUM_FINGER: l_hand_medium_fingertip_link 
+ SIM_L_HAND_PROX_LITTLE_FINGER: l_hand_pinky_medial_link
+ SIM_L_HAND_DISTAL_LITTLE_FINGER: l_hand_pinky_fingertip_link 
+
+reverseRotationAxis:
+ l_hand_thumb_distal_joint
+ l_hand_index_adduction_joint
+ l_hand_index_distal_joint
+ l_hand_medium_proximal_joint
+ l_hand_medium_distal_joint
+ l_hand_pinky_proximal_joint
+ l_hand_pinky_distal_joint
+
+assignedInertias: 
+  - linkName: l_hand_palm_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+  - linkName: l_hand_metacarpus_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_metacarpus_thumb_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01 
+  - linkName: l_hand_thumb_medial_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_thumb_fingertip_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01   
+  - linkName: l_hand_index_proximal_link 
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_index_medial_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_index_fingertip_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_medium_medial_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_medium_fingertip_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_pinky_medial_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01  
+  - linkName: l_hand_pinky_fingertip_link
+    xx: 0.01
+    yy: 0.01
+    zz: 0.01
+    
+XMLBlobs:
+  - 
+    <gazebo>
+    <plugin name='controlboard_left_hand_phys' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/left_hand_phys.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='controlboard_left_hand' filename='libgazebo_yarp_controlboard.so'>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/left_hand.ini</yarpConfigurationFile>
+    </plugin>
+    <plugin name='world_interface' filename='libgazebo_yarp_worldinterface.so'>
+      <yarpConfigurationFile>model://iCub/conf_left_hand_mk3/worldInterface.ini</yarpConfigurationFile>
+    </plugin>
+    </gazebo>

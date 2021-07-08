@@ -1,0 +1,4 @@
+joint_name,lower_limit,upper_limit,damping
+l_wrist_prosup,-90.0,90.0,1.0
+l_wrist_pitch,-60.0,50.0,1.0
+l_wrist_yaw,-30.0,30.0,1.0
