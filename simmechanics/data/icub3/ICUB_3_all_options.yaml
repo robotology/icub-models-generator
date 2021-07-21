@@ -743,4 +743,45 @@ XMLBlobs:
             <gazebo reference="r_wrist_yaw">
               <implicitSpringDamper>1</implicitSpringDamper>
             </gazebo>
+    - |
+            <gazebo reference="r_upper_arm">
+              <selfCollide>true</selfCollide>
+              <collision>
+                <surface>
+                  <contact>
+                    <collide_without_contact>true</collide_without_contact>
+                    <ode/>
+                  </contact>
+                  <friction>
+                    <ode/>
+                  </friction>
+                </surface>
+              </collision>
+              <sensor name='r_upper_arm_collision_sensor' type='contact'>
+                <contact>
+                  <collision>collision_right</collision>
+                </contact>
+              </sensor>
+            </gazebo>
+    - |
+            <gazebo reference="l_upper_arm">
+              <selfCollide>true</selfCollide>
+              <collision>
+                <surface>
+                  <contact>
+                    <collide_without_contact>true</collide_without_contact>
+                    <ode/>
+                  </contact>
+                  <friction>
+                    <ode/>
+                  </friction>
+                </surface>
+              </collision>
+              <sensor name='l_upper_arm_collision_sensor' type='contact'>
+                <contact>
+                  <collision>collision_left</collision>
+                </contact>
+              </sensor>
+            </gazebo>
+
 
