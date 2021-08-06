@@ -408,6 +408,50 @@ sensors:
             <yarpConfigurationFile>model://iCub/conf_icub3/gazebo_icub_chest_inertial.ini</yarpConfigurationFile>
         </plugin>
 
+assignedMasses:
+  root_link   : 2.52649319
+  torso_1     : 1.714262538
+  torso_2     : 1.374672951
+  chest       : 5.771074695
+  l_shoulder_1: 1.376687449
+  r_shoulder_1: 1.380716446
+  l_shoulder_2: 0.304658373
+  r_shoulder_2: 0.304658373
+  r_shoulder_3: 0.24467077
+  l_shoulder_3: 0.242239185
+  l_upper_arm : 1.968325789
+  r_upper_arm : 1.960447492
+  r_hip_1     : 2.134290199
+  r_hip_2     : 1.779000764
+  r_hip_3     : 2.1678368
+  r_upper_leg : 0.980691904
+  r_lower_leg : 5.074105512
+  r_ankle_1   : 0.346176903
+  r_ankle_2   : 1.00828013
+  r_foot_front: 0.17569926
+  r_foot_rear : 0.174817799
+  l_hip_1     : 2.108461113
+  l_hip_2     : 1.781270621
+  l_hip_3     : 2.169151426
+  l_upper_leg : 0.968264435
+  l_lower_leg : 5.063049414
+  l_ankle_1   : 0.346176903
+  l_ankle_2   : 1.011533592
+  l_foot_front: 0.175038164
+  l_foot_rear : 0.174597434
+  l_elbow_1   : 0.217768231
+  r_elbow_1   : 0.217609341
+  l_forearm   : 0.858696525
+  r_forearm   : 0.854281652
+  l_wrist_1   : 0.032535096
+  r_wrist_1   : 0.032535096
+  l_hand      : 0.249250207
+  r_hand      : 0.2499009
+  neck_1      : 0.359964395
+  neck_2      : 0.118740971
+  neck_3      : 0.179822835
+  head        : 1.831737118
+
 reverseRotationAxis:
     r_hip_yaw
     r_hip_roll
