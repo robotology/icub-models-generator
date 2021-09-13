@@ -114,6 +114,7 @@ jobs:
     - name: Print generated models differences
       run: |
         cd $ICUB_MODELS_SOURCE_DIR
+        git add ./iCub
         git status
         git diff
 
