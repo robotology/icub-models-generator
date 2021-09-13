@@ -89,17 +89,22 @@ jobs:
         cd build
         cmake ..
         sudo cmake --build . --target install
+        # Clone icub-models repo
         cd ${GITHUB_WORKSPACE}
+        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
+        # Remove automatically generated files to ensure that they are removed if they are not generated anymore
+        cd ${ICUB_MODELS_SOURCE_DIR}
+        git rm -rf iCub/*
         # Prepare icub-model-generator build
+        cd ${GITHUB_WORKSPACE}
         mkdir build
         cd build
         cmake -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
         # Build and run
         make VERBOSE=1
         ctest --output-on-failure
-        # Clone icub-models repo
-        git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
         cmake --build . --target copy-models-to-icub-models
+
         # Generate commit message 
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "icub-model-generator commit: robotology/icub-models-generator@$GITHUB_SHA" >> ${GITHUB_WORKSPACE}/deploy_commit_message
