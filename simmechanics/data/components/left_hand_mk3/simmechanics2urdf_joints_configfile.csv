@@ -1,5 +1,5 @@
 joint_name,lower_limit,upper_limit,damping
-l_hand_metacarpus_joint,0.0,62.0,1.0
+l_hand_metacarpus_joint,0.0,80.0,1.0
 l_hand_thumb_rotation_joint,-70.0,0.0,1.0
 l_hand_thumb_proximal_joint,0.0,85.0,1.0
 l_hand_thumb_distal_joint,0.0,55.0,1.0
