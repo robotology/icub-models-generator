@@ -109,6 +109,12 @@ bool getAxisInRootLink(iDynTree::KinDynComputations & comp,
         return false;
     }
 
+    if( !revJoint->hasPosLimits() )
+    {
+        std::cerr << "icub-model-test error: " << jointName << " is a continous joint" << std::endl;
+        return false;
+    }
+
     axisInRootLink = comp.getRelativeTransform(rootLinkIdx,childLinkIdx)*(revJoint->getAxis(childLinkIdx));
 
     return true;
