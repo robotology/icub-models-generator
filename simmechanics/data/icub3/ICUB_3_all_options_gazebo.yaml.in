@@ -264,15 +264,15 @@ forceTorqueSensors:
             <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_left_foot_rear_ft.ini</yarpConfigurationFile>
           </plugin>
     # right leg
-    #- jointName: r_leg_ft_sensor
-    #  directionChildToParent: Yes
-    #  frame: sensor
-    #  frameName: SCSYS_R_HIP_2_FT
-    #  sensorBlobs:
-    #  - |
-    #      <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-    #        <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
-    #      </plugin>
+    - jointName: r_leg_ft_sensor
+      directionChildToParent: Yes
+      frame: sensor
+      frameName: SCSYS_R_HIP_2_FT
+      sensorBlobs:
+      - |
+          <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
+            <yarpConfigurationFile>model://iCub/conf_icub3/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
+          </plugin>
     - jointName: r_foot_front_ft_sensor
       directionChildToParent: No
       frame: sensor
@@ -919,6 +919,3 @@ XMLBlobs:
             <gazebo reference="r_wrist_yaw">
               <implicitSpringDamper>1</implicitSpringDamper>
             </gazebo>
-
-
-
