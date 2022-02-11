@@ -382,6 +382,30 @@ bool checkFTSensorsAreOddAndNotNull(iDynTree::ModelLoader & mdlLoader)
     return true;
 }
 
+/**
+ * All the iCub have a even and not null number of F/T sensors.
+ */
+bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
+{
+    int nrOfFTSensors = mdlLoader.sensors().getNrOfSensors(iDynTree::SIX_AXIS_FORCE_TORQUE);
+
+    if( nrOfFTSensors == 0 )
+    {
+        std::cerr << "icub-model-test error: no F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
+    if( nrOfFTSensors % 2 == 1 )
+    {
+        std::cerr << "icub-model-test : odd number of F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
+
+    return true;
+}
+
+
 bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
                                       const iDynTree::Rotation& expected,
                                       const std::string& sensorName)
@@ -535,14 +559,15 @@ int main(int argc, char ** argv)
     }
 
     // Now some test that test the sensors
-    if( !checkFTSensorsAreOddAndNotNull(mdlLoader) )
-    {
-        return EXIT_FAILURE;
-    }
-
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
     if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
+
+        if( !checkFTSensorsAreOddAndNotNull(mdlLoader) )
+        {
+            return EXIT_FAILURE;
+        }
+
         if (!checkFTSensorsAreCorrectlyOrientedV3(comp))
         {
             return EXIT_FAILURE;
@@ -550,6 +575,11 @@ int main(int argc, char ** argv)
     }
     else
     {
+        if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
+        {
+            return EXIT_FAILURE;
+        }
+
         if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
         {
             return EXIT_FAILURE;
