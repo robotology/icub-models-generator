@@ -360,9 +360,9 @@ bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
 }
 
 /**
- * All the iCub have a even and not null number of F/T sensors.
+ * All the iCub have a odd and not null number of F/T sensors.
  */
-bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
+bool checkFTSensorsAreOddAndNotNull(iDynTree::ModelLoader & mdlLoader)
 {
     int nrOfFTSensors = mdlLoader.sensors().getNrOfSensors(iDynTree::SIX_AXIS_FORCE_TORQUE);
 
@@ -372,9 +372,9 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
         return false;
     }
 
-    if( nrOfFTSensors % 2 == 1 )
+    if( nrOfFTSensors % 2 == 0 )
     {
-        std::cerr << "icub-model-test : odd number of F/T sensor found in the model" << std::endl;
+        std::cerr << "icub-model-test : even number of F/T sensor found in the model" << std::endl;
         return false;
     }
 
@@ -535,7 +535,7 @@ int main(int argc, char ** argv)
     }
 
     // Now some test that test the sensors
-    if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
+    if( !checkFTSensorsAreOddAndNotNull(mdlLoader) )
     {
         return EXIT_FAILURE;
     }
