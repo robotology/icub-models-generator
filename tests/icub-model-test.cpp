@@ -478,9 +478,14 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
                            -0.866025, -0.5, 0,
                             0, 0, 1);
 
+    iDynTree::Rotation rootLink_R_sensorFrameExpectedLeg = 
+        iDynTree::Rotation(-0.866025, -0.5, 0,
+                           -0.5, 0.866025, 0,
+                            0, 0, -1);
+
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
-    // l_leg_ft_sensor and r_leg_ft_sensor frames seems to be wrong(see https://github.com/robotology/icub-models/issues/71)
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
