@@ -360,6 +360,29 @@ bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
 }
 
 /**
+ * All the iCub have a odd and not null number of F/T sensors.
+ */
+bool checkFTSensorsAreOddAndNotNull(iDynTree::ModelLoader & mdlLoader)
+{
+    int nrOfFTSensors = mdlLoader.sensors().getNrOfSensors(iDynTree::SIX_AXIS_FORCE_TORQUE);
+
+    if( nrOfFTSensors == 0 )
+    {
+        std::cerr << "icub-model-test error: no F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
+    if( nrOfFTSensors % 2 == 0 )
+    {
+        std::cerr << "icub-model-test : even number of F/T sensor found in the model" << std::endl;
+        return false;
+    }
+
+
+    return true;
+}
+
+/**
  * All the iCub have a even and not null number of F/T sensors.
  */
 bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
@@ -381,6 +404,7 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
 
     return true;
 }
+
 
 bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
                                       const iDynTree::Rotation& expected,
@@ -454,9 +478,14 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
                            -0.866025, -0.5, 0,
                             0, 0, 1);
 
+    iDynTree::Rotation rootLink_R_sensorFrameExpectedLeg = 
+        iDynTree::Rotation(-0.866025, -0.5, 0,
+                           -0.5, 0.866025, 0,
+                            0, 0, -1);
+
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
-    // l_leg_ft_sensor and r_leg_ft_sensor frames seems to be wrong(see https://github.com/robotology/icub-models/issues/71)
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
@@ -535,14 +564,15 @@ int main(int argc, char ** argv)
     }
 
     // Now some test that test the sensors
-    if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
-    {
-        return EXIT_FAILURE;
-    }
-
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
     if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
+
+        if( !checkFTSensorsAreOddAndNotNull(mdlLoader) )
+        {
+            return EXIT_FAILURE;
+        }
+
         if (!checkFTSensorsAreCorrectlyOrientedV3(comp))
         {
             return EXIT_FAILURE;
@@ -550,6 +580,11 @@ int main(int argc, char ** argv)
     }
     else
     {
+        if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
+        {
+            return EXIT_FAILURE;
+        }
+
         if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
         {
             return EXIT_FAILURE;
