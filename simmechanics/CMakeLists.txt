@@ -4,16 +4,16 @@ find_package(PythonInterp REQUIRED)
 # v2.5 robots using the simmechanics-to-urdf script
 macro(generate_icub_simmechanics)
     set(options NO_BACKPACK
-                BOGUS 
+                BOGUS
                 INCREASE_INERTIA_FOR_GAZEBO
-                ICUB_PLUS 
-                ICUB_2_6 
-                ICUB_2_7 
+                ICUB_PLUS
+                ICUB_2_6
+                ICUB_2_7
                 ICUB_3_COLLISION_GEOM_MOD)
     set(oneValueArgs YARP_ROBOT_NAME SIMMECHANICS_XML YAML_TEMPLATE CSV_TEMPLATE)
     set(multiValueArgs)
     cmake_parse_arguments(GIVTWO "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-    
+
     # Fallback if no assigned collision geometry is requested
     set(ASSIGNED_COLLISION_GEOMETRIES "")
 
@@ -202,6 +202,7 @@ macro(generate_icub_simmechanics)
   r_wrist_prosup
   torso_pitch
   neck_roll
+  r_wrist_yaw
 ")
     else()
       set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/%s-binary.stl\"")
@@ -266,6 +267,7 @@ macro(generate_icub_simmechanics)
   r_wrist_prosup
   torso_pitch
   neck_roll
+  r_wrist_yaw
 ")
     endif()
     # The ICUB_2_6 option is used to modify the iCub 2.5.5 model to
@@ -277,8 +279,8 @@ macro(generate_icub_simmechanics)
          "additionalTransformation: [0.0323779, -0.0139537, 0.072, -3.14159265358979, 0, -1.5707963267949]")
 
     endif()
-    # The ICUB_2_7 option is used to modify the iCub 2.5.5 model to 
-    # add some details of the iCub 2.7 until a proper iCub 2.7 model 
+    # The ICUB_2_7 option is used to modify the iCub 2.5.5 model to
+    # add some details of the iCub 2.7 until a proper iCub 2.7 model
     # is produced
     set(ADDITIONAL_XML_BLOBS "")
     if(GIVTWO_ICUB_2_7)
@@ -369,12 +371,12 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
                            YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml.in"
                            CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv"
                            ICUB_3_COLLISION_GEOM_MOD)
-                           
+
 generate_icub_simmechanics(YARP_ROBOT_NAME left_hand_mk3
                            SIMMECHANICS_XML "components/left_hand_mk3/SIM_LEFT_HAND.xml"
                            YAML_TEMPLATE "components/left_hand_mk3/simmechanics2urdf_configfile.yaml"
                            CSV_TEMPLATE "components/left_hand_mk3/simmechanics2urdf_joints_configfile.csv")
-                           
+
 generate_icub_simmechanics(YARP_ROBOT_NAME left_wrist_mk2
                            SIMMECHANICS_XML "components/left_wrist_mk2/SIM_L_WRIST.xml"
                            YAML_TEMPLATE "components/left_wrist_mk2/simmechanics2urdf_configfile.yaml"
