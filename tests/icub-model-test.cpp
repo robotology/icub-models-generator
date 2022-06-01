@@ -241,6 +241,10 @@ bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
     expectedDirectionInRootLink.push_back(iDynTree::Direction(1.0,0.0,0.0));
     axisNames.push_back("torso_yaw");
     expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0,0.0,-1.0));
+    axisNames.push_back("l_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0,-1.0,0.0));
+    axisNames.push_back("r_wrist_yaw");
+    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0,-1.0,0.0));
 
     for(int i=0; i < axisNames.size(); i++)
     {
@@ -478,7 +482,7 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
                            -0.866025, -0.5, 0,
                             0, 0, 1);
 
-    iDynTree::Rotation rootLink_R_sensorFrameExpectedLeg = 
+    iDynTree::Rotation rootLink_R_sensorFrameExpectedLeg =
         iDynTree::Rotation(-0.866025, -0.5, 0,
                            -0.5, 0.866025, 0,
                             0, 0, -1);
