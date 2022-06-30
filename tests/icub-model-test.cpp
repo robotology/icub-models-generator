@@ -487,8 +487,14 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
                            -0.5, 0.866025, 0,
                             0, 0, -1);
 
+    iDynTree::Rotation rootLink_L_sensorFrameExpectedLeg =
+        iDynTree::Rotation(-0.866025, 0.5, 0,
+                           0.5, 0.866025, 0,
+                            0, 0, -1);
+
     bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_L_sensorFrameExpectedLeg, "l_leg_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
     ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
@@ -572,7 +578,7 @@ int main(int argc, char ** argv)
     if (modelPath.find("Genova09") != std::string::npos ||
         modelPath.find("GazeboV3") != std::string::npos) {
 
-        if( !checkFTSensorsAreOddAndNotNull(mdlLoader) )
+        if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
         {
             return EXIT_FAILURE;
         }
