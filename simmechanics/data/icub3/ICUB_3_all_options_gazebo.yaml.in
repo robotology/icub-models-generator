@@ -408,48 +408,48 @@ sensors:
 @ASSIGNED_COLLISION_GEOMETRIES@
 
 assignedMasses:
-  root_link   : 2.5549
-  torso_1     : 1.6865
-  torso_2     : 0.76495
-  chest       : 7.4643
-  l_shoulder_1: 0.78029
-  r_shoulder_1: 0.78082
-  l_shoulder_2: 0.4216
-  r_shoulder_2: 0.4216
-  l_shoulder_3: 0.26045
-  r_shoulder_3: 0.26045
-  l_upper_arm : 1.6076
-  r_upper_arm : 1.6092
-  r_hip_1     : 2.1454
-  r_hip_2     : 1.7592
-  r_hip_3     : 2.1466
-  r_upper_leg : 0.90214
-  r_lower_leg : 5.0364
-  r_ankle_1   : 0.36283
-  r_ankle_2   : 1.3663
-  r_foot_front: 0.17823
-  r_foot_rear : 0.17734
-  l_hip_1     : 2.1442
-  l_hip_2     : 1.7592
-  l_hip_3     : 2.1452
-  l_upper_leg : 0.90214
-  l_lower_leg : 5.0091
-  l_ankle_1   : 0.36283
-  l_ankle_2   : 1.3663
-  l_foot_front: 0.17756
-  l_foot_rear : 0.17712
-  l_elbow_1   : 0.21987
-  r_elbow_1   : 0.21984
-  l_forearm   : 0.86628
-  r_forearm   : 0.8618
-  l_wrist_1   : 0.032923
-  r_wrist_1   : 0.032923
-  l_hand      : 0.25438
-  r_hand      : 0.25504
-  neck_1      : 0.36516
-  neck_2      : 0.12045
-  neck_3      : 0.18242
-  head        : 1.8582
+  root_link   : 2.5751
+  torso_1     : 1.6998
+  torso_2     : 0.77098
+  chest       : 7.5231
+  l_shoulder_1: 0.78644
+  r_shoulder_1: 0.78697
+  l_shoulder_2: 0.42492
+  r_shoulder_2: 0.42492
+  l_shoulder_3: 0.2625
+  r_shoulder_3: 0.2625
+  l_upper_arm : 1.6203
+  r_upper_arm : 1.6219
+  r_hip_1     : 2.1623
+  r_hip_2     : 1.7731
+  r_hip_3     : 2.1635
+  r_upper_leg : 0.90926
+  r_lower_leg : 5.0761
+  r_ankle_1   : 0.36569
+  r_ankle_2   : 1.3771
+  r_foot_front: 0.17964
+  r_foot_rear : 0.17874
+  l_hip_1     : 2.1611
+  l_hip_2     : 1.7731
+  l_hip_3     : 2.1622
+  l_upper_leg : 0.90926
+  l_lower_leg : 5.0486
+  l_ankle_1   : 0.36569
+  l_ankle_2   : 1.377
+  l_foot_front: 0.17896
+  l_foot_rear : 0.17851
+  l_elbow_1   : 0.22161
+  r_elbow_1   : 0.22157
+  l_forearm   : 0.87311
+  r_forearm   :  0.8686
+  l_wrist_1   : 0.033183
+  r_wrist_1   : 0.033183
+  l_hand      : 0.25639
+  r_hand      : 0.25705
+  neck_1      : 0.36804
+  neck_2      : 0.1214
+  neck_3      : 0.18386
+  head        : 1.8728
   
 assignedInertias:
   # This is due to https://github.com/robotology/icub-models/issues/33
