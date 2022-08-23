@@ -4,6 +4,16 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      push:
+        description: 'If true, actually push to the specified branch specified in the branch option.'
+        required: true
+        default: 'false'
+      branch:
+        description: 'Branch of icub-models to which the action will push'     
+        required: true
+        default: 'debug'
+        
   schedule:
   # * is a special character in YAML so you have to quote this string
   # Execute a "nightly" build at 2 AM UTC 
@@ -25,6 +35,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Change ICUB_MODELS_BRANCH if necessary
+      shell: bash
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      run: |
+        echo "ICUB_MODELS_BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
    
     # Print environment variables to simplify development and debugging
     - name: Environment Variables
@@ -113,7 +129,7 @@ jobs:
         git diff
 
     - name: Commit models
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }} || ${{ github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true' }}
       run: |
         # See https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
         export GIT_COMMITTER_NAME="$(git --no-pager show -s --format='%cn' $GITHUB_SHA)"
@@ -130,7 +146,7 @@ jobs:
 
     - name: Push models
       uses: ad-m/github-push-action@v0.6.0
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }}
+      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }} || ${{ github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true' }}
       with:
         directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
