@@ -38,6 +38,7 @@ jobs:
     
     - name: Change ICUB_MODELS_BRANCH if necessary
       shell: bash
+      if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         echo "ICUB_MODELS_BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
    
