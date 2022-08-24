@@ -12,7 +12,7 @@ on:
       branch:
         description: 'Branch of icub-models to which the action will push'     
         required: true
-        default: 'debug'
+        default: 'devel'
         
   schedule:
   # * is a special character in YAML so you have to quote this string
@@ -129,7 +129,7 @@ jobs:
         git diff
 
     - name: Commit models
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }} || ${{ github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true' }}
+      if: ${{ (github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) || (github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true') }}
       run: |
         # See https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
         export GIT_COMMITTER_NAME="$(git --no-pager show -s --format='%cn' $GITHUB_SHA)"
@@ -146,7 +146,7 @@ jobs:
 
     - name: Push models
       uses: ad-m/github-push-action@v0.6.0
-      if: ${{ github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT }} || ${{ github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true' }}
+      if: ${{ (github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) || (github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true') }}
       with:
         directory: ${{ env.ICUB_MODELS_SOURCE_DIR }}
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
