@@ -222,6 +222,7 @@ forceTorqueSensors:
     # upperbody
     - jointName: l_arm_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_SHOULDER_2_FT
       sensorBlobs:
@@ -231,6 +232,7 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_arm_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_SHOULDER_2_FT
       sensorBlobs:
@@ -241,6 +243,7 @@ forceTorqueSensors:
     # left leg
     - jointName: l_leg_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_HIP_2_FT
       sensorBlobs:
@@ -250,6 +253,7 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_front_ft_sensor
       directionChildToParent: No
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_ANKLE_2_FT_FRONT
       sensorBlobs:
@@ -259,6 +263,7 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_rear_ft_sensor
       directionChildToParent: No
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_ANKLE_2_FT_REAR
       sensorBlobs:
@@ -269,6 +274,7 @@ forceTorqueSensors:
     # right leg
     - jointName: r_leg_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_HIP_2_FT
       sensorBlobs:
@@ -278,6 +284,7 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_front_ft_sensor
       directionChildToParent: No
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_ANKLE_2_FT_FRONT
       sensorBlobs:
@@ -287,6 +294,7 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_rear_ft_sensor
       directionChildToParent: No
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_ANKLE_2_FT_REAR
       sensorBlobs:
@@ -298,14 +306,14 @@ forceTorqueSensors:
 
 sensors:
   - sensorName: default
-    exportFrameInURDF: No
+    exportFrameInURDF: Yes
     sensorType: "accelerometer"
     updateRate: "100"
     sensorBlobs:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so" />
   - sensorName: default
-    exportFrameInURDF: No
+    exportFrameInURDF: Yes
     sensorType: "gyroscope"
     updateRate: "100"
   - frameName: SCSYS_HEAD_IMU
@@ -402,6 +410,7 @@ sensors:
     linkName: chest
     sensorName: chest_imu_acc_1x1
     sensorType: "accelerometer"
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
