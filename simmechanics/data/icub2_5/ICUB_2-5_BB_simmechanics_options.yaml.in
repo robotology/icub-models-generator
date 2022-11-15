@@ -595,6 +595,7 @@ linkFrames:
 forceTorqueSensors:
   - jointName: l_leg_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -602,6 +603,7 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_leg_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -609,6 +611,7 @@ forceTorqueSensors:
         </plugin>
   - jointName: l_foot_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -616,6 +619,7 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_foot_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -623,6 +627,7 @@ forceTorqueSensors:
         </plugin>
   - jointName: l_arm_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -630,6 +635,7 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_arm_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
     sensorBlobs:
     - |
         <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -645,7 +651,7 @@ sensors:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so" />
   - sensorName: default
-    exportFrameInURDF: No
+    exportFrameInURDF: Yes
     sensorType: "gyroscope"
     updateRate: "100"
   - frameName: SCSYS_HEAD_MTX_IMU
