@@ -177,7 +177,7 @@ macro(generate_icub_simmechanics)
       set(XSENS_IMU_SENSOR
 "  - frameName: SCSYS_ROOT_LINK_XSENS_IMU
     linkName: root_link
-    exportFrameInURDF: No
+    exportFrameInURDF: Yes
     sensorName: root_link_imu_acc
     sensorType: \"accelerometer\"
     updateRate: \"400\"
