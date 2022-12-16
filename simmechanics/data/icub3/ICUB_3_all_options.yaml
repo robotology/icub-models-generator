@@ -120,8 +120,6 @@ linkFrames:
     frameName: SCSYS_L_SHOULDER_3
   - linkName: l_upper_arm
     frameName: SCSYS_L_UPPERARM
-  - linkName: r_shoulder_2
-    frameName: SCSYS_R_SHOULDER_2_FT
   - linkName: r_shoulder_1
     frameName: SCSYS_R_SHOULDER_1
   - linkName: r_shoulder_2
@@ -225,6 +223,8 @@ forceTorqueSensors:
       exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_SHOULDER_2_FT
+      linkName: l_shoulder_2
+      sensorName: l_arm_ft
       sensorBlobs:
       - |
           <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -235,6 +235,8 @@ forceTorqueSensors:
       exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_SHOULDER_2_FT
+      linkName: r_shoulder_2
+      sensorName: r_arm_ft
       sensorBlobs:
       - |
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -245,7 +247,9 @@ forceTorqueSensors:
       directionChildToParent: Yes
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: l_hip_2
       frameName: SCSYS_L_HIP_2_FT
+      sensorName: l_leg_ft
       sensorBlobs:
       - |
           <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -255,7 +259,9 @@ forceTorqueSensors:
       directionChildToParent: No
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: l_ankle_2
       frameName: SCSYS_L_ANKLE_2_FT_FRONT
+      sensorName: l_foot_front_ft
       sensorBlobs:
       - |
           <plugin name="left_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -265,7 +271,9 @@ forceTorqueSensors:
       directionChildToParent: No
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: l_ankle_2
       frameName: SCSYS_L_ANKLE_2_FT_REAR
+      sensorName: l_foot_rear_ft
       sensorBlobs:
       - |
           <plugin name="left_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -276,7 +284,9 @@ forceTorqueSensors:
       directionChildToParent: Yes
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: r_hip_2
       frameName: SCSYS_R_HIP_2_FT
+      sensorName: r_leg_ft
       sensorBlobs:
       - |
           <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -286,7 +296,9 @@ forceTorqueSensors:
       directionChildToParent: No
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: r_ankle_2
       frameName: SCSYS_R_ANKLE_2_FT_FRONT
+      sensorName: r_foot_front_ft
       sensorBlobs:
       - |
           <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -296,7 +308,9 @@ forceTorqueSensors:
       directionChildToParent: No
       exportFrameInURDF: Yes
       frame: sensor
+      linkName: r_ankle_2
       frameName: SCSYS_R_ANKLE_2_FT_REAR
+      sensorName: r_foot_rear_ft
       sensorBlobs:
       - |
           <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
