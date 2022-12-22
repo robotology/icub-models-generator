@@ -947,6 +947,6 @@ XMLBlobs:
     - |
             <gazebo>
               <plugin name="robotinterface" filename="libgazebo_yarp_robotinterface.so">
-                <yarpRobotInterfaceConfigurationFile>model://iCub/conf_icub3/icub_ROS2.xml</yarpRobotInterfaceConfigurationFile>
+                <yarpRobotInterfaceConfigurationFile>model://iCub/conf_icub3/icub.xml</yarpRobotInterfaceConfigurationFile>
               </plugin>
             </gazebo>
