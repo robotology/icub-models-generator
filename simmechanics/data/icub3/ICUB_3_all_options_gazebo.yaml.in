@@ -219,9 +219,11 @@ forceTorqueSensors:
     # upperbody
     - jointName: l_arm_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_L_SHOULDER_2_FT
-      exportFrameInURDF: Yes
+      linkName: l_shoulder_2
+      sensorName: l_arm_ft
       sensorBlobs:
       - |
           <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -229,9 +231,11 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_arm_ft_sensor
       directionChildToParent: Yes
+      exportFrameInURDF: Yes
       frame: sensor
       frameName: SCSYS_R_SHOULDER_2_FT
-      exportFrameInURDF: Yes
+      linkName: r_shoulder_2
+      sensorName: r_arm_ft
       sensorBlobs:
       - |
           <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -240,9 +244,11 @@ forceTorqueSensors:
     # left leg
     - jointName: l_leg_ft_sensor
       directionChildToParent: Yes
-      frame: sensor
-      frameName: SCSYS_L_HIP_2_FT
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: l_hip_2
+      frameName: SCSYS_L_HIP_2_FT
+      sensorName: l_leg_ft
       sensorBlobs:
       - |
           <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -250,9 +256,11 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_front_ft_sensor
       directionChildToParent: No
-      frame: sensor
-      frameName: SCSYS_L_ANKLE_2_FT_FRONT
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: l_ankle_2
+      frameName: SCSYS_L_ANKLE_2_FT_FRONT
+      sensorName: l_foot_front_ft
       sensorBlobs:
       - |
           <plugin name="left_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -260,9 +268,11 @@ forceTorqueSensors:
           </plugin>
     - jointName: l_foot_rear_ft_sensor
       directionChildToParent: No
-      frame: sensor
-      frameName: SCSYS_L_ANKLE_2_FT_REAR
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: l_ankle_2
+      frameName: SCSYS_L_ANKLE_2_FT_REAR
+      sensorName: l_foot_rear_ft
       sensorBlobs:
       - |
           <plugin name="left_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -271,9 +281,11 @@ forceTorqueSensors:
     # right leg
     - jointName: r_leg_ft_sensor
       directionChildToParent: Yes
-      frame: sensor
-      frameName: SCSYS_R_HIP_2_FT
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: r_hip_2
+      frameName: SCSYS_R_HIP_2_FT
+      sensorName: r_leg_ft
       sensorBlobs:
       - |
           <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -281,9 +293,11 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_front_ft_sensor
       directionChildToParent: No
-      frame: sensor
-      frameName: SCSYS_R_ANKLE_2_FT_FRONT
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: r_ankle_2
+      frameName: SCSYS_R_ANKLE_2_FT_FRONT
+      sensorName: r_foot_front_ft
       sensorBlobs:
       - |
           <plugin name="right_foot_front_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -291,9 +305,11 @@ forceTorqueSensors:
           </plugin>
     - jointName: r_foot_rear_ft_sensor
       directionChildToParent: No
-      frame: sensor
-      frameName: SCSYS_R_ANKLE_2_FT_REAR
       exportFrameInURDF: Yes
+      frame: sensor
+      linkName: r_ankle_2
+      frameName: SCSYS_R_ANKLE_2_FT_REAR
+      sensorName: r_foot_rear_ft
       sensorBlobs:
       - |
           <plugin name="right_foot_rear_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -459,7 +475,7 @@ assignedMasses:
   neck_2      : 0.1214
   neck_3      : 0.18386
   head        : 1.8728
-  
+
 assignedInertias:
   # This is due to https://github.com/robotology/icub-models/issues/33
   - linkName: r_shoulder_1
