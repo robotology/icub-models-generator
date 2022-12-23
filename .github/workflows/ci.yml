@@ -10,13 +10,13 @@ on:
         required: true
         default: 'false'
       branch:
-        description: 'Branch of icub-models to which the action will push'     
+        description: 'Branch of icub-models to which the action will push'
         required: true
         default: 'devel'
-        
+
   schedule:
   # * is a special character in YAML so you have to quote this string
-  # Execute a "nightly" build at 2 AM UTC 
+  # Execute a "nightly" build at 2 AM UTC
   - cron:  '0 2 * * *'
 
 env:
@@ -35,13 +35,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Change ICUB_MODELS_BRANCH if necessary
       shell: bash
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |
         echo "ICUB_MODELS_BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
-   
+
     # Print environment variables to simplify development and debugging
     - name: Environment Variables
       shell: bash
@@ -61,7 +61,7 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
         # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
-        # let's install both debian packages and pip packages to be sure 
+        # let's install both debian packages and pip packages to be sure
         sudo pip install lxml numpy pyyaml catkin_pkg
         # install urdf_parser_py and save the last commit SHA1 hash
         git clone $URDF_PARSER_PY_REPOSITORY_URL
@@ -117,7 +117,7 @@ jobs:
         # Clone icub-models repo
         git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
         cmake --build . --target copy-models-to-icub-models
-        # Generate commit message 
+        # Generate commit message
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "icub-model-generator commit: robotology/icub-models-generator@$GITHUB_SHA" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
