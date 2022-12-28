@@ -1246,5 +1246,11 @@ XMLBlobs:
         <gazebo reference="neck_yaw">
            <implicitSpringDamper>1</implicitSpringDamper>
         </gazebo>
+  - |
+        <gazebo>
+          <plugin name="robotinterface" filename="libgazebo_yarp_robotinterface.so">
+            <yarpRobotInterfaceConfigurationFile>model://iCub/conf/icub.xml</yarpRobotInterfaceConfigurationFile>
+          </plugin>
+        </gazebo>
 @ADDITIONAL_XML_BLOBS@
 
