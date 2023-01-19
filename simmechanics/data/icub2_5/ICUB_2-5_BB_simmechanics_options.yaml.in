@@ -595,6 +595,11 @@ linkFrames:
 forceTorqueSensors:
   - jointName: l_leg_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    linkName: l_hip_3
+    frameName: SCSYS_L_UPPER_LEG_FT45
+    sensorName: l_leg_ft
     sensorBlobs:
     - |
         <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -602,6 +607,11 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_leg_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    linkName: r_hip_3
+    frameName: SCSYS_R_UPPER_LEG_FT45
+    sensorName: r_leg_ft
     sensorBlobs:
     - |
         <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -609,6 +619,11 @@ forceTorqueSensors:
         </plugin>
   - jointName: l_foot_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    linkName: l_foot
+    frameName: SCSYS_L_FOOT_FT45
+    sensorName: l_foot_ft
     sensorBlobs:
     - |
         <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -616,6 +631,11 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_foot_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    linkName: r_foot
+    frameName: SCSYS_R_FOOT_FT45
+    sensorName: r_foot_ft
     sensorBlobs:
     - |
         <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -623,6 +643,11 @@ forceTorqueSensors:
         </plugin>
   - jointName: l_arm_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    frameName: SCSYS_L_UPPER_ARM_FT45
+    linkName: l_shoulder_3
+    sensorName: l_arm_ft
     sensorBlobs:
     - |
         <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
@@ -630,6 +655,11 @@ forceTorqueSensors:
         </plugin>
   - jointName: r_arm_ft_sensor
     directionChildToParent: Yes
+    exportFrameInURDF: Yes
+    frame: sensor
+    frameName: SCSYS_R_UPPER_ARM_FT45
+    linkName: r_shoulder_3
+    sensorName: r_arm_ft
     sensorBlobs:
     - |
         <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
