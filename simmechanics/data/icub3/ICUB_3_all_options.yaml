@@ -332,7 +332,8 @@ sensors:
     updateRate: "100"
   - frameName: SCSYS_HEAD_IMU
     linkName: head
-    sensorName: head_imu_acc_1x1
+    sensorName: head_imu_0
+    exportFrameInURDF: Yes
     sensorType: "accelerometer"
     sensorBlobs:
     - |
@@ -422,7 +423,8 @@ sensors:
   # the imu measurements are referred to the depth frame.
   - frameName: SCSYS_CHEST_DEPTH
     linkName: chest
-    sensorName: chest_imu_acc_1x1
+    sensorName: chest_imu_0
+    exportFrameInURDF: Yes
     sensorType: "accelerometer"
     exportFrameInURDF: Yes
     sensorBlobs:
