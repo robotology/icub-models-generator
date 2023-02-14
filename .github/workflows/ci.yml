@@ -132,6 +132,7 @@ jobs:
     - name: Print generated models differences
       run: |
         cd $ICUB_MODELS_SOURCE_DIR
+        git status
         git diff
 
     - name: Commit models
