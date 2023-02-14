@@ -116,6 +116,12 @@ jobs:
         ctest --output-on-failure
         # Clone icub-models repo
         git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
+        # Delete files in iCub directory of icub-models, as they are the one meant to be generated automatically every time
+        # See https://github.com/robotology/icub-models/issues/185
+        cd ${ICUB_MODELS_SOURCE_DIR}
+        git rm -rf ./iCub
+        # Generate new files
+        cd ${GITHUB_WORKSPACE}/build
         cmake --build . --target copy-models-to-icub-models
         # Generate commit message
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
