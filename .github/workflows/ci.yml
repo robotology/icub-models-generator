@@ -132,7 +132,6 @@ jobs:
     - name: Print generated models differences and add files
       run: |
         cd $ICUB_MODELS_SOURCE_DIR
-        git status
         git diff
         # Add any new generated file
         git add --all
