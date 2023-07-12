@@ -100,7 +100,7 @@ jobs:
         ## idyntree
         git clone https://github.com/robotology/idyntree.git
         cd idyntree
-        git checkout v1.2.0
+        git checkout v2.0.0
         export IDYNTREE_COMMIT=`git rev-parse HEAD`
         mkdir build
         cd build
