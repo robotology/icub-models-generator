@@ -4,9 +4,12 @@
 #include <iDynTree/Model/JointState.h>
 #include <iDynTree/Model/Indices.h>
 #include <iDynTree/Model/Model.h>
+#include <iDynTree/Model/Traversal.h>
 #include <iDynTree/Model/RevoluteJoint.h>
-
 #include <iDynTree/ModelIO/ModelLoader.h>
+#include <iDynTree/Sensors/Sensors.h>
+#include <iDynTree/Sensors/SixAxisForceTorqueSensor.h>
+
 
 #include <yarp/os/Property.h>
 #include <cmath>
@@ -503,6 +506,172 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
     return ok;
 }
 
+bool Model_isFrameNameUsed(const iDynTree::Model& model, const std::string frameName)
+{
+    for(size_t i=0; i < model.getNrOfLinks(); i++ )
+    {
+        if( frameName == model.getLinkName(i) )
+        {
+            return true;
+        }
+    }
+
+    for(size_t i=model.getNrOfLinks(); i < model.getNrOfFrames(); i++ )
+    {
+
+        if( frameName == model.getFrameName(i) )
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(const std::string& modelPath,
+                                                                                        iDynTree::KinDynComputations& comp,
+                                                                                        const iDynTree::SensorsList& sensors,
+                                                                                        const std::string& sensorName)
+{
+    // As of mid 2023, for iCub 3 models the frame name is <prefix>_ft, while the sensor name is <prefix>_ft,
+    // and the joint name is <prefix>_ft_sensor
+    std::string frameName = sensorName;
+
+    //std::cerr << comp.model().toString() << std::endl;
+
+    // Check frame exist
+    if (!comp.model().isFrameNameUsed(frameName))
+    {
+        std::cerr << "icub-model-test : model " << modelPath << " does not contain frame " << frameName << " as expected." << std::endl;
+        return false;
+    }
+
+    // Check sensors exists
+    std::ptrdiff_t sensorIdx;
+    if (!sensors.getSensorIndex(iDynTree::SIX_AXIS_FORCE_TORQUE, sensorName, sensorIdx))
+    {
+        std::cerr << "icub-model-test : model " << modelPath << " does not contain FT sensor " << sensorName << " as expected." <<  std::endl;
+        return false;
+    }
+
+    // Get root_H_link
+    iDynTree::Transform root_H_frame = comp.getRelativeTransform("root_link", frameName);
+
+    // Get root_H_sensor
+    iDynTree::SixAxisForceTorqueSensor * sens
+            = (::iDynTree::SixAxisForceTorqueSensor *) sensors.getSensor(::iDynTree::SIX_AXIS_FORCE_TORQUE, sensorIdx);
+    if (!sens)
+    {
+        std::cerr << "icub-model-test : model " << modelPath << " error in reading sensor " << sensorName << "." <<  std::endl;
+        return false;
+    }
+
+    std::string firstLinkName = sens->getFirstLinkName();
+    iDynTree::Transform root_H_firstLink = comp.getRelativeTransform("root_link", firstLinkName);
+    iDynTree::Transform firstLink_H_sensor;
+    bool ok = sens->getLinkSensorTransform(sens->getFirstLinkIndex(), firstLink_H_sensor);
+
+    if (!ok)
+    {
+        std::cerr << "icub-model-test : model " << modelPath << " error in reading transform of sensor " << sensorName << "." <<  std::endl;
+        return false;
+    }
+
+
+    iDynTree::Transform root_H_sensor = root_H_firstLink*firstLink_H_sensor;
+
+    // Check that the two transfom are equal equal
+    if (!checkTransformAreEqual(root_H_frame, root_H_sensor, 1e-6))
+    {
+        std::cerr << "icub-model-test : transform between root_H_frame and root_H_sensor for " << sensorName << " is not the expected one, test failed." << std::endl;
+        std::cerr << "icub-model-test : root_H_frame :" << root_H_frame.toString() << std::endl;
+        std::cerr << "icub-model-test : root_H_sensor :" << root_H_sensor.toString() << std::endl;
+        return false;
+    }
+
+    // Beside checking that root_H_frame and root_H_sensor, we should also check that the translation
+    // between the child link of FT joint and the FT frame is the zero vector, as as of mid 2023 the SDF
+    // standard always assume that the 6D FT measured by the sensor is expressed in the origin of the child link frame
+    // See https://github.com/gazebosim/sdformat/issues/130 for more details
+    iDynTree::Traversal traversalWithURDFBase;
+    comp.model().computeFullTreeTraversal(traversalWithURDFBase);
+
+    iDynTree::LinkIndex childLinkIdx = traversalWithURDFBase.getChildLinkIndexFromJointIndex(comp.model(), sens->getParentJointIndex());
+    std::string childLinkName = comp.model().getLinkName(childLinkIdx);
+
+    iDynTree::Transform childLink_H_sensorFrame = comp.getRelativeTransform(childLinkName, frameName);
+
+    iDynTree::Vector3 zeroVector;
+    zeroVector.zero();
+
+    if (!checkVectorAreEqual(childLink_H_sensorFrame.getPosition(), zeroVector, 1e-6))
+    {
+        std::cerr << "icub-model-test : translation between link "  << childLinkName <<  " and sensor " << sensorName << " is non-zero, test failed, see  https://github.com/gazebosim/sdformat/issues/130  for more details." << std::endl;
+        std::cerr << "icub-model-test : childLink_H_sensorFrame.getPosition(): "  << childLink_H_sensorFrame.getPosition().toString() << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+// Check FT sensors
+// This is only possible with V3 as V3 models have FT frame exported models
+// However, as of mid 2023 the V2 models do not need this check as the link explicitly
+// are using the FT frames as frames of the corresponding link
+bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(const std::string& modelPath)
+{
+    iDynTree::ModelLoader mdlLoader;
+
+    // Open the model
+    iDynTree::ModelParserOptions parserOptions;
+
+    // By default iDynTree creates an additional frame with the same name of the sensor,
+    // however in this case we have both the sensor and the urdf frame called <prefix>_ft,
+    // and for this test we want to make sure that the <prefix>_ft additional frame is the
+    // one in the URDF
+    parserOptions.addSensorFramesAsAdditionalFrames = false;
+    mdlLoader.setParsingOptions(parserOptions);
+
+    mdlLoader.loadModelFromFile(modelPath);
+
+    iDynTree::KinDynComputations comp;
+    const bool modelLoaded = comp.loadRobotModel(mdlLoader.model());
+
+    if (!modelLoaded)
+    {
+        std::cerr << "icub-model-test error: impossible to load model from " << modelLoaded << std::endl;
+        return false;
+    }
+
+    iDynTree::Vector3 grav;
+    grav.zero();
+    iDynTree::JointPosDoubleArray qj(comp.getRobotModel());
+    iDynTree::JointDOFsDoubleArray dqj(comp.getRobotModel());
+    qj.zero();
+    dqj.zero();
+
+    comp.setRobotState(qj,dqj,grav);
+    iDynTree::SensorsList sensors = mdlLoader.sensors();
+
+
+    bool ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_arm_ft");
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_arm_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_leg_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_leg_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_foot_rear_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_rear_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors,  "l_foot_front_ft") && ok;
+    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_front_ft") && ok;
+    return ok;
+}
+
+
+bool isiCub3Model(const std::string& modelPath)
+{
+    return (modelPath.find("Genova09") != std::string::npos ||
+            modelPath.find("GazeboV3") != std::string::npos);
+}
+
 int main(int argc, char ** argv)
 {
     yarp::os::Property prop;
@@ -545,8 +714,7 @@ int main(int argc, char ** argv)
     comp.setRobotState(qj,dqj,grav);
 
     // Check axis
-    if (modelPath.find("Genova09") != std::string::npos ||
-        modelPath.find("GazeboV3") != std::string::npos) {
+    if (isiCub3Model(modelPath)) {
         if( !checkAxisDirectionsV3(comp) )
         {
             return EXIT_FAILURE;
@@ -575,8 +743,7 @@ int main(int argc, char ** argv)
 
     // Now some test that test the sensors
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
-    if (modelPath.find("Genova09") != std::string::npos ||
-        modelPath.find("GazeboV3") != std::string::npos) {
+    if (isiCub3Model(modelPath)) {
 
         if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
         {
@@ -596,6 +763,13 @@ int main(int argc, char ** argv)
         }
 
         if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
+        {
+            return EXIT_FAILURE;
+        }
+    }
+
+    if (isiCub3Model(modelPath)) {
+        if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath))
         {
             return EXIT_FAILURE;
         }
