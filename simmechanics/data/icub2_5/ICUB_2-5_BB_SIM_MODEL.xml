@@ -2249,7 +2249,7 @@
                     <name>"CS6"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_0"</displayName>
                     <nodeID>"23501(USERADDED)"</nodeID>
-                    <position>-44.6755,-654.938,13.1889</position>
+                    <position>-62.5861,-654.938,68.3122</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2262,7 +2262,7 @@
                     <name>"CS7"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_1"</displayName>
                     <nodeID>"23502(USERADDED)"</nodeID>
-                    <position>-50.6457,-654.938,31.5634</position>
+                    <position>-75.5137,-654.938,53.9546</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2275,7 +2275,7 @@
                     <name>"CS8"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_2"</displayName>
                     <nodeID>"23503(USERADDED)"</nodeID>
-                    <position>-37.7181,-654.938,45.9209</position>
+                    <position>-94.4115,-654.938,57.9715</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2288,7 +2288,7 @@
                     <name>"CS9"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_3"</displayName>
                     <nodeID>"23504(USERADDED)"</nodeID>
-                    <position>-43.6883,-654.938,64.2953</position>
+                    <position>-107.339,-654.938,43.6139</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2301,7 +2301,7 @@
                     <name>"CS10"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_4"</displayName>
                     <nodeID>"23505(USERADDED)"</nodeID>
-                    <position>-62.5861,-654.938,68.3122</position>
+                    <position>-101.369,-654.938,25.2395</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2314,7 +2314,7 @@
                     <name>"CS11"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_8"</displayName>
                     <nodeID>"23506(USERADDED)"</nodeID>
-                    <position>-94.4115,-654.938,57.9715</position>
+                    <position>-76.5009,-654.938,2.84824</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2327,7 +2327,7 @@
                     <name>"CS12"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_9"</displayName>
                     <nodeID>"23507(USERADDED)"</nodeID>
-                    <position>-107.339,-654.938,43.6139</position>
+                    <position>-57.6031,-654.938,-1.16861</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2340,7 +2340,7 @@
                     <name>"CS13"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_10"</displayName>
                     <nodeID>"23508(USERADDED)"</nodeID>
-                    <position>-101.369,-654.938,25.2395</position>
+                    <position>-44.6755,-654.938,13.1889</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2353,7 +2353,7 @@
                     <name>"CS14"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_11"</displayName>
                     <nodeID>"23509(USERADDED)"</nodeID>
-                    <position>-82.4711,-654.938,21.2227</position>
+                    <position>-50.6457,-654.938,31.5634</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2379,7 +2379,7 @@
                     <name>"CS16"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_13"</displayName>
                     <nodeID>"23511(USERADDED)"</nodeID>
-                    <position>-75.5137,-654.938,53.9546</position>
+                    <position>-69.5435,-654.938,35.5802</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2392,7 +2392,7 @@
                     <name>"CS17"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_14"</displayName>
                     <nodeID>"23512(USERADDED)"</nodeID>
-                    <position>-76.5009,-654.938,2.84824</position>
+                    <position>-37.7181,-654.938,45.9209</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -2405,7 +2405,7 @@
                     <name>"CS18"</name>
                     <displayName>"SCSYS_R_FOOT_SKIN_15"</displayName>
                     <nodeID>"23513(USERADDED)"</nodeID>
-                    <position>-57.6031,-654.938,-1.16861</position>
+                    <position>-43.6883,-654.938,64.2953</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
