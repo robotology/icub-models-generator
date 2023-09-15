@@ -116,6 +116,12 @@ jobs:
         ctest --output-on-failure
         # Clone icub-models repo
         git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
+        # Delete files in iCub directory of icub-models, as they are the one meant to be generated automatically every time
+        # See https://github.com/robotology/icub-models/issues/185
+        cd ${ICUB_MODELS_SOURCE_DIR}
+        git rm -rf ./iCub
+        # Generate new files
+        cd ${GITHUB_WORKSPACE}/build
         cmake --build . --target copy-models-to-icub-models
         # Generate commit message
         echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
@@ -123,10 +129,13 @@ jobs:
         echo "urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
         echo "simmechanics-to-urdf commit: robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
 
-    - name: Print generated models differences
+    - name: Print generated models differences and add files
       run: |
         cd $ICUB_MODELS_SOURCE_DIR
         git diff
+        # Add any new generated file
+        git add --all
+        git status
 
     - name: Commit models
       if: ${{ (github.event_name == 'push' && github.ref == env.TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT) || (github.event_name == 'workflow_dispatch' &&  github.event.inputs.push == 'true') }}
@@ -139,8 +148,6 @@ jobs:
         echo "Commit committer is $GIT_COMMITTER_NAME (email: $GIT_COMMITTER_EMAIL)"
         echo "Commit author is $GIT_AUTHOR_NAME (email: $GIT_AUTHOR_EMAIL)"
         cd $ICUB_MODELS_SOURCE_DIR
-        # Add any new generated file
-        git add --all
         # See https://stackoverflow.com/a/32507305
         git commit -a -F ${GITHUB_WORKSPACE}/deploy_commit_message || echo "No changes in the icub-models branch, so no commit was done."
 
