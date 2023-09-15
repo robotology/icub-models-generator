@@ -49,7 +49,6 @@ Both generation pipelines are still in `a work in progress` state, and several i
 | `iCubGenova03`       | dh           | v2 with legs v1 and feet v2.5   |
 | `iCubGenova04`       | simmechanics | v2.5   with backpack            |
 | `iCubGenova09`       | simmechanics | v3                              |
-| `iCubGenova04_plus`  | simmechanics | v2.5 + [KIT_007](https://icub-tech-iit.github.io/documentation/upgrade_kits/ankle_for_stairs/support/) with backpack           |
 | `iCubLisboa01`       | dh           | v1 with head v2                 |
 | `iCubNancy01`        | dh           | v2.5 with arms v1 and head v2   |
 | `iCubParis01`        | dh           | v1 with feet v2.5               |

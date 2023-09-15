@@ -6,7 +6,7 @@ macro(generate_icub_simmechanics)
     set(options NO_BACKPACK
                 BOGUS
                 INCREASE_INERTIA_FOR_GAZEBO
-                ICUB_PLUS
+                ICUB_
                 ICUB_2_6
                 ICUB_2_7
                 ICUB_3_COLLISION_GEOM_MOD)
@@ -387,12 +387,6 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus
                           YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                           CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                           INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS)
-
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova04_plus
-                          SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
-                          YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
-                          CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
-                          ICUB_PLUS)
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova02
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
