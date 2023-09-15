@@ -6,7 +6,7 @@ macro(generate_icub_simmechanics)
     set(options NO_BACKPACK
                 BOGUS
                 INCREASE_INERTIA_FOR_GAZEBO
-                ICUB_
+                ICUB_PLUS
                 ICUB_2_6
                 ICUB_2_7
                 ICUB_3_COLLISION_GEOM_MOD)
