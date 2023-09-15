@@ -3847,7 +3847,7 @@
                     <name>"CS6"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_0"</displayName>
                     <nodeID>"21933(USERADDED)"</nodeID>
-                    <position>37.8072,-654.938,46.0271</position>
+                    <position>76.59,-654.938,2.95439</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3860,7 +3860,7 @@
                     <name>"CS7"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_1"</displayName>
                     <nodeID>"21934(USERADDED)"</nodeID>
-                    <position>50.7353,-654.938,31.6695</position>
+                    <position>82.5607,-654.938,21.3288</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3873,7 +3873,7 @@
                     <name>"CS8"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_2"</displayName>
                     <nodeID>"21935(USERADDED)"</nodeID>
-                    <position>44.7646,-654.938,13.2951</position>
+                    <position>101.458,-654.938,25.3457</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3886,7 +3886,7 @@
                     <name>"CS9"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_3"</displayName>
                     <nodeID>"21936(USERADDED)"</nodeID>
-                    <position>57.6927,-654.938,-1.06247</position>
+                    <position>107.429,-654.938,43.7201</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3899,7 +3899,7 @@
                     <name>"CS10"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_4"</displayName>
                     <nodeID>"21937(USERADDED)"</nodeID>
-                    <position>76.59,-654.938,2.95439</position>
+                    <position>94.5006,-654.938,58.0776</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3912,7 +3912,7 @@
                     <name>"CS11"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_8"</displayName>
                     <nodeID>"21938(USERADDED)"</nodeID>
-                    <position>101.458,-654.938,25.3457</position>
+                    <position>62.6757,-654.938,68.4183</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3925,7 +3925,7 @@
                     <name>"CS12"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_9"</displayName>
                     <nodeID>"21939(USERADDED)"</nodeID>
-                    <position>107.429,-654.938,43.7201</position>
+                    <position>43.7779,-654.938,64.4015</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3938,7 +3938,7 @@
                     <name>"CS13"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_10"</displayName>
                     <nodeID>"21940(USERADDED)"</nodeID>
-                    <position>94.5006,-654.938,58.0776</position>
+                    <position>37.8072,-654.938,46.0271</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3951,7 +3951,7 @@
                     <name>"CS14"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_11"</displayName>
                     <nodeID>"21941(USERADDED)"</nodeID>
-                    <position>75.6033,-654.938,54.0608</position>
+                    <position>50.7353,-654.938,31.6695</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3977,7 +3977,7 @@
                     <name>"CS16"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_13"</displayName>
                     <nodeID>"21943(USERADDED)"</nodeID>
-                    <position>82.5607,-654.938,21.3288</position>
+                    <position>75.6033,-654.938,54.0608</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -3990,7 +3990,7 @@
                     <name>"CS17"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_14"</displayName>
                     <nodeID>"21944(USERADDED)"</nodeID>
-                    <position>62.6757,-654.938,68.4183</position>
+                    <position>44.7646,-654.938,13.2951</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
@@ -4003,7 +4003,7 @@
                     <name>"CS18"</name>
                     <displayName>"SCSYS_L_FOOT_SKIN_15"</displayName>
                     <nodeID>"21945(USERADDED)"</nodeID>
-                    <position>43.7779,-654.938,64.4015</position>
+                    <position>57.6927,-654.938,-1.06247</position>
                     <positionOrigin>"WORLD"</positionOrigin>
                     <positionReferenceFrame>"WORLD"</positionReferenceFrame>
                     <positionUnits>"mm"</positionUnits>
