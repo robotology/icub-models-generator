@@ -6,7 +6,7 @@ macro(generate_icub_simmechanics)
     set(options NO_BACKPACK
                 BOGUS
                 INCREASE_INERTIA_FOR_GAZEBO
-                ICUB_PLUS
+                ICUB_KIT_007
                 ICUB_2_6
                 ICUB_2_7
                 ICUB_3_COLLISION_GEOM_MOD)
@@ -101,7 +101,7 @@ macro(generate_icub_simmechanics)
 ")
       set(LOWERBODY_JOINT_DAMPING 1.0)
       set(UPPERBODY_JOINT_DAMPING 1.0)
-      if(GIVTWO_ICUB_PLUS)
+      if(GIVTWO_ICUB_KIT_007)
         set(ASSIGNED_COLLISION_GEOMETRIES
 "assignedCollisionGeometry:
   - linkName: r_foot
@@ -162,9 +162,9 @@ macro(generate_icub_simmechanics)
 ")
     endif()
 
-    # If we are generating the icub2.5+ model we need to add the xsens IMU, change the mesh folder
+    # If we are generating the icub2.5 + KIT_007 model we need to add the xsens IMU, change the mesh folder
     # and change the rotation axis list that need to be reversed.
-    if(GIVTWO_ICUB_PLUS)
+    if(GIVTWO_ICUB_KIT_007)
       set(MESH_FILE_FORMAT "filenameformatchangeext: \"package://iCub/meshes/simmechanics/2-5_plus/%s-binary.stl\"")
       set(ANKLE_PITCH_ROM "-50,20")
       set(CUSTOM_EPSILON "epsilon: 2e-7")
@@ -382,23 +382,17 @@ generate_icub_simmechanics(YARP_ROBOT_NAME left_wrist_mk2
                            YAML_TEMPLATE "components/left_wrist_mk2/simmechanics2urdf_configfile.yaml"
                            CSV_TEMPLATE "components/left_wrist_mk2/simmechanics2urdf_joints_configfile.csv")
 
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_plus
+generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_5_KIT_007
                           SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
                           YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                           CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
-                          INCREASE_INERTIA_FOR_GAZEBO ICUB_PLUS)
-
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova04_plus
-                          SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
-                          YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
-                          CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
-                          ICUB_PLUS)
+                          INCREASE_INERTIA_FOR_GAZEBO ICUB_KIT_007)
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova02
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_plus_BB_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
-                           ICUB_PLUS)
+                           ICUB_KIT_007)
 
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova04
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
