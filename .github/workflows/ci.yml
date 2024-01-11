@@ -62,7 +62,7 @@ jobs:
         sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
         # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
         # let's install both debian packages and pip packages to be sure
-        sudo pip install lxml numpy pyyaml catkin_pkg
+        sudo pip install lxml==4.9.4 numpy pyyaml catkin_pkg
         # install urdf_parser_py and save the last commit SHA1 hash
         git clone $URDF_PARSER_PY_REPOSITORY_URL
         cd urdf_parser_py
