@@ -276,7 +276,7 @@ macro(generate_icub_simmechanics)
     set(RFE_ADDITIONAL_TRANSFORMATION "")
     if(GIVTWO_ICUB_2_6 OR GIVTWO_ICUB_2_7)
       set(RFE_ADDITIONAL_TRANSFORMATION
-         "additionalTransformation: [0.0323779, -0.0139537, 0.072, -3.14159265358979, 0, -1.5707963267949]")
+         "additionalTransformation: [0.0323779, -0.0139537, 0.072, 3.14159265358979, 0, 1.5707963267949]")
 
     endif()
     # The ICUB_2_7 option is used to modify the iCub 2.5.5 model to
