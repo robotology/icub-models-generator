@@ -696,7 +696,7 @@ sensors:
     sensorBlobs:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_inertial.ini</yarpConfigurationFile>
         </plugin>
   - frameName: SCSYS_R_UPPER_ARM_FT45
     linkName: r_shoulder_3
@@ -706,7 +706,7 @@ sensors:
     sensorBlobs:
     - |
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_inertial.ini</yarpConfigurationFile>
         </plugin>
   - frameName: SCSYS_ROOT_LINK_EMS_ACC_EB5
     linkName: root_link
