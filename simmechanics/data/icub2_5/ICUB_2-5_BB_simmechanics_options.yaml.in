@@ -688,6 +688,26 @@ sensors:
         <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
             <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
         </plugin>
+  - frameName: SCSYS_L_UPPER_ARM_FT45
+    linkName: l_shoulder_3
+    sensorName: l_arm_ft
+    exportFrameInURDF: Yes
+    sensorType: "accelerometer"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
+  - frameName: SCSYS_R_UPPER_ARM_FT45
+    linkName: r_shoulder_3
+    sensorName: r_arm_ft
+    exportFrameInURDF: Yes
+    sensorType: "accelerometer"
+    sensorBlobs:
+    - |
+        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
+        </plugin>
   - frameName: SCSYS_ROOT_LINK_EMS_ACC_EB5
     linkName: root_link
     sensorName: root_link_ems_acc_eb5
