@@ -646,7 +646,7 @@ forceTorqueSensors:
     exportFrameInURDF: Yes
     frame: sensor
     frameName: SCSYS_L_UPPER_ARM_FT45
-    linkName: l_shoulder_3
+    linkName: l_upper_arm
     sensorName: l_arm_ft
     sensorBlobs:
     - |
@@ -658,7 +658,7 @@ forceTorqueSensors:
     exportFrameInURDF: Yes
     frame: sensor
     frameName: SCSYS_R_UPPER_ARM_FT45
-    linkName: r_shoulder_3
+    linkName: r_upper_arm
     sensorName: r_arm_ft
     sensorBlobs:
     - |
