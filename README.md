@@ -13,7 +13,7 @@ To generate the models, first of all that you have [pixi installed](https://pixi
 
 Then, clone the repo and generate and the models via the `test_generated_models` pixi task:
 
-~~~
+~~~bash
 cd ~
 git clone https://github.com/robotology/icub-models-generator
 cd icub-models-generator
@@ -21,10 +21,17 @@ pixi run test_generated_models
 ~~~
 
 If you want to generate the models in a local clone of icub-models, set the `ICUB_MODELS_SOURCE_DIR` environment variable to the location of the `icub-models` local folder, and run the `copy_models_to_icub_models` pixi task:
-~~~
+~~~bash
 cd ~
 git clone https://github.com/robotology/icub-models
 export ICUB_MODELS_SOURCE_DIR=`pwd`/icub-models
+cd icub-models-generator
+pixi run copy_models_to_icub_models
+~~~
+
+For example, if you already have a icub-models copy as part of a robotology-superbuild installation located in `/usr/local/src/robotology-superbuild`, to generate the models there you can do the following:
+~~~bash
+export ICUB_MODELS_SOURCE_DIR=/usr/local/src/robotology-superbuild/src/icub-models
 cd icub-models-generator
 pixi run copy_models_to_icub_models
 ~~~
