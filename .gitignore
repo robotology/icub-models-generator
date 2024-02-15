@@ -1,1 +1,6 @@
 build/
+.build/
+# pixi environments
+.pixi
+
+deploy_commit_message

@@ -2,7 +2,7 @@
 # Authors: Silvio Traversaro
 # CopyPolicy: Released under the terms of the GNU LGPL v2+.
 
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.16)
 
 project(icub-model-generator)
 
