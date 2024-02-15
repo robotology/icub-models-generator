@@ -6,18 +6,28 @@ are available at https://github.com/robotology/icub-models .
 
 **Note: this repository is meant to streamline the process of producing iCub URDF/SDF models by iCub mantainers. It is not meant to be used directly by users of iCub. For offical info on the kinematic parameters of the iCub, please see [the documentation in iCub's documentation](https://icub-tech-iit.github.io/documentation/icub_kinematics/icub-forward-kinematics/icub-forward-kinematics/).**
 
-## Dependencies
-- [iDynTree](https://github.com/robotology/idyntree)
-- [YARP](https://github.com/robotology/yarp)
-- [simmechanics-to-urdf](https://github.com/robotology/simmechanics-to-urdf)
-
-Detailed documentation on how to install the softare is current work in progress. In the meanwhile, you can check the exact way in which the software is installing by inspecting the [`CI` GitHub Actions workflow](.github/workflows/ci.yml) that is used to automatically generate the models of iCub using this repo and commit it to the [icub-models](https://github.com/robotology/icub-models) repo.
-
 
 ## Usage
-To generate the models, please ensure that you have all the necessary dependencies.
-To update the content of a local `icub-models` repository, set in the `ICUB_MODELS_SOURCE_DIR`
-CMake variable the absolute path to your `icub-models` repository, and execute the `copy-models-to-icub-models` target.
+
+To generate the models, first of all that you have [pixi installed](https://pixi.sh/#installation).
+
+Then, clone the repo and generate and the models via the `test_generated_models` pixi task:
+
+~~~
+cd ~
+git clone https://github.com/robotology/icub-models-generator
+cd icub-models-generator
+pixi run test_generated_models
+~~~
+
+If you want to generate the models in a local clone of icub-models, set the `ICUB_MODELS_SOURCE_DIR` environment variable to the location of the `icub-models` local folder, and run the `copy_models_to_icub_models` pixi task:
+~~~
+cd ~
+git clone https://github.com/robotology/icub-models
+export ICUB_MODELS_SOURCE_DIR=`pwd`/icub-models
+cd icub-models-generator
+pixi run copy_models_to_icub_models
+~~~
 
 ## Pipelines
 Currently, it is possible to generate iCub models by means of two different pipelines.
