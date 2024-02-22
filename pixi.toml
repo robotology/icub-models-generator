@@ -14,18 +14,17 @@ scripts = ["clean_env.sh"]
 [tasks]
 # As of pixi 0.13.0, pixi does not support git pip packages, so we install it from source
 # Specific commit of urdfdom_py is a workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
-# Setting PYTHONPATH to empty string is a workaround for https://github.com/robotology/icub-models-generator/issues/262
-header_commit = { cmd = "export PYTHONPATH= && echo Automatic build of models via icub-models-generator.  > ./deploy_commit_message" }
-header_repos = { cmd = "export PYTHONPATH= && echo ### Dependencies information of dependencies installed manually: >> ./deploy_commit_message",  depends_on = ["header_commit"] }
-install_urdfdom_py = { cmd = "export PYTHONPATH= && export URDF_PARSER_PY_COMMIT=31474b9baaf7c3845b40e5a9aa87d5900a2282c3 && pip install git+https://github.com/ros/urdf_parser_py.git@$URDF_PARSER_PY_COMMIT --no-deps && echo urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT >> ./deploy_commit_message", depends_on = ["header_repos"]}
-install_simmechanics_to_urdf = { cmd = "export PYTHONPATH= && export SIMMECHANICS_TO_URDF_COMMIT=22caa23cfe7063299c5746304850b8afd74f4e1f && pip install git+https://github.com/robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT --no-deps && echo icub-model-generator commit: robotology/icub-models-generator@$SIMMECHANICS_TO_URDF_COMMIT >> ./deploy_commit_message", depends_on = ["install_urdfdom_py"] }
+header_commit = { cmd = "echo Automatic build of models via icub-models-generator.  > ./deploy_commit_message" }
+header_repos = { cmd = "echo ### Dependencies information of dependencies installed manually: >> ./deploy_commit_message",  depends_on = ["header_commit"] }
+install_urdfdom_py = { cmd = "export URDF_PARSER_PY_COMMIT=31474b9baaf7c3845b40e5a9aa87d5900a2282c3 && pip install git+https://github.com/ros/urdf_parser_py.git@$URDF_PARSER_PY_COMMIT --no-deps && echo urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT >> ./deploy_commit_message", depends_on = ["header_repos"]}
+install_simmechanics_to_urdf = { cmd = "export SIMMECHANICS_TO_URDF_COMMIT=22caa23cfe7063299c5746304850b8afd74f4e1f && pip install git+https://github.com/robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT --no-deps && echo icub-model-generator commit: robotology/icub-models-generator@$SIMMECHANICS_TO_URDF_COMMIT >> ./deploy_commit_message", depends_on = ["install_urdfdom_py"] }
 header_pixi_list = { cmd = "echo ### Dependencies information via pixi list:  >> ./deploy_commit_message", depends_on = ["install_simmechanics_to_urdf"]}
-pixi_list = { cmd = "export PYTHONPATH= && pixi list >> ./deploy_commit_message",  depends_on = ["header_pixi_list"]}
-configure_cmake_project = { cmd = "export PYTHONPATH= && cmake -GNinja -S. -B.build -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR -DBUILD_TESTING:BOOL=ON",  depends_on = ["pixi_list"]}
-generate_models = { cmd = "export PYTHONPATH= && cmake --build .build --target generate-models",  depends_on = ["configure_cmake_project"]}
-copy_models_to_icub_models = { cmd = "export PYTHONPATH= && cmake --build .build --target copy-models-to-icub-models",  depends_on = ["configure_cmake_project"]}
-build_tests = { cmd = "export PYTHONPATH= && cmake --build .build", depends_on = ["configure_cmake_project"] }
-test_generated_models = { cmd = "export PYTHONPATH= && ctest --test-dir .build",  depends_on = ["generate_models", "build_tests"]}
+pixi_list = { cmd = "pixi list >> ./deploy_commit_message",  depends_on = ["header_pixi_list"]}
+configure_cmake_project = { cmd = "cmake -GNinja -S. -B.build -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR -DBUILD_TESTING:BOOL=ON",  depends_on = ["pixi_list"]}
+generate_models = { cmd = "cmake --build .build --target generate-models",  depends_on = ["configure_cmake_project"]}
+copy_models_to_icub_models = { cmd = "cmake --build .build --target copy-models-to-icub-models",  depends_on = ["configure_cmake_project"]}
+build_tests = { cmd = "cmake --build .build", depends_on = ["configure_cmake_project"] }
+test_generated_models = { cmd = "ctest --test-dir .build",  depends_on = ["generate_models", "build_tests"]}
 
 [dependencies]
 idyntree = ">=10.3.0,<10.4"
