@@ -1,0 +1,2 @@
+export PYTHONPATH=
+export PYTHONUSERBASE=disabled_by_wrong_value

@@ -8,6 +8,9 @@ authors = ["Silvio Traversaro <silvio.traversaro@iit.it>"]
 channels = ["conda-forge"]
 platforms = ["linux-64", "linux-aarch64", "win-64", "osx-arm64", "osx-64"]
 
+[activation]
+scripts = ["clean_env.sh"]
+
 [tasks]
 # As of pixi 0.13.0, pixi does not support git pip packages, so we install it from source
 # Specific commit of urdfdom_py is a workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
