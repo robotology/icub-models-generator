@@ -644,7 +644,7 @@ forceTorqueSensors:
   - jointName: l_arm_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
-    frame: sensor
+    frame: child
     frameName: SCSYS_L_UPPER_ARM_FT45
     linkName: l_shoulder_3
     sensorName: l_arm_ft
@@ -656,7 +656,7 @@ forceTorqueSensors:
   - jointName: r_arm_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
-    frame: sensor
+    frame: child
     frameName: SCSYS_R_UPPER_ARM_FT45
     linkName: r_shoulder_3
     sensorName: r_arm_ft
