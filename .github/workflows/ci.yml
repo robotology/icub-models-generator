@@ -20,8 +20,6 @@ on:
   - cron:  '0 2 * * *'
 
 env:
-  URDF_PARSER_PY_REPOSITORY_URL: "https://github.com/ros/urdf_parser_py.git"
-  SIMMECHANICS_TO_URDF_REPOSITORY_URL: "https://github.com/robotology/simmechanics-to-urdf.git"
   DEPLOYMENT_REPOSITORY: "robotology/icub-models"
   TRIGGERING_BRANCH_VALID_FOR_DEPLOYMENT: "refs/heads/master"
   TRIGGERING_REPOSITORY_URL_VALID_FOR_DEPLOYMENT: "https://github.com/robotology/icub-model-generator.git"
@@ -31,10 +29,10 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Change ICUB_MODELS_BRANCH if necessary
       shell: bash
@@ -47,73 +45,10 @@ jobs:
       shell: bash
       run: env
 
-    # For all dependencies, we use fixed releases to avoid regression due to
-    # changes in the dependencies. In particular, we use the latest released
-    # version as of 16 Septembter 2019, except for some dependencies that use
-    # specific commits, more details are provided in inline comments
+    - uses: prefix-dev/setup-pixi@v0.5.1
+
     - name: Generate models
       run: |
-        sudo apt-get update
-        sudo apt-get install ruby libeigen3-dev libace-dev libtinyxml-dev libxml2-dev
-        # Save the url of the repository and the user-name of the committ author
-        export CURRENT_REPOSITORY_URL=`git remote get-url origin`
-        # Start in the parent directory of icub-model-generator
-        cd ${GITHUB_WORKSPACE}
-        sudo apt-get install  --assume-yes --force-yes python-lxml python-yaml python-numpy python-setuptools
-        # probably python on the path return a python interpreter and the find_package(PythonInterp) in CMake another,
-        # let's install both debian packages and pip packages to be sure
-        sudo pip install lxml==4.9.4 numpy pyyaml catkin_pkg
-        # install urdf_parser_py and save the last commit SHA1 hash
-        git clone $URDF_PARSER_PY_REPOSITORY_URL
-        cd urdf_parser_py
-        # workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
-        git checkout 31474b9baaf7c3845b40e5a9aa87d5900a2282c3
-        export URDF_PARSER_PY_COMMIT=`git rev-parse HEAD`
-        sudo python setup.py install
-        cd ${GITHUB_WORKSPACE}
-        # install simmechanics-to-urdf and save the last commit SHA1 hash
-        git clone $SIMMECHANICS_TO_URDF_REPOSITORY_URL
-        cd simmechanics-to-urdf
-        export SIMMECHANICS_TO_URDF_COMMIT=`git rev-parse HEAD`
-        sudo python setup.py install
-        cd ${GITHUB_WORKSPACE}
-        # get C++ dependencies and save their last commit SHA1 hash
-        # ycm
-        git clone https://github.com/robotology/ycm.git
-        cd ycm
-        git checkout v0.12.0
-        mkdir build
-        cd build
-        cmake ..
-        sudo cmake --build . --target install
-        cd ${GITHUB_WORKSPACE}
-        ## yarp
-        git clone https://github.com/robotology/yarp.git
-        cd yarp
-        git checkout v3.4.0
-        export YARP_COMMIT=`git rev-parse HEAD`
-        mkdir build
-        cd build
-        cmake -DCREATE_LIB_MATH:BOOL=OFF -DYARP_COMPILE_EXECUTABLES:BOOL=OFF ..
-        sudo cmake --build . --target install
-        cd ${GITHUB_WORKSPACE}
-        ## idyntree
-        git clone https://github.com/robotology/idyntree.git
-        cd idyntree
-        git checkout v2.0.0
-        export IDYNTREE_COMMIT=`git rev-parse HEAD`
-        mkdir build
-        cd build
-        cmake ..
-        sudo cmake --build . --target install
-        cd ${GITHUB_WORKSPACE}
-        # Prepare icub-model-generator build
-        mkdir build
-        cd build
-        cmake -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR  ..
-        # Build and run
-        make VERBOSE=1
-        ctest --output-on-failure
         # Clone icub-models repo
         git clone -b $ICUB_MODELS_BRANCH https://github.com/${DEPLOYMENT_REPOSITORY}.git ${ICUB_MODELS_SOURCE_DIR}
         # Delete files in iCub directory of icub-models, as they are the one meant to be generated automatically every time
@@ -121,13 +56,8 @@ jobs:
         cd ${ICUB_MODELS_SOURCE_DIR}
         git rm -rf ./iCub
         # Generate new files
-        cd ${GITHUB_WORKSPACE}/build
-        cmake --build . --target copy-models-to-icub-models
-        # Generate commit message
-        echo "Automatic build. GitHub Actions build: $GITHUB_RUN_ID" >> ${GITHUB_WORKSPACE}/deploy_commit_message
-        echo "icub-model-generator commit: robotology/icub-models-generator@$GITHUB_SHA" >> ${GITHUB_WORKSPACE}/deploy_commit_message
-        echo "urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
-        echo "simmechanics-to-urdf commit: robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT" >> ${GITHUB_WORKSPACE}/deploy_commit_message
+        cd ${GITHUB_WORKSPACE}
+        pixi run copy_models_to_icub_models
 
     - name: Print generated models differences and add files
       run: |
@@ -159,4 +89,3 @@ jobs:
         repository: ${{ env.DEPLOYMENT_REPOSITORY }}
         branch: ${{ env.ICUB_MODELS_BRANCH }}
         github_token: ${{ secrets.ICUB_MODELS_GENERATOR_TOKEN }}
-
