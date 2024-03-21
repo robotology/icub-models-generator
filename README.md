@@ -47,6 +47,5 @@ As the two pipeline process data from different sources, **the link frames are n
 or location across different models**. The only frames (that are represented in URDF as massless links) whose position is guaranteed to be consistent across different models are the one documented in https://icub-tech-iit.github.io/documentation/icub_kinematics/icub-model-naming-conventions/icub-model-naming-conventions/ .
 
 Both generation pipelines are still in `a work in progress` state, and several issues need to be properly solved, e.g.:
-* [Meshes are not properly handled #28](https://github.com/robotology/icub-model-generator/issues/28)
 * [Hands and eyes are not generated #29](https://github.com/robotology/icub-model-generator/issues/29)
 
