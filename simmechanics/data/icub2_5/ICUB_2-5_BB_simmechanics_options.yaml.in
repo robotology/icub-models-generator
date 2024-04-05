@@ -690,7 +690,7 @@ sensors:
         </plugin>
   - frameName: SCSYS_L_UPPER_ARM_FT45
     linkName: l_shoulder_3
-    sensorName: l_arm_ft
+    sensorName: l_arm_ft_imu
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
     sensorBlobs:
@@ -700,7 +700,7 @@ sensors:
         </plugin>
   - frameName: SCSYS_R_UPPER_ARM_FT45
     linkName: r_shoulder_3
-    sensorName: r_arm_ft
+    sensorName: r_arm_ft_imu
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
     sensorBlobs:
