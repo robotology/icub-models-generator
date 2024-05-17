@@ -427,9 +427,47 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
 
     if (!checkMatrixAreEqual(expected, actual, 1e-3))
     {
-        std::cerr << "icub-model-test : transform between root_link and " << sensorName << " is not the expected one, test failed." << std::endl;
+        std::cerr << "icub-model-test : transform between root_link and " << sensorName << " is not the expected one, test 1/3 failed." << std::endl;
         std::cerr << "icub-model-test : Expected transform : " << expected.toString() << std::endl;
         std::cerr << "icub-model-test : Actual transform : " << actual.toString() << std::endl;
+        return false;
+    }
+
+    // Let's also check the actual frame of the sensor, that could be different (tipically due to bugs)
+    // from the additional frame that has the same name of the sensor
+    // See https://github.com/robotology/icub-models-generator/issues/271
+
+    std::ptrdiff_t sensorIndex = -1;
+    bool sensorExists = comp.model().sensors().getSensorIndex(iDynTree::SIX_AXIS_FORCE_TORQUE, sensorName, sensorIndex);
+    if (!sensorExists)
+    {
+        std::cerr << "icub-model-test : error, expected sensor with name " << sensorName << " does not exists." << std::endl;
+    }
+
+    iDynTree::SixAxisForceTorqueSensor* pSensor = dynamic_cast<iDynTree::SixAxisForceTorqueSensor*>(comp.model().sensors().getSensor(iDynTree::SIX_AXIS_FORCE_TORQUE, sensorName, sensorIndex));
+
+    std::string firstLinkName = pSensor->getFirstLinkName();
+    std::string secondLinkName = pSensor->getSecondLinkName();
+    iDynTree::Transform firstLink_H_sensor;
+    pSensor->getLinkSensorTransform(pSensor->getFirstLinkIndex(), firstLink_H_sensor);
+    iDynTree::Transform secondLink_H_sensor;
+    pSensor->getLinkSensorTransform(pSensor->getSecondLinkIndex(), secondLink_H_sensor);
+    iDynTree::Rotation actual_sensor_wrt_firstLink = (comp.getRelativeTransform("root_link", firstLinkName) * firstLink_H_sensor).getRotation();
+    iDynTree::Rotation actual_sensor_wrt_secondLink = (comp.getRelativeTransform("root_link", secondLinkName) * secondLink_H_sensor).getRotation();
+
+    if (!checkMatrixAreEqual(expected, actual_sensor_wrt_firstLink, 1e-3))
+    {
+        std::cerr << "icub-model-test : transform between root_link and " << sensorName << " is not the expected one, test 2/3 failed." << std::endl;
+        std::cerr << "icub-model-test : Expected transform : " << expected.toString() << std::endl;
+        std::cerr << "icub-model-test : Actual transform : " << actual_sensor_wrt_firstLink.toString() << std::endl;
+        return false;
+    }
+
+    if (!checkMatrixAreEqual(expected, actual_sensor_wrt_secondLink, 1e-3))
+    {
+        std::cerr << "icub-model-test : transform between root_link and " << sensorName << " is not the expected one, test 3/3 failed." << std::endl;
+        std::cerr << "icub-model-test : Expected transform : " << expected.toString() << std::endl;
+        std::cerr << "icub-model-test : Actual transform : " << actual_sensor_wrt_secondLink.toString() << std::endl;
         return false;
     }
 
