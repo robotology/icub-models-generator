@@ -269,6 +269,8 @@ bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
         }
     }
 
+    std::cerr << "icub-model-test : checkAxisDirectionsV2 test performed correctly " << std::endl;
+
     return true;
 }
 
@@ -417,11 +419,17 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
                                       const iDynTree::Rotation& expected,
                                       const std::string& sensorName)
 {
+    std::cerr << "====> checkFTSensorISCorrectlyOriented checkin" << sensorName << std::endl;
+
     // Depending on the icub model, the sensor could be absent
     if (!comp.model().isFrameNameUsed(sensorName))
     {
+        std::cerr << "Skipping test as " << sensorName << " is not part of the model" << std::endl;
+        std::cerr << comp.model().toString() << std::endl;
         return true;
     }
+
+    std::cerr << "====> checkFTSensorISCorrectlyOriented " << sensorName << std::endl;
 
     iDynTree::Rotation actual = comp.getRelativeTransform("root_link", sensorName).getRotation();
 
@@ -444,7 +452,7 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
         std::cerr << "icub-model-test : error, expected sensor with name " << sensorName << " does not exists." << std::endl;
     }
 
-    iDynTree::SixAxisForceTorqueSensor* pSensor = dynamic_cast<iDynTree::SixAxisForceTorqueSensor*>(comp.model().sensors().getSensor(iDynTree::SIX_AXIS_FORCE_TORQUE, sensorName, sensorIndex));
+    iDynTree::SixAxisForceTorqueSensor* pSensor = dynamic_cast<iDynTree::SixAxisForceTorqueSensor*>(comp.model().sensors().getSensor(iDynTree::SIX_AXIS_FORCE_TORQUE, sensorIndex));
 
     std::string firstLinkName = pSensor->getFirstLinkName();
     std::string secondLinkName = pSensor->getSecondLinkName();
@@ -496,13 +504,14 @@ bool checkFTSensorsAreCorrectlyOrientedV2(iDynTree::KinDynComputations & comp)
     bool isModelWitKit007 = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_kit_007, "l_foot_ft_sensor")
                             && checkFTSensorIsCorrectlyOriented(comp, rootLink_R_foot_sensorFrameExpected_kit_007, "r_foot_ft_sensor");
 
-    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft_sensor");
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft_sensor") && ok;
-    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft_sensor") || isModelWitKit007) && ok;
-    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft_sensor") || isModelWitKit007) && ok;
+    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_arm_ft");
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_arm_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_leg_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_leg_ft") && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "l_foot_ft") || isModelWitKit007) && ok;
+    ok = (checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpected, "r_foot_ft") || isModelWitKit007) && ok;
 
+    std::cerr << "icub-model-test : checkFTSensorsAreCorrectlyOrientedV2 test performed correctly " << std::endl;
     return ok;
 }
 
@@ -533,14 +542,14 @@ bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
                            0.5, 0.866025, 0,
                             0, 0, -1);
 
-    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_L_sensorFrameExpectedLeg, "l_leg_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_front_ft_sensor") && ok;
+    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft");
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_L_sensorFrameExpectedLeg, "l_leg_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft") && ok;
+    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_front_ft") && ok;
     return ok;
 }
 
@@ -616,16 +625,44 @@ bool checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGiven
     }
 
 
-    iDynTree::Transform root_H_sensor = root_H_firstLink*firstLink_H_sensor;
+    iDynTree::Transform root_H_sensor_via_firstLink = root_H_firstLink*firstLink_H_sensor;
 
     // Check that the two transfom are equal equal
-    if (!checkTransformAreEqual(root_H_frame, root_H_sensor, 1e-6))
+    if (!checkTransformAreEqual(root_H_frame, root_H_sensor_via_firstLink, 1e-6))
     {
-        std::cerr << "icub-model-test : transform between root_H_frame and root_H_sensor for " << sensorName << " is not the expected one, test failed." << std::endl;
+        std::cerr << "icub-model-test : transform between root_H_frame and root_H_sensor_via_firstLink for " << sensorName << " is not the expected one, test failed." << std::endl;
         std::cerr << "icub-model-test : root_H_frame :" << root_H_frame.toString() << std::endl;
-        std::cerr << "icub-model-test : root_H_sensor :" << root_H_sensor.toString() << std::endl;
+        std::cerr << "icub-model-test : root_H_sensor_via_firstLink :" << root_H_sensor_via_firstLink.toString() << std::endl;
         return false;
     }
+
+    
+    std::string secondLinkName = sens->getSecondLinkName();
+    iDynTree::Transform root_H_secondLink = comp.getRelativeTransform("root_link", secondLinkName);
+    iDynTree::Transform secondLink_H_sensor;
+    ok = sens->getLinkSensorTransform(sens->getSecondLinkIndex(), secondLink_H_sensor);
+
+    if (!ok)
+    {
+        std::cerr << "icub-model-test : model " << modelPath << " error in reading transform of sensor " << sensorName << "." <<  std::endl;
+        return false;
+    }
+
+
+    iDynTree::Transform root_H_sensor_via_secondLink = root_H_secondLink*secondLink_H_sensor;
+
+    // Check that the two transfom are equal equal
+    if (!checkTransformAreEqual(root_H_frame, root_H_sensor_via_secondLink, 1e-6))
+    {
+        std::cerr << "icub-model-test : transform between root_H_frame and root_H_sensor_via_secondLink for " << sensorName << " is not the expected one, test failed." << std::endl;
+        std::cerr << "icub-model-test : root_H_frame :" << root_H_frame.toString() << std::endl;
+        std::cerr << "icub-model-test : root_H_sensor_via_secondLink :" << root_H_sensor_via_secondLink.toString() << std::endl;
+        return false;
+    }
+
+
+    
+
 
     // Beside checking that root_H_frame and root_H_sensor, we should also check that the translation
     // between the child link of FT joint and the FT frame is the zero vector, as as of mid 2023 the SDF
@@ -656,7 +693,7 @@ bool checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGiven
 // This is only possible with V3 as V3 models have FT frame exported models
 // However, as of mid 2023 the V2 models do not need this check as the link explicitly
 // are using the FT frames as frames of the corresponding link
-bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(const std::string& modelPath)
+bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(const std::string& modelPath, bool is_iCub3)
 {
     iDynTree::ModelLoader mdlLoader;
 
@@ -696,10 +733,18 @@ bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGi
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_arm_ft") && ok;
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_leg_ft") && ok;
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_leg_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_foot_rear_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_rear_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors,  "l_foot_front_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_front_ft") && ok;
+    if (is_iCub3)
+    {
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_foot_rear_ft") && ok;
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_rear_ft") && ok;
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors,  "l_foot_front_ft") && ok;
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_front_ft") && ok;
+    }
+    else
+    {
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_foot_ft") && ok;
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_ft") && ok;  
+    }
     return ok;
 }
 
@@ -806,12 +851,12 @@ int main(int argc, char ** argv)
         }
     }
 
-    if (isiCub3Model(modelPath)) {
-        if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath))
+    //if (isiCub3Model(modelPath)) {
+        if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, isiCub3Model(modelPath)))
         {
             return EXIT_FAILURE;
         }
-    }
+    //}
 
 
 
