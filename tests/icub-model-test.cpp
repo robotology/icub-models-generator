@@ -269,6 +269,8 @@ bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
         }
     }
 
+    std::cerr << "icub-model-test : checkAxisDirectionsV2 test performed correctly " << std::endl;
+
     return true;
 }
 
@@ -363,6 +365,7 @@ bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
         }
     }
 
+    std::cerr << "icub-model-test : checkAxisDirectionsV3 test performed correctly " << std::endl;
     return true;
 }
 
@@ -385,6 +388,7 @@ bool checkFTSensorsAreOddAndNotNull(iDynTree::ModelLoader & mdlLoader)
         return false;
     }
 
+    std::cerr << "icub-model-test : checkFTSensorsAreOddAndNotNull test performed correctly " << std::endl;
 
     return true;
 }
@@ -408,6 +412,7 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
         return false;
     }
 
+    std::cerr << "icub-model-test : checkFTSensorsAreEvenAndNotNull test performed correctly " << std::endl;
 
     return true;
 }
@@ -432,6 +437,7 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
         std::cerr << "icub-model-test : Actual transform : " << actual.toString() << std::endl;
         return false;
     }
+    std::cerr << "icub-model-test : checkFTSensorIsCorrectlyOriented test performed correctly " << std::endl;
 
     return true;
 }
@@ -662,6 +668,12 @@ bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGi
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_rear_ft") && ok;
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors,  "l_foot_front_ft") && ok;
     ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_front_ft") && ok;
+    
+    if (ok)
+    {
+        std::cerr << "icub-model-test : checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame test performed correctly " << std::endl;
+    }
+    
     return ok;
 }
 
