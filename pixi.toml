@@ -43,3 +43,4 @@ cxx-compiler = ">=1.7.0,<1.8"
 c-compiler = ">=1.7.0,<1.8"
 # ruby is used by the convertSTL.rb script
 ruby = ">=3.2.2,<3.3"
+cmake = "*"

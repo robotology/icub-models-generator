@@ -269,6 +269,8 @@ bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
         }
     }
 
+    std::cerr << "icub-model-test : checkAxisDirectionsV2 test performed correctly " << std::endl;
+
     return true;
 }
 
@@ -363,6 +365,7 @@ bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
         }
     }
 
+    std::cerr << "icub-model-test : checkAxisDirectionsV3 test performed correctly " << std::endl;
     return true;
 }
 
@@ -385,6 +388,7 @@ bool checkFTSensorsAreOddAndNotNull(iDynTree::ModelLoader & mdlLoader)
         return false;
     }
 
+    std::cerr << "icub-model-test : checkFTSensorsAreOddAndNotNull test performed correctly " << std::endl;
 
     return true;
 }
@@ -408,6 +412,7 @@ bool checkFTSensorsAreEvenAndNotNull(iDynTree::ModelLoader & mdlLoader)
         return false;
     }
 
+    std::cerr << "icub-model-test : checkFTSensorsAreEvenAndNotNull test performed correctly " << std::endl;
 
     return true;
 }
@@ -432,6 +437,7 @@ bool checkFTSensorIsCorrectlyOriented(iDynTree::KinDynComputations & comp,
         std::cerr << "icub-model-test : Actual transform : " << actual.toString() << std::endl;
         return false;
     }
+    std::cerr << "icub-model-test : checkFTSensorIsCorrectlyOriented test performed correctly " << std::endl;
 
     return true;
 }
@@ -614,10 +620,47 @@ bool checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGiven
     return true;
 }
 
-// Check FT sensors
-// This is only possible with V3 as V3 models have FT frame exported models
-// However, as of mid 2023 the V2 models do not need this check as the link explicitly
-// are using the FT frames as frames of the corresponding link
+bool isiCub3Model(const std::string& modelPath)
+{
+    return (modelPath.find("Genova09") != std::string::npos ||
+            modelPath.find("GazeboV3") != std::string::npos);
+}
+
+bool isModelWithoutFTSensorInAnkles(const std::string& modelPath)
+{
+    return (modelPath.find("Genova03") != std::string::npos ||
+            modelPath.find("Nancy01") != std::string::npos ||
+            modelPath.find("Lisboa01") != std::string::npos);
+}
+
+std::vector<std::string> getFTSensorNames(const std::string& modelPath)
+{
+    std::vector<std::string> ftSensorNames;
+
+    ftSensorNames.push_back("l_arm_ft");
+    ftSensorNames.push_back("r_arm_ft");
+    ftSensorNames.push_back("l_leg_ft");
+    ftSensorNames.push_back("r_leg_ft");
+
+    if (isiCub3Model(modelPath))
+    {
+        ftSensorNames.push_back("l_foot_rear_ft");
+        ftSensorNames.push_back("r_foot_rear_ft");
+        ftSensorNames.push_back("l_foot_front_ft");
+        ftSensorNames.push_back("r_foot_front_ft");
+    }
+    else if(!isModelWithoutFTSensorInAnkles(modelPath))
+    {
+        ftSensorNames.push_back("l_foot_ft");
+        ftSensorNames.push_back("r_foot_ft");
+    }
+
+    return ftSensorNames;
+}
+
+// Check that FT sensors have coherent sensor and frame information
+// The frame information is used by RViz to display the wrench, while the sensor tags
+// are used by iDynTree (there is also a sensor tag used by Gazebo, that is not tested here)
 bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(const std::string& modelPath)
 {
     iDynTree::ModelLoader mdlLoader;
@@ -654,22 +697,20 @@ bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGi
     iDynTree::SensorsList sensors = mdlLoader.sensors();
 
 
-    bool ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_arm_ft");
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_arm_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_leg_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_leg_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "l_foot_rear_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_rear_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors,  "l_foot_front_ft") && ok;
-    ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, "r_foot_front_ft") && ok;
+    auto ftSensorNames = getFTSensorNames(modelPath);
+    bool ok = true;
+
+    for(auto& ftSensorName: ftSensorNames)
+    {
+        ok = checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath, comp, sensors, ftSensorName) && ok;
+    }
+
+    if (ok)
+    {
+        std::cerr << "icub-model-test : checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame test performed correctly " << std::endl;
+    }
+    
     return ok;
-}
-
-
-bool isiCub3Model(const std::string& modelPath)
-{
-    return (modelPath.find("Genova09") != std::string::npos ||
-            modelPath.find("GazeboV3") != std::string::npos);
 }
 
 int main(int argc, char ** argv)
@@ -768,11 +809,9 @@ int main(int argc, char ** argv)
         }
     }
 
-    if (isiCub3Model(modelPath)) {
-        if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath))
-        {
-            return EXIT_FAILURE;
-        }
+    if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath))
+    {
+        return EXIT_FAILURE;
     }
 
 
