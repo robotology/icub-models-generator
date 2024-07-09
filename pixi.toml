@@ -12,6 +12,10 @@ platforms = ["linux-64", "linux-aarch64", "win-64", "osx-arm64", "osx-64"]
 # Workaround for https://github.com/prefix-dev/pixi/issues/826
 scripts = ["clean_env.sh"]
 
+[system-requirements]
+# Support macos 12
+macos = "12.0"
+
 [tasks]
 # As of pixi 0.13.0, pixi does not support git pip packages, so we install it from source
 # Specific commit of urdfdom_py is a workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
@@ -19,7 +23,7 @@ header_commit = { cmd = "echo Automatic build of models via icub-models-generato
 header_own_version = {cmd = "echo icub-models-generator commit: robotology/icub-models-generator@$(git rev-parse HEAD) >> ./deploy_commit_message", depends_on = ["header_commit"]}
 header_repos = { cmd = "echo ### Dependencies information of dependencies installed manually: >> ./deploy_commit_message",  depends_on = ["header_own_version"] }
 install_urdfdom_py = { cmd = "export URDF_PARSER_PY_COMMIT=31474b9baaf7c3845b40e5a9aa87d5900a2282c3 && pip install git+https://github.com/ros/urdf_parser_py.git@$URDF_PARSER_PY_COMMIT --no-deps && echo urdf_parser_py commit: ros/urdf_parser_py@$URDF_PARSER_PY_COMMIT >> ./deploy_commit_message", depends_on = ["header_repos"]}
-install_simmechanics_to_urdf = { cmd = "export SIMMECHANICS_TO_URDF_COMMIT=22caa23cfe7063299c5746304850b8afd74f4e1f && pip install git+https://github.com/robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT --no-deps && echo simmechanics-to-urdf commit: robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT >> ./deploy_commit_message", depends_on = ["install_urdfdom_py"] }
+install_simmechanics_to_urdf = { cmd = "export SIMMECHANICS_TO_URDF_COMMIT=143fd8f5450d0f84611d35ea1611869e530b0623 && pip install git+https://github.com/robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT --no-deps && echo simmechanics-to-urdf commit: robotology/simmechanics-to-urdf@$SIMMECHANICS_TO_URDF_COMMIT >> ./deploy_commit_message", depends_on = ["install_urdfdom_py"] }
 header_pixi_list = { cmd = "echo ### Dependencies information via pixi list:  >> ./deploy_commit_message", depends_on = ["install_simmechanics_to_urdf"]}
 pixi_list = { cmd = "pixi list >> ./deploy_commit_message",  depends_on = ["header_pixi_list"]}
 configure_cmake_project = { cmd = "cmake -GNinja -S. -B.build -DICUB_MODELS_SOURCE_DIR=$ICUB_MODELS_SOURCE_DIR -DBUILD_TESTING:BOOL=ON",  depends_on = ["pixi_list"]}
@@ -29,7 +33,9 @@ build_tests = { cmd = "cmake --build .build", depends_on = ["configure_cmake_pro
 test_generated_models = { cmd = "ctest --test-dir .build",  depends_on = ["generate_models", "build_tests"]}
 
 [dependencies]
-idyntree = ">=10.3.0,<10.4"
+# We need a version where https://github.com/robotology/idyntree/pull/1191
+# is fixed
+idyntree = ">=12.3.3"
 yarp = ">=3.9.0,<3.10"
 lxml = "==4.9.4"
 # Not using latest pyyaml as workaround for https://github.com/robotology/simmechanics-to-urdf/issues/57

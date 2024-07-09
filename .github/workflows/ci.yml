@@ -55,8 +55,9 @@ jobs:
         # See https://github.com/robotology/icub-models/issues/185
         cd ${ICUB_MODELS_SOURCE_DIR}
         git rm -rf ./iCub
-        # Generate new files
+        # Test and copy new files to icub-models repo
         cd ${GITHUB_WORKSPACE}
+        pixi run test_generated_models
         pixi run copy_models_to_icub_models
 
     - name: Print generated models differences and add files
