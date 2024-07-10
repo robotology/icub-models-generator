@@ -17,7 +17,9 @@ scripts = ["clean_env.sh"]
 macos = "12.0"
 
 [tasks]
-# As of pixi 0.13.0, pixi does not support git pip packages, so we install it from source
+# pixi does  support git pip packages, but the old version of urdf_parser_py we are installing raises a uv error:
+# Build backend failed to determine extra requires with `build_wheel()` with exit status: 1
+# ModuleNotFoundError: No module named 'catkin_pkg'
 # Specific commit of urdfdom_py is a workaround for https://github.com/robotology/simmechanics-to-urdf/issues/36
 header_commit = { cmd = "echo Automatic build of models via icub-models-generator.  > ./deploy_commit_message" }
 header_own_version = {cmd = "echo icub-models-generator commit: robotology/icub-models-generator@$(git rev-parse HEAD) >> ./deploy_commit_message", depends_on = ["header_commit"]}
