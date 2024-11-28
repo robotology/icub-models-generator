@@ -366,12 +366,6 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV2_7
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            INCREASE_INERTIA_FOR_GAZEBO ICUB_2_7)
 
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGazeboV3
-                           SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_all_options_gazebo.yaml.in"
-                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv"
-                           ICUB_3_COLLISION_GEOM_MOD)
-
 generate_icub_simmechanics(YARP_ROBOT_NAME left_hand_mk3
                            SIMMECHANICS_XML "components/left_hand_mk3/SIM_LEFT_HAND.xml"
                            YAML_TEMPLATE "components/left_hand_mk3/simmechanics2urdf_configfile.yaml"
@@ -422,10 +416,7 @@ generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova01
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
                            CSV_TEMPLATE "icub2_5/ICUB_2-5_BB_joint_parameters.csv.in"
                            NO_BACKPACK)
-generate_icub_simmechanics(YARP_ROBOT_NAME iCubGenova09
-                           SIMMECHANICS_XML "icub3/ICUB3_ALL_SIM_MODEL.xml"
-                           YAML_TEMPLATE "icub3/ICUB_3_all_options.yaml"
-                           CSV_TEMPLATE "icub3/ICUB_3_joint_all_parameters.csv")
+
 generate_icub_simmechanics(YARP_ROBOT_NAME iCubErzelli02
                            SIMMECHANICS_XML "icub2_5/ICUB_2-5_BB_SIM_MODEL.xml"
                            YAML_TEMPLATE "icub2_5/ICUB_2-5_BB_simmechanics_options.yaml.in"
@@ -441,8 +432,6 @@ add_custom_command(TARGET generate-models-simmechanics
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub2_5/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/icub3/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_icub3"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/meshes" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/meshes"
                    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/conf" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/conf_left_wrist_mk2"
                    COMMAND ${CMAKE_COMMAND} -E copy           "${CMAKE_CURRENT_SOURCE_DIR}/data/components/left_wrist_mk2/model.config" "${CMAKE_BINARY_DIR}/${BUILD_PREFIX}/robots/left_wrist_mk2/."

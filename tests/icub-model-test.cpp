@@ -275,100 +275,6 @@ bool checkAxisDirectionsV2(iDynTree::KinDynComputations & comp)
 }
 
 
-
-bool checkAxisDirectionsV3(iDynTree::KinDynComputations & comp)
-{
-
-    std::vector<std::string> axisNames;
-    std::vector<iDynTree::Direction> expectedDirectionInRootLink;
-    axisNames.push_back("torso_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
-    axisNames.push_back("l_hip_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
-    axisNames.push_back("r_hip_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
-    axisNames.push_back("r_hip_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
-    axisNames.push_back("r_hip_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
-    axisNames.push_back("r_knee");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
-    axisNames.push_back("r_ankle_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
-    axisNames.push_back("r_ankle_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1,0,0));
-    axisNames.push_back("l_hip_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
-    axisNames.push_back("l_hip_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,1));
-    axisNames.push_back("l_knee");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
-    axisNames.push_back("l_ankle_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
-    axisNames.push_back("l_ankle_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
-    axisNames.push_back("torso_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,1,0));
-    axisNames.push_back("torso_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,0,-1));
-    axisNames.push_back("l_shoulder_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.250563,0.935113,0.250563));
-    axisNames.push_back("r_shoulder_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.250563,0.935113,-0.250563));
-    axisNames.push_back("neck_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0,-1,0));
-    axisNames.push_back("neck_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(1,0,0));
-    axisNames.push_back("neck_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-1.62555e-21,-1.1e-15,1));
-    axisNames.push_back("r_shoulder_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,-0.271447,-0.0520081));
-    axisNames.push_back("r_shoulder_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
-    axisNames.push_back("r_elbow");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,-0.960459,0.0788901));
-    axisNames.push_back("r_wrist_prosup");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.0713662,0.0619303,0.995526));
-    axisNames.push_back("r_wrist_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,0.271447,0.0520081));
-    axisNames.push_back("r_wrist_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,0.960459,-0.0788901));
-    axisNames.push_back("l_shoulder_roll");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.961047,-0.271447,0.0520081));
-    axisNames.push_back("l_shoulder_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
-    axisNames.push_back("l_elbow");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.267012,-0.960459,-0.0788901));
-    axisNames.push_back("l_wrist_prosup");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.0713662,0.0619303,-0.995526));
-    axisNames.push_back("l_wrist_pitch");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(-0.961047,0.271447,-0.0520081));
-    axisNames.push_back("l_wrist_yaw");
-    expectedDirectionInRootLink.push_back(iDynTree::Direction(0.267012,0.960459,0.0788901));
-
-    for(int i=0; i < axisNames.size(); i++)
-    {
-        std::string axisToCheck = axisNames[i];
-        iDynTree::Axis axisInRootLink;
-        iDynTree::Direction expectedDirection = expectedDirectionInRootLink[i];
-        bool getAxisOk = getAxisInRootLink(comp,axisToCheck,axisInRootLink);
-
-        if( !getAxisOk ) {
-            return false;
-        }
-
-        if( !checkVectorAreEqual(axisInRootLink.getDirection(),expectedDirection,1e-5) )
-        {
-            std::cerr << "icub-model-test error:" << axisToCheck << " got direction of " << axisInRootLink.getDirection().toString()
-                  << " instead of expected " << expectedDirection.toString() << std::endl;
-            return false;
-        }
-    }
-
-    std::cerr << "icub-model-test : checkAxisDirectionsV3 test performed correctly " << std::endl;
-    return true;
-}
-
 /**
  * All the iCub have a odd and not null number of F/T sensors.
  */
@@ -474,43 +380,6 @@ bool checkFTSensorsAreCorrectlyOrientedV2(iDynTree::KinDynComputations & comp)
     return ok;
 }
 
-bool checkFTSensorsAreCorrectlyOrientedV3(iDynTree::KinDynComputations & comp)
-{
-
-    iDynTree::Rotation rootLink_R_sensorFrameLeftArmExpected =
-        iDynTree::Rotation(-0.267012, -0.961047, 0.0713662,
-                           -0.960459, 0.271447, 0.0619303,
-                           -0.0788901, -0.0520081, -0.995526);
-    iDynTree::Rotation rootLink_R_sensorFrameRightArmExpected =
-        iDynTree::Rotation(-0.267012, 0.961047, 0.0713662,
-                            0.960459, 0.271447, -0.0619303,
-                           -0.0788901, 0.0520081, -0.995526);
-
-    iDynTree::Rotation rootLink_R_sensorFrameExpectedFoot =
-        iDynTree::Rotation(-0.5, 0.866025, 0,
-                           -0.866025, -0.5, 0,
-                            0, 0, 1);
-
-    iDynTree::Rotation rootLink_R_sensorFrameExpectedLeg =
-        iDynTree::Rotation(-0.866025, -0.5, 0,
-                           -0.5, 0.866025, 0,
-                            0, 0, -1);
-
-    iDynTree::Rotation rootLink_L_sensorFrameExpectedLeg =
-        iDynTree::Rotation(-0.866025, 0.5, 0,
-                           0.5, 0.866025, 0,
-                            0, 0, -1);
-
-    bool ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameLeftArmExpected, "l_arm_ft_sensor");
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameRightArmExpected, "r_arm_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_L_sensorFrameExpectedLeg, "l_leg_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedLeg, "r_leg_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_rear_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_rear_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "l_foot_front_ft_sensor") && ok;
-    ok = checkFTSensorIsCorrectlyOriented(comp, rootLink_R_sensorFrameExpectedFoot, "r_foot_front_ft_sensor") && ok;
-    return ok;
-}
 
 bool Model_isFrameNameUsed(const iDynTree::Model& model, const std::string frameName)
 {
@@ -620,12 +489,6 @@ bool checkFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGiven
     return true;
 }
 
-bool isiCub3Model(const std::string& modelPath)
-{
-    return (modelPath.find("Genova09") != std::string::npos ||
-            modelPath.find("GazeboV3") != std::string::npos);
-}
-
 bool isModelWithoutFTSensorInAnkles(const std::string& modelPath)
 {
     return (modelPath.find("Genova03") != std::string::npos ||
@@ -642,14 +505,7 @@ std::vector<std::string> getFTSensorNames(const std::string& modelPath)
     ftSensorNames.push_back("l_leg_ft");
     ftSensorNames.push_back("r_leg_ft");
 
-    if (isiCub3Model(modelPath))
-    {
-        ftSensorNames.push_back("l_foot_rear_ft");
-        ftSensorNames.push_back("r_foot_rear_ft");
-        ftSensorNames.push_back("l_foot_front_ft");
-        ftSensorNames.push_back("r_foot_front_ft");
-    }
-    else if(!isModelWithoutFTSensorInAnkles(modelPath))
+    if(!isModelWithoutFTSensorInAnkles(modelPath))
     {
         ftSensorNames.push_back("l_foot_ft");
         ftSensorNames.push_back("r_foot_ft");
@@ -755,18 +611,11 @@ int main(int argc, char ** argv)
     comp.setRobotState(qj,dqj,grav);
 
     // Check axis
-    if (isiCub3Model(modelPath)) {
-        if( !checkAxisDirectionsV3(comp) )
-        {
-            return EXIT_FAILURE;
-        }
+    if( !checkAxisDirectionsV2(comp) )
+    {
+        return EXIT_FAILURE;
     }
-    else {
-        if( !checkAxisDirectionsV2(comp) )
-        {
-            return EXIT_FAILURE;
-        }
-    }
+
 
     // Check if base_link exist, and check that is a frame attached to root_link and if its
     // transform is the idyn
@@ -784,29 +633,14 @@ int main(int argc, char ** argv)
 
     // Now some test that test the sensors
     // The ft sensors orientation respect to the root_link are different to iCubV2 and they are under investigation.
-    if (isiCub3Model(modelPath)) {
-
-        if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
-        {
-            return EXIT_FAILURE;
-        }
-
-        if (!checkFTSensorsAreCorrectlyOrientedV3(comp))
-        {
-            return EXIT_FAILURE;
-        }
-    }
-    else
+    if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
     {
-        if( !checkFTSensorsAreEvenAndNotNull(mdlLoader) )
-        {
-            return EXIT_FAILURE;
-        }
+        return EXIT_FAILURE;
+    }
 
-        if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
-        {
-            return EXIT_FAILURE;
-        }
+    if (!checkFTSensorsAreCorrectlyOrientedV2(comp))
+    {
+        return EXIT_FAILURE;
     }
 
     if (!checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame(modelPath))
