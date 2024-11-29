@@ -304,7 +304,14 @@ macro(generate_icub_simmechanics)
                <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
              </plugin>
             </sensor>
-          </gazebo>")
+          </gazebo>
+  - |   
+        <gazebo>
+        <plugin name=\"gzyarp::Imu\" filename=\"gz-sim-yarp-imu-system\">
+            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
+        </plugin>
+        </gazebo>
+")
     endif()
 
     set(GENERATED_YAML_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/${GIVTWO_YARP_ROBOT_NAME}.yaml)
