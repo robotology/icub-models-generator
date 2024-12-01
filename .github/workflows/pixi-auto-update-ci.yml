@@ -1,9 +1,6 @@
 name: Pixi auto update
 
 on:
-  # At 00:00 of every first day of the month
-  schedule:
-    - cron: "0 0 1 * *"
   # on demand
   workflow_dispatch:
 
@@ -20,6 +17,8 @@ jobs:
       - name: Update pixi lock file
         run: |
           rm pixi.lock
+          # Workaround for https://github.com/conda/rattler/issues/751
+          rm -rf .pixi
           pixi install
       - uses: peter-evans/create-pull-request@v5
         with:
