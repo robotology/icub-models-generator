@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.8.11)
-
 macro(generate_icub_dh)
     set(options)
     set(oneValueArgs YARP_ROBOT_NAME PARTS_VERSIONS)
