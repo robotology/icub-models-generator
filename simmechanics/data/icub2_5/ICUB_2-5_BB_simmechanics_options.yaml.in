@@ -600,11 +600,6 @@ forceTorqueSensors:
     linkName: l_hip_3
     frameName: SCSYS_L_UPPER_LEG_FT45
     sensorName: l_leg_ft
-    sensorBlobs:
-    - |
-        <plugin name="left_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_leg_ft.ini</yarpConfigurationFile>
-        </plugin>
   - jointName: r_leg_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
@@ -612,11 +607,6 @@ forceTorqueSensors:
     linkName: r_hip_3
     frameName: SCSYS_R_UPPER_LEG_FT45
     sensorName: r_leg_ft
-    sensorBlobs:
-    - |
-        <plugin name="right_leg_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_leg_ft.ini</yarpConfigurationFile>
-        </plugin>
   - jointName: l_foot_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
@@ -624,11 +614,6 @@ forceTorqueSensors:
     linkName: l_foot
     frameName: SCSYS_L_FOOT_FT45
     sensorName: l_foot_ft
-    sensorBlobs:
-    - |
-        <plugin name="left_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_foot_ft.ini</yarpConfigurationFile>
-        </plugin>
   - jointName: r_foot_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
@@ -636,11 +621,6 @@ forceTorqueSensors:
     linkName: r_foot
     frameName: SCSYS_R_FOOT_FT45
     sensorName: r_foot_ft
-    sensorBlobs:
-    - |
-        <plugin name="right_foot_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_foot_ft.ini</yarpConfigurationFile>
-        </plugin>
   - jointName: l_arm_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
@@ -648,11 +628,6 @@ forceTorqueSensors:
     frameName: SCSYS_L_UPPER_ARM_FT45
     linkName: l_shoulder_3
     sensorName: l_arm_ft
-    sensorBlobs:
-    - |
-        <plugin name="left_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_left_arm_ft.ini</yarpConfigurationFile>
-        </plugin>
   - jointName: r_arm_ft_sensor
     directionChildToParent: Yes
     exportFrameInURDF: Yes
@@ -660,20 +635,11 @@ forceTorqueSensors:
     frameName: SCSYS_R_UPPER_ARM_FT45
     linkName: r_shoulder_3
     sensorName: r_arm_ft
-    sensorBlobs:
-    - |
-        <plugin name="right_arm_ft_plugin" filename="libgazebo_yarp_forcetorque.so">
-          <yarpConfigurationFile>model://iCub/conf/FT/gazebo_icub_right_arm_ft.ini</yarpConfigurationFile>
-        </plugin>
-
 sensors:
   - sensorName: default
     exportFrameInURDF: No
     sensorType: "accelerometer"
     updateRate: "100"
-    sensorBlobs:
-    - |
-        <plugin name="iCub_yarp_gazebo_plugin_ACC" filename="libgazebo_yarp_inertial.so" />
   - sensorName: default
     exportFrameInURDF: Yes
     sensorType: "gyroscope"
@@ -683,31 +649,16 @@ sensors:
     sensorName: head_imu_0
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
-    sensorBlobs:
-    - |
-        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_inertial.ini</yarpConfigurationFile>
-        </plugin>
   - frameName: SCSYS_L_UPPER_ARM_FT45
     linkName: l_shoulder_3
     sensorName: l_arm_ft_imu
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
-    sensorBlobs:
-    - |
-        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_inertial.ini</yarpConfigurationFile>
-        </plugin>
   - frameName: SCSYS_R_UPPER_ARM_FT45
     linkName: r_shoulder_3
     sensorName: r_arm_ft_imu
     exportFrameInURDF: Yes
     sensorType: "accelerometer"
-    sensorBlobs:
-    - |
-        <plugin name="iCub_yarp_gazebo_plugin_IMU" filename="libgazebo_yarp_imu.so">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_inertial.ini</yarpConfigurationFile>
-        </plugin>
   - frameName: SCSYS_ROOT_LINK_EMS_ACC_EB5
     linkName: root_link
     sensorName: root_link_ems_acc_eb5
@@ -1208,47 +1159,6 @@ XMLBlobs:
       </plugin>
       </gazebo>
   - |
-        <gazebo>
-        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_left_leg_mtb.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_right_leg_mtb.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_left_arm_mtb.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_right_arm_mtb.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="iCub_yarp_gazebo_plugin_ACCpart" filename="libgazebo_yarp_distributedinertials.so">
-          <yarpConfigurationFile>model://iCub/conf/MTB/gazebo_icub_torso_mtb.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="controlboard_torso" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_torso.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="controlboard_head_without_eyes" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_head_without_eyes.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="controlboard_left_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
-          <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.0</initialConfiguration>
-        </plugin>
-        <plugin name="controlboard_right_arm_no_hand" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_arm_no_hand_for_no_hand_model.ini</yarpConfigurationFile>
-          <initialConfiguration>-0.52 0.52 0 0.785 0 0 0.0</initialConfiguration>
-        </plugin>
-        <plugin name="controlboard_right_leg" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_right_leg.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="controlboard_left_leg" filename="libgazebo_yarp_controlboard.so">
-          <yarpConfigurationFile>model://iCub/conf/gazebo_icub_left_leg.ini</yarpConfigurationFile>
-        </plugin>
-        <plugin name="apply_external_wrench" filename="libgazebo_yarp_externalwrench.so" >
-          <robotNamefromConfigFile>model://iCub/conf/gazebo_icub_robotname.ini</robotNamefromConfigFile>
-        </plugin>
-        </gazebo>
-  - |
         <gazebo reference="r_hip_pitch">
            <implicitSpringDamper>1</implicitSpringDamper>
         </gazebo>
@@ -1375,12 +1285,6 @@ XMLBlobs:
   - |
         <gazebo reference="neck_yaw">
            <implicitSpringDamper>1</implicitSpringDamper>
-        </gazebo>
-  - |
-        <gazebo>
-          <plugin name="robotinterface" filename="libgazebo_yarp_robotinterface.so">
-            <yarpRobotInterfaceConfigurationFile>model://iCub/conf/icub.xml</yarpRobotInterfaceConfigurationFile>
-          </plugin>
         </gazebo>
   - |
         <gazebo>

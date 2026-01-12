@@ -181,11 +181,6 @@ macro(generate_icub_simmechanics)
     sensorName: root_link_imu_acc
     sensorType: \"accelerometer\"
     updateRate: \"400\"
-    sensorBlobs:
-    - |
-        <plugin name=\"root_link_xsens_imu_plugin\" filename=\"libgazebo_yarp_imu.so\">
-            <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
-        </plugin>
 ")
       set(REVERSE_ROTATION_AXIS
 "reverseRotationAxis:
@@ -300,9 +295,6 @@ macro(generate_icub_simmechanics)
              <always_on>1</always_on>
              <update_rate>400</update_rate>
              <pose>0.08515499999999998 -0.011000000000000022 -0.11230899999999999 -2.0943952105869323 -3.885780586188048e-16 -1.5707963267948963</pose>
-             <plugin name=\"root_link_xsens_imu_plugin\" filename=\"libgazebo_yarp_imu.so\">
-               <yarpConfigurationFile>model://iCub/conf/gazebo_icub_xsens_inertial.ini</yarpConfigurationFile>
-             </plugin>
             </sensor>
           </gazebo>
   - |   
