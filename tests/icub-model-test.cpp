@@ -493,7 +493,8 @@ bool isModelWithoutFTSensorInAnkles(const std::string& modelPath)
 {
     return (modelPath.find("Genova03") != std::string::npos ||
             modelPath.find("Nancy01") != std::string::npos ||
-            modelPath.find("Lisboa01") != std::string::npos);
+            modelPath.find("Lisboa01") != std::string::npos ||
+            modelPath.find("Manchester01") != std::string::npos);
 }
 
 std::vector<std::string> getFTSensorNames(const std::string& modelPath)
@@ -565,7 +566,7 @@ bool checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGi
     {
         std::cerr << "icub-model-test : checkAllFTMeasurementFrameGivenBySensorTagsIsCoherentWithMeasurementFrameGivenByFrame test performed correctly " << std::endl;
     }
-    
+
     return ok;
 }
 
