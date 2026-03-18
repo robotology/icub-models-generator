@@ -1206,26 +1206,6 @@
         <parent link="l_upper_arm"/>
         <child link="l_arm_ft"/>
     </joint>
-    <link name="l_arm_ft"/>
-    <joint name="l_arm_ft_fixed_joint" type="fixed">
-        <parent link="l_upper_arm"/>
-        <child link="l_arm_ft"/>
-    </joint>
-    <link name="r_arm_ft"/>
-    <joint name="r_arm_ft_fixed_joint" type="fixed">
-        <parent link="r_upper_arm"/>
-        <child link="r_arm_ft"/>
-    </joint>
-    <link name="l_arm_ft"/>
-    <joint name="l_arm_ft_fixed_joint" type="fixed">
-        <parent link="l_upper_arm"/>
-        <child link="l_arm_ft"/>
-    </joint>
-    <link name="l_arm_ft"/>
-    <joint name="l_arm_ft_fixed_joint" type="fixed">
-        <parent link="l_upper_arm"/>
-        <child link="l_arm_ft"/>
-    </joint>
     <link name="r_arm_ft"/>
     <joint name="r_arm_ft_fixed_joint" type="fixed">
         <parent link="r_upper_arm"/>
