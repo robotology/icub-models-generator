@@ -32,7 +32,7 @@ configure_cmake_project = { cmd = "cmake -GNinja -S. -B.build -DICUB_MODELS_SOUR
 generate_models = { cmd = "cmake --build .build --target generate-models",  depends_on = ["configure_cmake_project"]}
 copy_models_to_icub_models = { cmd = "cmake --build .build --target copy-models-to-icub-models",  depends_on = ["configure_cmake_project"]}
 build_tests = { cmd = "cmake --build .build", depends_on = ["configure_cmake_project"] }
-test_generated_models = { cmd = "ctest --test-dir .build",  depends_on = ["generate_models", "build_tests"]}
+test_generated_models = { cmd = "ctest --output-on-failure --test-dir .build",  depends_on = ["generate_models", "build_tests"]}
 
 [dependencies]
 # We need a version where https://github.com/robotology/idyntree/pull/1191
